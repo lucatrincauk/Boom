@@ -3,3 +3,8 @@ dist
 .tmp
 .sass-cache
 bower_components
+www/
+npm-debug.log
+.*
+platforms/
+plugins/

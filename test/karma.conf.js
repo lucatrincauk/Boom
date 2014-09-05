@@ -1,6 +1,6 @@
 // Karma configuration
 // http://karma-runner.github.io/0.12/config/configuration-file.html
-// Generated on 2014-08-28 using
+// Generated on 2014-09-05 using
 // generator-karma 0.8.3
 
 module.exports = function(config) {
@@ -28,7 +28,16 @@ module.exports = function(config) {
       'bower_components/angular-touch/angular-touch.js',
       'app/scripts/**/*.js',
       'test/mock/**/*.js',
-      'test/spec/**/*.js'
+      'test/spec/**/*.js',
+      'app/bower_components/angular/angular.js',
+ 'app/bower_components/angular-mocks/angular-mocks.js',
+ 'app/bower_components/angular-resource/angular-resource.js',
+ 'app/bower_components/angular-cookies/angular-cookies.js',
+ 'app/bower_components/angular-animate/angular-animate.js',
+ 'app/bower_components/angular-route/angular-route.js',
+ 'app/bower_components/angular-ui-router/release/angular-ui-router.js',
+ 'app/bower_components/ionic/release/js/ionic.js',
+ 'app/bower_components/ionic/release/js/ionic-angular.js'
     ],
 
     // list of files / patterns to exclude
