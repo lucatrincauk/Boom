@@ -1,12 +1,12 @@
 angular.module('boom.repositories')
 
-    .factory('categoryRepository', ['$http', 'dishRepository', function($http, dishRepo) {
+    .factory('categoryRepository', ['$http', 'dishRepository', '$firebase', function($http, dishRepo, $firebase) {
 
-        var getAllCategories = function() {
+        function getAllCategories() {
             return $http.get('test_data/categories.json').then(joinDishesToCategories);
-        };
+        }
 
-        var joinDishesToCategories = function(categories) {
+        function joinDishesToCategories(categories) {
 
             dishRepo.all().then(function(dishes) {
                 angular.forEach(categories.data, function(category) {
@@ -21,7 +21,7 @@ angular.module('boom.repositories')
             });
 
             return categories;
-        };
+        }
 
         return {
             all: getAllCategories

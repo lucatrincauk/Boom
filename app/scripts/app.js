@@ -1,5 +1,6 @@
 var boom = angular.module('boom', [
     'ui.router',
+    'firebase',
     'boom.repositories',
     'boom.plp'
 ]);

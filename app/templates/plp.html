@@ -1,5 +1,11 @@
 <ion-list class="list">
 
+    <ul>
+        <li ng-repeat="data in myData">
+            {{ data }}
+        </li>
+    </ul>
+
     <div ng-repeat="category in categories">
         <ion-item class="item item-divider">
             <span>{{ category.name }}</span>

@@ -294,6 +294,14 @@ module.exports = function (grunt) {
       ]
     },
 
+  protractor: {
+      options: {
+          keepAlive: true,
+          configFile: "test/e2e/protractor.conf.js"
+      },
+      run: {}
+  },
+
     // By default, your `index.html`'s <!-- Usemin block --> will take care of
     // minification. These next options are pre-configured if you do not wish
     // to use the Usemin blocks.
@@ -320,12 +328,14 @@ module.exports = function (grunt) {
     //   dist: {}
     // },
 
+
+
     // Test settings
     // These will override any config options in karma.conf.js if you create it.
     karma: {
       options: {
         basePath: '',
-        frameworks: ['mocha', 'chai'],
+        frameworks: ['mocha', 'chai', 'sinon'],
         files: [
           '<%= yeoman.app %>/bower_components/angular/angular.js',
           '<%= yeoman.app %>/bower_components/angular-animate/angular-animate.js',
@@ -361,7 +371,7 @@ module.exports = function (grunt) {
       },
       continuous: {
         browsers: ['PhantomJS'],
-        singleRun: true,
+        singleRun: true
       }
     },
 
@@ -463,6 +473,15 @@ module.exports = function (grunt) {
       'watch'
     ]);
   });
+
+    grunt.registerTask('e2e', [
+        'clean:server',
+        'concurrent:test',
+        'autoprefixer',
+        'connect:livereload',
+        'karma',
+        'protractor:run'
+    ]);
 
   grunt.registerTask('test', [
     'clean:server',
