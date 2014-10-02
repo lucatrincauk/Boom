@@ -1,0 +1,26 @@
+[
+    {
+        "id": 1,
+        "title": "Beans on Toast",
+        "description": "A fine meal for recent graduates.",
+        "calories": 250,
+        "category_id": 2,
+        "date_added": "2012-04-23T18:25:43.511Z"
+    },
+    {
+        "id": 2,
+        "title": "Roast Beef Dinner",
+        "description": "Succulent beef with a posh wine sauce.",
+        "calories": 700,
+        "category_id": 2,
+        "date_added": "2012-04-25T13:29:43.511Z"
+    },
+    {
+        "id": 3,
+        "title": "Cheese & Grapes",
+        "description": "Great for the vegetarians among us.",
+        "calories": 50,
+        "category_id": 1,
+        "date_added": "2012-04-26T14:13:43.511Z"
+    }
+]

@@ -1,34 +1,28 @@
-'use strict';
+var boom = angular.module('boom', [
+    'ui.router',
+    'boom.repositories',
+    'boom.plp'
+]);
 
-/**
- * @ngdoc overview
- * @name boomApp
- * @description
- * # boomApp
- *
- * Main module of the application.
- */
-angular
-  .module('boomApp', [
-    'ngAnimate',
-    'ngCookies',
-    'ngResource',
-    'ngRoute',
-    'ngSanitize',
-    'ngTouch',
-    'ionic'
-  ])
-  .config(function ($routeProvider) {
-    $routeProvider
-      .when('/', {
-        templateUrl: 'views/main.html',
-        controller: 'MainCtrl'
-      })
-      .when('/about', {
-        templateUrl: 'views/about.html',
-        controller: 'AboutCtrl'
-      })
-      .otherwise({
-        redirectTo: '/'
-      });
-  });
+angular.module('boom.plp', []);
+angular.module('boom.repositories', []);
+
+boom.config(function($stateProvider, $urlRouterProvider) {
+
+    // For any unmatched url, redirect to /
+    $urlRouterProvider.otherwise('/');
+
+    $stateProvider
+        .state('container', {
+            url: '/',
+            views: {
+                'header@': {
+                    templateUrl: 'templates/header.html'
+                },
+                'plp@': {
+                    templateUrl: 'templates/plp.html',
+                    controller: "plpCtrl"
+                }
+            }
+        });
+});
