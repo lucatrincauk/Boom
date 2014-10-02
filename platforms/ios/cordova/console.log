@@ -1,0 +1,106 @@
+2014-09-22 15:39:37.304 Boom[12285:70b] Multi-tasking -> Device: YES, App: YES
+2014-09-22 15:39:37.318 Boom[12285:70b] Unlimited access to network resources
+2014-09-22 15:39:37.320 Boom[12285:70b] 
+
+Started backup to iCloud! Please be careful.
+Your application might rejected by Apple if you store too much data.
+For more information please read "iOS Data Storage Guidelines"
+You could find it at the following address https://developer.apple.com/icloud/documentation/data-storage/ .
+
+2014-09-22 15:39:37.536 Boom[12285:70b] Resetting plugins due to page load.
+2014-09-22 15:39:37.677 Boom[12285:70b] Finished load of: file:///Users/testuser/Library/Developer/CoreSimulator/Devices/47AFDE56-FECB-45D0-AACA-D150D7F99AF4/data/Applications/B21E04D6-4E6A-4D47-B040-2758CDA9E9FA/Boom.app/www/index.html#/app/playlists
+2014-09-24 09:30:41.385 Boom[1350:19158] DiskCookieStorage changing policy from 2 to 0, cookie file: file:///Users/b8959834/Library/Developer/CoreSimulator/Devices/7B7FD529-8890-42CC-A1EB-40D9E4E827AC/data/Containers/Data/Application/D48216C9-81A6-41D3-8AE4-338891CAAA22/Library/Cookies/Cookies.binarycookies
+2014-09-24 09:30:41.457 Boom[1350:19158] Multi-tasking -> Device: YES, App: YES
+2014-09-24 09:30:41.475 Boom[1350:19158] Unlimited access to network resources
+2014-09-24 09:30:41.479 Boom[1350:19158] 
+
+Started backup to iCloud! Please be careful.
+Your application might rejected by Apple if you store too much data.
+For more information please read "iOS Data Storage Guidelines"
+You could find it at the following address https://developer.apple.com/icloud/documentation/data-storage/ .
+
+2014-09-24 09:30:42.048 Boom[1350:19158] Resetting plugins due to page load.
+2014-09-24 09:30:42.195 Boom[1350:19158] Finished load of: file:///Users/b8959834/Library/Developer/CoreSimulator/Devices/7B7FD529-8890-42CC-A1EB-40D9E4E827AC/data/Containers/Bundle/Application/3F4B5172-5E51-41CB-AAFA-1DDDE975A668/Boom.app/www/index.html
+2014-09-24 09:58:37.509 Boom[1579:28414] DiskCookieStorage changing policy from 2 to 0, cookie file: file:///Users/b8959834/Library/Developer/CoreSimulator/Devices/7B7FD529-8890-42CC-A1EB-40D9E4E827AC/data/Containers/Data/Application/CA247C69-50EA-472B-B6DC-5354E834992F/Library/Cookies/Cookies.binarycookies
+2014-09-24 09:58:37.599 Boom[1579:28414] Multi-tasking -> Device: YES, App: YES
+2014-09-24 09:58:37.604 Boom[1579:28414] Unlimited access to network resources
+2014-09-24 09:58:37.605 Boom[1579:28414] 
+
+Started backup to iCloud! Please be careful.
+Your application might rejected by Apple if you store too much data.
+For more information please read "iOS Data Storage Guidelines"
+You could find it at the following address https://developer.apple.com/icloud/documentation/data-storage/ .
+
+2014-09-24 09:58:37.726 Boom[1579:28414] Resetting plugins due to page load.
+2014-09-24 09:58:37.794 Boom[1579:28414] Finished load of: file:///Users/b8959834/Library/Developer/CoreSimulator/Devices/7B7FD529-8890-42CC-A1EB-40D9E4E827AC/data/Containers/Bundle/Application/E870767E-1436-4F2A-A579-A57023C4DEAA/Boom.app/www/index.html
+2014-09-24 09:59:20.378 Boom[1721:29350] DiskCookieStorage changing policy from 2 to 0, cookie file: file:///Users/b8959834/Library/Developer/CoreSimulator/Devices/7B7FD529-8890-42CC-A1EB-40D9E4E827AC/data/Containers/Data/Application/66BB225F-8961-498F-979E-77E9C89C3EE8/Library/Cookies/Cookies.binarycookies
+2014-09-24 09:59:20.489 Boom[1721:29350] Multi-tasking -> Device: YES, App: YES
+2014-09-24 09:59:20.493 Boom[1721:29350] Unlimited access to network resources
+2014-09-24 09:59:20.495 Boom[1721:29350] 
+
+Started backup to iCloud! Please be careful.
+Your application might rejected by Apple if you store too much data.
+For more information please read "iOS Data Storage Guidelines"
+You could find it at the following address https://developer.apple.com/icloud/documentation/data-storage/ .
+
+2014-09-24 09:59:20.619 Boom[1721:29350] Resetting plugins due to page load.
+2014-09-24 09:59:20.686 Boom[1721:29350] Finished load of: file:///Users/b8959834/Library/Developer/CoreSimulator/Devices/7B7FD529-8890-42CC-A1EB-40D9E4E827AC/data/Containers/Bundle/Application/7A448D56-5373-4D96-9F3E-56F0FC48E123/Boom.app/www/index.html
+2014-09-24 10:03:59.666 Boom[1924:31399] DiskCookieStorage changing policy from 2 to 0, cookie file: file:///Users/b8959834/Library/Developer/CoreSimulator/Devices/7B7FD529-8890-42CC-A1EB-40D9E4E827AC/data/Containers/Data/Application/877DFC7E-87D7-406D-A753-16FCF553DE5C/Library/Cookies/Cookies.binarycookies
+2014-09-24 10:03:59.817 Boom[1924:31399] Multi-tasking -> Device: YES, App: YES
+2014-09-24 10:03:59.823 Boom[1924:31399] Unlimited access to network resources
+2014-09-24 10:03:59.825 Boom[1924:31399] 
+
+Started backup to iCloud! Please be careful.
+Your application might rejected by Apple if you store too much data.
+For more information please read "iOS Data Storage Guidelines"
+You could find it at the following address https://developer.apple.com/icloud/documentation/data-storage/ .
+
+2014-09-24 10:03:59.976 Boom[1924:31399] Resetting plugins due to page load.
+2014-09-24 10:04:00.058 Boom[1924:31399] Finished load of: file:///Users/b8959834/Library/Developer/CoreSimulator/Devices/7B7FD529-8890-42CC-A1EB-40D9E4E827AC/data/Containers/Bundle/Application/FC316809-AE7C-4DA7-816D-4A0C90A7D366/Boom.app/www/index.html
+2014-09-24 10:05:27.007 Boom[2030:32454] DiskCookieStorage changing policy from 2 to 0, cookie file: file:///Users/b8959834/Library/Developer/CoreSimulator/Devices/7B7FD529-8890-42CC-A1EB-40D9E4E827AC/data/Containers/Data/Application/1AB7AF6E-9E37-4C00-B285-5F8D6C29A4CF/Library/Cookies/Cookies.binarycookies
+2014-09-24 10:05:27.060 Boom[2030:32454] Multi-tasking -> Device: YES, App: YES
+2014-09-24 10:05:27.064 Boom[2030:32454] Unlimited access to network resources
+2014-09-24 10:05:27.066 Boom[2030:32454] 
+
+Started backup to iCloud! Please be careful.
+Your application might rejected by Apple if you store too much data.
+For more information please read "iOS Data Storage Guidelines"
+You could find it at the following address https://developer.apple.com/icloud/documentation/data-storage/ .
+
+2014-09-24 10:05:27.181 Boom[2030:32454] Resetting plugins due to page load.
+2014-09-24 10:05:27.248 Boom[2030:32454] Finished load of: file:///Users/b8959834/Library/Developer/CoreSimulator/Devices/7B7FD529-8890-42CC-A1EB-40D9E4E827AC/data/Containers/Bundle/Application/8D5A74C4-A987-456A-B520-4A49FF3E61F5/Boom.app/www/index.html
+2014-09-24 10:05:46.730 Boom[2176:32943] DiskCookieStorage changing policy from 2 to 0, cookie file: file:///Users/b8959834/Library/Developer/CoreSimulator/Devices/7B7FD529-8890-42CC-A1EB-40D9E4E827AC/data/Containers/Data/Application/60734C3E-13B1-48C9-AB34-AF829B20EDDA/Library/Cookies/Cookies.binarycookies
+2014-09-24 10:05:46.776 Boom[2176:32943] Multi-tasking -> Device: YES, App: YES
+2014-09-24 10:05:46.781 Boom[2176:32943] Unlimited access to network resources
+2014-09-24 10:05:46.782 Boom[2176:32943] 
+
+Started backup to iCloud! Please be careful.
+Your application might rejected by Apple if you store too much data.
+For more information please read "iOS Data Storage Guidelines"
+You could find it at the following address https://developer.apple.com/icloud/documentation/data-storage/ .
+
+2014-09-24 10:05:46.901 Boom[2176:32943] Resetting plugins due to page load.
+2014-09-24 10:05:46.974 Boom[2176:32943] Finished load of: file:///Users/b8959834/Library/Developer/CoreSimulator/Devices/7B7FD529-8890-42CC-A1EB-40D9E4E827AC/data/Containers/Bundle/Application/EB9A37FD-B302-4380-A98C-DD3863E25E2B/Boom.app/www/index.html
+2014-09-24 10:11:49.566 Boom[2323:35169] DiskCookieStorage changing policy from 2 to 0, cookie file: file:///Users/b8959834/Library/Developer/CoreSimulator/Devices/7B7FD529-8890-42CC-A1EB-40D9E4E827AC/data/Containers/Data/Application/9B133479-AD56-4C46-B590-45E22C5ABB4B/Library/Cookies/Cookies.binarycookies
+2014-09-24 10:11:49.630 Boom[2323:35169] Multi-tasking -> Device: YES, App: YES
+2014-09-24 10:11:49.634 Boom[2323:35169] Unlimited access to network resources
+2014-09-24 10:11:49.635 Boom[2323:35169] 
+
+Started backup to iCloud! Please be careful.
+Your application might rejected by Apple if you store too much data.
+For more information please read "iOS Data Storage Guidelines"
+You could find it at the following address https://developer.apple.com/icloud/documentation/data-storage/ .
+
+2014-09-24 10:11:49.769 Boom[2323:35169] Resetting plugins due to page load.
+2014-09-24 10:11:49.835 Boom[2323:35169] Finished load of: file:///Users/b8959834/Library/Developer/CoreSimulator/Devices/7B7FD529-8890-42CC-A1EB-40D9E4E827AC/data/Containers/Bundle/Application/C0BAAAFB-3486-4651-943E-61190164A5B9/Boom.app/www/index.html
+2014-10-02 14:49:55.400 Boom[12552:70b] Multi-tasking -> Device: YES, App: YES
+2014-10-02 14:49:55.419 Boom[12552:70b] Unlimited access to network resources
+2014-10-02 14:49:55.422 Boom[12552:70b] 
+
+Started backup to iCloud! Please be careful.
+Your application might rejected by Apple if you store too much data.
+For more information please read "iOS Data Storage Guidelines"
+You could find it at the following address https://developer.apple.com/icloud/documentation/data-storage/ .
+
+2014-10-02 14:49:55.701 Boom[12552:70b] Resetting plugins due to page load.
+2014-10-02 14:49:55.859 Boom[12552:70b] Finished load of: file:///Users/testuser/Library/Developer/CoreSimulator/Devices/47AFDE56-FECB-45D0-AACA-D150D7F99AF4/data/Applications/B21E04D6-4E6A-4D47-B040-2758CDA9E9FA/Boom.app/www/index.html#/

@@ -1,10 +1,7 @@
-node_modules
-dist
-.tmp
-.sass-cache
+app/bower_components
 bower_components
-www/
-npm-debug.log
-.*
-platforms/
-plugins/
+node_modules
+.idea
+.tmp
+coverage
+.DS_Store
