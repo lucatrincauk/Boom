@@ -6,4 +6,5 @@ node_modules
 coverage
 .DS_Store
 www
-plugins
+resources
+platforms
