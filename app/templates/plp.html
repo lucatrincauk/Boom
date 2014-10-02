@@ -1,0 +1,19 @@
+<ion-list class="list">
+
+    <ul>
+        <li ng-repeat="data in myData">
+            {{ data }}
+        </li>
+    </ul>
+
+    <div ng-repeat="category in categories">
+        <ion-item class="item item-divider">
+            <span>{{ category.name }}</span>
+        </ion-item>
+
+        <ion-item class="item" ng-repeat="dish in category.dishes">
+            <h4>{{ dish.title }}</h4>
+        </ion-item>
+    </div>
+
+</ion-list>
