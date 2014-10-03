@@ -20,21 +20,26 @@ module.exports = function(config) {
             'app/libs/angular-mocks/angular-mocks.js',
             'app/scripts/**/*.js',
             'test/mock/**/*.js',
-            'test/spec/**/*.js'
+            'test/spec/**/*.js',
+            'app/app.js',
+            'app/config.js',
+            'app/index.html',
+            'app/**/*.html'
         ],
 
         preprocessors: {
             '**/*.jade': 'ng-jade2js',
-            '**/*.html': 'html2js',
+            '**/*.html': 'ng-html2js',
             '**/*.coffee': 'coffee'
         },
 
         ngHtml2JsPreprocessor: {
-            stripPrefix: 'client/'
+            stripPrefix: 'app/',
+            moduleName: 'Boom'
         },
 
         ngJade2JsPreprocessor: {
-            stripPrefix: 'client/'
+            stripPrefix: ''
         },
 
         // list of files / patterns to exclude

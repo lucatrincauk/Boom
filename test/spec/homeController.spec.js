@@ -6,8 +6,7 @@ describe('Controller: homeController', function() {
     // load the controller's module
     beforeEach(module('Boom'));
 
-    var homeController,
-        Categories,
+    var Categories,
         scope;
 
     var dummyCategories = {
@@ -36,7 +35,7 @@ describe('Controller: homeController', function() {
     beforeEach(inject(function($controller, $rootScope) {
         scope = $rootScope.$new();
 
-        homeController = $controller('homeController', {
+        $controller('homeController', {
             $scope: scope
         });
     }));
@@ -46,7 +45,7 @@ describe('Controller: homeController', function() {
     });
 
     it('should have called the all() method from category repository.', function() {
-        Categories.all.called.should.be.true;
+        Categories.all.called.should.equal(true);
     });
 
     it('should populate the categories array with data.', function() {

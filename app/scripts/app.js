@@ -10,13 +10,17 @@ angular.module('Boom', ['ionic', 'ui.router'])
         .state('container', {
             url: '/',
             views: {
-                'header@': {
-                    templateUrl: 'templates/header.html',
-
-                },
-                'home@': {
+                '': {
                     templateUrl: 'templates/home.html',
                     controller: 'homeController'
+                },
+                'slideMenu@': {
+                    templateUrl: 'templates/slide-menu.html',
+                    controller: 'slideMenuController'
+                },
+                'header@': {
+                    templateUrl: 'templates/header.html',
+                    controller: 'headerController'
                 }
             }
         });
