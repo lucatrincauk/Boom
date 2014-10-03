@@ -1,12 +1,15 @@
 angular.module('boom.repositories')
 
-    .factory('dishRepository', ['$http', function($http) {
+.factory('Dishes', ['$http',
+	function($http) {
+		'use strict';
 
-        var getAllDishes = function() {
-            return $http.get('test_data/dishes.json');
-        };
+		var getAllDishes = function() {
+			return $http.get('test_data/dishes.json');
+		};
 
-        return {
-            all: getAllDishes
-        }
-    }]);
+		return {
+			all: getAllDishes
+		};
+	}
+]);

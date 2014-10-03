@@ -9,7 +9,7 @@ angular.module('boom.plp', []);
 angular.module('boom.repositories', []);
 
 boom.config(function($stateProvider, $urlRouterProvider) {
-
+    'use strict';
     // For any unmatched url, redirect to /
     $urlRouterProvider.otherwise('/');
 
@@ -22,7 +22,7 @@ boom.config(function($stateProvider, $urlRouterProvider) {
                 },
                 'plp@': {
                     templateUrl: 'templates/plp.html',
-                    controller: "plpCtrl"
+                    controller: 'plpCtrl'
                 }
             }
         });

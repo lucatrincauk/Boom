@@ -1,5 +1,5 @@
-app/bower_components
-bower_components
+app/libs
+libs
 node_modules
 .idea
 .tmp
