@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html>
-  <head>
+<head>
     <meta charset="utf-8">
     <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
     <title>"Boom"</title>
@@ -17,36 +17,54 @@
     <link rel="stylesheet" href="styles/header.css">
     <link rel="stylesheet" href="styles/home.css">
     <!-- endbuild -->
-  </head>
+</head>
 
-  <body ng-app="Boom">
+<body ng-app="Boom">
 
-    <div ui-view="header"></div>
-    <div ui-view="home"></div>
+<ion-side-menus>
+    <!-- Center content -->
+    <ion-side-menu-content>
+        <div ui-view="header"></div>
+        <div ui-view="home"></div>
+    </ion-side-menu-content>
 
-    <!-- build:js scripts/vendor.js -->
-    <!-- <script src="vendor/someContribJs.js"></script> -->
-    <!-- bower:js -->
-    <script src="libs/angular/angular.js"></script>
-    <script src="libs/angular-animate/angular-animate.js"></script>
-    <script src="libs/angular-sanitize/angular-sanitize.js"></script>
-    <script src="libs/angular-ui-router/release/angular-ui-router.js"></script>
-    <script src="libs/collide/collide.js"></script>
-    <script src="libs/ionic/release/js/ionic.js"></script>
-    <script src="libs/ionic/release/js/ionic-angular.js"></script>
+    <!-- Left menu -->
+    <ion-side-menu side="left">
+        <div class="bar bar-header bar-stable">
+            <h1 class="title">Menu</h1>
+        </div>
+    </ion-side-menu>
+</ion-side-menus>
 
-    <!-- endbower -->
-    <!-- endbuild -->
 
-    <!-- cordova script (this will be a 404 during development) -->
-    <script src="cordova.js"></script>
 
-    <!-- build:js scripts/scripts.js -->
-    <script src="scripts/config.js"></script>
-    <script src="scripts/app.js"></script>
-    <script src="scripts/home/homeController.js"></script>
-    <script src="scripts/core/factories/Dishes.js"></script>
-    <script src="scripts/core/factories/Categories.js"></script>
-    <!-- endbuild -->
+<!-- build:js scripts/vendor.js -->
+<!-- <script src="vendor/someContribJs.js"></script> -->
+<!-- bower:js -->
+<script src="libs/angular/angular.js"></script>
+<script src="libs/angular-animate/angular-animate.js"></script>
+<script src="libs/angular-sanitize/angular-sanitize.js"></script>
+<script src="libs/angular-ui-router/release/angular-ui-router.js"></script>
+<script src="libs/collide/collide.js"></script>
+<script src="libs/ionic/release/js/ionic.js"></script>
+<script src="libs/ionic/release/js/ionic-angular.js"></script>
+<script src="libs/firebase/firebase.js"></script>
+<script src="libs/firebase-simple-login/firebase-simple-login.js"></script>
+<script src="libs/mockfirebase/dist/mockfirebase.js"></script>
+<script src="libs/angularfire/dist/angularfire.min.js"></script>
+<!-- endbower -->
+<!-- endbuild -->
+
+<!-- cordova script (this will be a 404 during development) -->
+<script src="cordova.js"></script>
+
+<!-- build:js scripts/scripts.js -->
+<script src="scripts/config.js"></script>
+<script src="scripts/app.js"></script>
+<script src="scripts/home/homeController.js"></script>
+<script src="scripts/core/factories/Dishes.js"></script>
+<script src="scripts/core/factories/Categories.js"></script>
+<script src="scripts/header/headerController.js"></script>
+<!-- endbuild -->
 </body>
 </html>
