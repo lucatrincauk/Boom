@@ -1,7 +1,4 @@
-M&S Restaurant App
-====
-
-## Build Status
+# M&S Restaurant App
 
 | master        | develop       |
 | ------------- |:-------------:|
