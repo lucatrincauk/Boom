@@ -1,7 +1,7 @@
 M&S Restaurant App
 ====
 
-# Build Status
+## Build Status
 
 | master        | develop       |
 | ------------- |:-------------:|
