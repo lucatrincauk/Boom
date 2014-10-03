@@ -19,12 +19,9 @@ module.exports = function(config) {
             'app/libs/ionic/release/js/ionic-angular.js',
             'app/libs/angular-mocks/angular-mocks.js',
             'app/scripts/**/*.js',
-            'test/mock/**/*.js',
             'test/spec/**/*.js',
-            'app/app.js',
-            'app/config.js',
             'app/index.html',
-            'app/**/*.html'
+            'app/templates/**/*.html'
         ],
 
         preprocessors: {
