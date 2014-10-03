@@ -1,10 +1,12 @@
-[
-    {
-        "id": 1,
-        "name": "Vegetarian"
-    },
-    {
-        "id": 2,
-        "name": "Meat"
-    }
-]
+[{
+	"id": 1,
+	"name": "Vegetarian",
+	"description": "Silly stuff",
+	"date_added": "2012-04-23T18:25:43.511Z"
+
+}, {
+	"id": 2,
+	"name": "Meat",
+	"description": "Murderers",
+	"date_added": "2012-04-23T18:25:43.511Z"
+}]
