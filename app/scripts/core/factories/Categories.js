@@ -1,4 +1,4 @@
-angular.module('boom.repositories')
+angular.module('Boom')
 
 .factory('Categories', ['$http', 'Dishes',
     function($http, dishRepo) {

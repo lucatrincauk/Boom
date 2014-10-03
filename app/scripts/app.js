@@ -1,15 +1,8 @@
-var boom = angular.module('boom', [
-    'ui.router',
-    'firebase',
-    'boom.repositories',
-    'boom.plp'
-]);
+angular.module('Boom', ['ui.router'])
 
-angular.module('boom.plp', []);
-angular.module('boom.repositories', []);
-
-boom.config(function($stateProvider, $urlRouterProvider) {
+.config(function($stateProvider, $urlRouterProvider) {
     'use strict';
+
     // For any unmatched url, redirect to /
     $urlRouterProvider.otherwise('/');
 
@@ -18,11 +11,12 @@ boom.config(function($stateProvider, $urlRouterProvider) {
             url: '/',
             views: {
                 'header@': {
-                    templateUrl: 'templates/header.html'
+                    templateUrl: 'templates/header.html',
+
                 },
-                'plp@': {
-                    templateUrl: 'templates/plp.html',
-                    controller: 'plpCtrl'
+                'home@': {
+                    templateUrl: 'templates/home.html',
+                    controller: 'homeController'
                 }
             }
         });
