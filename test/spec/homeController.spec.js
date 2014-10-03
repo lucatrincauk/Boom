@@ -1,15 +1,14 @@
+/* global sinon */
 'use strict';
 
-describe('Controller: plpCtrl', function() {
+describe('Controller: homeController', function() {
 
     // load the controller's module
-    beforeEach(module('boom.plp'));
-    beforeEach(module('boom.repositories'));
+    beforeEach(module('Boom'));
 
-    var plpCtrl,
+    var homeController,
         Categories,
-        scope,
-        sinon;
+        scope;
 
     var dummyCategories = {
         data: [{
@@ -37,7 +36,7 @@ describe('Controller: plpCtrl', function() {
     beforeEach(inject(function($controller, $rootScope) {
         scope = $rootScope.$new();
 
-        plpCtrl = $controller('plpCtrl', {
+        homeController = $controller('homeController', {
             $scope: scope
         });
     }));
