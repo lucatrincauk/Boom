@@ -106,6 +106,15 @@ module.exports = function(grunt) {
                     ]
                 }
             },
+            test: {
+                options: {
+                    open: false,
+                    base: [
+                        '.tmp',
+                        '<%= yeoman.app %>'
+                    ]
+                }
+            },
             dist: {
                 options: {
                     base: 'www'
@@ -297,9 +306,14 @@ module.exports = function(grunt) {
         protractor: {
             options: {
                 keepAlive: true,
-                configFile: 'test/e2e/protractor.conf.js'
+                configFile: 'protractor.conf.js',
+                noColor: false
             },
-            run: {}
+            all: {
+                options: {
+                    configFile: 'protractor.conf.js'
+                }
+            }
         },
 
         // By default, your `index.html`'s <!-- Usemin block --> will take care of
@@ -439,21 +453,25 @@ module.exports = function(grunt) {
         ]);
     });
 
-    grunt.registerTask('e2e', [
-        'clean:server',
-        'concurrent:test',
-        'autoprefixer',
-        'connect:livereload',
-        'karma',
-        'protractor:run'
-    ]);
+    grunt.registerTask('test', function(target) {
 
-    grunt.registerTask('test', [
-        'clean:server',
-        'concurrent:test',
-        'autoprefixer',
-        'karma:unit'
-    ]);
+        if (target === 'unit') {
+            grunt.task.run([
+                'clean:server',
+                'concurrent:test',
+                'autoprefixer',
+                'karma:unit'
+            ]);
+        } else if (target === 'e2e') {
+            grunt.task.run([
+                'clean:server',
+                'concurrent:test',
+                'autoprefixer',
+                'connect:test',
+                'protractor'
+            ]);
+        }
+    });
 
     grunt.registerTask('build', [
         'clean:dist',
