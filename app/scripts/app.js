@@ -1,4 +1,4 @@
-angular.module('Boom', ['ionic', 'ui.router'])
+angular.module('Boom', ['ionic', 'ui.router', 'restangular'])
 
 .config(function($stateProvider, $urlRouterProvider) {
     'use strict';

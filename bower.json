@@ -3,7 +3,12 @@
     "version": "0.0.0",
     "dependencies": {
         "ionic": "v1.0.0-beta.11",
-        "angular-socket-io": "~0.6.0"
+        "angular-socket-io": "~0.6.0",
+        "font-awesome": ">=4.1.0",
+        "angular-resource": ">=1.2.*",
+        "angular-cookies": ">=1.2.*",
+        "angular-sanitize": ">=1.2.*",
+        "restangular": "latest"
     },
     "devDependencies": {
         "angular-mocks": "~1.2.17",

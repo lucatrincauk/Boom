@@ -1,15 +1,14 @@
 angular.module('Boom')
-	.controller('homeController', ['$scope', 'Categories',
-		function($scope, Categories) {
+	.controller('homeController', ['$scope', 'Cars',
+		function($scope, Cars) {
 			'use strict';
 
-			$scope.categories = [];
+			$scope.cars = Cars.getList().$object;
 
-
-			(function() {
-				Categories.all().then(function(categories) {
-					$scope.categories = categories.data;
-				});
-			})();
+            /*(function() {
+                Cars.getList().then(function(cars) {
+                    $scope.cars = cars;
+                });
+            })();*/
 		}
 	]);

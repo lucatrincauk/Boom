@@ -1,12 +1,8 @@
 <ion-list class="list">
 
-    <div ng-repeat="category in categories">
+    <div ng-repeat="car in cars">
         <ion-item class="item item-divider">
-            <span>{{ category.name }}</span>
-        </ion-item>
-
-        <ion-item class="item" ng-repeat="dish in category.dishes">
-            <h4>{{ dish.title }}</h4>
+            <span>{{ car.model }}</span>
         </ion-item>
     </div>
 

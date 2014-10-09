@@ -1,7 +1,7 @@
 /* global sinon */
 'use strict';
 
-describe('Controller: homeController', function() {
+xdescribe('Controller: homeController', function() {
 
     // load the controller's module
     beforeEach(module('Boom'));
