@@ -1,20 +1,20 @@
 angular.module('Boom')
 
 .factory('Categories', ['$http', 'Dishes',
-    function($http, dishRepo) {
+    function ($http, dishRepo) {
         'use strict';
 
-        function getAllCategories() {
+        var getAllCategories = function () {
             return $http.get('test_data/categories.json').then(joinDishesToCategories);
-        }
+        };
 
-        function joinDishesToCategories(categories) {
+        var joinDishesToCategories = function (categories) {
 
-            dishRepo.all().then(function(dishes) {
-                angular.forEach(categories.data, function(category) {
+            dishRepo.all().then(function (dishes) {
+                angular.forEach(categories.data, function (category) {
                     category.dishes = [];
 
-                    angular.forEach(dishes.data, function(dish) {
+                    angular.forEach(dishes.data, function (dish) {
                         if (dish.categoryId === category.id) {
                             category.dishes.push(dish);
                         }
@@ -23,7 +23,7 @@ angular.module('Boom')
             });
 
             return categories;
-        }
+        };
 
         return {
             all: getAllCategories

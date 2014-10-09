@@ -5,11 +5,8 @@ angular.module('Boom')
 
 			$scope.categories = [];
 
-
-			(function() {
-				Categories.all().then(function(categories) {
-					$scope.categories = categories.data;
-				});
-			})();
+			Categories.all().then(function (categories) {
+				$scope.categories = categories.data;
+			});
 		}
 	]);

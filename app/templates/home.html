@@ -6,7 +6,7 @@
         </ion-item>
 
         <ion-item class="item" ng-repeat="dish in category.dishes">
-            <h4>{{ dish.title }}</h4>
+            <h4 ui-sref="base.dish({ id: dish.id })">{{ dish.title }}</h4>
         </ion-item>
     </div>
 

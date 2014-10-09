@@ -7,16 +7,29 @@ angular.module('Boom', ['ui.router'])
     $urlRouterProvider.otherwise('/');
 
     $stateProvider
-        .state('container', {
-            url: '/',
+        .state('base', {
+            url: '',
             views: {
                 'header@': {
                     templateUrl: 'templates/header.html',
-
-                },
-                'home@': {
+                }
+            }
+        })
+        .state('base.home', {
+            url: '/',
+            views: {
+                'main@': {
                     templateUrl: 'templates/home.html',
                     controller: 'homeController'
+                }
+            }
+        })
+        .state('base.dish', {
+            url: '/dish/:id',
+            views: {
+                'main@': {
+                    templateUrl: 'templates/dish.html',
+                    controller: 'dishController'
                 }
             }
         });

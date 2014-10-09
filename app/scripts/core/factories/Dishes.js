@@ -1,10 +1,10 @@
 angular.module('Boom')
 
 .factory('Dishes', ['$http',
-	function($http) {
+	function ($http) {
 		'use strict';
 
-		var getAllDishes = function() {
+		var getAllDishes = function () {
 			return $http.get('test_data/dishes.json');
 		};
 
