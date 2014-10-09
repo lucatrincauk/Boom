@@ -1,5 +1,20 @@
 <div class="card">
     <div class="item item-text-wrap">
-        This is a basic Card which contains an item that has wrapping text.
+        <h2>{{ dish.title }}</h2>
+    </div>
+</div>
+
+<div class="card">
+    <div class="item item-text-wrap">
+        <p>{{ dish.description }}</p>
+    </div>
+</div>
+
+<div class="card">
+    <div class="item item-text-wrap">
+        <dl>
+            <dt>Calories</dt>
+            <dd>{{ dish.calories }}</dd>
+        </dl>
     </div>
 </div>

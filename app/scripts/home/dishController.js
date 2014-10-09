@@ -1,12 +1,11 @@
 angular.module('Boom')
-	.controller('dishController', ['$scope', 'Dishes',
-		function($scope, Dishes) {
+	.controller('dishController', ['$scope', '$stateParams', 'Dishes',
+		function($scope, $stateParams, Dishes) {
 			'use strict';
 
-			// $scope.categories = [];
+            Dishes.byId($stateParams.id).then(function (dish) {
+                $scope.dish = dish;
+            });
 
-			// Categories.all().then(function (categories) {
-			// 	$scope.categories = categories.data;
-			// });
 		}
 	]);
