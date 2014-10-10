@@ -8,7 +8,8 @@ var errors = require('./components/errors');
 
     module.exports = function(app) {
   // Insert routes below
-  app.use('/api/dishes', require('./api/dish'));
+  app.use('/api/categories', require('./api/category'));
+  app.use('/api/locations', require('./api/location'));
   app.use('/api/users', require('./api/user'));
 
   app.use('/auth', require('./auth'));

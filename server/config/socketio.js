@@ -18,6 +18,8 @@ function onConnect(socket) {
   });
 
   // Insert sockets below
+  require('../api/category/category.socket').register(socket);
+  require('../api/location/location.socket').register(socket);
   require('../api/dish/dish.socket').register(socket);
   require('../api/car/car.socket').register(socket);
   require('../api/thing/thing.socket').register(socket);

@@ -38,7 +38,7 @@ var locations = [{
         _id: 2,
         serve_on: '2014-10-02T12:27:16Z',
         dishes: [ 1, 2, 3, 4 ]
-    }
+    }]
 },{
     _id: 2,
     title: 'EBT',

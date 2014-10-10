@@ -4,21 +4,21 @@
 
 'use strict';
 
-var Dish = require('./dish.model');
+var Location = require('./location.model');
 
 exports.register = function(socket) {
-  Dish.schema.post('save', function (doc) {
+  Location.schema.post('save', function (doc) {
     onSave(socket, doc);
   });
-  Dish.schema.post('remove', function (doc) {
+  Location.schema.post('remove', function (doc) {
     onRemove(socket, doc);
   });
 }
 
 function onSave(socket, doc, cb) {
-  socket.emit('dish:save', doc);
+  socket.emit('location:save', doc);
 }
 
 function onRemove(socket, doc, cb) {
-  socket.emit('dish:remove', doc);
+  socket.emit('location:remove', doc);
 }
