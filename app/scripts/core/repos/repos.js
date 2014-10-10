@@ -6,10 +6,10 @@ angular.module('Boom')
         return Restangular.service('api/users');
     })
 
-    .factory('Cars', function(Restangular) {
-        return Restangular.service('api/cars');
+    .factory('Categories', function(Restangular) {
+        return Restangular.service('api/categories');
     })
 
-    .factory('Things', function(Restangular) {
-        return Restangular.service('api/things');
+    .factory('Locations', function(Restangular) {
+        return Restangular.service('api/locations');
     });

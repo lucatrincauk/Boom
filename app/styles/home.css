@@ -1,1 +1,5 @@
 /* Your application styles go here */
+.dish em {
+    font-size: 12px;
+    font-style: italic;
+}

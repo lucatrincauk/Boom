@@ -1,9 +1,9 @@
 angular.module('Boom')
-	.controller('homeController', ['$scope', 'Cars',
-		function($scope, Cars) {
+	.controller('homeController', ['$scope', 'Categories',
+		function($scope, Categories) {
 			'use strict';
 
-			$scope.cars = Cars.getList().$object;
+			$scope.categories = Categories.getList().$object;
 
             /*(function() {
                 Cars.getList().then(function(cars) {

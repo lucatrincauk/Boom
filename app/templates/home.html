@@ -1,9 +1,13 @@
 <ion-list class="list">
 
-    <div ng-repeat="car in cars">
+    <div ng-repeat="category in categories">
         <ion-item class="item item-divider">
-            <span>{{ car.model }}</span>
+            <span>{{ category.title }}</span>
         </ion-item>
+        <a ng-repeat="dish in category.dishes" class="item dish" href="#">
+            <h2>{{ dish.title }}</h2>
+            <em>{{ dish.description }}</em>
+        </a>
     </div>
 
 </ion-list>
