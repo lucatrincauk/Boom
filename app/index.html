@@ -21,8 +21,9 @@
 
   <body ng-app="Boom">
 
-    <div ui-view="header"></div>
-    <div ui-view="main"></div>
+       <ion-nav-view></ion-nav-view>
+
+
 
     <!-- build:js scripts/vendor.js -->
     <!-- <script src="vendor/someContribJs.js"></script> -->
@@ -34,10 +35,6 @@
     <script src="libs/collide/collide.js"></script>
     <script src="libs/ionic/release/js/ionic.js"></script>
     <script src="libs/ionic/release/js/ionic-angular.js"></script>
-    <script src="libs/firebase/firebase.js"></script>
-    <script src="libs/firebase-simple-login/firebase-simple-login.js"></script>
-    <script src="libs/mockfirebase/dist/mockfirebase.js"></script>
-    <script src="libs/angularfire/dist/angularfire.min.js"></script>
     <!-- endbower -->
     <!-- endbuild -->
 
@@ -48,6 +45,7 @@
     <script src="scripts/config.js"></script>
     <script src="scripts/app.js"></script>
     <script src="scripts/home/homeController.js"></script>
+    <script src="scripts/core/leftMenuController.js"></script>
     <script src="scripts/home/dishController.js"></script>
     <script src="scripts/core/factories/Dishes.js"></script>
     <script src="scripts/core/factories/Categories.js"></script>
