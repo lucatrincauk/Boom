@@ -3,13 +3,12 @@ angular.module('Boom')
 		function($scope, Categories) {
 			'use strict';
 
-			$scope.categories = [];
+			$scope.categories = Categories.getList().$object;
 
-
-			(function() {
-				Categories.all().then(function(categories) {
-					$scope.categories = categories.data;
-				});
-			})();
+            /*(function() {
+                Cars.getList().then(function(cars) {
+                    $scope.cars = cars;
+                });
+            })();*/
 		}
 	]);

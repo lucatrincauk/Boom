@@ -8,6 +8,14 @@ var spawn = require('child_process').spawn;
 
 module.exports = function(grunt) {
 
+    var localConfig;
+
+    try {
+        localConfig = require('./server/config/local.env');
+    } catch (e) {
+        localConfig = {};
+    }
+
     // Load grunt tasks automatically
     require('load-grunt-tasks')(grunt);
 
@@ -17,6 +25,34 @@ module.exports = function(grunt) {
     // Define the configuration for all the tasks
     grunt.initConfig({
 
+
+        env: {
+            test: {
+                NODE_ENV: 'test'
+            },
+            prod: {
+                NODE_ENV: 'production'
+            },
+            all: localConfig
+        },
+
+        express: {
+            options: {
+                port: process.env.PORT || 9000
+            },
+            dev: {
+                options: {
+                    script: 'server/app.js',
+                    debug: true
+                }
+            },
+            prod: {
+                options: {
+                    script: 'server/app.js'
+                }
+            }
+        },
+
         // Project settings
         yeoman: {
             // configurable paths
@@ -24,6 +60,12 @@ module.exports = function(grunt) {
             scripts: 'scripts',
             styles: 'styles',
             images: 'images'
+        },
+
+        open: {
+            server: {
+                url: 'http://localhost:<%= express.options.port %>'
+            }
         },
 
         // Environment Variables for Angular App
@@ -86,6 +128,16 @@ module.exports = function(grunt) {
                     '.tmp/<%= yeoman.styles %>/**/*.css',
                     '<%= yeoman.app %>/<%= yeoman.images %>/**/*.{png,jpg,jpeg,gif,webp,svg}'
                 ]
+            },
+            express: {
+                files: [
+                    'server/**/*.{js,json}'
+                ],
+                tasks: ['express:dev', 'wait'],
+                options: {
+                    livereload: true,
+                    nospawn: true //Without this option specified express won't be reloaded
+                }
             }
         },
 
@@ -316,32 +368,6 @@ module.exports = function(grunt) {
             }
         },
 
-        // By default, your `index.html`'s <!-- Usemin block --> will take care of
-        // minification. These next options are pre-configured if you do not wish
-        // to use the Usemin blocks.
-        // cssmin: {
-        //   dist: {
-        //     files: {
-        //       'www/<%= yeoman.styles %>/main.css': [
-        //         '.tmp/<%= yeoman.styles %>/**/*.css',
-        //         '<%= yeoman.app %>/<%= yeoman.styles %>/**/*.css'
-        //       ]
-        //     }
-        //   }
-        // },
-        // uglify: {
-        //   dist: {
-        //     files: {
-        //       'www/<%= yeoman.scripts %>/scripts.js': [
-        //         'www/<%= yeoman.scripts %>/scripts.js'
-        //       ]
-        //     }
-        //   }
-        // },
-        // concat: {
-        //   dist: {}
-        // },
-
         // Test settings
         karma: {
             unit: {
@@ -444,11 +470,14 @@ module.exports = function(grunt) {
 
         grunt.task.run([
             'clean:server',
+            'env:all',
             'ngconstant:development',
-            'wiredep',
             'concurrent:server',
+            'wiredep',
             'autoprefixer',
-            'connect:livereload',
+            'express:dev',
+            'wait',
+            'open',
             'watch'
         ]);
     });
@@ -490,6 +519,18 @@ module.exports = function(grunt) {
         'cordova:build',
         'doc'
     ]);
+
+    // Used for delaying livereload until after server has restarted
+    grunt.registerTask('wait', function () {
+        grunt.log.ok('Waiting for server reload...');
+
+        var done = this.async();
+
+        setTimeout(function () {
+            grunt.log.writeln('Done waiting!');
+            done();
+        }, 1500);
+    });
 
     grunt.registerTask('cordova', ['copy:all', 'cordova:build']);
 

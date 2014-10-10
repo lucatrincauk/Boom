@@ -2,12 +2,12 @@
 
     <div ng-repeat="category in categories">
         <ion-item class="item item-divider">
-            <span>{{ category.name }}</span>
+            <span>{{ category.title }}</span>
         </ion-item>
-
-        <ion-item class="item" ng-repeat="dish in category.dishes">
-            <h4>{{ dish.title }}</h4>
-        </ion-item>
+        <a ng-repeat="dish in category.dishes" class="item dish" href="#">
+            <h2>{{ dish.title }}</h2>
+            <em>{{ dish.description }}</em>
+        </a>
     </div>
 
 </ion-list>
