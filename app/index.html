@@ -21,9 +21,9 @@
 
   <body ng-app="Boom">
 
-       <ion-nav-view></ion-nav-view>
+<div ui-view="header"></div>
 
-
+<div ui-view="footer"></div>
 
     <!-- build:js scripts/vendor.js -->
     <!-- <script src="vendor/someContribJs.js"></script> -->
@@ -45,7 +45,6 @@
     <script src="scripts/config.js"></script>
     <script src="scripts/app.js"></script>
     <script src="scripts/home/homeController.js"></script>
-    <script src="scripts/core/leftMenuController.js"></script>
     <script src="scripts/home/dishController.js"></script>
     <script src="scripts/core/factories/Dishes.js"></script>
     <script src="scripts/core/factories/Categories.js"></script>
