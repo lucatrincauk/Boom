@@ -11,11 +11,11 @@ angular.module('Boom', ['ui.router'])
             url: '/',
             views: {
                 'header@': {
-                    templateUrl: 'templates/header.html',
+                    templateUrl: 'views/header.html',
 
                 },
                 'home@': {
-                    templateUrl: 'templates/home.html',
+                    templateUrl: 'views/home.html',
                     controller: 'homeController'
                 }
             }
