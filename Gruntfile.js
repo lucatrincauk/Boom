@@ -111,8 +111,11 @@ module.exports = function(grunt) {
                 }
             },
             styles: {
-                files: ['<%= yeoman.app %>/<%= yeoman.styles %>/**/*.css'],
-                tasks: ['newer:copy:styles', 'autoprefixer']
+                files: ['<%= yeoman.app %>/<%= yeoman.styles %>/**/*.scss'],
+                tasks: ['concurrent:server', 'autoprefixer'],
+                options: {
+                    livereload: true
+                }
             },
             gruntfile: {
                 files: ['Gruntfile.js'],

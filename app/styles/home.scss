@@ -1,15 +1,26 @@
-/* Your application styles go here */
-.dish em {
-    font-size: 12px;
-    font-style: italic;
-}
-
 .dish-thumb {
-    margin: 0px 10px 10px 0px;
+  border-radius: 3px;
+  padding: 2px;
+  border: solid 1px #d3d3d3;
+  margin: 0px 10px 10px 0px;
 }
 
 .dish-item {
+  overflow: hidden;
   h2 {
-    margin-bottom: 10px;
+    margin-bottom: 15px;
   }
+  em {
+    font-size: 13px;
+    font-style: italic;
+  }
+
+  .ion-heart {
+    font-size: 20px;
+    color: darkred;
+  }
+}
+
+.star-rating {
+  display: inline-flex;
 }
