@@ -1,6 +1,16 @@
 <!-- Left menu -->
 <ion-side-menu side="left">
-    <div class="bar bar-header bar-stable">
-        <h1 class="title">{{ title }}</h1>
-    </div>
+
+    <ion-header-bar>
+        <h1 class="title">My Restaurant Hub</h1>
+    </ion-header-bar>
+
+    <ion-content class="has-header has-footer">
+        <ul class="list">
+            <a class="item item-icon-left" menu-toggle="left"><i class="icon ion-home"></i>Home</a>
+            <a class="item item-icon-left" menu-toggle="left"><i class="icon ion-settings"></i>Preferences</a>
+            <a class="item item-icon-left" menu-toggle="left"><i class="icon ion-log-out"></i>Logout</a>
+        </ul>
+    </ion-content>
+
 </ion-side-menu>

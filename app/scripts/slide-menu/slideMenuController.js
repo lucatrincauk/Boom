@@ -3,6 +3,6 @@ angular.module('Boom')
         function($scope) {
             'use strict';
 
-            $scope.title = 'Restaurant Hub';
+            $scope.something = '';
         }
     ]);

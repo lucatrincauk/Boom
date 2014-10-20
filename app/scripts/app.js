@@ -1,4 +1,4 @@
-angular.module('Boom', ['ionic', 'ui.router', 'restangular'])
+angular.module('Boom', ['ionic', 'ui.router', 'restangular', 'ionic.rating'])
 
 .config(function($stateProvider, $urlRouterProvider) {
     'use strict';
@@ -21,6 +21,9 @@ angular.module('Boom', ['ionic', 'ui.router', 'restangular'])
                 'header@': {
                     templateUrl: 'templates/header.html',
                     controller: 'headerController'
+                },
+                'subheader@': {
+                    templateUrl: 'templates/subheader.html'
                 }
             }
         });

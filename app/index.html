@@ -22,8 +22,10 @@
 
 <ion-side-menus>
     <!-- Center content -->
-    <ion-side-menu-content>
+    <ion-side-menu-content edge-drag-threshold="true">
         <div ui-view="header"></div>
+        <div ui-view="subheader"></div>
+
         <div ui-view></div>
     </ion-side-menu-content>
 
@@ -45,6 +47,7 @@
 <script src="libs/angular-cookies/angular-cookies.js"></script>
 <script src="libs/lodash/dist/lodash.compat.js"></script>
 <script src="libs/restangular/dist/restangular.js"></script>
+<script src="libs/ionic-rating/ionic-rating.js"></script>
 <!-- endbower -->
 <!-- endbuild -->
 

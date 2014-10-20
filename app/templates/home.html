@@ -1,16 +1,23 @@
-<ion-list class="list">
+<ion-scroll zooming="false" direction="y">
 
-    <div ng-repeat="category in categories">
-        <ion-item class="item item-divider">
-            <span>{{ category.title }}</span>
-        </ion-item>
-        <a ng-repeat="dish in category.dishes " class="item dish" href="#">
-            <img class="pull-left dish-thumb" src="http://lorempixel.com/50/50/food">
-            <div class="dish-item">
-                <h2>{{ dish.title }}</h2>
-                <em>{{ dish.description }}</em>
-            </div>
-        </a>
-    </div>
+    <ion-list class="list has-header">
+        <div ng-repeat="category in categories">
+            <ion-item class="item item-divider">
+                <span>{{ category.title }}</span>
+            </ion-item>
 
-</ion-list>
+            <a ng-repeat="dish in category.dishes" class="item" href="#">
+                <img class="dish-thumb pull-left" src="http://lorempixel.com/50/50/food">
+
+                <div class="dish-item">
+                    <h2 class="pull-left">{{ dish.title }}</h2>
+                    <i class="icon ion-heart pull-right"></i>
+
+                    <em class="pull-left">{{ dish.description }}</em>
+                </div>
+                <rating class="pull-left star-rating" ng-model="dish.star_rating" max="5"></rating>
+            </a>
+        </div>
+    </ion-list>
+
+</ion-scroll>
