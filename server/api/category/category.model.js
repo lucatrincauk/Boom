@@ -19,7 +19,7 @@ var CategorySchema = new Schema({
         comments: [{
             title: String,
             description: String,
-            rating: Number,
+            star_rating: Number,
             user: {
                 type: Schema.Types.ObjectId,
                 ref: 'User'

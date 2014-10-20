@@ -29,7 +29,7 @@ Category.create({
        comments: [{
            title: 'Great!',
            description: 'Great food, filled me up.',
-           rating: 7,
+           star_rating: 7,
            user: null
        }]
    }, {
@@ -59,7 +59,7 @@ Category.create({
        comments: [{
            title: 'Amazing!',
            description: 'Would eat again.',
-           rating: 10,
+           star_rating: 10,
            user: null
        }]
    }, {
@@ -72,7 +72,7 @@ Category.create({
        comments: [{
            title: 'Disgusting',
            description: 'Made me really sick.',
-           rating: 1,
+           star_rating: 1,
            user: null
        }]
    }]
@@ -80,7 +80,7 @@ Category.create({
 
 Location.remove(function() {
     Location.create({
-            title: 'Waterside',
+            name: 'Waterside',
             description: '7th floor canteen.',
 
             address: {
@@ -97,7 +97,7 @@ Location.remove(function() {
                 dishes: []
             }]
         }, {
-            title: 'EBT',
+            name: 'EBT',
             description: '1st floor canteen.',
 
             address: {
@@ -125,14 +125,16 @@ Location.remove(function() {
 
 User.remove(function() {
     User.create({
+            firstname: 'Adam',
+            lastname: 'Barrell',
             provider: 'local',
-            name: 'Test User',
             email: 'test@test.com',
             password: 'test'
         }, {
+            firstname: 'Joe',
+            lastname: 'Bloggs',
             provider: 'local',
             role: 'admin',
-            name: 'Admin',
             email: 'admin@admin.com',
             password: 'admin'
         }, function() { }

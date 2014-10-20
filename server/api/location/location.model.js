@@ -5,7 +5,6 @@ var mongoose = require('mongoose'),
 
 var LocationSchema = new Schema({
     name: String,
-    title: String,
     description: String,
     address: {
         address_1: String,
