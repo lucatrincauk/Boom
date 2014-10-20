@@ -339,17 +339,17 @@ module.exports = function(grunt) {
 
         concurrent: {
             server: [
-                'copy:styles',
+                'sass:dist',
                 'copy:vendor',
                 'copy:fonts'
             ],
             test: [
-                'copy:styles',
+                'sass:dist',
                 'copy:vendor',
                 'copy:fonts'
             ],
             dist: [
-                'copy:styles',
+                'sass:dist',
                 'copy:vendor',
                 'copy:fonts'
             ]
@@ -391,8 +391,15 @@ module.exports = function(grunt) {
                     dest: '.tmp/concat/<%= yeoman.scripts %>'
                 }]
             }
-        }
+        },
 
+        sass: {
+            dist: {
+                files: {
+                    '.tmp/styles/main.css': 'app/styles/main.scss'
+                }
+            }
+        }
     });
 
     // Register tasks for all Cordova commands, but namespace

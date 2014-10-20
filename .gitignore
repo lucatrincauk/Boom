@@ -3,6 +3,7 @@ libs
 node_modules
 .idea
 .tmp
+.sass-cache
 coverage
 .DS_Store
 www

@@ -5,8 +5,11 @@
             <span>{{ category.title }}</span>
         </ion-item>
         <a ng-repeat="dish in category.dishes " class="item dish" href="#">
-            <h2>{{ dish.title }}</h2>
-            <em>{{ dish.description }}</em>
+            <img class="pull-left dish-thumb" src="http://lorempixel.com/50/50/food">
+            <div class="dish-item">
+                <h2>{{ dish.title }}</h2>
+                <em>{{ dish.description }}</em>
+            </div>
         </a>
     </div>
 
