@@ -8,19 +8,25 @@
 .dish-item {
   overflow: hidden;
   h2 {
-    margin-bottom: 15px;
+    margin-bottom: 5px;
   }
   em {
     font-size: 13px;
     font-style: italic;
   }
 
-  .ion-heart {
-    font-size: 20px;
+  .ion-ios7-heart,
+  .ion-ios7-heart-outline {
+    font-size: 25px;
     color: darkred;
   }
 }
 
 .star-rating {
   display: inline-flex;
+  margin-top: 2px;
+
+  .icon {
+    font-size: 20px;
+  }
 }

@@ -29,7 +29,7 @@ Category.create({
        comments: [{
            title: 'Great!',
            description: 'Great food, filled me up.',
-           star_rating: 7,
+           star_rating: 5,
            user: null
        }]
    }, {
@@ -59,7 +59,7 @@ Category.create({
        comments: [{
            title: 'Amazing!',
            description: 'Would eat again.',
-           star_rating: 10,
+           star_rating: 3,
            user: null
        }]
    }, {

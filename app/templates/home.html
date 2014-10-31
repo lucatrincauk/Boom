@@ -7,15 +7,14 @@
             </ion-item>
 
             <a ng-repeat="dish in category.dishes" class="item" href="#">
-                <img class="dish-thumb pull-left" src="http://lorempixel.com/50/50/food">
+                <img class="dish-thumb pull-left" ng-src="http://lorempixel.com/60/60/food?v={{ $index }}">
 
                 <div class="dish-item">
                     <h2 class="pull-left">{{ dish.title }}</h2>
-                    <i class="icon ion-heart pull-right"></i>
-
-                    <em class="pull-left">{{ dish.description }}</em>
+                    <i class="icon ion-ios7-heart-outline pull-right"></i>
+                    <em class="pull-left ellipsis">{{ dish.description }}</em>
                 </div>
-                <rating class="pull-left star-rating" ng-model="dish.star_rating" max="5"></rating>
+                <rating class="pull-left star-rating" readonly="true" ng-model="dish.averageRating" max="5"></rating>
             </a>
         </div>
     </ion-list>
