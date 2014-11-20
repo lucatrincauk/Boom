@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html>
-  <head>
+<head>
     <meta charset="utf-8">
     <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
     <title>"Boom"</title>
@@ -9,45 +9,75 @@
     <!-- <link rel="stylesheet" href="vendor/some.contrib.css"> -->
     <!-- bower:css -->
     <link rel="stylesheet" href="libs/ionic/release/css/ionic.css" />
+    <link rel="stylesheet" href="libs/font-awesome/css/font-awesome.css" />
     <!-- endbower -->
     <!-- endbuild -->
 
     <!-- build:css({.tmp,app}) styles/main.css -->
-    <link rel="stylesheet" href="styles/core.css">
-    <link rel="stylesheet" href="styles/header.css">
-    <link rel="stylesheet" href="styles/home.css">
+    <link rel="stylesheet" href="styles/main.css">
     <!-- endbuild -->
-  </head>
+</head>
 
-  <body ng-app="Boom">
+<body ng-app="Boom">
+
 
 <div ui-view="header"></div>
 
 <div ui-view="footer"></div>
 
-    <!-- build:js scripts/vendor.js -->
-    <!-- <script src="vendor/someContribJs.js"></script> -->
-    <!-- bower:js -->
-    <script src="libs/angular/angular.js"></script>
-    <script src="libs/angular-animate/angular-animate.js"></script>
-    <script src="libs/angular-sanitize/angular-sanitize.js"></script>
-    <script src="libs/angular-ui-router/release/angular-ui-router.js"></script>
-    <script src="libs/collide/collide.js"></script>
-    <script src="libs/ionic/release/js/ionic.js"></script>
-    <script src="libs/ionic/release/js/ionic-angular.js"></script>
-    <!-- endbower -->
-    <!-- endbuild -->
+<ion-side-menus>
+    <!-- Center content -->
+    <ion-side-menu-content edge-drag-threshold="true">
+        <div ui-view="header"></div>
+        <div ui-view="subheader"></div>
 
-    <!-- cordova script (this will be a 404 during development) -->
-    <script src="cordova.js"></script>
+        <div ui-view></div>
+    </ion-side-menu-content>
 
-    <!-- build:js scripts/scripts.js -->
-    <script src="scripts/config.js"></script>
-    <script src="scripts/app.js"></script>
-    <script src="scripts/home/homeController.js"></script>
-    <script src="scripts/home/dishController.js"></script>
-    <script src="scripts/core/factories/Dishes.js"></script>
-    <script src="scripts/core/factories/Categories.js"></script>
-    <!-- endbuild -->
+    <div ui-view="slideMenu"></div>
+</ion-side-menus>
+
+<!-- build:js scripts/vendor.js -->
+<!-- <script src="vendor/someContribJs.js"></script> -->
+<!-- bower:js -->
+<!-- endbower -->
+<!-- endbuild -->
+
+<!-- cordova script (this will be a 404 during development) -->
+<!--<script src="cordova.js"></script>-->
+<script src="libs/angular/angular.js"></script>
+<script src="libs/lodash/dist/lodash.js"></script>
+<script src="libs/restangular/dist/restangular.js"></script>
+<script src="libs/angular-animate/angular-animate.js"></script>
+<script src="libs/angular-sanitize/angular-sanitize.js"></script>
+<script src="libs/angular-ui-router/release/angular-ui-router.js"></script>
+<script src="libs/collide/collide.js"></script>
+<script src="libs/ionic/release/js/ionic.js"></script>
+<script src="libs/ionic/release/js/ionic-angular.js"></script>
+<script src="libs/collide/collide.js"></script>
+<script src="libs/angular-socket-io/socket.js"></script>
+<script src="libs/angular-resource/angular-resource.js"></script>
+<script src="libs/angular-cookies/angular-cookies.js"></script>
+<script src="libs/lodash/dist/lodash.compat.js"></script>
+<script src="libs/ionic-rating/ionic-rating.js"></script>
+
+<!-- build:js scripts/scripts.js -->
+<script src="scripts/app.js"></script>
+<script src="scripts/config.js"></script>
+
+<script src="scripts/core/factories/Dishes.js"></script>
+<script src="scripts/core/factories/Categories.js"></script>
+
+<script src="scripts/core/auth/auth.service.js"></script>
+<script src="scripts/core/auth/user.service.js"></script>
+<script src="scripts/core/mongoose-error/mongoose-error.directive.js"></script>
+<script src="scripts/core/socket/socket.service.js"></script>
+<script src="scripts/core/repos/repos.js"></script>
+
+<script src="scripts/home/homeController.js"></script>
+<script src="scripts/header/headerController.js"></script>
+<script src="scripts/slide-menu/slideMenuController.js"></script>
+<!-- endbuild -->
+
 </body>
 </html>

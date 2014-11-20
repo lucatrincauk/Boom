@@ -7,7 +7,7 @@ module.exports = function(config) {
         basePath: '',
 
         // testing framework to use (jasmine/mocha/qunit/...)
-        frameworks: ['mocha', 'chai', 'sinon'],
+        frameworks: ['jasmine', 'chai', 'sinon'],
 
         // list of files / patterns to load in the browser
         files: [
@@ -19,22 +19,24 @@ module.exports = function(config) {
             'app/libs/ionic/release/js/ionic-angular.js',
             'app/libs/angular-mocks/angular-mocks.js',
             'app/scripts/**/*.js',
-            'test/mock/**/*.js',
-            'test/spec/**/*.js'
+            'test/spec/**/*.js',
+            'app/index.html',
+            'app/templates/**/*.html'
         ],
 
         preprocessors: {
             '**/*.jade': 'ng-jade2js',
-            '**/*.html': 'html2js',
+            '**/*.html': 'ng-html2js',
             '**/*.coffee': 'coffee'
         },
 
         ngHtml2JsPreprocessor: {
-            stripPrefix: 'client/'
+            stripPrefix: 'app/',
+            moduleName: 'Boom'
         },
 
         ngJade2JsPreprocessor: {
-            stripPrefix: 'client/'
+            stripPrefix: ''
         },
 
         // list of files / patterns to exclude

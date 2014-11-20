@@ -1,16 +1,22 @@
-<ion-view title="Dishes">
-  <ion-nav-buttons side="left">
-    <button menu-toggle="left" class="button button-icon icon ion-navicon"></button>
-  </ion-nav-buttons>
-  <ion-content class="has-header">
-<div ng-repeat="category in categories">
-        <ion-item class="item item-divider">
-            <span>{{ category.name }}</span>
-        </ion-item>
+<ion-scroll zooming="false" direction="y">
 
-        <ion-item class="item" ng-repeat="dish in category.dishes">
-            <h4 ui-sref="app.dish({ dishId: dish.id })">{{ dish.title }}</h4>
-        </ion-item>
-    </div>
-  </ion-content>
-</ion-view>
+    <ion-list class="list has-header">
+        <div ng-repeat="category in categories">
+            <ion-item class="item item-divider">
+                <span>{{ category.title }}</span>
+            </ion-item>
+
+            <a ng-repeat="dish in category.dishes" class="item" href="#">
+                <img class="dish-thumb pull-left" ng-src="http://lorempixel.com/60/60/food?v={{ $index }}">
+
+                <div class="dish-item">
+                    <h2 class="pull-left">{{ dish.title }}</h2>
+                    <i class="icon ion-ios7-heart-outline pull-right"></i>
+                    <em class="pull-left ellipsis">{{ dish.description }}</em>
+                </div>
+                <rating class="pull-left star-rating" readonly="true" ng-model="dish.averageRating" max="5"></rating>
+            </a>
+        </div>
+    </ion-list>
+
+</ion-scroll>

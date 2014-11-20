@@ -1,4 +1,4 @@
-angular.module('Boom', ['ui.router', 'ionic'])
+angular.module('Boom', ['ionic', 'ui.router', 'restangular', 'ionic.rating'])
 
 .config(function($stateProvider, $urlRouterProvider) {
     'use strict';
@@ -26,30 +26,45 @@ angular.module('Boom', ['ui.router', 'ionic'])
             }
         }
     })
-        .state('app.settings', {
-            url: '/settings',
-            views: {
-                'container@': {
-                    templateUrl: '/templates/settings.html'
-                }
+    .state('app.settings', {
+        url: '/settings',
+        views: {
+            'container@': {
+                templateUrl: '/templates/settings.html'
+            },
+            '': {
+                templateUrl: 'templates/home.html',
+                controller: 'homeController'
+            },
+            'slideMenu@': {
+                templateUrl: 'templates/slide-menu.html',
+                controller: 'slideMenuController'
+            },
+            'header@': {
+                templateUrl: 'templates/header.html',
+                controller: 'headerController'
+            },
+            'subheader@': {
+                templateUrl: 'templates/subheader.html'
             }
-        })
-        .state('app.favourites', {
-            url: '/favourites',
-            views: {
-                'container@': {
-                    templateUrl: '/templates/favourites.html'
-                }
+        }
+    })
+    .state('app.favourites', {
+        url: '/favourites',
+        views: {
+            'container@': {
+                templateUrl: '/templates/favourites.html'
             }
-        })
-        .state('app.admin', {
-            url: '/admin',
-            views: {
-                'container@': {
-                    templateUrl: '/templates/admin.html'
-                }
+        }
+    })
+    .state('app.admin', {
+        url: '/admin',
+        views: {
+            'container@': {
+                templateUrl: '/templates/admin.html'
             }
-        })
+        }
+    })
 
     .state('app.dish', {
         url: '/dishes/:dishId',

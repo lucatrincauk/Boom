@@ -1,0 +1,32 @@
+.dish-thumb {
+  border-radius: 3px;
+  padding: 2px;
+  border: solid 1px #d3d3d3;
+  margin: 0px 10px 10px 0px;
+}
+
+.dish-item {
+  overflow: hidden;
+  h2 {
+    margin-bottom: 5px;
+  }
+  em {
+    font-size: 13px;
+    font-style: italic;
+  }
+
+  .ion-ios7-heart,
+  .ion-ios7-heart-outline {
+    font-size: 25px;
+    color: darkred;
+  }
+}
+
+.star-rating {
+  display: inline-flex;
+  margin-top: 2px;
+
+  .icon {
+    font-size: 20px;
+  }
+}
