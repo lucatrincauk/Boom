@@ -1,6 +1,6 @@
 angular.module('Boom')
 	.controller('homeController', ['$scope', 'Categories',
-		function($scope, Categories) {
+		function($scope, Categories, $state) {
 			'use strict';
 
 			$scope.categories = [];

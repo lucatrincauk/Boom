@@ -20,31 +20,30 @@
 
 <body ng-app="Boom">
 
-
-<div ui-view="header"></div>
-
-<div ui-view="footer"></div>
-
 <ion-side-menus>
     <!-- Center content -->
     <ion-side-menu-content edge-drag-threshold="true">
-        <div ui-view="header"></div>
-        <div ui-view="subheader"></div>
+        <ion-pane>
 
-        <div ui-view></div>
+            <ion-nav-bar>
+                <ion-nav-back-button class="button-clear">
+                    <i class="ion-arrow-left-c"></i>
+                </ion-nav-back-button>
+            </ion-nav-bar>
+
+            <ion-nav-view animation="slide-left-right">
+                <div ui-view></div>
+            </ion-nav-view>
+
+            <div ui-view="footer"></div>
+        </ion-pane>
     </ion-side-menu-content>
 
     <div ui-view="slideMenu"></div>
 </ion-side-menus>
 
 <!-- build:js scripts/vendor.js -->
-<!-- <script src="vendor/someContribJs.js"></script> -->
-<!-- bower:js -->
-<!-- endbower -->
-<!-- endbuild -->
-
-<!-- cordova script (this will be a 404 during development) -->
-<!--<script src="cordova.js"></script>-->
+<script src="cordova.js"></script>
 <script src="libs/angular/angular.js"></script>
 <script src="libs/lodash/dist/lodash.js"></script>
 <script src="libs/restangular/dist/restangular.js"></script>
@@ -60,6 +59,9 @@
 <script src="libs/angular-cookies/angular-cookies.js"></script>
 <script src="libs/lodash/dist/lodash.compat.js"></script>
 <script src="libs/ionic-rating/ionic-rating.js"></script>
+<!-- bower:js -->
+<!-- endbower -->
+<!-- endbuild -->
 
 <!-- build:js scripts/scripts.js -->
 <script src="scripts/app.js"></script>

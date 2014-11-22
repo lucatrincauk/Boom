@@ -1,22 +1,26 @@
-<ion-scroll zooming="false" direction="y">
+<ion-view title="Today at Waterside" hide-back-button="true">
+    <ion-nav-buttons side="left">
+        <button menu-toggle="left" class="button button-icon icon ion-navicon"></button>
+    </ion-nav-buttons>
+    <ion-content class="has-header">
+        <ion-list class="list">
+            <div ng-repeat="category in categories">
+                <ion-item class="item item-divider">
+                    <span>{{ category.title }}</span>
+                </ion-item>
 
-    <ion-list class="list has-header">
-        <div ng-repeat="category in categories">
-            <ion-item class="item item-divider">
-                <span>{{ category.title }}</span>
-            </ion-item>
+                <a ng-repeat="dish in category.dishes" class="item" href="#">
+                    <img class="dish-thumb pull-left" ng-src="http://lorempixel.com/60/60/food?v={{ $index }}">
 
-            <a ng-repeat="dish in category.dishes" class="item" href="#">
-                <img class="dish-thumb pull-left" ng-src="http://lorempixel.com/60/60/food?v={{ $index }}">
+                    <div class="dish-item">
+                        <h2 class="pull-left">{{ dish.title }}</h2>
+                        <i class="icon ion-ios7-heart-outline pull-right"></i>
+                        <em class="pull-left ellipsis">{{ dish.description }}</em>
+                    </div>
+                    <rating class="pull-left star-rating" readonly="true" ng-model="dish.averageRating" max="5"></rating>
+                </a>
+            </div>
+        </ion-list>
 
-                <div class="dish-item">
-                    <h2 class="pull-left">{{ dish.title }}</h2>
-                    <i class="icon ion-ios7-heart-outline pull-right"></i>
-                    <em class="pull-left ellipsis">{{ dish.description }}</em>
-                </div>
-                <rating class="pull-left star-rating" readonly="true" ng-model="dish.averageRating" max="5"></rating>
-            </a>
-        </div>
-    </ion-list>
-
-</ion-scroll>
+    </ion-content>
+</ion-view>
