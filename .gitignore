@@ -9,4 +9,5 @@ coverage
 www
 resources
 platforms
-app/script/app.js
+app/scripts/config.js
+plugins
