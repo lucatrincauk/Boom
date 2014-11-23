@@ -20,24 +20,19 @@
 
 <body ng-app="Boom">
 
-<ion-side-menus>
-    <!-- Center content -->
-    <ion-side-menu-content edge-drag-threshold="true">
-        <div ui-view="header"></div>
-        <div ui-view="subheader"></div>
+    <ion-nav-view></ion-nav-view>
 
-        <div ui-view></div>
-    </ion-side-menu-content>
-
-    <div ui-view="slideMenu"></div>
-</ion-side-menus>
 
 <!-- build:js scripts/vendor.js -->
 <!-- <script src="vendor/someContribJs.js"></script> -->
 <!-- bower:js -->
-<script src="libs/ionic/release/js/ionic.bundle.js"></script>
-
+<script src="libs/angular/angular.js"></script>
+<script src="libs/angular-animate/angular-animate.js"></script>
+<script src="libs/angular-sanitize/angular-sanitize.js"></script>
+<script src="libs/angular-ui-router/release/angular-ui-router.js"></script>
 <script src="libs/collide/collide.js"></script>
+<script src="libs/ionic/release/js/ionic.js"></script>
+<script src="libs/ionic/release/js/ionic-angular.js"></script>
 <script src="libs/angular-socket-io/socket.js"></script>
 <script src="libs/angular-resource/angular-resource.js"></script>
 <script src="libs/angular-cookies/angular-cookies.js"></script>

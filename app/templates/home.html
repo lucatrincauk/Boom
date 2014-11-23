@@ -1,4 +1,11 @@
-<ion-scroll zooming="false" direction="y">
+<ion-view title="Home">
+  <ion-nav-buttons side="left">
+    <button menu-toggle="left" class="button button-icon icon ion-navicon"></button>
+  </ion-nav-buttons>
+
+
+<!--<ion-scroll zooming="false" direction="y">-->
+    <div ng-include="'templates/subheader.html'"></div>
 
     <ion-list class="list has-header">
         <div ng-repeat="category in categories">
@@ -19,4 +26,7 @@
         </div>
     </ion-list>
 
-</ion-scroll>
+    <div ng-include="'templates/footer.html'"></div>
+
+<!--</ion-scroll>-->
+</ion-view>
