@@ -1,9 +1,9 @@
 angular.module('Boom')
-	.controller('homeController', ['$scope', 'Categories',
-		function($scope, Categories) {
-			'use strict';
+    .controller('homeController', ['$scope', 'Categories',
+        function($scope, Categories) {
+            'use strict';
 
-			$scope.categories = [];
+            $scope.categories = [];
 
             (function init() {
                 Categories.getList().then(function(categories) {
@@ -18,7 +18,7 @@ angular.module('Boom')
                 var ratingAcc = 0;
 
                 angular.forEach(comments, function(comment) {
-                   ratingAcc += comment.star_rating;
+                    ratingAcc += comment.star_rating;
                 });
 
                 return ratingAcc / comments.length;
@@ -36,5 +36,11 @@ angular.module('Boom')
 
                 return categories;
             }
-		}
-	]);
+        }
+    ]).filter('dashify', function(item) {
+        'use strict';
+        console.log(item);
+        return function(item) {
+            return item.replace(/\s+/g, '-').toLowerCase();
+        };
+    });

@@ -7,27 +7,6 @@ angular.module('Boom', ['ionic', 'ui.router', 'restangular', 'ionic.rating'])
     $urlRouterProvider.otherwise('/home');
 
     $stateProvider
-    //     .state('container', {
-    //         url: '/',
-    //         views: {
-    //             '': {
-    //                 templateUrl: 'templates/home.html',
-    //                 controller: 'homeController'
-    //             },
-    //             'slideMenu@': {
-    //                 templateUrl: 'templates/slide-menu.html',
-    //                 controller: 'slideMenuController'
-    //             },
-    //             'header@': {
-    //                 templateUrl: 'templates/header.html',
-    //                 controller: 'headerController'
-    //             },
-    //             'subheader@': {
-    //                 templateUrl: 'templates/subheader.html'
-    //             }
-    //         }
-    //     });
-
 
         .state('app', {
         url: '',
@@ -36,14 +15,24 @@ angular.module('Boom', ['ionic', 'ui.router', 'restangular', 'ionic.rating'])
     })
 
     .state('app.home', {
-        url: '/home',
-        views: {
-            'menuContent': {
-                templateUrl: 'templates/home.html',
-                controller: 'homeController'
+            url: '/home',
+            views: {
+                'menuContent': {
+                    templateUrl: 'templates/home.html',
+                    controller: 'homeController'
+                }
             }
-        }
-    })
+        })
+        .state('app.single', {
+            url: '/dishes/:title',
+            views: {
+                'menuContent': {
+                    templateUrl: 'templates/single.html',
+                    controller: 'singleController'
+
+                }
+            }
+        })
 
     .state('app.settings', {
         url: '/settings',
