@@ -4,7 +4,10 @@ angular.module('Boom')
             'use strict';
 
             $scope.categories = [];
-
+            /* Get data from the factory Categories
+             * getList() is a restangular method
+             * Passing response to scope once promise is successful
+             */
             (function init() {
                 Categories.getList().then(function(categories) {
                     $scope.categories = computeAverageDishRatings(categories);
@@ -37,10 +40,4 @@ angular.module('Boom')
                 return categories;
             }
         }
-    ]).filter('dashify', function(item) {
-        'use strict';
-        console.log(item);
-        return function(item) {
-            return item.replace(/\s+/g, '-').toLowerCase();
-        };
-    });
+    ]);
