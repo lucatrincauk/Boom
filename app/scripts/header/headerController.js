@@ -9,13 +9,13 @@ angular.module('Boom').controller('headerController', ['$scope', '$ionicSideMenu
             text: ''
         };
 
-        $scope.$watch('search.text', function(newVal, oldVal) {
-            if (newVal !== oldVal) {
-                $rootScope.$broadcast('search-updated', {
-                    text: newVal
-                });
-            }
-        });
+    // $scope.$watch('search.text', function(newVal, oldVal) {
+    //     if (newVal !== oldVal) {
+    //         $rootScope.$broadcast('search-updated', {
+    //             text: newVal
+    //         });
+    //     }
+    // });
 
         $scope.toggleLeft = function() {
             $ionicSideMenuDelegate.toggleLeft();
