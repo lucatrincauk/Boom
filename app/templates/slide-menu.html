@@ -1,16 +1,16 @@
-<!-- Left menu -->
-<ion-side-menu side="left">
+<header class="bar bar-header bar-stable">
+    <h1 class="title">My Restaurant Hub</h1>
+</header>
 
-    <ion-header-bar>
-        <h1 class="title">My Restaurant Hub</h1>
-    </ion-header-bar>
-
-    <ion-content class="has-header has-footer">
-        <ul class="list">
-            <a class="item item-icon-left" menu-toggle="left"><i class="icon ion-home"></i>Home</a>
-            <a class="item item-icon-left" menu-toggle="left"><i class="icon ion-settings"></i>Preferences</a>
-            <a class="item item-icon-left" menu-toggle="left"><i class="icon ion-log-out"></i>Logout</a>
-        </ul>
-    </ion-content>
-
-</ion-side-menu>
+<ion-content class="has-header has-footer">
+    <ul class="list">
+        <!-- Route to Home (app.home) -->
+        <a ui-sref="app.home" class="item item-icon-left" menu-toggle="left">
+            <i class="icon ion-home"></i>Home
+        </a>
+        <!-- Route to Settings (app.settings) -->
+        <a ui-sref="app.settings" class="item item-icon-left" menu-toggle="left">
+            <i class="icon ion-gear-a"></i>Settings
+        </a>
+    </ul>
+</ion-content>

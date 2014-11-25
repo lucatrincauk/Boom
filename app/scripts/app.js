@@ -5,22 +5,21 @@ angular.module('Boom', ['ionic', 'ui.router', 'restangular', 'ionic.rating'])
 
     $stateProvider
 
-        .state('app', {
-            url: '',
-            abstract: true,
-            views: {
-                'header': {
-                    templateUrl: '/templates/header.html'
-                },
-                'footer': {
-                    templateUrl: '/templates/footer.html'
-                },
-                'slideMenu': {
-                    templateUrl: '/templates/slide-menu.html'
-                }
+    .state('app', {
+        url: '',
+        abstract: true,
+        views: {
+            'header': {
+                templateUrl: '/templates/header.html'
+            },
+            'footer': {
+                templateUrl: '/templates/footer.html'
+            },
+            'slideMenu': {
+                templateUrl: '/templates/slide-menu.html'
             }
-        })
-
+        }
+    })
     .state('app.home', {
         url: '/',
         views: {
@@ -58,11 +57,11 @@ angular.module('Boom', ['ionic', 'ui.router', 'restangular', 'ionic.rating'])
         }
     })
     .state('app.dish', {
-        url: '/dishes/:dishId',
+        url: '/dishes/:title',
         views: {
             '@': {
-                templateUrl: '/templates/dish.html',
-                controller: 'dishController'
+                templateUrl: '/templates/single.html',
+                controller: 'singleController'
             }
         }
     });

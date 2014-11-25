@@ -1,8 +1,9 @@
+//not currently in use
 'use strict';
 
 angular.module('Boom').controller('headerController', ['$scope', '$ionicSideMenuDelegate', '$rootScope',
 
-    function ($scope, $ionicSideMenuDelegate, $rootScope) {
+    function($scope, $ionicSideMenuDelegate, $rootScope) {
 
         $scope.search = {
             text: ''
@@ -10,11 +11,14 @@ angular.module('Boom').controller('headerController', ['$scope', '$ionicSideMenu
 
         $scope.$watch('search.text', function(newVal, oldVal) {
             if (newVal !== oldVal) {
-                $rootScope.$broadcast('search-updated', { text: newVal });
+                $rootScope.$broadcast('search-updated', {
+                    text: newVal
+                });
             }
         });
 
         $scope.toggleLeft = function() {
             $ionicSideMenuDelegate.toggleLeft();
         };
-    }]);
+    }
+]);

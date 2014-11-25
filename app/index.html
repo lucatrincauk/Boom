@@ -24,7 +24,6 @@
     <!-- Center content -->
     <ion-side-menu-content edge-drag-threshold="true">
         <ion-pane>
-
             <ion-nav-bar>
                 <ion-nav-back-button class="button-clear">
                     <i class="ion-arrow-left-c"></i>
@@ -39,7 +38,7 @@
         </ion-pane>
     </ion-side-menu-content>
 
-    <div ui-view="slideMenu"></div>
+    <ion-side-menu side="left" ui-view="slideMenu"></ion-side-menu>
 </ion-side-menus>
 
 <!-- build:js scripts/vendor.js -->
@@ -75,10 +74,13 @@
 <script src="scripts/core/mongoose-error/mongoose-error.directive.js"></script>
 <script src="scripts/core/socket/socket.service.js"></script>
 <script src="scripts/core/repos/repos.js"></script>
-
+<!-- Controllers -->
 <script src="scripts/home/homeController.js"></script>
 <script src="scripts/header/headerController.js"></script>
 <script src="scripts/slide-menu/slideMenuController.js"></script>
+<script src="scripts/single/singleController.js"></script>
+<!-- Filters -->
+<script src="scripts/core/filters/dashify.js"></script>
 <!-- endbuild -->
 
 </body>
