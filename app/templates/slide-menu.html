@@ -5,12 +5,27 @@
 <ion-content class="has-header has-footer">
     <ul class="list">
         <!-- Route to Home (app.home) -->
-        <a ui-sref="app.home" class="item item-icon-left" menu-toggle="left">
-            <i class="icon ion-home"></i>Home
-        </a>
+        <li ui-sref="app.home" ui-sref-active="active" class="item item-icon-left" menu-toggle="left">
+            <i class="icon ion-home"></i>
+            Home
+        </li>
+
+        <!-- Route to Favourites (app.favourites) -->
+        <li ui-sref="app.favourites" ui-sref-active="active" class="item item-icon-left" menu-toggle="left">
+            <i class="icon ion-heart"></i>
+            Favourites
+        </li>
+
         <!-- Route to Settings (app.settings) -->
-        <a ui-sref="app.settings" class="item item-icon-left" menu-toggle="left">
-            <i class="icon ion-gear-a"></i>Settings
-        </a>
+        <li ui-sref="app.settings" ui-sref-active="active" class="item item-icon-left" menu-toggle="left">
+            <i class="icon ion-gear-a"></i>
+            Settings
+        </li> 
+
+        <!-- Route to Admin (app.admin) -->
+        <li ui-sref="app.admin" ui-sref-active="active" class="item item-icon-left" menu-toggle="left">
+            <i class="icon ion-help-buoy"></i>
+            Admin
+        </li>
     </ul>
 </ion-content>
