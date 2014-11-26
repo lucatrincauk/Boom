@@ -105,6 +105,5 @@
     },
     "scripts": {
         "test": "grunt test:unit",
-        "install": "node node_modules/protractor/bin/webdriver-manager update"
     }
 }
