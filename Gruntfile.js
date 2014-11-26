@@ -111,7 +111,7 @@ module.exports = function(grunt) {
                 }
             },
             styles: {
-                files: ['<%= yeoman.app %>/<%= yeoman.styles %>/**/*.scss'],
+                files: ['<%= yeoman.app %>/<%= yeoman.styles %>/**/*.css'],
                 tasks: ['concurrent:server', 'autoprefixer'],
                 options: {
                     livereload: true
@@ -342,17 +342,17 @@ module.exports = function(grunt) {
 
         concurrent: {
             server: [
-                'sass:dist',
+                'copy:styles',
                 'copy:vendor',
                 'copy:fonts'
             ],
             test: [
-                'sass:dist',
+                'copy:styles',
                 'copy:vendor',
                 'copy:fonts'
             ],
             dist: [
-                'sass:dist',
+                'copy:styles',
                 'copy:vendor',
                 'copy:fonts'
             ]
@@ -396,13 +396,13 @@ module.exports = function(grunt) {
             }
         },
 
-        sass: {
-            dist: {
-                files: {
-                    '.tmp/styles/main.css': 'app/styles/main.scss'
-                }
-            }
-        }
+        // sass: {
+        //     dist: {
+        //         files: {
+        //             '.tmp/styles/main.css': 'app/styles/main.scss'
+        //         }
+        //     }
+        // }
     });
 
     // Register tasks for all Cordova commands, but namespace
@@ -531,12 +531,12 @@ module.exports = function(grunt) {
     ]);
 
     // Used for delaying livereload until after server has restarted
-    grunt.registerTask('wait', function () {
+    grunt.registerTask('wait', function() {
         grunt.log.ok('Waiting for server reload...');
 
         var done = this.async();
 
-        setTimeout(function () {
+        setTimeout(function() {
             grunt.log.writeln('Done waiting!');
             done();
         }, 1500);

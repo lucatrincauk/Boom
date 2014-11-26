@@ -7,26 +7,24 @@
 
 .dish-item {
   overflow: hidden;
-  h2 {
-    margin-bottom: 5px;
-  }
-  em {
-    font-size: 13px;
-    font-style: italic;
-  }
-
-  .ion-ios7-heart,
-  .ion-ios7-heart-outline {
-    font-size: 25px;
-    color: darkred;
-  }
+}
+.dish-item h2 {
+  margin-bottom: 5px;
+}
+.dish-item em {
+  font-size: 13px;
+  font-style: italic;
 }
 
+.dish-item .ion-ios7-heart, .dish-item .ion-ios7-heart-outline {
+  font-size: 25px;
+  color: darkred;
+}
 .star-rating {
   display: inline-flex;
   margin-top: 2px;
 
-  .icon {
+}
+.star-rating .icon {
     font-size: 20px;
-  }
 }
