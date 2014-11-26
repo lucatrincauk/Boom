@@ -104,6 +104,6 @@
         "node": ">=0.10.0"
     },
     "scripts": {
-        "test": "grunt test:unit",
+        "test": "grunt test:unit"
     }
 }
