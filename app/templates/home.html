@@ -1,9 +1,13 @@
-<ion-view title="Today at Waterside" hide-back-button="true">
+<ion-view title="{{categories.day}} at Waterside" hide-back-button="true">
     <ion-nav-buttons side="left">
         <button menu-toggle="left" class="button button-icon icon ion-navicon"></button>
     </ion-nav-buttons>
     <ion-content class="has-header has-footer">
-        <ion-list class="list">
+
+
+        <ion-list class="list" on-swipe-left="next(1)" on-swipe-right="prev(1)">
+
+     
 
             <div ng-repeat="category in categories.categories" class="{{category.cat_title | dashify | lowercase}}">
                 <ion-item class="item item-divider">
