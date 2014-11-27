@@ -3,7 +3,6 @@ angular.module('Boom', ['ionic', 'ui.router', 'restangular', 'ionic.rating'])
 .config(function($stateProvider, $urlRouterProvider) {
     'use strict';
 
-    alert('boom');
     $stateProvider
 
         .state('app', {
