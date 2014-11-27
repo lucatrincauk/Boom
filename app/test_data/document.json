@@ -14,8 +14,7 @@
   }, {
     "cat_title": "Theatre Bar",
     "dishes": [{
-      "title": "Moroccan Pitta Pockets",
-      "subtitle": "Choose from Spiced Lamb Koftas or Freshly Prepared Falafels",
+      "title": "Moroccan Pitta Pockets: Spiced Lamb Koftas or Freshly Prepared Falafels",
       "with": "Toasted Pitta, Pickled cabbage, Minted Cucumber Salad and Traditional Sauces"
     }]
   }, {
@@ -45,7 +44,6 @@
     "cat_title": "Rotisserie",
     "dishes": [{
       "title": "Chefs Marinated British Meat",
-      "with": "Accompaniments",
       "addons": "Chips or Panache of Vegetables"
     }]
   }, {
@@ -87,9 +85,9 @@
   }, {
     "cat_title": "Theatre Bar",
     "dishes": [{
-      "title": "Burrito Bar",
-      "subtitle": "Chicken or Vegetarian Filling with Mexican Rice, Guacamole, Salsa, Sour Cream,Grated Cheddar,Jalapenos, Iceberg in a Warm Tortilla Wrap.",
-      "with": "Potato Wedges and Tortilla Chips"
+      "title": "Burrito Bar: Chicken or Vegetarian Filling",
+      "with": "Mexican Rice, Guacamole, Salsa, Sour Cream,Grated Cheddar,Jalapenos, Iceberg in a Warm Tortilla Wrap.",
+      "addons": "Potato Wedges and Tortilla Chips"
     }]
   }, {
     "cat_title": "Bistro",
@@ -145,7 +143,7 @@
   "categories": [{
     "cat_title": "Simple Soup",
     "dishes": [{
-      "title": "Cream of Celery"
+      "title": "Carrot and Corriander"
     }]
   }, {
     "cat_title": "Soup Accompaniments",
@@ -157,36 +155,38 @@
   }, {
     "cat_title": "Theatre Bar",
     "dishes": [{
-      "title": "Burrito Bar",
-      "subtitle": "Chicken or Vegetarian Filling with Mexican Rice, Guacamole, Salsa, Sour Cream,Grated Cheddar,Jalapenos, Iceberg in a Warm Tortilla Wrap.",
-      "with": "Potato Wedges and Tortilla Chips"
+      "title": "Chinese bar",
+      "with": "Beef Strips and Vegetables in Oyster Sauce, Sweet and Sour Chicken Breast or Sweet Chilli Vegetables with Stir Fried Rice or Singapore Noodles.",
+      "addons": "Vegetable Spring Rolls, Prawn Crackers or Salt and Pepper Spare Ribs"
     }]
   }, {
     "cat_title": "Bistro",
     "dishes": [{
-      "title": "Slow Cooked Venison, Potato and Cauliflower Gratin"
+      "title": "Chicken, Smoked Bacon and Mushroom pie",
+      "with": "Crisp Puff Pastry with Cabbage and bacon"
     }]
   }, {
     "cat_title": "Plain and Simple",
     "dishes": [{
-      "title": "Sausage Roll"
+      "title": "Chicken and Chorizo Empanadas"
     }, {
-      "title": "Baked Lemon Cod"
+      "title": "Wood fired Pizza"
     }, {
-      "title": "Potato and Caramelized Onion Tortilla"
+      "title": "Steamed Hake"
     }]
   }, {
     "cat_title": "Vegetarian",
     "dishes": [{
-      "title": "Oriental Vegetable and Noodle Stir Fry",
-      "with": "Tofu, Black Bean and Soy Glaze"
+      "title": "Fusilli, broccoli and Gorgonzola Pasta Bake",
+      "with": "Mixed Herb Crumb and Garlic Bread",
+      "addons": "Mixed Green Salad"
     }]
   }, {
     "cat_title": "Rotisserie",
     "dishes": [{
-      "title": "Braised Chicken Breast in a Rich Tomato, Onion and Mushroom Chasseur Sauce",
-      "with": "Steamed New potatoes or Wild Rice",
-      "addons": "Chunk of Toasted Ciabatta"
+      "title": "Pie and Mash Shop",
+      "with": "M&S Prepared Pies with a Choice of Different Flavoured Mash, Gravy and Mustards",
+      "addons": "Panache of Steamed Vegetables"
     }]
   }, {
     "cat_title": "Jacket Potatoes",
@@ -197,16 +197,16 @@
   }, {
     "cat_title": "Accompaniments",
     "dishes": [{
-      "title": "Chips or Parmentier Potatoes"
+      "title": "Chips or Boulangere Potatoes"
     }, {
-      "title": "Buttered Carraway Cabbage"
+      "title": "Cumin Parsnips"
     }, {
       "title": "Steamed Vegetable Medley"
     }]
   }, {
     "cat_title": "Protein Soup",
     "dishes": [{
-      "title": "Lamb Tagine"
+      "title": "Vegetable and Barley broth"
     }]
   }],
   "day": "Wednesday",
@@ -215,7 +215,7 @@
   "categories": [{
     "cat_title": "Simple Soup",
     "dishes": [{
-      "title": "Cream of Celery"
+      "title": "Tomato and Basil"
     }]
   }, {
     "cat_title": "Soup Accompaniments",
@@ -227,36 +227,36 @@
   }, {
     "cat_title": "Theatre Bar",
     "dishes": [{
-      "title": "Burrito Bar",
-      "subtitle": "Chicken or Vegetarian Filling with Mexican Rice, Guacamole, Salsa, Sour Cream,Grated Cheddar,Jalapenos, Iceberg in a Warm Tortilla Wrap.",
-      "with": "Potato Wedges and Tortilla Chips"
+      "title": "Curry Bar: Classic Lamb Rogan Josh or Chick Pea and Butternut Squash Korma",
+      "with": "Braised Cardomon Rice, Poppadum and Chutneys",
+      "addons": "Vegetable Samosa or Onion Bhaji"
     }]
   }, {
     "cat_title": "Bistro",
     "dishes": [{
-      "title": "Slow Cooked Venison, Potato and Cauliflower Gratin"
+      "title": "Steamed Salmon",
+      "with": "on Buttered Green Beans, Confit New Potatoes and Freshly Prepared Parsley Pesto"
     }]
   }, {
     "cat_title": "Plain and Simple",
     "dishes": [{
-      "title": "Sausage Roll"
+      "title": "Pesto Pork Shoulder Steak"
     }, {
-      "title": "Baked Lemon Cod"
+      "title": "Dill Marinated Trout"
     }, {
-      "title": "Potato and Caramelized Onion Tortilla"
+      "title": "Vegetable Kievs"
     }]
   }, {
     "cat_title": "Vegetarian",
     "dishes": [{
-      "title": "Oriental Vegetable and Noodle Stir Fry",
-      "with": "Tofu, Black Bean and Soy Glaze"
+      "title": "Creamy Butternut Squash and Sage Risotto ",
+      "with": "Crumbled Feta and Mixed Salad"
     }]
   }, {
     "cat_title": "Rotisserie",
     "dishes": [{
-      "title": "Braised Chicken Breast in a Rich Tomato, Onion and Mushroom Chasseur Sauce",
-      "with": "Steamed New potatoes or Wild Rice",
-      "addons": "Chunk of Toasted Ciabatta"
+      "title": "Chefs Marinated British Meats",
+      "addons": "Chips or Panache of Vegetables"
     }]
   }, {
     "cat_title": "Jacket Potatoes",
@@ -267,16 +267,16 @@
   }, {
     "cat_title": "Accompaniments",
     "dishes": [{
-      "title": "Chips or Parmentier Potatoes"
+      "title": "Chips or Fennel Seed Potatoes"
     }, {
-      "title": "Buttered Carraway Cabbage"
+      "title": "Cauliflower Cheese"
     }, {
       "title": "Steamed Vegetable Medley"
     }]
   }, {
     "cat_title": "Protein Soup",
     "dishes": [{
-      "title": "Lamb Tagine"
+      "title": "Cock a Leekie"
     }]
   }],
   "day": "Thursday",
@@ -285,7 +285,7 @@
   "categories": [{
     "cat_title": "Simple Soup",
     "dishes": [{
-      "title": "POPO of Celery"
+      "title": "Cream of Vegetables"
     }]
   }, {
     "cat_title": "Soup Accompaniments",
@@ -297,36 +297,37 @@
   }, {
     "cat_title": "Theatre Bar",
     "dishes": [{
-      "title": "Burrito Bar",
-      "subtitle": "Chicken or Vegetarian Filling with Mexican Rice, Guacamole, Salsa, Sour Cream,Grated Cheddar,Jalapenos, Iceberg in a Warm Tortilla Wrap.",
-      "with": "Potato Wedges and Tortilla Chips"
+      "title": "Fish and Chip Shop",
+      "with": "Battered Hake or Breaded Cod, Battered Cumberland Sausage with Peas or Mushy peas, Lemon and Tartare Sauce"
     }]
   }, {
     "cat_title": "Bistro",
     "dishes": [{
-      "title": "Slow Cooked Venison, Potato and Cauliflower Gratin"
+      "title": "Katsu Chicken Curry",
+      "with": "Steamed Coriander Jasmine Rice",
+      "addons": "Duck Spring Rolls"
     }]
   }, {
     "cat_title": "Plain and Simple",
     "dishes": [{
-      "title": "Sausage Roll"
+      "title": "Charred Chicken Breast"
     }, {
-      "title": "Baked Lemon Cod"
+      "title": "Poached Salmon"
     }, {
-      "title": "Potato and Caramelized Onion Tortilla"
+      "title": "Vegetable Crisp Bake"
     }]
   }, {
     "cat_title": "Vegetarian",
     "dishes": [{
-      "title": "Oriental Vegetable and Noodle Stir Fry",
-      "with": "Tofu, Black Bean and Soy Glaze"
+      "title": "Stuffed Pepper",
+      "with": "Ratouille of Autumn Vegetables and Gruyere Gratin with a Spiced Lentil Stew"
     }]
   }, {
     "cat_title": "Rotisserie",
     "dishes": [{
-      "title": "Braised Chicken Breast in a Rich Tomato, Onion and Mushroom Chasseur Sauce",
-      "with": "Steamed New potatoes or Wild Rice",
-      "addons": "Chunk of Toasted Ciabatta"
+      "title": "Selection of Pasta",
+      "with": "Two Freshly Prepared Sauces, Grated Parmesan, Pesto",
+      "addons": "Premium Garlic Bread and Fresh Chillies"
     }]
   }, {
     "cat_title": "Jacket Potatoes",
@@ -337,16 +338,16 @@
   }, {
     "cat_title": "Accompaniments",
     "dishes": [{
-      "title": "Chips or Parmentier Potatoes"
+      "title": "Chips or Roasted New Potatoes"
     }, {
-      "title": "Buttered Carraway Cabbage"
+      "title": "Steamed Garden Peas or Mushy Peas"
     }, {
       "title": "Steamed Vegetable Medley"
     }]
   }, {
     "cat_title": "Protein Soup",
     "dishes": [{
-      "title": "Lamb Tagine"
+      "title": "Oriental Beef and Noodle "
     }]
   }],
   "day": "Friday",
