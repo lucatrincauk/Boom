@@ -2,14 +2,14 @@
 
 angular.module('Boom')
 
-    .factory('Users', function(Restangular) {
-        return Restangular.service('api/users');
-    })
+.factory('Users', function(Restangular) {
+	return Restangular.service('api/users');
+})
 
-    .factory('Categories', function(Restangular) {
-        return Restangular.service('api/categories');
-    })
+.factory('Categories', function($http) {
+	return $http.get('test_data/document.json')
+})
 
-    .factory('Locations', function(Restangular) {
-        return Restangular.service('api/locations');
-    });
+.factory('Locations', function(Restangular) {
+	return Restangular.service('api/locations');
+});
