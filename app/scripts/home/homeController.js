@@ -1,13 +1,19 @@
 angular.module('Boom')
-    .controller('homeController', ['$scope', 'Categories',
-        function($scope, Categories) {
+    .controller('homeController', ['$scope', 'Categories', 'Menu',
+        function($scope, Categories, Menu) {
             'use strict';
+
+            Menu.$loaded().then(function() {
+
+                $scope.init(Menu);
+            });
+
 
             var day, today, activeDay;
 
-            Categories.success(function(data) {
-                $scope.init(data);
-            });
+            // Categories.success(function(data) {
+            //     $scope.init(data);
+            // });
 
             $scope.init = function(data) {
                 today = new Date();

@@ -1,4 +1,4 @@
-angular.module('Boom', ['ionic', 'ui.router', 'restangular', 'ionic.rating'])
+angular.module('Boom', ['ionic', 'ui.router', 'restangular', 'ionic.rating', 'firebase'])
 
 .config(function($stateProvider, $urlRouterProvider) {
     'use strict';

@@ -4,7 +4,6 @@ angular.module('Boom')
 			'use strict';
 
 
-
 			Single.success(function(data) {
 				$scope.single = data;
 
