@@ -21,20 +21,19 @@ angular.module('Boom')
             }
 
             $scope.nameDays = function() {
-                var activeDayName = $scope.categories.day;
-                switch (activeDay) {
-                    case 3:
-                        activeDayName = "Today";
+                console.log(activeDay);
+
+                switch (day - activeDay) {
+                    case 0:
+                        $scope.categories.day = "Today";
                         break;
-                    case 4:
-                        activeDayName = "Tomorrow";
+                    case -1:
+                        $scope.categories.day = "Tomorrow";
                         break;
-                    case 2:
-                        activeDayName = "Yesterday";
+                    case 1:
+                        $scope.categories.day = "Yesterday";
                         break;
                 }
-                $scope.categories.day = activeDayName;
-
             }
 
             $scope.prev = function(count) {
