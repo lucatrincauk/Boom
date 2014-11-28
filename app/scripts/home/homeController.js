@@ -1,12 +1,12 @@
 angular.module('Boom')
     .controller('homeController', ['$scope', 'Categories',
-        function($scope, Categories, $state) {
+        function($scope, Categories) {
             'use strict';
 
             var day, today, activeDay;
 
             Categories.success(function(data) {
-                $scope.init(data)
+                $scope.init(data);
             });
 
             $scope.init = function(data) {
@@ -14,29 +14,29 @@ angular.module('Boom')
                 day = today.getDay() - 1;
                 $scope.data = data;
                 $scope.categories = $scope.data[day];
+
                 activeDay = day;
 
                 $scope.nameDays();
 
-            }
+            };
 
             $scope.nameDays = function() {
-                console.log(activeDay);
-
                 switch (day - activeDay) {
                     case 0:
-                        $scope.categories.day = "Today";
+                        $scope.categories.day = 'Today';
                         break;
                     case -1:
-                        $scope.categories.day = "Tomorrow";
+                        $scope.categories.day = 'Tomorrow';
                         break;
                     case 1:
-                        $scope.categories.day = "Yesterday";
+                        $scope.categories.day = 'Yesterday';
                         break;
                 }
-            }
+            };
 
-            $scope.prev = function(count) {
+
+            $scope.prev = function() {
                 if (activeDay < 1) {
                     return false;
                 } else {
@@ -47,7 +47,7 @@ angular.module('Boom')
                 return activeDay;
             };
 
-            $scope.next = function(count) {
+            $scope.next = function() {
 
                 if (activeDay > 3) {
                     return false;

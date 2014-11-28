@@ -14,7 +14,6 @@
                     <span>{{ category.cat_title }}</span>
 
                 </ion-item>
-
                 <a ng-repeat="dish in category.dishes" class="item" ui-sref="app.dish({ title: (dish.title | dashify)})" href="#">
 
                     <img ng-if="category.dishes.length == 2" class="dish-thumb pull-left" ng-src="http://lorempixel.com/208/110/food">                 

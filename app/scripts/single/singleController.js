@@ -1,11 +1,16 @@
 angular.module('Boom')
-    .controller('singleController', ['$scope',
-        function($scope) {
-            'use strict';
-
-            $scope.title = 'Single page';
+	.controller('singleController', ['$scope', '$stateParams', 'Single',
+		function($scope, $stateParams, Single) {
+			'use strict';
 
 
 
-        }
-    ]);
+			Single.success(function(data) {
+				$scope.single = data;
+
+			});
+
+
+
+		}
+	]);

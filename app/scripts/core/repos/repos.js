@@ -7,7 +7,11 @@ angular.module('Boom')
 })
 
 .factory('Categories', function($http) {
-	return $http.get('test_data/document.json')
+	return $http.get('test_data/document.json');
+})
+
+.factory('Single', function($http) {
+	return $http.get('test_data/single.json');
 })
 
 .factory('Locations', function(Restangular) {
