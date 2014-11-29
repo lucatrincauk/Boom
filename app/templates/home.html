@@ -10,7 +10,7 @@ Canteens reopen on Monday</button>
 
      
 
-            <div ng-repeat="category in categories" class="{{category.title | dashify | lowercase}} menu-list">
+            <div ng-repeat="category in categories" class="{{category.$id | lowercase}} menu-list">
                 <ion-item class="item item-divider">
     
                     <span>{{ category.title}}</span>
@@ -19,7 +19,7 @@ Canteens reopen on Monday</button>
                 </ion-item>
                 <ion-item class="dish-list">
 
-                <a ng-repeat="dish in dishes | filter: {category : category.title}" class="item" ui-sref="app.dish({ title: (dish.title | dashify)})" href="#">
+                <a ng-repeat="dish in dishes | filter: {category : category.title}" class="item" ui-sref="app.dish({ title: (dish.$id)})" href="#">
 
                   <!--   <img ng-if="category.dishes.length == 2" class="dish-thumb pull-left" ng-src="http://lorempixel.com/208/110/food">                 
                     <img ng-if="category.dishes.length == 3" class="dish-thumb pull-left" ng-src="http://lorempixel.com/138/110/food">
