@@ -19,9 +19,15 @@ angular.module('Boom')
                 today = new Date();
                 day = today.getDay() - 1;
                 $scope.data = data;
-                $scope.categories = $scope.data[day];
+                if (day > 4) {
+                    $scope.closed = true;
+                    $scope.categories = $scope.data[0];
+                    activeDay = 0;
 
-                activeDay = day;
+                } else {
+                    $scope.categories = $scope.data[day];
+                    activeDay = day;
+                }
 
                 $scope.nameDays();
 

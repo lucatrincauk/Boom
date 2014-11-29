@@ -4,7 +4,8 @@
     </ion-nav-buttons>
     <ion-content class="has-header has-footer">
 
-
+        <button ng-if="closed === true" class="button button-full button-assertive" style="margin:0">
+Canteens reopen on Monday</button>
         <ion-list class="list" on-swipe-left="next(1)" on-swipe-right="prev(1)">
 
      
@@ -12,6 +13,7 @@
             <div ng-repeat="category in categories.categories" class="{{category.cat_title | dashify | lowercase}}">
                 <ion-item class="item item-divider">
                     <span>{{ category.cat_title }}</span>
+                
 
                 </ion-item>
                 <a ng-repeat="dish in category.dishes" class="item" ui-sref="app.dish({ title: (dish.title | dashify)})" href="#">
