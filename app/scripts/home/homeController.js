@@ -1,11 +1,11 @@
 angular.module('Boom')
-    .controller('homeController', ['$scope', 'Categories', 'Menu', 'Categories',
-        function($scope, Categories, Menu) {
+    .controller('homeController', ['$scope', 'Categories', 'Dishes', 'Categories',
+        function($scope, Categories, Dishes) {
             'use strict';
 
             // Load dishes
-            Menu.$loaded().then(function() {
-                $scope.dishes = Menu;
+            Dishes.getAll().$loaded().then(function(data) {
+                $scope.dishes = data;
                 $scope.init();
             });
             // Load categories

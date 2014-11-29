@@ -57,7 +57,7 @@ angular.module('Boom', ['ionic', 'ui.router', 'restangular', 'ionic.rating', 'fi
             }
         })
         .state('app.dish', {
-            url: '/dishes/:title',
+            url: '/dishes/:id',
             views: {
                 'index@': {
                     templateUrl: 'templates/single.html',
