@@ -19,12 +19,30 @@ angular.module('Boom')
 })
 
 .factory('Menu', ['$firebase', '$rootScope',
-	function($firebase) {
-		// create a reference to the Firebase where we will store our data
-		var ref = new Firebase("https://mns-menu.firebaseio.com/menu/0");
-		// this uses AngularFire to create the synchronized array
-		var sync = $firebase(ref);
+		function($firebase) {
+			// create a reference to the Firebase where we will store our data
+			//	var ref = new Firebase("https://mns-menu.firebaseio.com/menu/0");
+			var ref = new Firebase("https://mns-menu.firebaseio.com/dishes").orderByChild("week").equalTo(1);
+			// this uses AngularFire to create the synchronized array
+			var sync = $firebase(ref);
 
-		return sync.$asObject();
-	}
-]);
+			// ref.orderByChild("week").equalTo(1).on("child_added", function(snapshot) {
+			// 	console.log(snapshot.val())
+			// });
+			return sync.$asArray();
+		}
+	])
+	.factory('Categories', ['$firebase',
+		function($firebase) {
+			// create a reference to the Firebase where we will store our data
+			//	var ref = new Firebase("https://mns-menu.firebaseio.com/menu/0");
+			var ref = new Firebase("https://mns-menu.firebaseio.com/categories");
+			// this uses AngularFire to create the synchronized array
+			var sync = $firebase(ref);
+
+			// ref.orderByChild("week").equalTo(1).on("child_added", function(snapshot) {
+			// 	console.log(snapshot.val())
+			// });
+			return sync.$asArray();
+		}
+	]);

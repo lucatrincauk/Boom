@@ -1,11 +1,10 @@
 angular.module('Boom')
-    .controller('homeController', ['$scope', 'Categories', 'Menu',
+    .controller('homeController', ['$scope', 'Categories', 'Menu', 'Categories',
         function($scope, Categories, Menu) {
             'use strict';
 
             Menu.$loaded().then(function() {
-
-                $scope.init(Menu);
+                $scope.firebaseInit(Menu);
             });
 
 
@@ -14,7 +13,23 @@ angular.module('Boom')
             // Categories.success(function(data) {
             //     $scope.init(data);
             // });
+            $scope.firebaseInit = function(data) {
+                $scope.dishes = data;
+                $scope.getCategories();
+                console.log($scope.dishes)
+            };
+            $scope.getCategories = function() {
 
+                Categories.$loaded().then(function() {
+                    console.log(Categories);
+                    $scope.categories = Categories;
+                })
+                return;
+                $scope.categories = [];
+                angular.forEach($scope.dishes, function(dish, i) {
+                    $scope.categories.push(dish.category);
+                });
+            };
             $scope.init = function(data) {
                 today = new Date();
                 day = today.getDay() - 1;

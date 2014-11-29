@@ -10,26 +10,29 @@ Canteens reopen on Monday</button>
 
      
 
-            <div ng-repeat="category in categories.categories" class="{{category.cat_title | dashify | lowercase}} menu-list">
+            <div ng-repeat="category in categories" class="{{category.title | dashify | lowercase}} menu-list">
                 <ion-item class="item item-divider">
-                    <span>{{ category.cat_title }}</span>
+    
+                    <span>{{ category.title}}</span>
                 
 
                 </ion-item>
-                <ion-item>
+                <ion-item class="dish-list">
 
-                <a ng-repeat="dish in category.dishes" class="item" ui-sref="app.dish({ title: (dish.title | dashify)})" href="#">
+                <a ng-repeat="dish in dishes | filter: {category : category.title}" class="item" ui-sref="app.dish({ title: (dish.title | dashify)})" href="#">
 
-                    <img ng-if="category.dishes.length == 2" class="dish-thumb pull-left" ng-src="http://lorempixel.com/208/110/food">                 
+                  <!--   <img ng-if="category.dishes.length == 2" class="dish-thumb pull-left" ng-src="http://lorempixel.com/208/110/food">                 
                     <img ng-if="category.dishes.length == 3" class="dish-thumb pull-left" ng-src="http://lorempixel.com/138/110/food">
 
                                      <img ng-if="category.dishes.length == 1" class="dish-thumb pull-left" ng-src="http://lorempixel.com/416/110/food">
-
+ -->
+   <img class="dish-thumb pull-left" ng-src="{{dish.thumb}}">
                     <div class="dish-item">
+                    
                         <h2 class="pull-left">{{ dish.title }}</h2>
-<!--                         <i class="icon ion-ios7-heart-outline pull-right"></i>
- -->                        <em ng-show="dish.with.length" class="pull-left ellipsis">{{ dish.with }}</em>
-                    </div>
+<!--                         <i class="icon ion-ios7-heart-outline pull-right"></i>-->
+<!--                          <em ng-show="dish.with.length" class="pull-left ellipsis">{{ dish.with }}</em>
+ -->                    </div>
                    <!-- <rating class="pull-left star-rating" readonly="true" ng-model="dish.averageRating" max="5"></rating>-->
                 </a>
                 </ion-item>
