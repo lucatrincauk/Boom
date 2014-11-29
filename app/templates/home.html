@@ -10,12 +10,14 @@ Canteens reopen on Monday</button>
 
      
 
-            <div ng-repeat="category in categories.categories" class="{{category.cat_title | dashify | lowercase}}">
+            <div ng-repeat="category in categories.categories" class="{{category.cat_title | dashify | lowercase}} menu-list">
                 <ion-item class="item item-divider">
                     <span>{{ category.cat_title }}</span>
                 
 
                 </ion-item>
+                <ion-item>
+
                 <a ng-repeat="dish in category.dishes" class="item" ui-sref="app.dish({ title: (dish.title | dashify)})" href="#">
 
                     <img ng-if="category.dishes.length == 2" class="dish-thumb pull-left" ng-src="http://lorempixel.com/208/110/food">                 
@@ -30,6 +32,7 @@ Canteens reopen on Monday</button>
                     </div>
                    <!-- <rating class="pull-left star-rating" readonly="true" ng-model="dish.averageRating" max="5"></rating>-->
                 </a>
+                </ion-item>
             </div>
         </ion-list>
 
