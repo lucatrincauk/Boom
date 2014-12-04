@@ -358,30 +358,30 @@ module.exports = function(grunt) {
             ]
         },
 
-        protractor: {
-            options: {
-                keepAlive: true,
-                configFile: 'protractor.conf.js',
-                noColor: false
-            },
-            all: {
-                options: {
-                    configFile: 'protractor.conf.js'
-                }
-            }
-        },
+        // protractor: {
+        //     options: {
+        //         keepAlive: true,
+        //         configFile: 'protractor.conf.js',
+        //         noColor: false
+        //     },
+        //     all: {
+        //         options: {
+        //             configFile: 'protractor.conf.js'
+        //         }
+        //     }
+        // },
 
-        // Test settings
-        karma: {
-            unit: {
-                configFile: 'karma.conf.js',
-                singleRun: true
-            },
-            continuous: {
-                browsers: ['PhantomJS'],
-                singleRun: true
-            }
-        },
+        // // Test settings
+        // karma: {
+        //     unit: {
+        //         configFile: 'karma.conf.js',
+        //         singleRun: true
+        //     },
+        //     continuous: {
+        //         browsers: ['PhantomJS'],
+        //         singleRun: true
+        //     }
+        // },
 
         // ngAnnotate tries to make the code safe for minification automatically by
         // using the Angular long form for dependency injection.
@@ -526,8 +526,8 @@ module.exports = function(grunt) {
         'uglify',
         'usemin',
         'htmlmin',
-        'cordova:build',
-        'doc'
+        'cordova:build'
+        //'doc'
     ]);
 
     // Used for delaying livereload until after server has restarted

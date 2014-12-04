@@ -1,9 +1,9 @@
 {
-  "firebase": "mns-menu",
-  "public": "app",
-  "ignore": [
-    "firebase.json",
-    "**/.*",
-    "**/node_modules/**"
-  ]
+	"firebase": "mns-menu",
+	"public": "www",
+	"ignore": [
+		"firebase.json",
+		"**/.*",
+		"**/node_modules/**"
+	]
 }
