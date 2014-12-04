@@ -1,5 +1,5 @@
 angular.module('Boom')
-    .controller('homeController', ['$scope', 'Categories', 'Dishes', 'Categories',
+    .controller('homeController', ['$scope', 'Categories', 'Dishes',
         function($scope, Categories, Dishes) {
             'use strict';
 

@@ -1,4 +1,4 @@
-angular.module('Boom', ['ionic', 'ui.router', 'restangular', 'ionic.rating', 'firebase'])
+angular.module('Boom', ['ionic', 'ui.router', 'firebase'])
 
 .config(function($stateProvider, $urlRouterProvider) {
     'use strict';
@@ -26,9 +26,6 @@ angular.module('Boom', ['ionic', 'ui.router', 'restangular', 'ionic.rating', 'fi
                 'index@': {
                     templateUrl: 'templates/home.html',
                     controller: 'homeController'
-                },
-                'subheader@': {
-                    templateUrl: 'templates/subheader.html'
                 }
             }
         })
