@@ -492,25 +492,25 @@ module.exports = function(grunt) {
         ]);
     });
 
-    grunt.registerTask('test', function(target) {
+    // grunt.registerTask('test', function(target) {
 
-        if (target === 'unit') {
-            grunt.task.run([
-                'clean:server',
-                'concurrent:test',
-                'autoprefixer',
-                'karma:unit'
-            ]);
-        } else if (target === 'e2e') {
-            grunt.task.run([
-                'clean:server',
-                'concurrent:test',
-                'autoprefixer',
-                'connect:test',
-                'protractor'
-            ]);
-        }
-    });
+    //     if (target === 'unit') {
+    //         grunt.task.run([
+    //             'clean:server',
+    //             'concurrent:test',
+    //             'autoprefixer',
+    //             'karma:unit'
+    //         ]);
+    //     } else if (target === 'e2e') {
+    //         grunt.task.run([
+    //             'clean:server',
+    //             'concurrent:test',
+    //             'autoprefixer',
+    //             'connect:test',
+    //             'protractor'
+    //         ]);
+    //     }
+    // });
 
     grunt.registerTask('build', [
         'clean:dist',
@@ -551,13 +551,13 @@ module.exports = function(grunt) {
         'karma:continuous',
         'build'
     ]);
-    grunt.registerTask('doc', 'Generate documentation', function() {
-        var done;
-        done = this.async();
-        grunt.log.writeln('Generating Documentation...');
-        return require('child_process').spawn('./node_modules/.bin/groc', ['lib/*.js', 'README.md']).on('exit', function() {
-            grunt.log.writeln('...done!');
-            return done();
-        });
-    });
+    // grunt.registerTask('doc', 'Generate documentation', function() {
+    //     var done;
+    //     done = this.async();
+    //     grunt.log.writeln('Generating Documentation...');
+    //     return require('child_process').spawn('./node_modules/.bin/groc', ['lib/*.js', 'README.md']).on('exit', function() {
+    //         grunt.log.writeln('...done!');
+    //         return done();
+    //     });
+    // });
 };
