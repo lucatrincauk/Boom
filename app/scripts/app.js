@@ -1,23 +1,68 @@
-angular.module('Boom', ['ui.router'])
+angular.module('Boom', ['ionic', 'ui.router', 'firebase'])
 
 .config(function($stateProvider, $urlRouterProvider) {
     'use strict';
 
-    // For any unmatched url, redirect to /
-    $urlRouterProvider.otherwise('/');
-
     $stateProvider
-        .state('container', {
+
+        .state('app', {
+            url: '',
+            abstract: true,
+            views: {
+                'header': {
+                    templateUrl: 'templates/header.html'
+                },
+                'footer': {
+                    templateUrl: 'templates/footer.html'
+                },
+                'slideMenu': {
+                    templateUrl: 'templates/slide-menu.html'
+                }
+            }
+        })
+        .state('app.home', {
             url: '/',
             views: {
-                'header@': {
-                    templateUrl: 'views/header.html',
-
-                },
-                'home@': {
-                    templateUrl: 'views/home.html',
+                'index@': {
+                    templateUrl: 'templates/home.html',
                     controller: 'homeController'
                 }
             }
+        })
+        .state('app.settings', {
+            url: '/settings',
+            views: {
+                'index@': {
+                    templateUrl: 'templates/settings.html'
+                }
+            }
+        })
+        .state('app.favourites', {
+            url: '/favourites',
+            views: {
+                'index@': {
+                    templateUrl: 'templates/favourites.html'
+                }
+            }
+        })
+        .state('app.admin', {
+            url: '/admin',
+            views: {
+                'index@': {
+                    templateUrl: 'templates/admin.html'
+                }
+            }
+        })
+        .state('app.dish', {
+            url: '/dishes/:id',
+            views: {
+                'index@': {
+                    templateUrl: 'templates/single.html',
+                    controller: 'singleController'
+                }
+            }
         });
+
+    // if none of the above states are matched, use this as the fallback
+    $urlRouterProvider.otherwise('/');
 });

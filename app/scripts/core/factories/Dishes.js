@@ -1,15 +1,22 @@
+'use strict';
 angular.module('Boom')
 
-.factory('Dishes', ['$http',
-	function($http) {
-		'use strict';
-
-		var getAllDishes = function() {
-			return $http.get('test_data/dishes.json');
-		};
-
+.factory('Dishes', ['$firebase',
+	function($firebase) {
 		return {
-			all: getAllDishes
+			getAll: function() {
+				var ref = new Firebase('https://mns-menu.firebaseio.com/dishes').orderByChild('week').equalTo(1);
+				var sync = $firebase(ref);
+				return sync.$asArray();
+
+			},
+			getOne: function(dishId) {
+				var ref = new Firebase('https://mns-menu.firebaseio.com/dishes/' + dishId);
+				var sync = $firebase(ref);
+
+				return sync.$asObject();
+			}
 		};
+
 	}
 ]);

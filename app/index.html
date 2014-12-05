@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html>
-  <head>
+<head>
     <meta charset="utf-8">
     <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
     <title>"Boom"</title>
@@ -13,40 +13,63 @@
     <!-- endbuild -->
 
     <!-- build:css({.tmp,app}) styles/main.css -->
-    <link rel="stylesheet" href="styles/core.css">
-    <link rel="stylesheet" href="styles/header.css">
-    <link rel="stylesheet" href="styles/home.css">
+    <link rel="stylesheet" href="styles/main.css">
     <!-- endbuild -->
-  </head>
+</head>
 
-  <body ng-app="Boom">
+<body ng-app="Boom">
 
-    <div ui-view="header"></div>
-    <div ui-view="home"></div>
+<ion-side-menus>
+    <!-- Center content -->
+    <ion-side-menu-content edge-drag-threshold="true">
+        <ion-pane>
+            <ion-nav-bar>
+                <ion-nav-back-button class="button-clear">
+                    <i class="ion-arrow-left-c"></i>
+                </ion-nav-back-button>
+            </ion-nav-bar>
 
-    <!-- build:js scripts/vendor.js -->
-    <!-- <script src="vendor/someContribJs.js"></script> -->
-    <!-- bower:js -->
-    <script src="libs/angular/angular.js"></script>
-    <script src="libs/angular-animate/angular-animate.js"></script>
-    <script src="libs/angular-sanitize/angular-sanitize.js"></script>
-    <script src="libs/angular-ui-router/release/angular-ui-router.js"></script>
-    <script src="libs/collide/collide.js"></script>
-    <script src="libs/ionic/release/js/ionic.js"></script>
-    <script src="libs/ionic/release/js/ionic-angular.js"></script>
+            <ion-nav-view animation="slide-left-right">
+                <div ui-view="index@"></div>
+            </ion-nav-view>
 
-    <!-- endbower -->
-    <!-- endbuild -->
+            <div ui-view="footer"></div>
+        </ion-pane>
+    </ion-side-menu-content>
 
-    <!-- cordova script (this will be a 404 during development) -->
-    <script src="cordova.js"></script>
+    <ion-side-menu side="left" ui-view="slideMenu"></ion-side-menu>
+</ion-side-menus>
 
-    <!-- build:js scripts/scripts.js -->
-    <script src="scripts/config.js"></script>
-    <script src="scripts/app.js"></script>
-    <script src="scripts/home/homeController.js"></script>
-    <script src="scripts/core/factories/Dishes.js"></script>
-    <script src="scripts/core/factories/Categories.js"></script>
-    <!-- endbuild -->
+<!-- build:js scripts/vendor.js -->
+<script src="cordova.js"></script>
+<script src="libs/angular/angular.js"></script>
+<script src="libs/angular-animate/angular-animate.js"></script>
+<script src="libs/angular-sanitize/angular-sanitize.js"></script>
+<script src="libs/angular-ui-router/release/angular-ui-router.js"></script>
+<script src="libs/ionic/release/js/ionic.js"></script>
+<script src="libs/ionic/release/js/ionic-angular.js"></script>
+
+<!-- bower:js -->
+<script src="libs/collide/collide.js"></script>
+<script src="libs/firebase/firebase.js"></script>
+<script src="libs/angularfire/dist/angularfire.js"></script>
+<!-- endbower -->
+<!-- endbuild -->
+
+<!-- build:js scripts/scripts.js -->
+<script src="scripts/app.js"></script>
+<script src="scripts/config.js"></script>
+
+
+<!-- Factories -->
+<script src="scripts/core/factories/Categories.js"></script>
+<script src="scripts/core/factories/Dishes.js"></script>
+<!-- Controllers -->
+<script src="scripts/home/homeController.js"></script>
+<script src="scripts/single/singleController.js"></script>
+<!-- Filters -->
+<!--<script src="scripts/core/filters/dashify.js"></script>-->
+<!-- endbuild -->
+
 </body>
 </html>

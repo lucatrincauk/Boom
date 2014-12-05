@@ -1,32 +1,11 @@
+'use strict';
 angular.module('Boom')
 
-.factory('Categories', ['$http', 'Dishes',
-    function($http, dishRepo) {
-        'use strict';
+.factory('Categories', ['$firebase',
+    function($firebase) {
 
-        function getAllCategories() {
-            return $http.get('test_data/categories.json').then(joinDishesToCategories);
-        }
-
-        function joinDishesToCategories(categories) {
-
-            dishRepo.all().then(function(dishes) {
-                angular.forEach(categories.data, function(category) {
-                    category.dishes = [];
-
-                    angular.forEach(dishes.data, function(dish) {
-                        if (dish.categoryId === category.id) {
-                            category.dishes.push(dish);
-                        }
-                    });
-                });
-            });
-
-            return categories;
-        }
-
-        return {
-            all: getAllCategories
-        };
+        var ref = new Firebase('https://mns-menu.firebaseio.com/categories');
+        var sync = $firebase(ref);
+        return sync.$asArray();
     }
 ]);
