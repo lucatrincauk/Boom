@@ -7,6 +7,13 @@ angular.module('Boom')
             Categories.$loaded().then(function() {
                 $scope.categories = Categories;
             });
+
+            // Load dishes
+            Dishes.getAll().$loaded().then(function(data) {
+                $scope.dishes = data;
+            });
+
+
             $scope.addDish = {};
 
             $scope.save = function() {
@@ -14,7 +21,6 @@ angular.module('Boom')
 
                 Dishes.saveDish($scope.addDish);
             };
-
 
 
         }

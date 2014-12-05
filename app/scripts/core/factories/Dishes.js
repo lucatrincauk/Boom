@@ -20,7 +20,7 @@ angular.module('Boom')
 				var ref = new Firebase('https://mns-menu.firebaseio.com/');
 
 				var dishRef = ref.child('dishes');
-				dishRef.child(data.title).update(data);
+				dishRef.child(data.id).update(data);
 			}
 		};
 
