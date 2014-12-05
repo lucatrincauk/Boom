@@ -49,7 +49,18 @@ angular.module('Boom', ['ionic', 'ui.router', 'firebase'])
             url: '/admin',
             views: {
                 'index@': {
-                    templateUrl: 'templates/admin.html'
+                    templateUrl: 'templates/admin.html',
+                    controller: 'adminController'
+                }
+            }
+        })
+        .state('app.admin.add-dish', {
+            url: '/dishes/add',
+            views: {
+                'index@': {
+                    templateUrl: 'templates/dish-add.html',
+                    controller: 'adminController'
+
                 }
             }
         })

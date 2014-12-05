@@ -4,20 +4,40 @@
 		<button menu-toggle="left" class="button button-icon icon ion-navicon"></button>
 	</ion-nav-buttons>
 
-    <ion-content class="has-header">
+    <ion-content class="has-header has-footer">
+      <ul class="list">
+
+        <div class="item item-divider">
+          Dishes
+         </div>
+
+        <a class="item" href="#" ui-sref="app.admin.add-dish">
+          Add a dish
+        </a>
+        <a class="item" href="#">
+          Edit a dish
+        </a>
+        <a class="item" href="#">
+          Remove a dish
+        </a>
+      </div>
       <div class="list">
-        <label class="item item-input">
-          <span class="input-label">Username</span>
-          <input type="text">
-        </label>
-        <label class="item item-input">
-          <span class="input-label">Password</span>
-          <input type="password" autocomplete="off">
-        </label>
+
+        <div class="item item-divider">
+          Users
+         </div>
+
+        <a class="item" href="#">
+          Add an user
+        </a>
+        <a class="item" href="#">
+          Edit an user
+        </a>
+        <a class="item" href="#">
+          Remove an user
+        </a>
       </div>
-      <div class="padding">
-        <button class="button button-block button-positive activated">Sign In</button>
-      </div>
+
 
     </ion-content>
 </ion-view>

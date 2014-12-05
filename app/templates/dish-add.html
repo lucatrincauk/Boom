@@ -1,0 +1,62 @@
+<ion-view title="Add a Dish">
+	<!-- Menu button -->
+	<ion-nav-buttons side="left">
+		<button menu-toggle="left" class="button button-icon icon ion-navicon"></button>
+	</ion-nav-buttons>
+
+    <ion-content class="has-header has-footer">
+      <div class="list">
+        <label class="item item-input item-stacked-label">
+          <span class="input-label">Dish Title</span>
+          <input type="text" placeholder="Pasta with something">
+        </label>
+        <label class="item item-input item-stacked-label">
+          <span class="input-label">Dish Description</span>
+          <input type="text" placeholder="Suhr">
+        </label>
+        <label class="item item-input item-stacked-label">
+          <span class="input-label">Image</span>
+          <input type="text" placeholder="Image.jpeg">
+        </label>
+
+        <label class="item item-input item-select">
+          <div class="input-label">
+            Category
+          </div>
+          <select>
+            <option value="{{category.$id}}" ng-repeat="category in categories">{{category.title}}</option>
+          </select>
+        </label>
+        <label class="item item-input item-select">
+          <div class="input-label">
+            Week
+          </div>
+          <select>
+          <option value="-" disabled selected>Select a week</option>
+            <option>1</option>
+            <option>2</option>
+            <option>3</option>
+            <option>4</option>
+          </select>
+        </label>
+        <label class="item item-input item-select">
+          <div class="input-label">
+            Day
+          </div>
+          <select>
+          <option value="-" disabled selected>Select a day</option>
+            <option value="0">Monday</option>
+            <option value="1">Tuesday</option>
+            <option value="2">Wednesday</option>
+            <option value="3">Thursday</option>
+            <option value="4">Friday</option>
+          </select>
+        </label>
+
+      </div>
+      <div class="padding">
+        <button class="button button-block button-positive activated">Add</button>
+      </div>
+
+    </ion-content>
+</ion-view>
