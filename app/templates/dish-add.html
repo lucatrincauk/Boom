@@ -17,7 +17,11 @@
         </label>
         <label class="item item-input item-stacked-label">
           <span class="input-label">Image</span>
-          <input ng-model="addDish.image" type="text" placeholder="Image.jpeg">
+          <input ng-model="addDish.images" type="text" placeholder="Image.jpeg">
+        </label>
+        <label class="item item-input item-stacked-label">
+          <span class="input-label">Thumbnail</span>
+          <input ng-model="addDish.thumb" type="text" placeholder="thumb.jpeg">
         </label>
 
         <label class="item item-input item-select">
@@ -25,7 +29,7 @@
             Category
           </div>
           <select ng-model="addDish.category">
-            <option value="{{category.$id}}" ng-repeat="category in categories">{{category.title}}</option>
+            <option value="{{category.title}}" ng-repeat="category in categories">{{category.title}}</option>
           </select>
         </label>
         <label class="item item-input item-select">

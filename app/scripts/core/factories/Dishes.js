@@ -5,7 +5,7 @@ angular.module('Boom')
 	function($firebase) {
 		return {
 			getAll: function() {
-				var ref = new Firebase('https://mns-menu.firebaseio.com/dishes').orderByChild('week').equalTo(1);
+				var ref = new Firebase('https://mns-menu.firebaseio.com/dishes').orderByChild('week').equalTo('1');
 				var sync = $firebase(ref);
 				return sync.$asArray();
 
