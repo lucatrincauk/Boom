@@ -3,6 +3,9 @@ angular.module('Boom')
         function($scope, Categories, Dishes) {
             'use strict';
 
+            // Immediately load Today to prevent flashing
+            $scope.dayName = 'Today';
+
             // Load dishes
             Dishes.getAll().$loaded().then(function(data) {
                 $scope.dishes = data;
