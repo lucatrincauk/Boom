@@ -1,51 +1,42 @@
-<ion-view title="Single">
-	<!-- Menu button -->
-	<ion-nav-buttons side="left">
-		<button menu-toggle="left" class="button button-icon icon ion-navicon"></button>
-	</ion-nav-buttons>
+<ion-view title="Dish">
+    <!-- Menu button -->
+    <ion-nav-buttons side="left">
+        <button menu-toggle="left" class="button button-icon icon ion-navicon"></button>
+    </ion-nav-buttons>
 
-	<ion-content class="has-header">
+    <ion-content class="has-header has-footer">
+        <div class="list card">
+            <div class="item item-avatar">
+                <img src="http://lorempixel.com/40/40/food/?v=0">
+                <h2>{{single.title}}</h2>
+                <p>November 05, 1955</p>
+            </div>
 
-		<div class="list card">
+            <div class="item item-body">
+                <img class="full-image" ng-src="{{single.images}}">
+                <p>
+                    {{single.description}}
+                </p>
+                <p>
+                    <a href="#" class="subdued">1 Like</a>
+                    <a href="#" class="subdued">5 Comments</a>
+                </p>
+            </div>
 
-		  <div class="item item-avatar">
-		    <img src="http://lorempixel.com/40/40/food/?v=0">
-		    <h2>{{single.title}}</h2>
-		    <p>November 05, 1955</p>
-		  </div>
-
-		  <div class="item item-body">
-		    <img class="full-image" ng-src="{{single.images}}">
-		    <p>
-				{{single.description}}
-		    </p>
-		    <p>
-		      <a href="#" class="subdued">1 Like</a>
-		      <a href="#" class="subdued">5 Comments</a>
-		    </p>
-		  </div>
-
-		  <div class="item tabs tabs-secondary tabs-icon-left">
-		    <a class="tab-item" href="#">
-		      <i class="icon ion-thumbsup"></i>
-		      Like
-		    </a>
-		    <a class="tab-item" href="#">
-		      <i class="icon ion-chatbox"></i>
-		      Comment
-		    </a>
-		    <a class="tab-item" href="#">
-		      <i class="icon ion-share"></i>
-		      Share
-		    </a>
-		  </div>
-
-		</div>
-
-	</ion-content>
-
-
-
-
-
+            <div class="item tabs tabs-secondary tabs-icon-left">
+                <a class="tab-item" href="#">
+                    <i class="icon ion-thumbsup"></i>
+                    Like
+                </a>
+                <a class="tab-item" href="#">
+                    <i class="icon ion-chatbox"></i>
+                    Comment
+                </a>
+                <a class="tab-item" href="#">
+                    <i class="icon ion-share"></i>
+                    Share
+                </a>
+            </div>
+        </div>
+    </ion-content>
 </ion-view>
