@@ -1,11 +1,11 @@
 'use strict';
 angular.module('Boom')
 
-.factory('Categories', ['$firebase',
-    function($firebase) {
+.factory('Categories', ['$firebase', 'FirebaseUrl',
+	function($firebase, FirebaseUrl) {
 
-        var ref = new Firebase('https://mns-menu.firebaseio.com/categories');
-        var sync = $firebase(ref);
-        return sync.$asArray();
-    }
+		var ref = new Firebase(FirebaseUrl).child('categories');
+		var sync = $firebase(ref);
+		return sync.$asArray();
+	}
 ]);

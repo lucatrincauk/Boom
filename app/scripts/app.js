@@ -1,5 +1,7 @@
 angular.module('Boom', ['ionic', 'ui.router', 'firebase'])
 
+.constant('FirebaseUrl', 'https://mns-menu.firebaseio.com/')
+
 .config(function($stateProvider, $urlRouterProvider) {
     'use strict';
 

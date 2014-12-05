@@ -1,10 +1,10 @@
 'use strict';
 angular.module('Boom')
 
-.factory('Dishes', ['$firebase',
-	function($firebase) {
+.factory('Dishes', ['$firebase', 'FirebaseUrl',
+	function($firebase, FirebaseUrl) {
 
-		var ref = new Firebase('https://mns-menu.firebaseio.com/dishes');
+		var ref = new Firebase(FirebaseUrl).child('dishes');
 
 		var getAll = function() {
 			ref.orderByChild('week').equalTo('1');
