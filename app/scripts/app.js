@@ -9,9 +9,6 @@ angular.module('Boom', ['ionic', 'ui.router', 'firebase'])
             url: '',
             abstract: true,
             views: {
-                'header': {
-                    templateUrl: 'templates/header.html'
-                },
                 'footer': {
                     templateUrl: 'templates/footer.html'
                 },
