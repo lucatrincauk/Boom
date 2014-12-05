@@ -32,7 +32,7 @@ angular.module('Boom', ['ionic', 'ui.router', 'firebase'])
 .config(function($stateProvider, $urlRouterProvider) {
 
     $stateProvider
-
+    // app
         .state('app', {
             url: '',
             abstract: true,
@@ -45,6 +45,7 @@ angular.module('Boom', ['ionic', 'ui.router', 'firebase'])
                 }
             }
         })
+        // app.home
         .state('app.home', {
             url: '/',
             views: {
@@ -52,8 +53,17 @@ angular.module('Boom', ['ionic', 'ui.router', 'firebase'])
                     templateUrl: 'templates/home.html',
                     controller: 'homeController'
                 }
+            },
+            resolve: {
+                dishes: function(Dishes) {
+                    return Dishes.getAll();
+                },
+                categories: function(Categories) {
+                    return Categories;
+                }
             }
         })
+        // app.settings
         .state('app.settings', {
             url: '/settings',
             views: {
@@ -62,6 +72,7 @@ angular.module('Boom', ['ionic', 'ui.router', 'firebase'])
                 }
             }
         })
+        // app.favourites
         .state('app.favourites', {
             url: '/favourites',
             views: {
@@ -70,12 +81,21 @@ angular.module('Boom', ['ionic', 'ui.router', 'firebase'])
                 }
             }
         })
+        // app.admin 
         .state('app.admin', {
             url: '/admin',
             views: {
                 'index@': {
                     templateUrl: 'templates/admin.html',
                     controller: 'adminController'
+                }
+            },
+            resolve: {
+                dishes: function(Dishes) {
+                    return Dishes.getAll();
+                },
+                categories: function(Categories) {
+                    return Categories;
                 }
             }
         })
@@ -86,6 +106,11 @@ angular.module('Boom', ['ionic', 'ui.router', 'firebase'])
                     templateUrl: 'templates/dish-add.html',
                     controller: 'adminController'
 
+                }
+            },
+            resolve: {
+                categories: function(Categories) {
+                    return Categories;
                 }
             }
         })
@@ -109,12 +134,18 @@ angular.module('Boom', ['ionic', 'ui.router', 'firebase'])
                 }
             }
         })
+        // app.dish
         .state('app.dish', {
             url: '/dishes/:id',
             views: {
                 'index@': {
                     templateUrl: 'templates/single.html',
                     controller: 'singleController'
+                }
+            },
+            resolve: {
+                dish: function(Dishes, $stateParams) {
+                    return Dishes.getOne($stateParams.id);
                 }
             }
         });

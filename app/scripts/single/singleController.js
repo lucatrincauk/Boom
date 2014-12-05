@@ -1,12 +1,9 @@
 angular.module('Boom')
-	.controller('singleController', ['$scope', '$stateParams', 'Dishes',
-		function($scope, $stateParams, Dishes) {
+	.controller('singleController', ['$scope', '$stateParams', 'dish',
+		function($scope, $stateParams, dish) {
 			'use strict';
 
-
-			Dishes.getOne($stateParams.id).$loaded().then(function(data) {
-				$scope.single = data;
-			});
+			$scope.single = dish;
 
 		}
 

@@ -1,45 +1,22 @@
 angular.module('Boom')
-    .controller('homeController', ['$scope', 'Categories', 'Dishes',
-        function($scope, Categories, Dishes) {
+    .controller('homeController', ['$scope', 'categories', 'dishes',
+        function($scope, categories, dishes) {
             'use strict';
 
             // Immediately load Today to prevent flashing
             $scope.dayName = 'Today';
 
-            // Load dishes
-            Dishes.getAll().$loaded().then(function(data) {
-                $scope.dishes = data;
-                $scope.init();
-            });
-            // Load categories
-            Categories.$loaded().then(function() {
-                $scope.categories = Categories;
-            });
+            // Assign data to scope
+            $scope.dishes = dishes;
+            $scope.categories = categories;
+
 
 
             var day, today;
 
             $scope.days = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday'];
 
-            $scope.init = function() {
-                // get today's date and remove sunday
-                today = new Date();
-                day = today.getDay() - 1;
 
-                // if it's weekend
-                if (day > 4) {
-                    // show closed message
-                    $scope.closed = true;
-                    // set view to Monday
-                    $scope.activeDay = 0;
-                } else {
-                    // otherwise set view to current day
-                    $scope.activeDay = day;
-                }
-
-                $scope.nameDays();
-
-            };
 
             $scope.nameDays = function() {
 
@@ -87,6 +64,27 @@ angular.module('Boom')
                 }
                 return $scope.activeDay;
             };
+
+
+            $scope.init = (function() {
+                // get today's date and remove sunday
+                today = new Date();
+                day = today.getDay() - 1;
+
+                // if it's weekend
+                if (day > 4) {
+                    // show closed message
+                    $scope.closed = true;
+                    // set view to Monday
+                    $scope.activeDay = 0;
+                } else {
+                    // otherwise set view to current day
+                    $scope.activeDay = day;
+                }
+
+                $scope.nameDays();
+
+            })();
 
 
         }

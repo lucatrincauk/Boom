@@ -1,17 +1,11 @@
 angular.module('Boom')
-    .controller('adminController', ['$scope', 'Categories', 'Dishes', '$filter', '$state', '$stateParams',
-        function($scope, Categories, Dishes, $filter, $state, $stateParams) {
+    .controller('adminController', ['$scope', 'categories', 'dishes', '$filter', '$state', '$stateParams',
+        function($scope, categories, dishes, $filter, $state, $stateParams) {
             'use strict';
 
             // Load categories
-            Categories.$loaded().then(function() {
-                $scope.categories = Categories;
-            });
-
-            // Load dishes
-            Dishes.getAll().$loaded().then(function(data) {
-                $scope.dishes = data;
-            });
+            $scope.categories = categories;
+            $scope.dishes = dishes;
 
 
             $scope.addDish = {};
@@ -19,7 +13,7 @@ angular.module('Boom')
             $scope.save = function() {
                 $scope.addDish.id = $filter('dashify')($scope.addDish.title);
 
-                Dishes.saveDish($scope.addDish);
+                //Dishes.saveDish($scope.addDish);
                 $state.go('app.admin.dishes');
             };
 
