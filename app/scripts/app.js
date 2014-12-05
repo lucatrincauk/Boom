@@ -54,7 +54,7 @@ angular.module('Boom', ['ionic', 'ui.router', 'firebase'])
                 }
             }
         })
-        .state('app.admin.add-dish', {
+        .state('app.admin.dishes.add', {
             url: '/dishes/add',
             views: {
                 'index@': {
@@ -69,6 +69,16 @@ angular.module('Boom', ['ionic', 'ui.router', 'firebase'])
             views: {
                 'index@': {
                     templateUrl: 'templates/admin-dishes.html',
+                    controller: 'adminController'
+
+                }
+            }
+        })
+        .state('app.admin.dishes.edit', {
+            url: '/edit',
+            views: {
+                'index@': {
+                    templateUrl: 'templates/dish-add.html',
                     controller: 'adminController'
 
                 }
