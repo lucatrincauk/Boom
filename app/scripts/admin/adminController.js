@@ -1,6 +1,6 @@
 angular.module('Boom')
-    .controller('adminController', ['$scope', 'Categories', 'Dishes', '$filter', '$state',
-        function($scope, Categories, Dishes, $filter, $state) {
+    .controller('adminController', ['$scope', 'Categories', 'Dishes', '$filter', '$state', '$stateParams',
+        function($scope, Categories, Dishes, $filter, $state, $stateParams) {
             'use strict';
 
             // Load categories
