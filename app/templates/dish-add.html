@@ -5,25 +5,26 @@
 	</ion-nav-buttons>
 
     <ion-content class="has-header has-footer">
+      <form id="addDish" ng-submit="save(addDish)">
       <div class="list">
         <label class="item item-input item-stacked-label">
           <span class="input-label">Dish Title</span>
-          <input type="text" placeholder="Pasta with something">
+          <input ng-model="addDish.title" type="text" placeholder="Cannelloni with Spinach">
         </label>
         <label class="item item-input item-stacked-label">
           <span class="input-label">Dish Description</span>
-          <input type="text" placeholder="Suhr">
+          <textarea ng-model="addDish.description" placeholder="Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cumque tempore debitis optio error deleniti."></textarea>
         </label>
         <label class="item item-input item-stacked-label">
           <span class="input-label">Image</span>
-          <input type="text" placeholder="Image.jpeg">
+          <input ng-model="addDish.image" type="text" placeholder="Image.jpeg">
         </label>
 
         <label class="item item-input item-select">
           <div class="input-label">
             Category
           </div>
-          <select>
+          <select ng-model="addDish.category">
             <option value="{{category.$id}}" ng-repeat="category in categories">{{category.title}}</option>
           </select>
         </label>
@@ -31,7 +32,7 @@
           <div class="input-label">
             Week
           </div>
-          <select>
+          <select ng-model="addDish.week">
           <option value="-" disabled selected>Select a week</option>
             <option>1</option>
             <option>2</option>
@@ -43,7 +44,7 @@
           <div class="input-label">
             Day
           </div>
-          <select>
+          <select ng-model="addDish.day">
           <option value="-" disabled selected>Select a day</option>
             <option value="0">Monday</option>
             <option value="1">Tuesday</option>
@@ -55,8 +56,10 @@
 
       </div>
       <div class="padding">
-        <button class="button button-block button-positive activated">Add</button>
+        <button type="submit" class="button button-block button-positive activated">Add</button>
       </div>
 
+      {{addDish}}
+      </form>
     </ion-content>
 </ion-view>

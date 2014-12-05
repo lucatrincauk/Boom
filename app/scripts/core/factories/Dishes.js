@@ -15,6 +15,12 @@ angular.module('Boom')
 				var sync = $firebase(ref);
 
 				return sync.$asObject();
+			},
+			saveDish: function(data) {
+				var ref = new Firebase('https://mns-menu.firebaseio.com/');
+
+				var dishRef = ref.child('dishes');
+				dishRef.child(data.title).update(data);
 			}
 		};
 
