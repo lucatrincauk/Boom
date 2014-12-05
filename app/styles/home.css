@@ -1,15 +1,27 @@
-.dish-thumb {
+/*.dish-thumb {
   border-radius: 3px;
   padding: 2px;
   border: solid 1px #d3d3d3;
   margin: 0px 10px 10px 0px;
 }
-
+*/
 .dish-item {
   overflow: hidden;
+  position: absolute;
+  bottom: 0;
+  background: rgba(89, 89, 89, 0.43);
+  padding-left: 1em;
+  color: white;
+  padding-bottom: .4em;
+  padding-top: 0.3em;
+  width: 100%;
+  text-shadow:  1px 1px 1px #515151;
 }
 .dish-item h2 {
   margin-bottom: 5px;
+  color: #fff;
+  font-size: 1.2em;
+  white-space: normal;
 }
 .dish-item em {
   font-size: 13px;
@@ -27,4 +39,26 @@
 }
 .star-rating .icon {
     font-size: 20px;
+}
+.plain-and-simple a.item, .accompaniments a.item {
+width: 33.7%;
+float: left;
+}
+
+.soup-accompaniments a.item {
+width: 50%;
+float: left;
+}
+a.item {
+  padding:0;
+  border: 0;
+}
+.soup-accompaniments h2 {
+  font-size: 1em;
+}
+.plain-and-simple h2, .accompaniments h2 {
+  font-size: .9em;
+}
+.menu-list .dish-list {
+  padding: 0;
 }

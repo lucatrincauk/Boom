@@ -358,30 +358,30 @@ module.exports = function(grunt) {
             ]
         },
 
-        protractor: {
-            options: {
-                keepAlive: true,
-                configFile: 'protractor.conf.js',
-                noColor: false
-            },
-            all: {
-                options: {
-                    configFile: 'protractor.conf.js'
-                }
-            }
-        },
+        // protractor: {
+        //     options: {
+        //         keepAlive: true,
+        //         configFile: 'protractor.conf.js',
+        //         noColor: false
+        //     },
+        //     all: {
+        //         options: {
+        //             configFile: 'protractor.conf.js'
+        //         }
+        //     }
+        // },
 
-        // Test settings
-        karma: {
-            unit: {
-                configFile: 'karma.conf.js',
-                singleRun: true
-            },
-            continuous: {
-                browsers: ['PhantomJS'],
-                singleRun: true
-            }
-        },
+        // // Test settings
+        // karma: {
+        //     unit: {
+        //         configFile: 'karma.conf.js',
+        //         singleRun: true
+        //     },
+        //     continuous: {
+        //         browsers: ['PhantomJS'],
+        //         singleRun: true
+        //     }
+        // },
 
         // ngAnnotate tries to make the code safe for minification automatically by
         // using the Angular long form for dependency injection.
@@ -492,25 +492,25 @@ module.exports = function(grunt) {
         ]);
     });
 
-    grunt.registerTask('test', function(target) {
+    // grunt.registerTask('test', function(target) {
 
-        if (target === 'unit') {
-            grunt.task.run([
-                'clean:server',
-                'concurrent:test',
-                'autoprefixer',
-                'karma:unit'
-            ]);
-        } else if (target === 'e2e') {
-            grunt.task.run([
-                'clean:server',
-                'concurrent:test',
-                'autoprefixer',
-                'connect:test',
-                'protractor'
-            ]);
-        }
-    });
+    //     if (target === 'unit') {
+    //         grunt.task.run([
+    //             'clean:server',
+    //             'concurrent:test',
+    //             'autoprefixer',
+    //             'karma:unit'
+    //         ]);
+    //     } else if (target === 'e2e') {
+    //         grunt.task.run([
+    //             'clean:server',
+    //             'concurrent:test',
+    //             'autoprefixer',
+    //             'connect:test',
+    //             'protractor'
+    //         ]);
+    //     }
+    // });
 
     grunt.registerTask('build', [
         'clean:dist',
@@ -526,8 +526,8 @@ module.exports = function(grunt) {
         'uglify',
         'usemin',
         'htmlmin',
-        'cordova:build',
-        'doc'
+        'cordova:build'
+        //'doc'
     ]);
 
     // Used for delaying livereload until after server has restarted
@@ -551,13 +551,13 @@ module.exports = function(grunt) {
         'karma:continuous',
         'build'
     ]);
-    grunt.registerTask('doc', 'Generate documentation', function() {
-        var done;
-        done = this.async();
-        grunt.log.writeln('Generating Documentation...');
-        return require('child_process').spawn('./node_modules/.bin/groc', ['lib/*.js', 'README.md']).on('exit', function() {
-            grunt.log.writeln('...done!');
-            return done();
-        });
-    });
+    // grunt.registerTask('doc', 'Generate documentation', function() {
+    //     var done;
+    //     done = this.async();
+    //     grunt.log.writeln('Generating Documentation...');
+    //     return require('child_process').spawn('./node_modules/.bin/groc', ['lib/*.js', 'README.md']).on('exit', function() {
+    //         grunt.log.writeln('...done!');
+    //         return done();
+    //     });
+    // });
 };

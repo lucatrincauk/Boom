@@ -1,4 +1,4 @@
-angular.module('Boom', ['ionic', 'ui.router', 'restangular', 'ionic.rating'])
+angular.module('Boom', ['ionic', 'ui.router', 'firebase'])
 
 .config(function($stateProvider, $urlRouterProvider) {
     'use strict';
@@ -10,13 +10,13 @@ angular.module('Boom', ['ionic', 'ui.router', 'restangular', 'ionic.rating'])
             abstract: true,
             views: {
                 'header': {
-                    templateUrl: '/templates/header.html'
+                    templateUrl: 'templates/header.html'
                 },
                 'footer': {
-                    templateUrl: '/templates/footer.html'
+                    templateUrl: 'templates/footer.html'
                 },
                 'slideMenu': {
-                    templateUrl: '/templates/slide-menu.html'
+                    templateUrl: 'templates/slide-menu.html'
                 }
             }
         })
@@ -24,11 +24,8 @@ angular.module('Boom', ['ionic', 'ui.router', 'restangular', 'ionic.rating'])
             url: '/',
             views: {
                 'index@': {
-                    templateUrl: '/templates/home.html',
+                    templateUrl: 'templates/home.html',
                     controller: 'homeController'
-                },
-                'subheader@': {
-                    templateUrl: '/templates/subheader.html'
                 }
             }
         })
@@ -36,7 +33,7 @@ angular.module('Boom', ['ionic', 'ui.router', 'restangular', 'ionic.rating'])
             url: '/settings',
             views: {
                 'index@': {
-                    templateUrl: '/templates/settings.html'
+                    templateUrl: 'templates/settings.html'
                 }
             }
         })
@@ -44,7 +41,7 @@ angular.module('Boom', ['ionic', 'ui.router', 'restangular', 'ionic.rating'])
             url: '/favourites',
             views: {
                 'index@': {
-                    templateUrl: '/templates/favourites.html'
+                    templateUrl: 'templates/favourites.html'
                 }
             }
         })
@@ -52,15 +49,15 @@ angular.module('Boom', ['ionic', 'ui.router', 'restangular', 'ionic.rating'])
             url: '/admin',
             views: {
                 'index@': {
-                    templateUrl: '/templates/admin.html'
+                    templateUrl: 'templates/admin.html'
                 }
             }
         })
         .state('app.dish', {
-            url: '/dishes/:title',
+            url: '/dishes/:id',
             views: {
                 'index@': {
-                    templateUrl: '/templates/single.html',
+                    templateUrl: 'templates/single.html',
                     controller: 'singleController'
                 }
             }

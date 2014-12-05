@@ -1,11 +1,13 @@
 angular.module('Boom')
-    .controller('singleController', ['$scope',
-        function($scope) {
-            'use strict';
-
-            $scope.title = 'Single page';
+	.controller('singleController', ['$scope', '$stateParams', 'Dishes',
+		function($scope, $stateParams, Dishes) {
+			'use strict';
 
 
+			Dishes.getOne($stateParams.id).$loaded().then(function(data) {
+				$scope.single = data;
+			});
 
-        }
-    ]);
+		}
+
+	]);

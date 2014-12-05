@@ -1,12 +1,15 @@
 <?xml version='1.0' encoding='utf-8'?>
 <widget id="com.example.Boom" version="0.0.1" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
-    <name>Boom</name>
+    <name>BOOM</name>
     <description>
-        A sample Apache Cordova application that responds to the deviceready event.
+        Best Of Office Menus
     </description>
     <author email="dev@cordova.apache.org" href="http://cordova.io">
-        Apache Cordova Team
+        RAT (Restaurant App Team)
     </author>
     <content src="index.html" />
     <access origin="*" />
+    <icon src="rat.png" /> 
+    <preference name="SplashScreen" value="screen" />
+    <preference name="SplashScreenDelay" value="5000" />
 </widget>
