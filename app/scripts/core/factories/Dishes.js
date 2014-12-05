@@ -3,25 +3,30 @@ angular.module('Boom')
 
 .factory('Dishes', ['$firebase',
 	function($firebase) {
+
+		var ref = new Firebase('https://mns-menu.firebaseio.com/dishes');
+
+		var getAll = function() {
+			ref.orderByChild('week').equalTo('1');
+			var sync = $firebase(ref);
+			return sync.$asArray();
+		};
+
+		var getOne = function(dishId) {
+			var refSingle = ref.child(dishId);
+			var sync = $firebase(refSingle);
+
+			return sync.$asObject();
+		};
+
+		var saveDish = function(data) {
+			ref.child(data.id).update(data);
+		};
+
 		return {
-			getAll: function() {
-				var ref = new Firebase('https://mns-menu.firebaseio.com/dishes').orderByChild('week').equalTo('1');
-				var sync = $firebase(ref);
-				return sync.$asArray();
-
-			},
-			getOne: function(dishId) {
-				var ref = new Firebase('https://mns-menu.firebaseio.com/dishes/' + dishId);
-				var sync = $firebase(ref);
-
-				return sync.$asObject();
-			},
-			saveDish: function(data) {
-				var ref = new Firebase('https://mns-menu.firebaseio.com/');
-
-				var dishRef = ref.child('dishes');
-				dishRef.child(data.id).update(data);
-			}
+			getAll: getAll,
+			getOne: getOne,
+			saveDish: saveDish
 		};
 
 	}
