@@ -3,6 +3,7 @@ angular.module('Boom', ['ionic', 'ui.router', 'firebase'])
     .run(function($rootScope) {
         // get today's date and remove sunday
         $rootScope.day = new Date().getDay() - 1;
+        $rootScope.canteenName = 'Waterside';
     })
     //set Firebase Url
     .constant('FirebaseUrl', 'https://mns-menu.firebaseio.com/')
