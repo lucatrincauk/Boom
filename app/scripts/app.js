@@ -1,8 +1,13 @@
 'use strict';
 angular.module('Boom', ['ionic', 'ui.router', 'firebase'])
-
-.constant('FirebaseUrl', 'https://mns-menu.firebaseio.com/')
+    .run(function($rootScope) {
+        // get today's date and remove sunday
+        $rootScope.day = new Date().getDay() - 1;
+    })
+    //set Firebase Url
+    .constant('FirebaseUrl', 'https://mns-menu.firebaseio.com/')
     .config(function($httpProvider) {
+        // intercept loading for XHR and show veil until done
         $httpProvider.interceptors.push(function($rootScope) {
             return {
                 request: function(config) {
@@ -18,12 +23,13 @@ angular.module('Boom', ['ionic', 'ui.router', 'firebase'])
     })
 
 .run(function($rootScope, $ionicLoading) {
+    // show veil when xhr starts
     $rootScope.$on('loading:show', function() {
         $ionicLoading.show({
             template: 'Loading...'
         });
     });
-
+    // remove veil when done
     $rootScope.$on('loading:hide', function() {
         $ionicLoading.hide();
     });
