@@ -143,7 +143,7 @@ angular.module('Boom', ['ionic', 'ui.router', 'firebase'])
         })
         // app.dish
         .state('app.dish', {
-            url: '/dishes/:id',
+            url: '/dishes/:category/:id',
             views: {
                 'index@': {
                     templateUrl: 'templates/single.html',
