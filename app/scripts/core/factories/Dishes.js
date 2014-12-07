@@ -20,7 +20,23 @@ angular.module('Boom')
 		};
 
 		var saveDish = function(data) {
-			ref.child(data.id).update(data);
+			ref.child(data.$id).update({
+					category: data.category,
+					day: data.day,
+					id: data.id,
+					images: data.images,
+					slug: data.slug,
+					thumb: data.thumb,
+					week: data.week
+				},
+				function(error) {
+					if (error) {
+						console.log('Data could not be saved.' + error);
+					} else {
+						console.log('Data saved successfully.');
+					}
+				}
+			);
 		};
 
 		return {

@@ -8,9 +8,8 @@ angular.module('Boom')
             $scope.categories = categories;
             $scope.editDish = dish;
 
-
             $scope.save = function() {
-
+                $scope.editDish.id = $filter('dashify')($scope.editDish.slug);
                 Dishes.saveDish($scope.editDish);
             };
 
