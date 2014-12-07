@@ -14,7 +14,7 @@
     </div>
       <div class="list">
           <a ui-sref="app.admin.dishes.edit({ id: (dish.$id)})" ng-repeat="dish in dishes | orderBy: 'dish.id' | filter:search" class="item item-icon-right" href="#">
-              {{dish.title}}
+              {{dish.slug}}
               <i class="icon ion-edit"></i>
           </a>
       </div>

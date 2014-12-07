@@ -110,18 +110,16 @@ angular.module('Boom', ['ionic', 'ui.router', 'firebase'])
             url: '/dishes',
             views: {
                 'index@': {
-                    templateUrl: 'templates/admin-dishes.html',
-                    controller: 'adminController'
-
+                    templateUrl: 'templates/admin-dishes.html'
                 }
             }
         })
         .state('app.admin.dishes.add', {
-            url: '/dishes/add',
+            url: '/add',
             views: {
                 'index@': {
                     templateUrl: 'templates/admin-dishes-add.html',
-                    controller: 'adminController'
+                    controller: 'adminAddDishController'
 
                 }
             },
@@ -135,9 +133,14 @@ angular.module('Boom', ['ionic', 'ui.router', 'firebase'])
             url: '/edit/:id',
             views: {
                 'index@': {
-                    templateUrl: 'templates/dish-add.html',
-                    controller: 'adminController'
+                    templateUrl: 'templates/admin-dishes-edit.html',
+                    controller: 'adminEditDishController'
 
+                }
+            },
+            resolve: {
+                dish: function(Dishes, $stateParams) {
+                    return Dishes.getOne($stateParams.id);
                 }
             }
         })
