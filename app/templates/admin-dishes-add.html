@@ -37,7 +37,7 @@
             Category
           </div>
           <select ng-model="addDish.category">
-            <option value="{{category.title}}" ng-repeat="category in categories">{{category.title}}</option>
+            <option value="{{category.$id}}" ng-repeat="category in categories">{{category.title}}</option>
           </select>
         </label>
         <label class="item item-input item-select">
