@@ -29,10 +29,10 @@
                 </ion-nav-back-button>
             </ion-nav-bar>
 
-            <ion-nav-view animation="slide-left-right">
-                <div ui-view="index@"></div>
+            <ion-nav-view name="index@" animation="slide-left-right">
             </ion-nav-view>
-            <div ui-view="footer"></div>
+            <ion-nav-view name="footer" animation="slide-left-right">
+            </ion-nav-view>
         </ion-pane>
     </ion-side-menu-content>
     <ion-side-menu side="left" ui-view="slideMenu"></ion-side-menu>
