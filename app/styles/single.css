@@ -1,0 +1,42 @@
+.single .item-avatar .item-avatar-icon {
+	display: block;
+	width: 2.4em;
+	height: 2.4em;
+	background-size: 100%;
+	float: left;
+	margin-right: .5em;
+}
+.single .item-avatar .item-avatar-icon.simple-soup {
+	background-image: url('../images/food-icons/128px/136.png');
+}
+.single .item-avatar .item-avatar-icon.accompaniments {
+	background-image: url('../images/food-icons/128px/143.png');
+}
+.single .item-avatar .item-avatar-icon.jacket-potatoes {
+	background-image: url('../images/food-icons/128px/42.png');
+}
+.single .item-avatar .item-avatar-icon.plain-and-simple {
+	background-image: url('../images/food-icons/128px/133.png');
+}
+.single .item-avatar .item-avatar-icon.protein-soup {
+	background-image: url('../images/food-icons/128px/123.png');
+}
+.single .item-avatar .item-avatar-icon.bistro {
+	background-image: url('../images/food-icons/128px/150.png');
+}
+.single .item-avatar .item-avatar-icon.rotisserie {
+	background-image: url('../images/food-icons/128px/61.png');
+}
+.single .item-avatar .item-avatar-icon.soup-accompaniments {
+	background-image: url('../images/food-icons/128px/130.png');
+}
+.single .item-avatar .item-avatar-icon.theatre-bar {
+	background-image: url('../images/food-icons/128px/127.png');
+}
+.single .item-avatar .item-avatar-icon.vegetarian {
+	background-image: url('../images/food-icons/128px/26.png');
+}
+
+.single .item-avatar {
+	padding-left: 16px;
+}
