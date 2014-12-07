@@ -8,12 +8,20 @@
       <form name="addDishForm" ng-submit="save(addDish)">
       <div class="list">
         <label class="item item-input item-stacked-label">
-          <span class="input-label">Dish Title</span>
-          <input ng-model="addDish.title" type="text" placeholder="Cannelloni with Spinach">
+          <span class="input-label">Dish Headline</span>
+          <input ng-model="addDish.slug" type="text" placeholder="Moroccan Pitta Pockets">
         </label>
         <label class="item item-input item-stacked-label">
-          <span class="input-label">Dish Description</span>
-          <textarea ng-model="addDish.description" placeholder="Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cumque tempore debitis optio error deleniti."></textarea>
+          <span class="input-label">Dish Title</span>
+          <input ng-model="addDish.title" type="text" placeholder="Spiced Lamb Koftas or Freshly Prepared Falafels">
+        </label>
+        <label class="item item-input item-stacked-label">
+          <span class="input-label">Dish comes with:</span>
+          <input type="text" ng-model="addDish.with" placeholder="Fries and Vegs"></input>
+        </label>
+        <label class="item item-input item-stacked-label">
+          <span class="input-label">Dish addons:</span>
+          <input type="text" ng-model="addDish.addons" placeholder="Fries and Vegs"></input>
         </label>
         <label class="item item-input item-stacked-label">
           <span class="input-label">Image</span>
