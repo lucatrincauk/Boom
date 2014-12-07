@@ -62,3 +62,7 @@ float: left;
 .menu-list .dish-list {
   padding: 0;
 }
+.item .dish-thumb {
+  width: 100%;
+  max-height: 8em;
+}
