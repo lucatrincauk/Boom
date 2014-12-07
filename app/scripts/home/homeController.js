@@ -3,15 +3,9 @@ angular.module('Boom')
         function($scope, $rootScope, categories, dishes, $filter) {
             'use strict';
 
-            // Immediately load Today to prevent flashing
-            $scope.dayName = 'Today';
-
             // Assign data to scope
             $scope.dishes = dishes;
             $scope.categories = categories;
-
-            $scope.days = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday'];
-
 
 
             $scope.nameDays = function() {
