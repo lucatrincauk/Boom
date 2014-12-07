@@ -10,6 +10,10 @@ angular.module('Boom').filter('dayfy', ['$rootScope', function($rootScope) {
 
 
 	return function(activeDay) {
+		// prevent undefined while running filters for the first time
+		if (!activeDay || !activeDay.length) {
+			return;
+		}
 		switch ($rootScope.day - activeDay) {
 			// If view is same as current day, set it as Today
 			case 0:
