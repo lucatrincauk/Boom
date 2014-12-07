@@ -70,9 +70,8 @@ angular.module('Boom')
                 // get today's date and remove sunday
                 today = new Date();
                 day = today.getDay() - 1;
-
-                // if it's weekend
-                if (day > 4) {
+                // if it's weekend (sat: day = 5, sun: day = -1)
+                if (day > 4 || day < 0) {
                     // show closed message
                     $scope.closed = true;
                     // set view to Monday
