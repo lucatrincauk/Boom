@@ -1,13 +1,13 @@
-<ion-view title="{{single.category | undashify}}">
+<ion-view title="{{single.category | undashify}}" class="single {{single.category}}">
     <!-- Menu button -->
     <ion-nav-buttons side="left">
         <button menu-toggle="left" class="button button-icon icon ion-navicon"></button>
     </ion-nav-buttons>
 
-    <ion-content class="has-header has-footer single">
+    <ion-content class="has-header has-footer">
         <div class="list card">
             <div class="item item-avatar">
-                <span class="item-avatar-icon {{single.category}}"></span>
+                <span class="category-icon"></span>
                 <h2>{{single.slug}}</h2>
                 <p>{{single.day | dayfy}} at {{canteenName}}</p>
             </div>
