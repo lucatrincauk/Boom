@@ -36,23 +36,6 @@ module.exports = function(grunt) {
             all: localConfig
         },
 
-        express: {
-            options: {
-                port: process.env.PORT || 9000
-            },
-            dev: {
-                options: {
-                    script: 'server/app.js',
-                    debug: true
-                }
-            },
-            prod: {
-                options: {
-                    script: 'server/app.js'
-                }
-            }
-        },
-
         // Project settings
         yeoman: {
             // configurable paths
@@ -60,12 +43,6 @@ module.exports = function(grunt) {
             scripts: 'scripts',
             styles: 'styles',
             images: 'images'
-        },
-
-        open: {
-            server: {
-                url: 'http://localhost:<%= express.options.port %>'
-            }
         },
 
         // Environment Variables for Angular App
@@ -131,16 +108,6 @@ module.exports = function(grunt) {
                     '.tmp/<%= yeoman.styles %>/**/*.css',
                     '<%= yeoman.app %>/<%= yeoman.images %>/**/*.{png,jpg,jpeg,gif,webp,svg}'
                 ]
-            },
-            express: {
-                files: [
-                    'server/**/*.{js,json}'
-                ],
-                tasks: ['express:dev', 'wait'],
-                options: {
-                    livereload: true,
-                    nospawn: true //Without this option specified express won't be reloaded
-                }
             }
         },
 
@@ -148,7 +115,6 @@ module.exports = function(grunt) {
         connect: {
             options: {
                 port: 9000,
-                // Change this to '0.0.0.0' to access the server from outside.
                 hostname: 'localhost',
                 livereload: 35729
             },
@@ -394,15 +360,7 @@ module.exports = function(grunt) {
                     dest: '.tmp/concat/<%= yeoman.scripts %>'
                 }]
             }
-        },
-
-        // sass: {
-        //     dist: {
-        //         files: {
-        //             '.tmp/styles/main.css': 'app/styles/main.scss'
-        //         }
-        //     }
-        // }
+        }
     });
 
     // Register tasks for all Cordova commands, but namespace
@@ -485,9 +443,7 @@ module.exports = function(grunt) {
             'concurrent:server',
             'wiredep',
             'autoprefixer',
-            'express:dev',
-            'wait',
-            'open',
+            'connect:livereload',
             'watch'
         ]);
     });
@@ -529,18 +485,6 @@ module.exports = function(grunt) {
         'cordova:build'
         //'doc'
     ]);
-
-    // Used for delaying livereload until after server has restarted
-    grunt.registerTask('wait', function() {
-        grunt.log.ok('Waiting for server reload...');
-
-        var done = this.async();
-
-        setTimeout(function() {
-            grunt.log.writeln('Done waiting!');
-            done();
-        }, 1500);
-    });
 
     grunt.registerTask('cordova', ['copy:all', 'cordova:build']);
 
