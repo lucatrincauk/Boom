@@ -3,6 +3,6 @@
  angular.module('config', [])
 
 .constant('ENV', {
-  'name': 'development',
+  'name': 'production',
   'apiEndpoint': 'http://dev.yoursite.com:10000/'
 });

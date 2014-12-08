@@ -29,10 +29,10 @@
                 </ion-nav-back-button>
             </ion-nav-bar>
 
-            <ion-nav-view animation="slide-left-right">
-                <div ui-view="index@"></div>
+            <ion-nav-view name="index@" animation="slide-left-right">
             </ion-nav-view>
-            <div ui-view="footer"></div>
+            <ion-nav-view name="footer" animation="slide-left-right">
+            </ion-nav-view>
         </ion-pane>
     </ion-side-menu-content>
     <ion-side-menu side="left" ui-view="slideMenu"></ion-side-menu>
@@ -65,8 +65,13 @@
 <!-- Controllers -->
 <script src="scripts/home/homeController.js"></script>
 <script src="scripts/single/singleController.js"></script>
+<script src="scripts/admin/adminDishesController.js"></script>
+<script src="scripts/admin/adminAddDishController.js"></script>
+<script src="scripts/admin/adminEditDishController.js"></script>
 <!-- Filters -->
-<!--<script src="scripts/core/filters/dashify.js"></script>-->
+<script src="scripts/core/filters/dashify.js"></script>
+<script src="scripts/core/filters/undashify.js"></script>
+<script src="scripts/core/filters/dayfy.js"></script>
 <!-- endbuild -->
 
 </body>

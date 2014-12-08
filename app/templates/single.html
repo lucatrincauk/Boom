@@ -1,4 +1,4 @@
-<ion-view title="Dish">
+<ion-view title="{{single.category | undashify}}" class="single {{single.category}}">
     <!-- Menu button -->
     <ion-nav-buttons side="left">
         <button menu-toggle="left" class="button button-icon icon ion-navicon"></button>
@@ -7,34 +7,41 @@
     <ion-content class="has-header has-footer">
         <div class="list card">
             <div class="item item-avatar">
-                <img src="http://lorempixel.com/40/40/food/?v=0">
-                <h2>{{single.title}}</h2>
-                <p>November 05, 1955</p>
+                <span class="category-icon"></span>
+                <h2>{{single.slug}}</h2>
+                <p>{{single.day | dayfy}} at {{canteenName}}</p>
             </div>
 
             <div class="item item-body">
                 <img class="full-image" ng-src="{{single.images}}">
-                <p>
-                    {{single.description}}
+                <h2>{{single.title}}</h2>
+
+                <p ng-show="single.with">
+                    <i class="icon ion-checkmark-circled "></i> {{single.with}}
+                </p>
+                {{single.addons.length}}
+                <p ng-show="single.addons">
+                <i class="icon ion-plus-circled "></i>
+                    {{single.addons}}
                 </p>
                 <p>
-                    <a href="#" class="subdued">1 Like</a>
+                    <a href="#" class="subdued">2 Favourites</a>
                     <a href="#" class="subdued">5 Comments</a>
                 </p>
             </div>
 
             <div class="item tabs tabs-secondary tabs-icon-left">
                 <a class="tab-item" href="#">
-                    <i class="icon ion-thumbsup"></i>
-                    Like
+                    <i class="icon ion-heart"></i>
+                    Favourite
+                </a>
+                <a class="tab-item" href="#">
+                    <i class="icon ion-star"></i>
+                    Rate
                 </a>
                 <a class="tab-item" href="#">
                     <i class="icon ion-chatbox"></i>
                     Comment
-                </a>
-                <a class="tab-item" href="#">
-                    <i class="icon ion-share"></i>
-                    Share
                 </a>
             </div>
         </div>

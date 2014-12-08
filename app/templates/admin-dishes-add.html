@@ -1,0 +1,76 @@
+<ion-view title="Add a Dish">
+	<!-- Menu button -->
+	<ion-nav-buttons side="left">
+		<button menu-toggle="left" class="button button-icon icon ion-navicon"></button>
+	</ion-nav-buttons>
+
+    <ion-content class="has-header has-footer">
+      <form name="addDishForm" ng-submit="save(addDish)">
+      <div class="list">
+
+      {{editDish.slug}}
+        <label class="item item-input item-stacked-label">
+          <span class="input-label">Dish Headline</span>
+          <input ng-model="addDish.slug" type="text" placeholder="Moroccan Pitta Pockets">
+        </label>
+        <label class="item item-input item-stacked-label">
+          <span class="input-label">Dish Title</span>
+          <input ng-model="addDish.title" type="text" placeholder="Spiced Lamb Koftas or Freshly Prepared Falafels">
+        </label>
+        <label class="item item-input item-stacked-label">
+          <span class="input-label">Dish comes with:</span>
+          <input type="text" ng-model="addDish.with" placeholder="Fries and Vegs"></input>
+        </label>
+        <label class="item item-input item-stacked-label">
+          <span class="input-label">Dish addons:</span>
+          <input type="text" ng-model="addDish.addons" placeholder="Fries and Vegs"></input>
+        </label>
+        <label class="item item-input item-stacked-label">
+          <span class="input-label">Image</span>
+          <input ng-model="addDish.images" type="text" placeholder="Image.jpeg">
+        </label>
+        <label class="item item-input item-stacked-label">
+          <span class="input-label">Thumbnail</span>
+          <input ng-model="addDish.thumb" type="text" placeholder="thumb.jpeg">
+        </label>
+
+        <label class="item item-input item-select">
+          <div class="input-label">
+            Category
+          </div>
+          <select ng-model="addDish.category">
+            <option value="{{category.$id}}" ng-repeat="category in categories">{{category.title}}</option>
+          </select>
+        </label>
+        <label class="item item-input item-select">
+          <div class="input-label">
+            Week
+          </div>
+          <select ng-model="addDish.week">
+            <option>1</option>
+            <option>2</option>
+            <option>3</option>
+            <option>4</option>
+          </select>
+        </label>
+        <label class="item item-input item-select">
+          <div class="input-label">
+            Day
+          </div>
+          <select ng-model="addDish.day">
+            <option value="0">Monday</option>
+            <option value="1">Tuesday</option>
+            <option value="2">Wednesday</option>
+            <option value="3">Thursday</option>
+            <option value="4">Friday</option>
+          </select>
+        </label>
+
+      </div>
+      <div class="padding">
+        <button type="submit" class="button button-block button-positive activated">Add</button>
+      </div>
+
+      </form>
+    </ion-content>
+</ion-view>
