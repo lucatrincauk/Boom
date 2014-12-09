@@ -4,14 +4,24 @@ angular.module('Boom')
 .factory('Dishes', ['$firebase', 'FirebaseUrl',
 	function($firebase, FirebaseUrl) {
 
+
+
+		var weekCycle = function() {
+			var week = '1';
+			return week;
+		};
+
 		var ref = new Firebase(FirebaseUrl).child('dishes');
 
 		var getAll = function() {
-			ref.orderByChild('week').equalTo('1');
 			var sync = $firebase(ref);
 			return sync.$asArray();
 		};
-
+		var getWeekly = function() {
+			var ref = new Firebase(FirebaseUrl).child('dishes').orderByChild('week').equalTo(weekCycle());
+			var sync = $firebase(ref);
+			return sync.$asArray();
+		};
 		var getOne = function(dishId) {
 			var refSingle = ref.child(dishId);
 			var sync = $firebase(refSingle);
@@ -44,8 +54,9 @@ angular.module('Boom')
 
 		return {
 			getAll: getAll,
+			getWeekly: getWeekly,
 			getOne: getOne,
-			saveDish: saveDish
+			saveDish: saveDish,
 		};
 
 	}

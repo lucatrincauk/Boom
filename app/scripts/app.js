@@ -63,7 +63,7 @@ angular.module('Boom', ['ionic', 'ui.router', 'firebase'])
             },
             resolve: {
                 dishes: function(Dishes) {
-                    return Dishes.getAll();
+                    return Dishes.getWeekly();
                 },
                 categories: function(Categories) {
                     return Categories;
