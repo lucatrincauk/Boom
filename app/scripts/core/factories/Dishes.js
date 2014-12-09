@@ -4,11 +4,30 @@ angular.module('Boom')
 .factory('Dishes', ['$firebase', 'FirebaseUrl',
 	function($firebase, FirebaseUrl) {
 
-
-
 		var weekCycle = function() {
+	        Date.prototype.getWeek = function() {
+	            var onejan = new Date(this.getFullYear(), 0, 1);
+	            return Math.ceil((((this - onejan) / 86400000) + onejan.getDay() + 1) / 7);
+	        };
+	        var today = new Date();
+	        var weekYear = today.getWeek();
+	        console.log(weekYear + ' ' + today);
+
+	        var y = 4;
+	        var menuNo = weekYear % y;
+	 
+
+	        switch(menuNo){
+	            case 1: menuNo='1';break;    
+	            case 2: menuNo='2';break;    
+	            case 3: menuNo='3';break;    
+	        	case 0: menuNo='4';break;    
+	        }
+		
+
+
 			var week = '1';
-			return week;
+			return menuNo;
 		};
 
 		var ref = new Firebase(FirebaseUrl).child('dishes');
