@@ -27,7 +27,10 @@ angular.module('Boom')
 					images: data.images,
 					slug: data.slug,
 					thumb: data.thumb,
-					week: data.week
+					week: data.week,
+					title: data.title,
+					with: data.with,
+					addons: data.addons
 				},
 				function(error) {
 					if (error) {
