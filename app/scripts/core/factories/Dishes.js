@@ -5,28 +5,30 @@ angular.module('Boom')
 	function($firebase, FirebaseUrl) {
 
 		var weekCycle = function() {
-	        Date.prototype.getWeek = function() {
-	            var onejan = new Date(this.getFullYear(), 0, 1);
-	            return Math.ceil((((this - onejan) / 86400000) + onejan.getDay() + 1) / 7);
-	        };
-	        var today = new Date();
-	        var weekYear = today.getWeek();
-	        console.log(weekYear + ' ' + today);
+			Date.prototype.getWeek = function() {
+				var onejan = new Date(this.getFullYear(), 0, 1);
+				return Math.ceil((((this - onejan) / 86400000) + onejan.getDay() + 1) / 7);
+			};
+			var today = new Date();
+			var weekYear = today.getWeek();
 
-	        var y = 4;
-	        var menuNo = weekYear % y;
-	 
+			var menuNo = weekYear % 4;
 
-	        switch(menuNo){
-	            case 1: menuNo='1';break;    
-	            case 2: menuNo='2';break;    
-	            case 3: menuNo='3';break;    
-	        	case 0: menuNo='4';break;    
-	        }
-		
+			switch (menuNo) {
+				case 1:
+					menuNo = '1';
+					break;
+				case 2:
+					menuNo = '2';
+					break;
+				case 3:
+					menuNo = '3';
+					break;
+				case 0:
+					menuNo = '4';
+					break;
+			}
 
-
-			var week = '1';
 			return menuNo;
 		};
 
@@ -49,17 +51,18 @@ angular.module('Boom')
 		};
 
 		var saveDish = function(data) {
-			ref.child(data.$id).update({
-					category: data.category,
-					day: data.day,
-					id: data.id,
-					images: data.images,
-					slug: data.slug,
-					thumb: data.thumb,
-					week: data.week,
-					title: data.title,
-					with: data.with,
-					addons: data.addons
+			debugger;
+			ref.child(data.id).update({
+					category: data.category || '',
+					day: data.day || '',
+					id: data.id || '',
+					images: data.images || '',
+					slug: data.slug || '',
+					thumb: data.thumb || '',
+					week: data.week || '',
+					title: data.title || '',
+					with: data.with || '',
+					addons: data.addons || ''
 				},
 				function(error) {
 					if (error) {
