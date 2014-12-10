@@ -14,7 +14,7 @@ angular.module('Boom')
                 $state.go('app.admin.dishes');
 
             };
-            $scope.removeDish = function(dishId) {
+            $scope.remove = function(dishId) {
                 Dishes.removeDish(dishId);
                 $state.go('app.admin.dishes');
 
