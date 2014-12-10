@@ -45,10 +45,12 @@ angular.module('Boom')
 
                 if ($rootScope.day > 4 || $rootScope.day < 0) {
                     // show closed message
-                    $scope.closed = true;
+                    $rootScope.closed = true;
                     // set view to Monday
                     $scope.activeDay = 0;
                 } else {
+                    $rootScope.closed = false;
+
                     // otherwise set view to current day
                     $scope.activeDay = $rootScope.day;
                 }
