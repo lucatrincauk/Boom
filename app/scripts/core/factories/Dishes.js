@@ -25,7 +25,6 @@ angular.module('Boom')
 		};
 
 		var saveDish = function(data) {
-			debugger;
 			ref.child(data.id).update({
 					category: data.category || '',
 					day: data.day || '',
@@ -47,13 +46,18 @@ angular.module('Boom')
 				}
 			);
 		};
+		var removeDish = function(data) {
+			ref.child(data).remove();
+		};
 
 		return {
 			getAll: getAll,
 			getWeekly: getWeekly,
 			getOne: getOne,
 			saveDish: saveDish,
+			removeDish: removeDish
 		};
 
 	}
+
 ]);

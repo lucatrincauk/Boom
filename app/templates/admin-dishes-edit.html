@@ -1,10 +1,14 @@
 <ion-view title="Edit a Dish">
 	<!-- Menu button -->
-	<ion-nav-buttons side="left">
-		<button menu-toggle="left" class="button button-icon icon ion-navicon"></button>
-	</ion-nav-buttons>
+  <ion-nav-buttons side="left">
+    <button menu-toggle="left" class="button button-icon icon ion-navicon"></button>
+  </ion-nav-buttons>
+	<ion-nav-buttons side="right">
+  <button class="button button-assertive" ng-click="removeDish('{{editDish.$id}}')">Remove</button>
+  </ion-nav-buttons>
 
     <ion-content class="has-header has-footer">
+
       <form name="editDishForm" ng-submit="save(editDish)">
       <div class="list">
 
@@ -69,7 +73,6 @@
       <div class="padding">
         <button type="submit" class="button button-block button-positive activated">Save</button>
       </div>
-{{editDish}}
       </form>
     </ion-content>
 </ion-view>
