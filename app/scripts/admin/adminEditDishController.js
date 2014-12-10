@@ -6,11 +6,13 @@ angular.module('Boom')
 
             // Load categories
             $scope.categories = categories;
-            $scope.editDish = dish;
+            $scope.dish = dish;
 
             $scope.save = function() {
-                $scope.editDish.id = $filter('dashify')($scope.editDish.slug);
-                Dishes.saveDish($scope.editDish);
+                $scope.dish.id = $filter('dashify')($scope.dish.slug);
+                Dishes.saveDish($scope.dish);
+                $state.go('app.admin.dishes');
+
             };
             $scope.removeDish = function(dishId) {
                 Dishes.removeDish(dishId);

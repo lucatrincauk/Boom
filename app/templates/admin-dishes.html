@@ -1,7 +1,10 @@
-<ion-view title="Edit a Dish">
+<ion-view title="Edit a Dish" class="admin-dishes">
 	<!-- Menu button -->
-	<ion-nav-buttons side="left">
-		<button menu-toggle="left" class="button button-icon icon ion-navicon"></button>
+  <ion-nav-buttons side="left">
+    <button menu-toggle="left" class="button button-icon icon ion-navicon"></button>
+  </ion-nav-buttons>
+	<ion-nav-buttons side="right">
+  <button class="button button-positive" ui-sref="app.admin.dishes.add">Add a dish</button>
 	</ion-nav-buttons>
 
     <ion-content class="has-header has-footer">
@@ -14,8 +17,7 @@
     </div>
       <div class="list">
           <a ui-sref="app.admin.dishes.edit({ id: (dish.$id)})" ng-repeat="dish in dishes | orderBy: 'dish.id' | filter:search" class="item item-icon-right" href="#">
-              {{dish.slug}}
-              <i class="icon ion-edit"></i>
+              {{dish.slug}}  <span class="badge badge-stable">{{dish.category | undashify}}</span>
           </a>
       </div>
      

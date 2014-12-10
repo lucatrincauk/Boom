@@ -6,16 +6,15 @@ angular.module('Boom')
             // Load categories
             $scope.categories = categories;
             $scope.dishes = dishes;
-            $scope.addDish = {};
+            $scope.dish = {};
 
 
             $scope.save = function() {
-                $scope.addDish.id = $filter('dashify')($scope.addDish.slug);
+                $scope.dish.id = $filter('dashify')($scope.dish.slug);
 
-                Dishes.saveDish($scope.addDish);
+                Dishes.saveDish($scope.dish);
                 $scope.saveDialog();
             };
-            $scope.$watch('addDishForm');
             $scope.saveDialog = function() {
                 var saveDialog = $ionicPopup.show({
                     template: 'What would you like to do now?',
@@ -33,7 +32,7 @@ angular.module('Boom')
                 });
                 saveDialog.then(function(res) {
                     if (res) {
-                        $scope.addDish = {};
+                        $scope.reset();
                         $timeout.cancel(timeout);
                     } else {
                         $state.go('app.admin.dishes');
@@ -44,6 +43,10 @@ angular.module('Boom')
                     $state.go('app.admin.dishes');
 
                 }, 3000);
+            };
+            $scope.reset = function() {
+                $scope.dish = {};
+
             };
         }
     ]);
