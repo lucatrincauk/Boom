@@ -1,0 +1,27 @@
+<ion-view title="Edit a Category" class="admin-category">
+	<!-- Menu button -->
+	<ion-nav-buttons side="left">
+		<button menu-toggle="left" class="button button-icon icon ion-navicon"></button>
+	</ion-nav-buttons>
+  <ion-nav-buttons side="right">
+  <button class="button button-positive" ui-sref="app.admin.categories.add">Add new</button>
+  </ion-nav-buttons>
+    <ion-content class="has-header has-footer">
+
+    <div class="list list-inset">
+      <label class="item item-input">
+        <i class="icon ion-search placeholder-icon"></i>
+        <input type="text" placeholder="Search" ng-model="search">
+      </label>
+    </div>
+      <div class="list">
+          <a ui-sref="app.admin.categories.edit({ id: (category.$id)})" ng-repeat="category in categories | orderBy: 'priority' | filter:search" class="item item-icon-right" href="#">
+             {{category.title}}  
+              <span class="badge badge-stable">{{(dishes|filter:category.$id).length}}</span>
+
+          </a>
+      </div>
+     
+
+    </ion-content>
+</ion-view>

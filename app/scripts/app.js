@@ -103,7 +103,7 @@ angular.module('Boom', ['ionic', 'ui.router', 'firebase'])
                     return Dishes.getWeekly();
                 },
                 categories: function(Categories) {
-                    return Categories;
+                    return Categories.getAll();
                 }
             }
         })
@@ -147,7 +147,7 @@ angular.module('Boom', ['ionic', 'ui.router', 'firebase'])
                     return Dishes.getAll();
                 },
                 categories: function(Categories) {
-                    return Categories;
+                    return Categories.getAll();
                 }
             }
         })
@@ -165,7 +165,50 @@ angular.module('Boom', ['ionic', 'ui.router', 'firebase'])
                     return Dishes.getAll();
                 },
                 categories: function(Categories) {
-                    return Categories;
+                    return Categories.getAll();
+                }
+            }
+        })
+        .state('app.admin.categories', {
+            url: '/categories',
+            views: {
+                'index@': {
+                    templateUrl: 'templates/admin-categories.html',
+                    controller: 'adminCategoriesController'
+
+                }
+            },
+            resolve: {
+                dishes: function(Dishes) {
+                    return Dishes.getAll();
+                },
+                categories: function(Categories) {
+                    return Categories.getAll();
+                }
+            }
+        })
+        .state('app.admin.categories.add', {
+            url: '/add',
+            views: {
+                'index@': {
+                    templateUrl: 'templates/admin-categories-add.html',
+                    controller: 'adminAddCategoryController'
+
+                }
+            }
+        })
+        .state('app.admin.categories.edit', {
+            url: '/edit/:id',
+            views: {
+                'index@': {
+                    templateUrl: 'templates/admin-categories-edit.html',
+                    controller: 'adminEditCategoryController'
+
+                }
+            },
+            resolve: {
+                category: function(Categories, $stateParams) {
+                    return Categories.getOne($stateParams.id);
                 }
             }
         })
@@ -180,7 +223,7 @@ angular.module('Boom', ['ionic', 'ui.router', 'firebase'])
             },
             resolve: {
                 categories: function(Categories) {
-                    return Categories;
+                    return Categories.getAll();
                 }
             }
         })

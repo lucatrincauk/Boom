@@ -1,0 +1,18 @@
+ <form name="dishForm" ng-submit="save(category)">
+  <div class="list">
+
+     <label class="item item-input item-stacked-label">
+          <span class="input-label">Title</span>
+          <input ng-model="category.title" type="text" placeholder="Vegetarian">
+        </label>
+        <label class="item item-input item-stacked-label">
+          <span class="input-label">Priority</span>
+          <input ng-model="category.priority" type="number" placeholder="0">
+        </label>
+   
+
+  </div>
+  <div class="padding">
+    <button type="submit" class="button button-block button-positive activated">Save</button>
+  </div>
+  </form>
