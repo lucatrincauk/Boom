@@ -1,36 +1,10 @@
 'use strict';
 angular.module('Boom')
 
-.factory('Dishes', ['$firebase', 'FirebaseUrl',
-	function($firebase, FirebaseUrl) {
+.factory('Dishes', ['$firebase', 'FirebaseUrl', '$rootScope',
+	function($firebase, FirebaseUrl, $rootScope) {
 
-		var weekCycle = function() {
-			Date.prototype.getWeek = function() {
-				var onejan = new Date(this.getFullYear(), 0, 1);
-				return Math.ceil((((this - onejan) / 86400000) + onejan.getDay() + 1) / 7);
-			};
-			var today = new Date();
-			var weekYear = today.getWeek();
 
-			var menuNo = weekYear % 4;
-
-			switch (menuNo) {
-				case 1:
-					menuNo = '1';
-					break;
-				case 2:
-					menuNo = '2';
-					break;
-				case 3:
-					menuNo = '3';
-					break;
-				case 0:
-					menuNo = '4';
-					break;
-			}
-
-			return menuNo;
-		};
 
 		var ref = new Firebase(FirebaseUrl).child('dishes');
 
@@ -39,7 +13,7 @@ angular.module('Boom')
 			return sync.$asArray();
 		};
 		var getWeekly = function() {
-			var ref = new Firebase(FirebaseUrl).child('dishes').orderByChild('week').equalTo(weekCycle());
+			var ref = new Firebase(FirebaseUrl).child('dishes').orderByChild('week').equalTo($rootScope.cycle);
 			var sync = $firebase(ref);
 			return sync.$asArray();
 		};

@@ -1,9 +1,43 @@
 'use strict';
 angular.module('Boom', ['ionic', 'ui.router', 'firebase'])
-    .run(function($rootScope) {
+    .run(function($rootScope, $ionicLoading) {
+        // show veil when xhr starts
+        $rootScope.$on('loading:show', function() {
+            $ionicLoading.show({
+                template: 'Loading...'
+            });
+        });
+        // remove veil when done
+        $rootScope.$on('loading:hide', function() {
+            $ionicLoading.hide();
+        });
         // get today's date and remove sunday
         $rootScope.day = new Date().getDay() - 1;
         $rootScope.canteenName = 'Waterside';
+
+
+
+        Date.prototype.getWeek = function() {
+            var onejan = new Date(this.getFullYear(), 0, 1);
+            return Math.ceil((((this - onejan) / 86400000) + onejan.getDay() + 1) / 7);
+        };
+        $rootScope.week = new Date().getWeek();
+
+        switch ($rootScope.week % 4) {
+            case 1:
+                $rootScope.cycle = '1';
+                break;
+            case 2:
+                $rootScope.cycle = '2';
+                break;
+            case 3:
+                $rootScope.cycle = '3';
+                break;
+            case 0:
+                $rootScope.cycle = '4';
+                break;
+        }
+
     })
     //set Firebase Url
     .constant('FirebaseUrl', 'https://mns-menu.firebaseio.com/')
@@ -22,19 +56,6 @@ angular.module('Boom', ['ionic', 'ui.router', 'firebase'])
             };
         });
     })
-
-.run(function($rootScope, $ionicLoading) {
-    // show veil when xhr starts
-    $rootScope.$on('loading:show', function() {
-        $ionicLoading.show({
-            template: 'Loading...'
-        });
-    });
-    // remove veil when done
-    $rootScope.$on('loading:hide', function() {
-        $ionicLoading.hide();
-    });
-})
 
 .config(function($stateProvider, $urlRouterProvider) {
 
@@ -94,6 +115,23 @@ angular.module('Boom', ['ionic', 'ui.router', 'firebase'])
             views: {
                 'index@': {
                     templateUrl: 'templates/admin.html'
+                }
+            }
+        })
+        .state('app.admin.stats', {
+            url: '/stats',
+            views: {
+                'index@': {
+                    templateUrl: 'templates/adminStats.html',
+                    controller: 'adminStatsController'
+                }
+            },
+            resolve: {
+                dishes: function(Dishes) {
+                    return Dishes.getAll();
+                },
+                categories: function(Categories) {
+                    return Categories;
                 }
             }
         })
