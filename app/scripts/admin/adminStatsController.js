@@ -5,12 +5,7 @@ angular.module('Boom')
 
 			$scope.dishes = dishes;
 			$scope.categories = categories;
-			$scope.day = $rootScope.day;
-			$scope.canteen = $rootScope.canteenName;
 			$scope.closed = ($rootScope.closed ? 'Closed' : 'Open');
-			$scope.cycle = $rootScope.cycle;
-			$scope.week = $rootScope.week;
-
 
 		}
 
