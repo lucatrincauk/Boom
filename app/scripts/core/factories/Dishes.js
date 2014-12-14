@@ -1,10 +1,8 @@
 'use strict';
 angular.module('Boom')
 
-.factory('Dishes', ['$firebase', 'FirebaseUrl', '$rootScope',
-	function($firebase, FirebaseUrl, $rootScope) {
-
-
+.factory('Dishes', ['$firebase', 'FirebaseUrl', 'Core',
+	function($firebase, FirebaseUrl, Core) {
 
 		var ref = new Firebase(FirebaseUrl).child('dishes');
 
@@ -13,7 +11,7 @@ angular.module('Boom')
 			return sync.$asArray();
 		};
 		var getWeekly = function() {
-			var ref = new Firebase(FirebaseUrl).child('dishes').orderByChild('week').equalTo($rootScope.cycle);
+			var ref = new Firebase(FirebaseUrl).child('dishes').orderByChild('week').equalTo(Core.cycle());
 			var sync = $firebase(ref);
 			return sync.$asArray();
 		};

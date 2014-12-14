@@ -11,48 +11,6 @@ angular.module('Boom', ['ionic', 'ui.router', 'firebase'])
         $rootScope.$on('loading:hide', function() {
             $ionicLoading.hide();
         });
-        // get today's date and remove sunday
-        $rootScope.day = new Date().getDay() - 1;
-        $rootScope.canteenName = 'Waterside';
-
-
-
-        Date.prototype.getWeek = function() {
-            var onejan = new Date(this.getFullYear(), 0, 1);
-            return Math.ceil((((this - onejan) / 86400000) + onejan.getDay() + 1) / 7);
-        };
-        $rootScope.week = new Date().getWeek();
-        if ($rootScope.canteenName === 'Waterside') {
-            switch ($rootScope.week % 4) {
-                case 0:
-                    $rootScope.cycle = '4';
-                    break;
-                case 1:
-                    $rootScope.cycle = '1';
-                    break;
-                case 2:
-                    $rootScope.cycle = '2';
-                    break;
-                case 3:
-                    $rootScope.cycle = '3';
-                    break;
-            }
-        } else if ($rootScope.canteenName === 'Merchant Square') {
-            switch ($rootScope.week % 4) {
-                case 0:
-                    $rootScope.cycle = '2';
-                    break;
-                case 1:
-                    $rootScope.cycle = '3';
-                    break;
-                case 2:
-                    $rootScope.cycle = '4';
-                    break;
-                case 3:
-                    $rootScope.cycle = '1';
-                    break;
-            }
-        }
 
     })
     //set Firebase Url
@@ -104,6 +62,9 @@ angular.module('Boom', ['ionic', 'ui.router', 'firebase'])
                 },
                 categories: function(Categories) {
                     return Categories.getAll();
+                },
+                core: function(Core) {
+                    return Core;
                 }
             }
         })
@@ -148,6 +109,9 @@ angular.module('Boom', ['ionic', 'ui.router', 'firebase'])
                 },
                 categories: function(Categories) {
                     return Categories.getAll();
+                },
+                core: function(Core) {
+                    return Core;
                 }
             }
         })
@@ -254,6 +218,9 @@ angular.module('Boom', ['ionic', 'ui.router', 'firebase'])
             resolve: {
                 dish: function(Dishes, $stateParams) {
                     return Dishes.getOne($stateParams.id);
+                },
+                core: function(Core) {
+                    return Core.canteenName;
                 }
             }
         });
