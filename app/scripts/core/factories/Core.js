@@ -10,6 +10,11 @@ angular.module('Boom')
 			canteenName = 'Waterside',
 			cycle;
 
+		// Setting SUN at the end of the week
+		if (day === -1) {
+			day = 6;
+		}
+
 		var getWeek = function() {
 			Date.prototype.getWeek = function() {
 				var onejan = new Date(this.getFullYear(), 0, 1);
@@ -52,10 +57,10 @@ angular.module('Boom')
 
 			return cycle;
 		};
+
 		var isClosed = function() {
 
-			if (day > 4 || day < 0) {
-				// show closed message
+			if (day > 4) {
 				return true;
 			} else {
 				return false;

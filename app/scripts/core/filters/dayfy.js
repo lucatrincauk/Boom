@@ -5,7 +5,7 @@ angular.module('Boom').filter('dayfy', ['$rootScope', function($rootScope) {
 	 * E.g. 0 > Monday
 	 */
 
-	var days = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday'],
+	var days = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'],
 		dayName;
 
 
