@@ -1,0 +1,59 @@
+<ion-view title="Statistics">
+	<!-- Menu button -->
+	<ion-nav-buttons side="left">
+		<button menu-toggle="left" class="button button-icon icon ion-navicon"></button>
+	</ion-nav-buttons>
+
+    <ion-content class="has-header has-footer">
+      <div class="list">
+
+        <div class="item item-divider">
+          Global info
+         </div>
+
+        <div class="item">
+          Canteen: <span class="badge">{{canteenName}}</span>
+        </div>
+
+        <div class="item">
+          Day: <span class="badge">{{day | dayfy : true}}</span>
+        </div>
+
+       <div class="item">
+          Status: <span ng-class="$closed ? 'badge-assertive' : 'badge-balanced'" class="badge">{{closed}}</span>
+        </div>
+
+        <div class="item">
+          Cycle: <span class="badge">{{cycle}} of 4</span>
+        </div>
+
+        <div class="item">
+          Week: <span class="badge">{{week}} of 52</span>
+        </div>
+
+        <div class="item item-divider">
+          Dishes
+         </div>
+
+        <div class="item">
+          Total dishes: <span class="badge">{{dishes.length}}</span>
+        </div>
+
+        <div class="item item-divider">
+          Categories
+         </div>
+
+        <div class="item">
+          Total categories: <span class="badge">{{categories.length}}</span>
+
+        </div>
+
+
+  
+
+  
+      </div>
+
+
+    </ion-content>
+</ion-view>
