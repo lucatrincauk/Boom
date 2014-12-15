@@ -43,7 +43,7 @@ angular.module('Boom')
             $scope.init = (function() {
                 // if it's weekend (sat: day = 5, sun: day = -1)
 
-                if (core.isClosed) {
+                if (core.isClosed()) {
                     $scope.closed = true;
                     // set view to Monday
                     $scope.activeDay = 0;

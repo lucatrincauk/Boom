@@ -5,7 +5,7 @@ angular.module('Boom')
 
 			$scope.dishes = dishes;
 			$scope.categories = categories;
-			$scope.closed = core.isClosed;
+			$scope.closed = core.isClosed();
 			$scope.closedText = ($scope.closed ? 'Closed' : 'Open');
 
 			$scope.canteenName = core.canteenName;
