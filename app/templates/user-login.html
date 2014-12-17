@@ -1,0 +1,28 @@
+<ion-view title="Login">
+	<!-- Menu button -->
+	<ion-nav-buttons side="left">
+		<button menu-toggle="left" class="button button-icon icon ion-navicon"></button>
+	</ion-nav-buttons>
+
+    <ion-content class="has-header has-footer">
+    <form ng-submit="login()" name="userName">
+      
+      <div class="list">
+        <label class="item item-input">
+          <span class="input-label">E-mail</span>
+          <input type="email" ng-model="user.email">
+        </label>
+        <label class="item item-input">
+          <span class="input-label">Password</span>
+          <input type="password" ng-model="user.password">
+        </label>
+      </div> 
+<div class="padding">
+        <button class="button button-block button-positive activated">Login</button>
+      </div>      
+    </form>
+{{user}}
+
+<button ng-click="register()">Register</button>
+    </ion-content>
+</ion-view>

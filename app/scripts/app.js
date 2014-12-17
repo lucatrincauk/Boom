@@ -1,5 +1,5 @@
 'use strict';
-angular.module('Boom', ['ionic', 'ui.router', 'firebase'])
+angular.module('Boom', ['ionic', 'ui.router', 'firebase', 'ngSanitize'])
     .run(function($rootScope, $ionicLoading) {
         // show veil when xhr starts
         $rootScope.$on('loading:show', function() {
@@ -221,6 +221,15 @@ angular.module('Boom', ['ionic', 'ui.router', 'firebase'])
                 },
                 core: function(Core) {
                     return Core.canteenName;
+                }
+            }
+        })
+        .state('app.login', {
+            url: '/login',
+            views: {
+                'index@': {
+                    templateUrl: 'templates/user-login.html',
+                    controller: 'userLoginController'
                 }
             }
         });
