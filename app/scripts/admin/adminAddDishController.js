@@ -1,19 +1,37 @@
 angular.module('Boom')
-    .controller('adminAddDishController', ['$scope', 'categories', 'dishes', '$filter', '$state', 'Dishes', '$ionicPopup', '$timeout',
-        function($scope, categories, dishes, $filter, $state, Dishes, $ionicPopup, $timeout) {
+    .controller('adminAddDishController', ['$scope', 'categories', 'dishes', '$filter', '$state', '$ionicPopup', '$timeout',
+        function($scope, categories, dishes, $filter, $state, $ionicPopup, $timeout) {
             'use strict';
 
             // Load categories
             $scope.categories = categories;
             $scope.dishes = dishes;
-            $scope.dish = {};
+            $scope.reset = function() {
+                $scope.dish = {};
+                $scope.dish.extraAddons = [];
+                $scope.dish.extraWith = [];
+
+            };
+            $scope.reset();
+            $scope.addExtraAddonInput = function() {
+                $scope.dish.extraAddons.push({
+                    title: ''
+                });
+            };
+            $scope.addExtraWithInput = function() {
+                $scope.dish.extraWith.push({
+                    title: ''
+                });
+            };
 
 
             $scope.save = function() {
                 $scope.dish.id = $filter('dashify')($scope.dish.slug);
-
-                Dishes.saveDish($scope.dish);
-                $scope.saveDialog();
+                $scope.dishes.$add($scope.dish).then(function() {
+                    $scope.saveDialog();
+                }, function(error) {
+                    console.log('Error:', error);
+                });
             };
             $scope.saveDialog = function() {
                 var saveDialog = $ionicPopup.show({
@@ -44,9 +62,6 @@ angular.module('Boom')
 
                 }, 3000);
             };
-            $scope.reset = function() {
-                $scope.dish = {};
 
-            };
         }
     ]);

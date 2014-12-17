@@ -22,28 +22,6 @@ angular.module('Boom')
 			return sync.$asObject();
 		};
 
-		var saveDish = function(data) {
-			ref.child(data.id).update({
-					category: data.category || '',
-					day: data.day || '',
-					id: data.id || '',
-					images: data.images || 'http://placehold.it/375x375&text=default+image',
-					slug: data.slug || '',
-					thumb: data.thumb || 'http://placehold.it/375x113&text=default+image',
-					week: data.week || '',
-					title: data.title || '',
-					with: data.with || '',
-					addons: data.addons || ''
-				},
-				function(error) {
-					if (error) {
-						console.log('Data could not be saved.' + error);
-					} else {
-						console.log('Data saved successfully.');
-					}
-				}
-			);
-		};
 		var removeDish = function(data) {
 			ref.child(data).remove();
 		};
@@ -52,7 +30,6 @@ angular.module('Boom')
 			getAll: getAll,
 			getWeekly: getWeekly,
 			getOne: getOne,
-			saveDish: saveDish,
 			removeDish: removeDish
 		};
 

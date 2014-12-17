@@ -7,3 +7,6 @@
   width: 2.4em;
   height: 2.4em;
 }
+.title.header-item {
+	text-transform: capitalize;
+}

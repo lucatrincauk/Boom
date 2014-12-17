@@ -1,6 +1,6 @@
- <form name="dishForm" ng-submit="save(dish)">
+ <form name="dishForm" ng-submit="save()">
   <div class="list">
-
+        
     <label class="item item-input item-stacked-label">
       <span class="input-label">Headline</span>
       <input ng-model="dish.slug" type="text" placeholder="Moroccan Pitta Pockets">
@@ -9,14 +9,26 @@
       <span class="input-label">Title</span>
       <input ng-model="dish.title" type="text" placeholder="Spiced Lamb Koftas or Freshly Prepared Falafels">
     </label>
-    <label class="item item-input item-stacked-label">
+
+    
+    
+    <div class="item item-input item-stacked-label item-button-right" >
       <span class="input-label">Dish comes with:</span>
-      <input type="text" ng-model="dish.with" placeholder="Fries and Vegs"></input>
-    </label>
-    <label class="item item-input item-stacked-label">
+      <div ng-click="addExtraWithInput()" class="icon ion-plus"></div>
+
+       
+      <div class="item" ng-repeat="item in dish.extraWith">
+          <input type="text" ng-model="item.title" placeholder="Fries and Vegs {{$index +1}}"></input>
+      </div>
+    </div>
+
+    <div class="item item-input item-stacked-label" >
       <span class="input-label">Dish addons:</span>
-      <input type="text" ng-model="dish.addons" placeholder="Fries and Vegs"></input>
-    </label>
+       <div ng-click="addExtraAddonInput()" class="icon ion-plus"></div>
+      <div class="item" ng-repeat="item in dish.extraAddons">
+          <input type="text" ng-model="item.title" placeholder="Fries and Vegs {{$index +1}}"></input>
+      </div>
+    </div>
     <label class="item item-input item-stacked-label">
       <span class="input-label">Image</span>
       <input ng-model="dish.images" type="text" placeholder="Image.jpeg">

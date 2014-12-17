@@ -18,13 +18,20 @@
                 <img class="full-image" ng-src="{{single.images}}">
                 <h2>{{single.title}}</h2>
 
-                <p ng-show="single.with">
-                    <i class="icon ion-checkmark-circled "></i> {{single.with}}
-                </p>
-                <p ng-show="single.addons">
-                <i class="icon ion-plus-circled "></i>
-                    {{single.addons}}
-                </p>
+                <div ng-show="single.with">  
+                <h4><i class="icon ion-checkmark-circled"></i> Addons:</h4>                  
+                    <div ng-repeat="item in single.with" class="item">
+                    
+                        {{item.title}}
+                    </div>
+                </div>
+                <div ng-show="single.addons">  
+                <h4><i class="icon ion-plus-circled "></i> Addons:</h4>                  
+                    <div ng-repeat="item in single.addons" class="item">
+                    
+                        {{item.title}}
+                    </div>
+                </div>
                 <p>
                     <a href="#" class="subdued">2 Favourites</a>
                     <a href="#" class="subdued">5 Comments</a>

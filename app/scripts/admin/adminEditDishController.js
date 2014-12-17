@@ -8,10 +8,35 @@ angular.module('Boom')
             $scope.categories = categories;
             $scope.dish = dish;
 
+
+            $scope.addExtraAddonInput = function() {
+                if (!$scope.dish.extraAddons) {
+                    $scope.dish.extraAddons = [];
+
+                }
+                $scope.dish.extraAddons.push({
+                    title: ''
+                });
+            };
+            $scope.addExtraWithInput = function() {
+                if (!$scope.dish.extraWith) {
+                    $scope.dish.extraWith = [];
+
+                }
+                $scope.dish.extraWith.push({
+                    title: ''
+                });
+            };
+
+
             $scope.save = function() {
                 $scope.dish.id = $filter('dashify')($scope.dish.slug);
-                Dishes.saveDish($scope.dish);
-                $state.go('app.admin.dishes');
+                $scope.dish.$save().then(function() {
+                    console.log('Saved successfully');
+                    $state.go('app.admin.dishes');
+                }, function(error) {
+                    console.log('Error:', error);
+                });
 
             };
             $scope.remove = function(dishId) {
