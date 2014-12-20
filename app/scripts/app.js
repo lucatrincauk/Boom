@@ -73,8 +73,7 @@ angular.module('Boom', ['ionic', 'ui.router', 'firebase'])
             url: '/settings',
             views: {
                 'index@': {
-                    templateUrl: 'templates/settings.html',
-                    controller: 'settingsController'
+                    templateUrl: 'templates/settings.html'
                 }
             }
         })
