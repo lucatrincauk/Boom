@@ -1,6 +1,6 @@
 angular.module('Boom')
-    .controller('adminAddDishController', ['$scope', 'categories', 'dishes', '$filter', '$state', '$ionicPopup', '$timeout',
-        function($scope, categories, dishes, $filter, $state, $ionicPopup, $timeout) {
+    .controller('adminAddDishController', ['$scope', 'categories', 'dishes', 'core', '$filter', '$state', '$ionicPopup', '$timeout',
+        function($scope, categories, dishes, core, $filter, $state, $ionicPopup, $timeout) {
             'use strict';
 
             // Load categories
@@ -16,7 +16,7 @@ angular.module('Boom')
                 $scope.dish.week.three = [];
                 $scope.dish.week.four = [];
                 $scope.days = ['monday', 'tuesday', 'wednesday', 'thursday', 'friday'];
-                $scope.weeks = ['one', 'two', 'three', 'four'];
+                $scope.weeks = core.weeks;
 
             };
             $scope.reset();
@@ -70,18 +70,18 @@ angular.module('Boom')
                 }, 3000);
             };
             $scope.toggleWeekInput = function(week, day) {
+
                 var weekName = $scope.weeks[week];
-
-
-
-                if ($scope.dish.week[weekName].indexOf(day) > -1) {
-                    $scope.dish.week[weekName].splice(0, 1);
+                // retrieving index of given day in the saved array
+                var index = $scope.dish.week[weekName].indexOf(day);
+                // if this item exists
+                if (index > -1) {
+                    // remove it from the array
+                    $scope.dish.week[weekName].splice(index, 1);
                 } else {
-
+                    // otherwise, add it to the array
                     $scope.dish.week[weekName].push(day);
                 }
-
-
 
             };
 

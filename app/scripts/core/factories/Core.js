@@ -39,6 +39,8 @@ angular.module('Boom')
 			};
 			return new Date().getWeek();
 		};
+		var weeks = ['one', 'two', 'three', 'four'];
+
 		/*
 		 * Gets current cycle
 		 * Menus are split in cycles of 4, repeating across the year
@@ -80,10 +82,11 @@ angular.module('Boom')
 						break;
 				}
 			}
-		// cycle = 1
-		if (name) {
-				var numbers = ['one', 'two', 'three', 'four'];
-				cycle = numbers[cycle - 1];
+			// cycle = 1
+
+
+			if (name) {
+				cycle = weeks[cycle - 1];
 			}
 			return cycle;
 		};
@@ -107,7 +110,8 @@ angular.module('Boom')
 			canteenName: canteenName,
 			isClosed: isClosed,
 			cycle: getCycle,
-			week: getWeek
+			week: getWeek,
+			weeks: weeks
 
 		};
 	}
