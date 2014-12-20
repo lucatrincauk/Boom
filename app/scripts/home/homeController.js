@@ -41,12 +41,7 @@ angular.module('Boom')
 
 
             $scope.dayFilter = function(dish) {
-                if (dish.week[$scope.cycle]) {
-
-                    return (dish.week[$scope.cycle].indexOf($scope.activeDay) > -1);
-                } else {
-                    return console.log('category empty');
-                }
+                return dish.week[$scope.cycle][core.days[$scope.activeDay]];
             };
 
             $scope.init = (function() {

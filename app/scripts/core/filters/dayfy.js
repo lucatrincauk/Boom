@@ -1,12 +1,11 @@
 'use strict';
 
-angular.module('Boom').filter('dayfy', ['$rootScope', function($rootScope) {
+angular.module('Boom').filter('dayfy', ['$rootScope', 'Core', function($rootScope, Core) {
 	/* Transform numbers into days
 	 * E.g. 0 > Monday
 	 */
 
-	var days = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'],
-		dayName;
+	var dayName;
 
 
 
@@ -14,10 +13,10 @@ angular.module('Boom').filter('dayfy', ['$rootScope', function($rootScope) {
 		// return name of the day not related to the active view
 		// e.g. not 'Today', but 'Monday'
 		if (originalDay) {
-			dayName = days[activeDay];
+			dayName = Core.days[activeDay];
 		} else {
 
-			switch ($rootScope.day - activeDay) {
+			switch (Core.day - activeDay) {
 				// If view is same as current day, set it as Today
 				case 0:
 					dayName = 'Today';
@@ -32,7 +31,7 @@ angular.module('Boom').filter('dayfy', ['$rootScope', function($rootScope) {
 					break;
 					// Otherwise retrieve day's name
 				default:
-					dayName = days[activeDay];
+					dayName = Core.days[activeDay];
 			}
 		}
 

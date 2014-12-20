@@ -40,6 +40,8 @@ angular.module('Boom')
 			return new Date().getWeek();
 		};
 		var weeks = ['one', 'two', 'three', 'four'];
+		var days = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'];
+
 
 		/*
 		 * Gets current cycle
@@ -111,7 +113,8 @@ angular.module('Boom')
 			isClosed: isClosed,
 			cycle: getCycle,
 			week: getWeek,
-			weeks: weeks
+			weeks: weeks,
+			days: days
 
 		};
 	}

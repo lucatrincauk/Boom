@@ -1,7 +1,6 @@
  <form name="dishForm" ng-submit="save()">
   <div class="list">
 
-  {{dish}}
 <div ng-repeat="week in weeks">
   
 <ion-checkbox ng-model="dish['p'+$index]">Week {{$index+1}}</ion-checkbox>
@@ -9,10 +8,12 @@
   
 
   <div ng-show="dish['p'+$index]" class="row day-checkbox">
-    <div class="col item-checkbox" ng-repeat="day in days">
+    <div class="col item-checkbox" ng-repeat="day in days | limitTo: 5">
       <label>
-        <input class="day-checkbox-input" type="checkbox" ng-click="toggleWeekInput($parent.$index, $index)">      
-      <div class="day-checkbox-value">{{$index | dayfy}}</div>
+
+
+        <input class="day-checkbox-input" type="checkbox" ng-model="dish.week[weeks[$parent.$index]][days[$index]]" >      
+      <div class="day-checkbox-value">{{$index | dayfy:true}}</div>
       </label> 
     
     </div>

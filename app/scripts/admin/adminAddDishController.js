@@ -11,11 +11,7 @@ angular.module('Boom')
                 $scope.dish.extraAddons = [];
                 $scope.dish.extraWith = [];
                 $scope.dish.week = {};
-                $scope.dish.week.one = [];
-                $scope.dish.week.two = [];
-                $scope.dish.week.three = [];
-                $scope.dish.week.four = [];
-                $scope.days = ['monday', 'tuesday', 'wednesday', 'thursday', 'friday'];
+                $scope.days = core.days;
                 $scope.weeks = core.weeks;
 
             };
@@ -68,21 +64,6 @@ angular.module('Boom')
                     $state.go('app.admin.dishes');
 
                 }, 3000);
-            };
-            $scope.toggleWeekInput = function(week, day) {
-
-                var weekName = $scope.weeks[week];
-                // retrieving index of given day in the saved array
-                var index = $scope.dish.week[weekName].indexOf(day);
-                // if this item exists
-                if (index > -1) {
-                    // remove it from the array
-                    $scope.dish.week[weekName].splice(index, 1);
-                } else {
-                    // otherwise, add it to the array
-                    $scope.dish.week[weekName].push(day);
-                }
-
             };
 
 
