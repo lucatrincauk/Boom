@@ -1,32 +1,6 @@
  <form name="dishForm" ng-submit="save()">
   <div class="list">
-
-<div ng-repeat="week in weeks">
-  
-<ion-checkbox ng-model="dish['p'+$index]">Week {{$index+1}}</ion-checkbox>
-<div>
-  
-
-  <div ng-show="dish['p'+$index]" class="row day-checkbox">
-    <div class="col item-checkbox" ng-repeat="day in days | limitTo: 5">
-      <label>
-
-
-        <input class="day-checkbox-input" type="checkbox" ng-model="dish.week[weeks[$parent.$index]][days[$index]]" >      
-      <div class="day-checkbox-value">{{$index | dayfy:true}}</div>
-      </label> 
     
-    </div>
-
-</div>
-</div>
-</div>
-
-
-
- 
-
-
     <label class="item item-input item-stacked-label">
       <span class="input-label">Headline</span>
       <input ng-model="dish.slug" type="text" placeholder="Moroccan Pitta Pockets">
@@ -72,29 +46,21 @@
         <option value="{{category.$id}}" ng-repeat="category in categories">{{category.title}}</option>
       </select>
     </label>
-    <label class="item item-input item-select">
-      <div class="input-label">
-        Week
+
+    <div ng-repeat="week in weeks">
+      
+      <ion-checkbox ng-model="dish['p'+$index]">Week {{$index+1}}</ion-checkbox>
+      <div ng-show="dish['p'+$index]" class="row day-checkbox">
+        <div class="col item-checkbox" ng-repeat="day in days | limitTo: 5">
+          <label>
+            <input class="day-checkbox-input" type="checkbox" ng-model="dish.week[weeks[$parent.$index]][days[$index]]" >      
+            <div class="day-checkbox-value">{{$index | dayfy:true}}</div>
+          </label>         
+        </div>
       </div>
-      <select ng-model="dish.week">
-        <option>1</option>
-        <option>2</option>
-        <option>3</option>
-        <option>4</option>
-      </select>
-    </label>
-    <label class="item item-input item-select">
-      <div class="input-label">
-        Day
-      </div>
-      <select ng-model="dish.day">
-        <option value="0">Monday</option>
-        <option value="1">Tuesday</option>
-        <option value="2">Wednesday</option>
-        <option value="3">Thursday</option>
-        <option value="4">Friday</option>
-      </select>
-    </label>
+    </div>
+
+
 
   </div>
   <div class="padding">
