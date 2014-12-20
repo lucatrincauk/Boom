@@ -73,7 +73,8 @@ angular.module('Boom', ['ionic', 'ui.router', 'firebase'])
             url: '/settings',
             views: {
                 'index@': {
-                    templateUrl: 'templates/settings.html'
+                    templateUrl: 'templates/settings.html',
+                    controller: 'settingsController'
                 }
             }
         })
@@ -121,7 +122,6 @@ angular.module('Boom', ['ionic', 'ui.router', 'firebase'])
                 'index@': {
                     templateUrl: 'templates/admin-dishes.html',
                     controller: 'adminDishesController'
-
                 }
             },
             resolve: {
@@ -130,6 +130,9 @@ angular.module('Boom', ['ionic', 'ui.router', 'firebase'])
                 },
                 categories: function(Categories) {
                     return Categories.getAll();
+                },
+                core: function(Core) {
+                    return Core;
                 }
             }
         })
