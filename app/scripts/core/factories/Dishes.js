@@ -11,8 +11,9 @@ angular.module('Boom')
 			return sync.$asArray();
 		};
 		var getWeekly = function() {
-			var ref = new Firebase(FirebaseUrl).child('dishes').orderByChild('week').equalTo(Core.cycle());
+			var ref = new Firebase(FirebaseUrl).child('dishes').orderByChild('p0').equalTo(true);
 			var sync = $firebase(ref);
+			console.log(sync.$asArray());
 			return sync.$asArray();
 		};
 		var getOne = function(dishId) {

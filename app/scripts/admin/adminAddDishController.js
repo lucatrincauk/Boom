@@ -10,6 +10,13 @@ angular.module('Boom')
                 $scope.dish = {};
                 $scope.dish.extraAddons = [];
                 $scope.dish.extraWith = [];
+                $scope.dish.week = {};
+                $scope.dish.week.one = [];
+                $scope.dish.week.two = [];
+                $scope.dish.week.three = [];
+                $scope.dish.week.four = [];
+                $scope.days = ['monday', 'tuesday', 'wednesday', 'thursday', 'friday'];
+                $scope.weeks = ['one', 'two', 'three', 'four'];
 
             };
             $scope.reset();
@@ -62,6 +69,23 @@ angular.module('Boom')
 
                 }, 3000);
             };
+            $scope.toggleWeekInput = function(week, day) {
+                var weekName = $scope.weeks[week];
+
+
+
+                if ($scope.dish.week[weekName].indexOf(day) > -1) {
+                    $scope.dish.week[weekName].splice(0, 1);
+                } else {
+
+                    $scope.dish.week[weekName].push(day);
+                }
+
+
+
+            };
+
+
 
         }
     ]);
