@@ -45,3 +45,5 @@
 }
 
 .footer.pane {top: auto;}
+
+.ng-dirty.ng-invalid { border:1px solid Red; }
