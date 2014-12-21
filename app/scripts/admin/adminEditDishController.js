@@ -65,8 +65,9 @@ angular.module('Boom')
                 });
 
             };
-            $scope.remove = function(dishId) {
-                Dishes.removeDish(dishId);
+            $scope.remove = function() {
+                //$scope.dish.$remove($scope.dish.$id)
+                Dishes.removeDish($scope.dish.$id);
                 $state.go('app.admin.dishes');
 
             };
