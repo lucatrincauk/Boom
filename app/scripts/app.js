@@ -222,7 +222,7 @@ angular.module('Boom', ['ionic', 'ui.router', 'firebase'])
                     return Dishes.getOne($stateParams.id);
                 },
                 core: function(Core) {
-                    return Core.canteenName;
+                    return Core;
                 }
             }
         });
