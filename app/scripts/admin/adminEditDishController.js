@@ -9,8 +9,11 @@ angular.module('Boom')
             $scope.dish = dish;
             $scope.weeks = core.weeks;
             $scope.days = core.days;
-
-
+            dish.$loaded(function() {
+                if (typeof $scope.dish.week === 'string') {
+                    $scope.dish.week = {};
+                }
+            });
             $scope.addExtraAddonInput = function() {
                 if (!$scope.dish.extraAddons) {
                     $scope.dish.extraAddons = [];
