@@ -4,16 +4,23 @@ angular.module('Boom')
         function($scope, categories, dish, core, $filter, Dishes, $state) {
             'use strict';
 
-            // Load categories
-            $scope.categories = categories;
-            $scope.dish = dish;
-            $scope.weeks = core.weeks;
-            $scope.days = core.days;
+            // Wait for dish to be loaded from Firebase
             dish.$loaded(function() {
+                // Assign data to scope
+                $scope.dish = dish;
                 if (typeof $scope.dish.week === 'string') {
+                    // if the week is a string (legacy), make it an array
                     $scope.dish.week = {};
                 }
             });
+            //Wait for categories to be loaded from Firebase
+            categories.$loaded(function() {
+                // Assign data to scope
+                $scope.categories = categories;
+            });
+
+            $scope.weeks = core.weeks;
+            $scope.days = core.days;
 
             // Add empty Addon input
             $scope.addExtraAddonInput = function() {
@@ -64,42 +71,6 @@ angular.module('Boom')
 
             };
 
-            // $scope.toggleWeekInput = function(week, day) {
-            //     console.log(typeof $scope.dish.week);
-            //     if (!$scope.dish.week || typeof $scope.dish.week === 'string') {
-            //         $scope.dish.week = {};
-            //     }
-
-            //     if (!$scope.dish.week.one) {
-            //         $scope.dish.week.one = [];
-            //     }
-            //     if (!$scope.dish.week.two) {
-            //         $scope.dish.week.two = [];
-            //     }
-            //     if (!$scope.dish.week.three) {
-            //         $scope.dish.week.three = [];
-            //     }
-            //     if (!$scope.dish.week.four) {
-
-            //         $scope.dish.week.four = [];
-            //     }
-
-
-            //     var weekName = $scope.weeks[week];
-            //     // retrieving index of given day in the saved array
-            //     var index = $scope.dish.week[weekName].indexOf(day);
-            //     // if this item exists
-            //     if (index > -1) {
-            //         // remove it from the array
-            //         $scope.dish.week[weekName].splice(index, 1);
-            //     } else {
-            //         // otherwise, add it to the array
-            //         $scope.dish.week[weekName].push(day);
-            //     }
-
-
-
-            // };
 
 
         }
