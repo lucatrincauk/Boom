@@ -225,6 +225,15 @@ angular.module('Boom', ['ionic', 'ui.router', 'firebase'])
                     return Core;
                 }
             }
+        })
+        .state('app.dish.report', {
+            url: '/report',
+            views: {
+                'index@': {
+                    templateUrl: 'templates/report-listing.html',
+                    controller: 'reportListingController'
+                }
+            }
         });
 
     // if none of the above states are matched, use this as the fallback

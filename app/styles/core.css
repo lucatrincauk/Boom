@@ -47,3 +47,15 @@
 .footer.pane {top: auto;}
 
 .ng-dirty.ng-invalid { border:1px solid Red; }
+.pull-right {
+    float: right;
+}
+
+.footer.pane {
+    top: auto;
+}
+
+.link {
+    color: #0000ff;
+    text-decoration: underline;
+}
