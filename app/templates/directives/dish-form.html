@@ -54,7 +54,7 @@
         <div class="col item-checkbox" ng-repeat="day in days | limitTo: 5">
           <label>
             <input class="day-checkbox-input" type="checkbox" ng-model="dish.week[weeks[$parent.$index]][days[$index]]" >      
-            <div class="day-checkbox-value">{{$index | dayfy:true}}</div>
+            <div class="day-checkbox-value">{{$index | dayfy:true | limitTo: 1}}</div>
           </label>         
         </div>
       </div>
