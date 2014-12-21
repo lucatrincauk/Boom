@@ -17,8 +17,8 @@
     </div>
       <div class="list">
           <p ui-sref="app.admin.dishes.edit({ id: (dish.$id)})" ng-repeat="dish in dishes | orderBy: 'dish.id' | filter:search" class="item item-icon-right" href="#">
-              <strong>{{dish.slug}}</strong><span ng-show="dish.title">:<br> {{dish.title}} <span class="badge badge-stable">{{dish.category | undashify}}
-              </span></span>
+              <strong>{{dish.slug}}</strong><span ng-show="dish.title">:<br> {{dish.title}} </span>
+              <span class="badge badge-stable">{{dish.category | undashify}}</span>
           </p>
       </div>
      
