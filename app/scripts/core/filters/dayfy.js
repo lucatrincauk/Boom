@@ -25,6 +25,10 @@ angular.module('Boom').filter('dayfy', ['$rootScope', 'Core', function($rootScop
 				case -1:
 					dayName = 'Tomorrow';
 					break;
+					// If the day is Sunday (6), the current view is set to Monday, so set it as Tomorrow		
+				case 6:
+					dayName = 'Tomorrow';
+					break;
 					// If view is 1 day ahead current day, set it as Tomorrow
 				case 1:
 					dayName = 'Yesterday';
