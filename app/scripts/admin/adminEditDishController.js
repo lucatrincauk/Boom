@@ -39,11 +39,20 @@ angular.module('Boom')
             };
 
 
-            $scope.save = function() {
-                $scope.dish.id = $filter('dashify')($scope.dish.slug);
+            $scope.save = function(preview) {
+                //  $scope.dish.id = $filter('dashify')($scope.dish.slug);
+
                 $scope.dish.$save().then(function() {
                     console.log('Saved successfully');
-                    $state.go('app.admin.dishes');
+
+                    if (preview) {
+                        $state.go('app.dish', {
+                            id: (dish.$id),
+                            category: (dish.category)
+                        });
+                    } else {
+                        $state.go('app.admin.dishes');
+                    }
                 }, function(error) {
                     console.log('Error:', error);
                 });
