@@ -14,21 +14,26 @@ angular.module('Boom')
                     $scope.dish.week = {};
                 }
             });
-            $scope.addExtraAddonInput = function() {
-                if (!$scope.dish.extraAddons) {
-                    $scope.dish.extraAddons = [];
 
+            // Add empty Addon input
+            $scope.addExtraAddonInput = function() {
+                // if it's a legacy 'addon'
+                if (typeof $scope.dish.addons === 'string' || !$scope.dish.addons) {
+                    $scope.dish.addons = [];
                 }
-                $scope.dish.extraAddons.push({
+                // push empty object
+                $scope.dish.addons.push({
                     title: ''
                 });
             };
             $scope.addExtraWithInput = function() {
-                if (!$scope.dish.extraWith) {
-                    $scope.dish.extraWith = [];
+                // if it's a legacy 'with'
+                if (typeof $scope.dish.with === 'string' || !$scope.dish.with) {
+                    $scope.dish.with = [];
 
                 }
-                $scope.dish.extraWith.push({
+                // push empty object
+                $scope.dish.with.push({
                     title: ''
                 });
             };

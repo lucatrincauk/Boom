@@ -8,8 +8,8 @@ angular.module('Boom')
             $scope.dishes = dishes;
             $scope.reset = function() {
                 $scope.dish = {};
-                $scope.dish.extraAddons = [];
-                $scope.dish.extraWith = [];
+                $scope.dish.addons = [];
+                $scope.dish.with = [];
                 $scope.dish.week = {};
                 $scope.days = core.days;
                 $scope.weeks = core.weeks;
@@ -17,12 +17,12 @@ angular.module('Boom')
             };
             $scope.reset();
             $scope.addExtraAddonInput = function() {
-                $scope.dish.extraAddons.push({
+                $scope.dish.addons.push({
                     title: ''
                 });
             };
             $scope.addExtraWithInput = function() {
-                $scope.dish.extraWith.push({
+                $scope.dish.with.push({
                     title: ''
                 });
             };

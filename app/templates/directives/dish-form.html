@@ -17,7 +17,7 @@
       <div ng-click="addExtraWithInput()" class="icon ion-plus"></div>
 
        
-      <div class="item" ng-repeat="item in dish.extraWith">
+      <div class="item" ng-repeat="item in dish.with">
           <input type="text" ng-model="item.title" placeholder="Fries and Vegs {{$index +1}}"></input>
       </div>
     </div>
@@ -25,7 +25,7 @@
     <div class="item item-input item-stacked-label" >
       <span class="input-label">Dish addons:</span>
        <div ng-click="addExtraAddonInput()" class="icon ion-plus"></div>
-      <div class="item" ng-repeat="item in dish.extraAddons">
+      <div class="item" ng-repeat="item in dish.addons">
           <input type="text" ng-model="item.title" placeholder="Fries and Vegs {{$index +1}}"></input>
       </div>
     </div>
