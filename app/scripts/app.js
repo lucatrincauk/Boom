@@ -121,7 +121,6 @@ angular.module('Boom', ['ionic', 'ui.router', 'firebase', 'ngSanitize'])
                 'index@': {
                     templateUrl: 'templates/admin-dishes.html',
                     controller: 'adminDishesController'
-
                 }
             },
             resolve: {
@@ -130,6 +129,9 @@ angular.module('Boom', ['ionic', 'ui.router', 'firebase', 'ngSanitize'])
                 },
                 categories: function(Categories) {
                     return Categories.getAll();
+                },
+                core: function(Core) {
+                    return Core;
                 }
             }
         })
@@ -220,7 +222,16 @@ angular.module('Boom', ['ionic', 'ui.router', 'firebase', 'ngSanitize'])
                     return Dishes.getOne($stateParams.id);
                 },
                 core: function(Core) {
-                    return Core.canteenName;
+                    return Core;
+                }
+            }
+        })
+        .state('app.dish.report', {
+            url: '/report',
+            views: {
+                'index@': {
+                    templateUrl: 'templates/report-listing.html',
+                    controller: 'reportListingController'
                 }
             }
         })

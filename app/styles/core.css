@@ -7,4 +7,55 @@
   width: 100%;
 }
 
+.category-icon {
+	display: block;
+	background-size: 100%;
+	float: left;
+	margin-right: .5em;
+}
+.simple-soup .category-icon {
+	background-image: url('../images/food-icons/128px/136.png');
+}
+.accompaniments .category-icon {
+	background-image: url('../images/food-icons/128px/143.png');
+}
+.jacket-potatoes .category-icon {
+	background-image: url('../images/food-icons/128px/42.png');
+}
+.plain-and-simple .category-icon {
+	background-image: url('../images/food-icons/128px/133.png');
+}
+.protein-soup .category-icon {
+	background-image: url('../images/food-icons/128px/123.png');
+}
+.bistro .category-icon {
+	background-image: url('../images/food-icons/128px/150.png');
+}
+.rotisserie .category-icon{
+	background-image: url('../images/food-icons/128px/61.png');
+}
+.soup-accompaniments .category-icon {
+	background-image: url('../images/food-icons/128px/130.png');
+}
+.theatre-bar .category-icon {
+	background-image: url('../images/food-icons/128px/127.png');
+}
+.vegetarian .category-icon {
+	background-image: url('../images/food-icons/128px/26.png');
+}
+
 .footer.pane {top: auto;}
+
+.ng-dirty.ng-invalid { border:1px solid Red; }
+.pull-right {
+    float: right;
+}
+
+.footer.pane {
+    top: auto;
+}
+
+.link {
+    color: #0000ff;
+    text-decoration: underline;
+}

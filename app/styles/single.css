@@ -10,3 +10,14 @@
 .title.header-item {
 	text-transform: capitalize;
 }
+.single .single-extra h4 {
+	font-size: .94em;
+	font-weight: bold;
+}
+.single .single-extra .item {
+	padding: .5em;
+	font-size: .9em;
+}
+.single .single-extra i.icon {
+	margin-right: 0.3em;
+}

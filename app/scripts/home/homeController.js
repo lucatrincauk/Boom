@@ -7,7 +7,7 @@ angular.module('Boom')
             $scope.dishes = dishes;
             $scope.categories = categories;
             $scope.canteenName = core.canteenName;
-
+            $scope.cycle = core.cycle(true);
             $scope.nameDays = function() {
 
                 $scope.dayName = $filter('dayfy')($scope.activeDay);
@@ -39,6 +39,10 @@ angular.module('Boom')
                 return $scope.activeDay;
             };
 
+
+            $scope.dayFilter = function(dish) {
+                return dish.week[$scope.cycle][core.days[$scope.activeDay]];
+            };
 
             $scope.init = (function() {
                 // if it's weekend (sat: day = 5, sun: day = -1)

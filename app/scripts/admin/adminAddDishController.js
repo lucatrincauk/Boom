@@ -1,6 +1,6 @@
 angular.module('Boom')
-    .controller('adminAddDishController', ['$scope', 'categories', 'dishes', '$filter', '$state', '$ionicPopup', '$timeout',
-        function($scope, categories, dishes, $filter, $state, $ionicPopup, $timeout) {
+    .controller('adminAddDishController', ['$scope', 'categories', 'dishes', 'core', '$filter', '$state', '$ionicPopup', '$timeout',
+        function($scope, categories, dishes, core, $filter, $state, $ionicPopup, $timeout) {
             'use strict';
 
             // Load categories
@@ -8,25 +8,34 @@ angular.module('Boom')
             $scope.dishes = dishes;
             $scope.reset = function() {
                 $scope.dish = {};
-                $scope.dish.extraAddons = [];
-                $scope.dish.extraWith = [];
+                $scope.dish.addons = [];
+                $scope.dish.with = [];
+                $scope.dish.week = {};
+                $scope.days = core.days;
+                $scope.weeks = core.weeks;
 
             };
             $scope.reset();
             $scope.addExtraAddonInput = function() {
-                $scope.dish.extraAddons.push({
+                $scope.dish.addons.push({
                     title: ''
                 });
             };
             $scope.addExtraWithInput = function() {
-                $scope.dish.extraWith.push({
+                $scope.dish.with.push({
                     title: ''
                 });
             };
 
 
             $scope.save = function() {
-                $scope.dish.id = $filter('dashify')($scope.dish.slug);
+                if (!$scope.dish.thumb) {
+                    $scope.dish.thumb = 'http://placehold.it/375x113&text=default+image';
+                }
+                if (!$scope.dish.images) {
+                    $scope.dish.images = 'http://placehold.it/375x375&text=default+image';
+                }
+                //  $scope.dish.id = $filter('dashify')($scope.dish.slug);
                 $scope.dishes.$add($scope.dish).then(function() {
                     $scope.saveDialog();
                 }, function(error) {
@@ -62,6 +71,8 @@ angular.module('Boom')
 
                 }, 3000);
             };
+
+
 
         }
     ]);

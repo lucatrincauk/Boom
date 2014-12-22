@@ -39,6 +39,10 @@ angular.module('Boom')
 			};
 			return new Date().getWeek();
 		};
+		var weeks = ['one', 'two', 'three', 'four'];
+		var days = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'];
+
+
 		/*
 		 * Gets current cycle
 		 * Menus are split in cycles of 4, repeating across the year
@@ -48,7 +52,7 @@ angular.module('Boom')
 		 * MSQ is 2 weeks behind, so when WS is on Cycle 4, MSQ is on Cycle 2
 		 * Cycle is required to show the current week's menu
 		 */
-		var getCycle = function() {
+		var getCycle = function(name) {
 			if (canteenName === 'Waterside') {
 				switch (getWeek() % 4) {
 					case 0:
@@ -80,7 +84,12 @@ angular.module('Boom')
 						break;
 				}
 			}
+			// cycle = 1
 
+
+			if (name) {
+				cycle = weeks[cycle - 1];
+			}
 			return cycle;
 		};
 
@@ -103,7 +112,9 @@ angular.module('Boom')
 			canteenName: canteenName,
 			isClosed: isClosed,
 			cycle: getCycle,
-			week: getWeek
+			week: getWeek,
+			weeks: weeks,
+			days: days
 
 		};
 	}

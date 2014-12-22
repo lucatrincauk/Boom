@@ -5,13 +5,13 @@ angular.module('Boom')
 	function($firebase, FirebaseUrl, Core) {
 
 		var ref = new Firebase(FirebaseUrl).child('dishes');
-
+		var cycle = 'p' + (Core.cycle() - 1);
 		var getAll = function() {
 			var sync = $firebase(ref);
 			return sync.$asArray();
 		};
 		var getWeekly = function() {
-			var ref = new Firebase(FirebaseUrl).child('dishes').orderByChild('week').equalTo(Core.cycle());
+			var ref = new Firebase(FirebaseUrl).child('dishes').orderByChild(cycle).equalTo(true);
 			var sync = $firebase(ref);
 			return sync.$asArray();
 		};

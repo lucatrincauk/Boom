@@ -1,0 +1,20 @@
+.day-checkbox {
+  padding: 0;
+
+}
+.day-checkbox .col {
+  border-left: 1px solid rgb(221, 221, 221);
+  padding: 0;
+}
+.day-checkbox-input {
+display: none;
+}
+.day-checkbox-value {
+ text-align: center;
+ height: 2em;
+line-height: 2em;
+}
+.day-checkbox input:checked + .day-checkbox-value {
+  background: #4a87ee;
+  color: white;
+}

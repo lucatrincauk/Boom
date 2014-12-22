@@ -11,34 +11,39 @@
             <div class="item item-avatar">
                 <span class="category-icon"></span>
                 <h2>{{single.slug}}</h2>
-                <p>{{single.day | dayfy}} at {{canteenName}}</p>
+                <p>
+                   <span ng-repeat="day in single.days">
+                        <span ng-show="$middle">,</span>
+                        <span ng-show="$last" ng-hide="$first">&amp;</span>
+                         {{day}}
+                    </span> at {{canteenName}} 
+                </p>
             </div>
 
             <div class="item item-body">
                 <img class="full-image" ng-src="{{single.images}}">
                 <h2>{{single.title}}</h2>
 
-                <div ng-show="single.with">  
-                <h4><i class="icon ion-checkmark-circled"></i> Addons:</h4>                  
-                    <div ng-repeat="item in single.with" class="item">
-                    
-                        {{item.title}}
+                <div ng-show="single.with" class="single-extra single-with">  
+                    <h4>This dish comes with:</h4>                  
+                    <div ng-repeat="item in single.with" class="item">                    
+                       <i class="icon ion-checkmark-circled"></i> {{item.title}}
                     </div>
                 </div>
-                <div ng-show="single.addons">  
-                <h4><i class="icon ion-plus-circled "></i> Addons:</h4>                  
-                    <div ng-repeat="item in single.addons" class="item">
-                    
-                        {{item.title}}
+                <div ng-show="single.addons" class="single-extra single-addons">  
+                    <h4>You can also add:</h4>                  
+                    <div ng-repeat="item in single.addons" class="item">                    
+                        <i class="icon ion-plus-circled "></i> {{item.title}}
                     </div>
                 </div>
                 <p>
+                    <a href="#" class="subdued">{{single.views}} Views</a>
                     <a href="#" class="subdued">2 Favourites</a>
                     <a href="#" class="subdued">5 Comments</a>
                 </p>
             </div>
 
-            <div class="item tabs tabs-secondary tabs-icon-left">
+            <!--<div class="item tabs tabs-secondary tabs-icon-left">
                 <a class="tab-item" href="#">
                     <i class="icon ion-heart"></i>
                     Favourite
@@ -51,7 +56,12 @@
                     <i class="icon ion-chatbox"></i>
                     Comment
                 </a>
-            </div>
+            </div>-->
+
+           
+        <div class="problem-report text-center">
+            <a ui-sref="app.dish.report" class="link">Problem with this listing?</a>
+        </div>
         </div>
     </ion-content>
 </ion-view>

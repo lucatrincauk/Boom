@@ -5,10 +5,13 @@
 	</ion-nav-buttons>
 	
     <ion-content class="has-header has-footer">
-        <div class="card">
-            <div class="item item-text-wrap">
-                This is a basic Card which contains an item that has wrapping text.
-            </div>
-        </div>
+     
+ <div class="list">
+<div class="item item-divider ng-binding"> 
+Canteen        </div>
+     <ion-radio ng-model="canteenName" ng-value="'Merchant Square'">Merchant Square</ion-radio>
+<ion-radio ng-model="canteenName" ng-selected ng-value="'Waterside'">Waterside</ion-radio>
+</div>
+
     </ion-content>
 </ion-view>

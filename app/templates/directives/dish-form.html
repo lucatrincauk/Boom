@@ -1,13 +1,13 @@
  <form name="dishForm" ng-submit="save()">
   <div class="list">
-        
-    <label class="item item-input item-stacked-label">
-      <span class="input-label">Headline</span>
-      <input ng-model="dish.slug" type="text" placeholder="Moroccan Pitta Pockets">
-    </label>
+    
     <label class="item item-input item-stacked-label">
       <span class="input-label">Title</span>
-      <input ng-model="dish.title" type="text" placeholder="Spiced Lamb Koftas or Freshly Prepared Falafels">
+      <input ng-model="dish.slug" type="text" placeholder="Moroccan Pitta Pockets" ng-maxlength="30">
+    </label>
+    <label class="item item-input item-stacked-label">
+      <span class="input-label">Description</span>
+      <textarea ng-model="dish.title" type="text" placeholder="Spiced Lamb Koftas or Freshly Prepared Falafels"></textarea>
     </label>
 
     
@@ -17,7 +17,7 @@
       <div ng-click="addExtraWithInput()" class="icon ion-plus"></div>
 
        
-      <div class="item" ng-repeat="item in dish.extraWith">
+      <div class="item" ng-repeat="item in dish.with">
           <input type="text" ng-model="item.title" placeholder="Fries and Vegs {{$index +1}}"></input>
       </div>
     </div>
@@ -25,7 +25,7 @@
     <div class="item item-input item-stacked-label" >
       <span class="input-label">Dish addons:</span>
        <div ng-click="addExtraAddonInput()" class="icon ion-plus"></div>
-      <div class="item" ng-repeat="item in dish.extraAddons">
+      <div class="item" ng-repeat="item in dish.addons">
           <input type="text" ng-model="item.title" placeholder="Fries and Vegs {{$index +1}}"></input>
       </div>
     </div>
@@ -46,29 +46,21 @@
         <option value="{{category.$id}}" ng-repeat="category in categories">{{category.title}}</option>
       </select>
     </label>
-    <label class="item item-input item-select">
-      <div class="input-label">
-        Week
+
+    <div ng-repeat="week in weeks">
+      
+      <ion-checkbox ng-model="dish['p'+$index]">Week {{$index+1}}</ion-checkbox>
+      <div ng-show="dish['p'+$index]" class="row day-checkbox">
+        <div class="col item-checkbox" ng-repeat="day in days | limitTo: 5">
+          <label>
+            <input class="day-checkbox-input" type="checkbox" ng-model="dish.week[weeks[$parent.$index]][days[$index]]" >      
+            <div class="day-checkbox-value">{{$index | dayfy:true | limitTo: 1}}</div>
+          </label>         
+        </div>
       </div>
-      <select ng-model="dish.week">
-        <option>1</option>
-        <option>2</option>
-        <option>3</option>
-        <option>4</option>
-      </select>
-    </label>
-    <label class="item item-input item-select">
-      <div class="input-label">
-        Day
-      </div>
-      <select ng-model="dish.day">
-        <option value="0">Monday</option>
-        <option value="1">Tuesday</option>
-        <option value="2">Wednesday</option>
-        <option value="3">Thursday</option>
-        <option value="4">Friday</option>
-      </select>
-    </label>
+    </div>
+
+
 
   </div>
   <div class="padding">
