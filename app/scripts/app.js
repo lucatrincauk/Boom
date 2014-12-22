@@ -135,6 +135,20 @@ angular.module('Boom', ['ionic', 'ui.router', 'firebase'])
                 }
             }
         })
+        .state('app.admin.reports', {
+            url: '/reports',
+            views: {
+                'index@': {
+                    templateUrl: 'templates/listing-reports.html',
+                    controller: 'adminListingReportsController'
+                }
+            },
+            resolve: {
+                listingReports: function(ListingReports) {
+                    return ListingReports.getAll();
+                }
+            }
+        })
         .state('app.admin.categories', {
             url: '/categories',
             views: {

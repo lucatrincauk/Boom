@@ -3,12 +3,12 @@
     <ion-nav-buttons side="left">
         <button menu-toggle="left" class="button button-icon icon ion-navicon"></button>
     </ion-nav-buttons>
-    <ion-content class="has-header has-footer">
+    <ion-content class="listing-report" class="has-header has-footer">
         <div class="list card">
+
             <div class="item item-avatar">
                 <span class="category-icon"></span>
-                <h2>{{single.slug}}</h2>
-                <p>{{single.day | dayfy}} at {{canteenName}}</p>
+                <h2 class="dish-title">{{single.slug}}</h2>
             </div>
 
             <ul class="list">
@@ -26,9 +26,15 @@
                 </li>
                 <li class="item item-checkbox">
                     <label class="checkbox">
+                        <input ng-model="reportData.incorrectDate" type="checkbox">
+                    </label>
+                    Incorrect Date
+                </li>
+                <li class="item item-checkbox">
+                    <label class="checkbox">
                         <input ng-model="reportData.rudeComments" type="checkbox">
                     </label>
-                    Rude Comments
+                    Abusive Comments
                 </li>
             </ul>
 

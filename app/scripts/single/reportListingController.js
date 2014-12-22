@@ -1,25 +1,27 @@
 angular.module('Boom')
-    .controller('reportListingController', ['$scope', '$stateParams', 'dish', 'core', '$state',
-        function($scope, $stateParams, dish, core, $state) {
+    .controller('reportListingController', ['$scope', '$stateParams', 'dish', '$state', 'ListingReports',
+        function($scope, $stateParams, dish, $state, ListingReports) {
             'use strict';
 
             $scope.single = dish;
-            $scope.canteenName = core;
 
             $scope.reportData = {
+                dishId: dish.$id,
                 incorrectImage: false,
                 incorrectDescription: false,
+                incorrectDate: false,
                 rudeComments: false
             };
 
             $scope.reportListing = function() {
-                console.log($scope.single);
-                console.log($scope.reportData);
-
-                //$scope.dish.id = $filter('dashify')($scope.dish.slug);
-                //Dishes.saveDish($scope.dish);
-
+                ListingReports.add($scope.reportData);
                 $state.go('app.home');
             };
+
+            (function init() {
+                ListingReports.getAll().then(function(data) {
+                    console.log(data);
+                });
+            })();
         }
     ]);
