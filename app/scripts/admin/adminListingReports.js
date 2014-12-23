@@ -1,13 +1,9 @@
-angular.module('Boom').controller('adminListingReportsController', ['$scope', '$rootScope', 'listingReports', 'Dishes',
-    function ($scope, $rootScope, listingReports, Dishes) {
+angular.module('Boom').controller('adminListingReportsController', ['$scope', '$rootScope', 'ReportedDishes',
+    function ($scope, $rootScope, ReportedDishes) {
         'use strict';
 
-        $scope.reportedDishes = [];
+        $scope.reportedDishes = ReportedDishes;
 
-        Dishes.getAll().$loaded().then(function(data) {
-            console.log(data);
-        });
-
-        console.log(listingReports);
+        console.log(ReportedDishes);
     }
 ]);

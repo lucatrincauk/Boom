@@ -144,8 +144,8 @@ angular.module('Boom', ['ionic', 'ui.router', 'firebase'])
                 }
             },
             resolve: {
-                listingReports: function(ListingReports) {
-                    return ListingReports.getAll();
+                ReportedDishes: function(Dishes) {
+                    return Dishes.getReported();
                 }
             }
         })
