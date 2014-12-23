@@ -27,8 +27,11 @@ angular.module('Boom')
             };
 
             var getReported = function() {
+                var ref  = new Firebase(FirebaseUrl).child('dishes').orderByChild('reports').equalTo(true);
                 var sync = $firebase(ref);
-                return sync.$asArray().$loaded().then(filterReportedDishes);
+
+                return sync.$asArray().$loaded();
+                //return sync.$asArray().$loaded().then(filterReportedDishes);
             };
 
             var removeDish = function(data) {
