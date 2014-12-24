@@ -1,8 +1,8 @@
 'use strict';
 angular.module('Boom')
 
-.factory('Users', ['$firebase', 'FirebaseUrl',
-	function($firebase, FirebaseUrl) {
+.factory('Users', ['$firebase', 'FirebaseUrl', '$state',
+	function($firebase, FirebaseUrl, $state) {
 
 		var ref = new Firebase(FirebaseUrl);
 
@@ -31,6 +31,7 @@ angular.module('Boom')
 					console.log('Login Failed!', error);
 				} else {
 					console.log('Authenticated successfully with payload:', authData);
+					$state.go('app.user.profile');
 				}
 			});
 			ref.onAuth(function(authData) {
@@ -54,11 +55,31 @@ angular.module('Boom')
 				}
 			});
 		};
+		var auth = function() {
+			return ref.getAuth();
+		};
 
+		var getUser = function() {
+			var user = auth();
+
+			// If no current user send to register page
+			if (!user) {
+				console.log('not registered');
+				$state.go('app.user.login');
+				return;
+			}
+			var refSingle = ref.child('users').child(user.uid);
+			var sync = $firebase(refSingle);
+
+			return sync.$asObject();
+
+		};
 		return {
 			createUser: createUser,
 			loginUser: loginUser,
-			removeUser: removeUser
+			removeUser: removeUser,
+			auth: auth,
+			getUser: getUser
 		};
 	}
 

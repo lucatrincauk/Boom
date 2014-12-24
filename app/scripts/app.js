@@ -91,7 +91,13 @@ angular.module('Boom', ['ionic', 'ui.router', 'firebase', 'ngSanitize'])
             url: '/admin',
             views: {
                 'index@': {
-                    templateUrl: 'templates/admin.html'
+                    templateUrl: 'templates/admin.html',
+                    controller: 'adminController'
+                }
+            },
+            resolve: {
+                users: function(Users) {
+                    return Users;
                 }
             }
         })
@@ -234,13 +240,28 @@ angular.module('Boom', ['ionic', 'ui.router', 'firebase', 'ngSanitize'])
                     controller: 'reportListingController'
                 }
             }
-        })
-        .state('app.login', {
+        }).state('app.user', {
+            url: '/users',
+            abstract: true
+        }).state('app.user.login', {
             url: '/login',
             views: {
                 'index@': {
                     templateUrl: 'templates/user-login.html',
                     controller: 'userLoginController'
+                }
+            }
+        }).state('app.user.profile', {
+            url: '/profile',
+            views: {
+                'index@': {
+                    templateUrl: 'templates/user-profile.html',
+                    controller: 'userProfileController'
+                }
+            },
+            resolve: {
+                users: function(Users) {
+                    return Users;
                 }
             }
         });

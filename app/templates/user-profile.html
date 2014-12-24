@@ -1,0 +1,24 @@
+<ion-view title="Profile">
+	<!-- Menu button -->
+	<ion-nav-buttons side="left">
+		<button menu-toggle="left" class="button button-icon icon ion-navicon"></button>
+	</ion-nav-buttons>
+
+    <ion-content class="has-header has-footer">
+    <form ng-submit="save()" name="userName">
+      
+      <div class="list">
+        <label class="item item-input">
+          <span class="input-label">Username</span>
+          <input type="text" ng-model="user.username">
+        </label>
+
+      </div> 
+<div class="padding">
+        <button class="button button-block button-positive activated">Save</button>
+      </div>      
+    </form>
+{{user}}
+
+    </ion-content>
+</ion-view>
