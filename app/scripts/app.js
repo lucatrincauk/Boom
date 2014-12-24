@@ -1,5 +1,5 @@
 'use strict';
-angular.module('Boom', ['ionic', 'ui.router', 'firebase'])
+angular.module('Boom', ['ionic', 'ui.router', 'firebase', 'angular.filter'])
     .run(function($rootScope, $ionicLoading) {
         // show veil when xhr starts
         $rootScope.$on('loading:show', function() {
@@ -139,13 +139,13 @@ angular.module('Boom', ['ionic', 'ui.router', 'firebase'])
             url: '/reports',
             views: {
                 'index@': {
-                    templateUrl: 'templates/listing-reports.html',
+                    templateUrl: 'templates/admin-reports.html',
                     controller: 'adminListingReportsController'
                 }
             },
             resolve: {
-                ReportedDishes: function(Dishes) {
-                    return Dishes.getReported();
+                reports: function(Reports) {
+                    return Reports.getAll();
                 }
             }
         })
@@ -246,6 +246,11 @@ angular.module('Boom', ['ionic', 'ui.router', 'firebase'])
                 'index@': {
                     templateUrl: 'templates/report-listing.html',
                     controller: 'reportListingController'
+                }
+            },
+            resolve: {
+                reports: function(Reports) {
+                    return Reports.getAll();
                 }
             }
         });

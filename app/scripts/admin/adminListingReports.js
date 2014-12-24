@@ -1,9 +1,9 @@
-angular.module('Boom').controller('adminListingReportsController', ['$scope', '$rootScope', 'ReportedDishes',
-    function ($scope, $rootScope, ReportedDishes) {
-        'use strict';
+angular.module('Boom').controller('adminListingReportsController', ['$scope', '$rootScope', 'reports',
+	function($scope, $rootScope, reports) {
+		'use strict';
 
-        $scope.reportedDishes = ReportedDishes;
+		$scope.reports = reports;
 
-        console.log(ReportedDishes);
-    }
+		console.log(reports);
+	}
 ]);

@@ -7,9 +7,9 @@
     <ion-content class="has-header has-footer">
         <div class="list card">
 
-            <div ng-repeat="dish in reportedDishes" class="item item-avatar">
-                <span class="category-icon"></span>
-                <h2>{{ dish.slug }}</h2>
+            <div ng-repeat="(key, value) in reports | groupBy: 'dishId'" class="item item-avatar">
+                <h2>{{key | undashify}}</h2>
+                <div ng-repeat="issue in value">{{ issue }}</div>
             </div>
 
         </div>

@@ -1,33 +1,23 @@
 angular.module('Boom')
-    .controller('reportListingController', ['$scope', '$stateParams', 'dish', '$state', 'FirebaseUrl',
-        function($scope, $stateParams, dish, $state, FirebaseUrl) {
+    .controller('reportListingController', ['$scope', '$stateParams', 'dish', '$state', 'reports',
+        function($scope, $stateParams, dish, $state, reports) {
             'use strict';
 
             $scope.single = dish;
-
-            $scope.reportData = {
-                incorrectImage:       false,
-                incorrectDescription: false,
-                incorrectDate:        false,
-                rudeComments:         false
-            };
+            $scope.reports = reports;
+            $scope.report = {};
+            $scope.report.dishId = $scope.single.$id;
 
             $scope.reportListing = function() {
-                $scope.single = addReportToDish($scope.reportData, $scope.single);
-
-                $scope.single.$save().then(function() {
-                    $state.go('app.home');
+                $scope.report.timestamp = new Date().toString();
+                $scope.reports.$add($scope.report).then(function() {
+                    console.log('Saved successfully');
+                }, function(error) {
+                    console.log('Error:', error);
                 });
+
             };
 
-            function addReportToDish(report, dish) {
-                if (!dish.reports) {
-                    dish.reports = [report];
-                } else {
-                    dish.reports.push(report);
-                }
 
-                return dish;
-            }
         }
     ]);

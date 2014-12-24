@@ -10,37 +10,41 @@
                 <span class="category-icon"></span>
                 <h2 class="dish-title">{{single.slug}}</h2>
             </div>
+            <form ng-submit="reportListing()">
+                
+                <ul class="list">
+                    <li class="item item-checkbox">
+                        <label class="checkbox">
+                            <input ng-model="report.incorrectImage" type="checkbox">
+                        </label>
+                        Incorrect Image
+                    </li>
+                    <li class="item item-checkbox">
+                        <label class="checkbox">
+                            <input ng-model="report.incorrectDescription" type="checkbox">
+                        </label>
+                        Incorrect Description
+                    </li>
+                    <li class="item item-checkbox">
+                        <label class="checkbox">
+                            <input ng-model="report.incorrectDate" type="checkbox">
+                        </label>
+                        Incorrect Date
+                    </li>
+                    <li class="item item-checkbox">
+                        <label class="checkbox">
+                            <input ng-model="report.rudeComments" type="checkbox">
+                        </label>
+                        Abusive Comments
+                    </li>
+                </ul>
 
-            <ul class="list">
-                <li class="item item-checkbox">
-                    <label class="checkbox">
-                        <input ng-model="reportData.incorrectImage" type="checkbox">
-                    </label>
-                    Incorrect Image
-                </li>
-                <li class="item item-checkbox">
-                    <label class="checkbox">
-                        <input ng-model="reportData.incorrectDescription" type="checkbox">
-                    </label>
-                    Incorrect Description
-                </li>
-                <li class="item item-checkbox">
-                    <label class="checkbox">
-                        <input ng-model="reportData.incorrectDate" type="checkbox">
-                    </label>
-                    Incorrect Date
-                </li>
-                <li class="item item-checkbox">
-                    <label class="checkbox">
-                        <input ng-model="reportData.rudeComments" type="checkbox">
-                    </label>
-                    Abusive Comments
-                </li>
-            </ul>
+                <button type="submit" class="button button-block button-positive">
+                    Submit
+                </button>
+            </form>
 
-            <button ng-click="reportListing()" class="button button-block button-positive">
-                Submit
-            </button>
         </div>
+
     </ion-content>
 </ion-view>
