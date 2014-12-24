@@ -7,8 +7,8 @@
     <ion-content class="has-header has-footer">
         <div class="list card">
 
-            <div ng-repeat="(key, value) in reports | groupBy: 'dishId'" class="item item-avatar">
-                <h2>{{key | undashify}}</h2>
+            <div ng-repeat="(key, value) in reports | groupBy: 'dishId'" class="item">
+                <h2 ui-sref="app.admin.dishes.edit({ id: (key)})">{{key | undashify}} <span class="ion-edit"></span></h2>
                 <div ng-repeat="issue in value">{{ issue }}</div>
             </div>
 
