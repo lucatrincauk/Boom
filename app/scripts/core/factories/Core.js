@@ -37,7 +37,11 @@ angular.module('Boom')
 				 */
 				return Math.ceil((((this - onejan) / 86400000) + onejan.getDay() + 1) / 7);
 			};
-			return new Date().getWeek();
+			var currentWeek = new Date().getWeek();
+			if (currentWeek === 53) {
+				currentWeek = 1;
+			}
+			return currentWeek;
 		};
 		var weeks = ['one', 'two', 'three', 'four'];
 		var days = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'];
