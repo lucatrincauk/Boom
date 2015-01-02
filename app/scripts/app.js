@@ -73,7 +73,13 @@ angular.module('Boom', ['ionic', 'ui.router', 'firebase', 'angular.filter'])
             url: '/settings',
             views: {
                 'index@': {
-                    templateUrl: 'templates/settings.html'
+                    templateUrl: 'templates/settings.html',
+                    controller: 'settingsController'
+                }
+            },
+            resolve: {
+                categories: function(Categories) {
+                    return Categories.getAll();
                 }
             }
         })
