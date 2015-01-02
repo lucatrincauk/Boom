@@ -16,6 +16,7 @@
   padding-top: 0.3em;
   width: 100%;
   text-shadow:  1px 1px 1px #515151;
+  white-space: normal;
 }
 .home .dish-item h2 {
   margin-bottom: 5px;
@@ -43,6 +44,10 @@
 .home .plain-and-simple a.item, .home .accompaniments a.item {
 width: 33.7%;
 float: left;
+min-height: 114px;
+}
+.home .plain-and-simple a.item img, .home .accompaniments a.item img {
+min-height: 114px;
 }
 
 .home .soup-accompaniments a.item {
@@ -52,6 +57,7 @@ float: left;
 .home .dish-list a.item {
   padding:0;
   border: 0;
+  margin-bottom: -4px;
 }
 .home .soup-accompaniments h2 {
   font-size: 1em;
