@@ -54,7 +54,9 @@
 .footer.pane {
     top: auto;
 }
-
+.bar-header {
+border-bottom: 1px solid #ddd;
+}
 .tabs {
 	border-top:1px solid #ddd !important; /*overriding ionic.css - they put !important there for some reason*/
 }
