@@ -6,7 +6,7 @@ angular.module('Boom')
             // Assign data to scope
             $scope.dishes = dishes;
             $scope.categories = categories;
-            $scope.canteenName = core.canteenName;
+            $scope.canteenName = core.canteenName();
             $scope.cycle = core.cycle(true);
             $scope.nameDays = function() {
 

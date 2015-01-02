@@ -8,9 +8,24 @@ angular.module('Boom')
 		// get today's date and make it start on Monday
 		var day = new Date().getDay() - 1,
 			// bootstrapping canteen to WS
-			canteenName = 'Waterside',
-			cycle;
+			cycle,
+			cName;
 
+
+		cName = 'Waterside';
+
+
+		console.log('__CANTEEN: Init Waterside__');
+		var canteenName = function(changed) {
+
+			if (changed) {
+				cName = changed;
+				console.log('__CANTEEN: Changed__');
+			} else {
+				console.log('__CANTEEN: Not Changed__');
+			}
+			return cName;
+		};
 		// Setting SUN at the end of the week
 		if (day === -1) {
 			day = 6;
@@ -21,8 +36,6 @@ angular.module('Boom')
 		 * This will show the next week menu already on Saturday
 		 * e.g.Fri Dec 12 / 2014 is Day 346 and Week 50(cycle 2)
 		 * e.g. Sat Dec 13/2014 is Day 347 and Week 51 (cycle 3)
-		 * The script will go up to 53 weeks
-		 * which is fine as 53 % 4 is the same as 1 % 4 (equals to cycle 1)
 		 */
 		var getWeek = function() {
 			Date.prototype.getWeek = function() {
@@ -57,7 +70,7 @@ angular.module('Boom')
 		 * Cycle is required to show the current week's menu
 		 */
 		var getCycle = function(name) {
-			if (canteenName === 'Waterside') {
+			if (cName === 'Waterside') {
 				switch (getWeek() % 4) {
 					case 0:
 						cycle = '4';
@@ -72,8 +85,9 @@ angular.module('Boom')
 						cycle = '3';
 						break;
 				}
-			} else if (canteenName === 'Merchant Square') {
-				switch (getWeek % 4) {
+
+			} else if (cName === 'Merchant Square') {
+				switch (getWeek() % 4) {
 					case 0:
 						cycle = '2';
 						break;
@@ -119,7 +133,6 @@ angular.module('Boom')
 			week: getWeek,
 			weeks: weeks,
 			days: days
-
 		};
 	}
 
