@@ -55,7 +55,6 @@
     top: auto;
 }
 
-.link {
-    color: #0000ff;
-    text-decoration: underline;
+.tabs {
+	border-top:1px solid #ddd !important; /*overriding ionic.css - they put !important there for some reason*/
 }
