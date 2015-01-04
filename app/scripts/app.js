@@ -98,7 +98,6 @@ angular.module('Boom', ['ionic', 'ui.router', 'firebase', 'angular.filter'])
             views: {
                 'index@': {
                     templateUrl: 'templates/admin.html',
-                    controller: 'adminController'
                 }
             },
             resolve: {
