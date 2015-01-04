@@ -5,24 +5,25 @@
 	</ion-nav-buttons>
 
     <ion-content class="has-header has-footer">
+ 
+ 
+    <div class="card">
+      <div class="item item-text-wrap">
+    If you have an account you can login here. Otherwise, <a ui-sref="app.user.register" class="positive">register now</a>.
+      </div>
+
+
+    </div>
     <form ng-submit="login()" name="userName">
       
-      <div class="list">
-        <label class="item item-input">
-          <span class="input-label">E-mail</span>
-          <input type="email" ng-model="user.email">
-        </label>
-        <label class="item item-input">
-          <span class="input-label">Password</span>
-          <input type="password" ng-model="user.password">
-        </label>
-      </div> 
-<div class="padding">
+      <div user-form-directive></div>
+
+      <div class="padding">
         <button class="button button-block button-positive activated">Login</button>
       </div>      
     </form>
-{{user}}
+      
 
-<button ng-click="register()">Register</button>
+
     </ion-content>
 </ion-view>
