@@ -30,266 +30,296 @@ angular.module('Boom', ['ionic', 'ui.router', 'firebase', 'angular.filter'])
             };
         });
     })
-
-.config(function($stateProvider, $urlRouterProvider) {
-
-    $stateProvider
-    // app
-        .state('app', {
-            url: '',
-            abstract: true,
-            views: {
-                'footer': {
-                    templateUrl: 'templates/footer.html'
-                },
-                'slideMenu': {
-                    templateUrl: 'templates/slide-menu.html'
-                }
-            }
-        })
-        // app.home
-        .state('app.home', {
-            url: '/',
-            views: {
-                'index@': {
-                    templateUrl: 'templates/home.html',
-                    controller: 'homeController'
-                }
-            },
-            resolve: {
-                dishes: function(Dishes) {
-                    return Dishes.getWeekly();
-                },
-                categories: function(Categories) {
-                    return Categories.getAll();
-                },
-                core: function(Core) {
-                    return Core;
-                }
-            }
-        })
-        // app.settings
-        .state('app.settings', {
-            url: '/settings',
-            views: {
-                'index@': {
-                    templateUrl: 'templates/settings.html',
-                    controller: 'settingsController'
-                }
-            },
-            resolve: {
-                categories: function(Categories) {
-                    return Categories.getAll();
-                }
-            }
-        })
-        // app.favourites
-        .state('app.favourites', {
-            url: '/favourites',
-            views: {
-                'index@': {
-                    templateUrl: 'templates/favourites.html'
-                }
-            }
-        })
-        // app.admin 
-        .state('app.admin', {
-            url: '/admin',
-            views: {
-                'index@': {
-                    templateUrl: 'templates/admin.html',
-                }
-            },
-            resolve: {
-                users: function(Users) {
-                    return Users;
-                }
-            }
-        })
-        .state('app.admin.stats', {
-            url: '/stats',
-            views: {
-                'index@': {
-                    templateUrl: 'templates/adminStats.html',
-                    controller: 'adminStatsController'
-                }
-            },
-            resolve: {
-                dishes: function(Dishes) {
-                    return Dishes.getAll();
-                },
-                categories: function(Categories) {
-                    return Categories.getAll();
-                },
-                core: function(Core) {
-                    return Core;
-                }
-            }
-        })
-        .state('app.admin.dishes', {
-            url: '/dishes',
-            views: {
-                'index@': {
-                    templateUrl: 'templates/admin-dishes.html',
-                    controller: 'adminDishesController'
-                }
-            },
-            resolve: {
-                dishes: function(Dishes) {
-                    return Dishes.getAll();
-                },
-                categories: function(Categories) {
-                    return Categories.getAll();
-                },
-                core: function(Core) {
-                    return Core;
-                }
-            }
-        })
-        .state('app.admin.reports', {
-            url: '/reports',
-            views: {
-                'index@': {
-                    templateUrl: 'templates/admin-reports.html',
-                    controller: 'adminListingReportsController'
-                }
-            },
-            resolve: {
-                reports: function(Reports) {
-                    return Reports.getAll();
-                }
-            }
-        })
-        .state('app.admin.categories', {
-            url: '/categories',
-            views: {
-                'index@': {
-                    templateUrl: 'templates/admin-categories.html',
-                    controller: 'adminCategoriesController'
-
-                }
-            },
-            resolve: {
-                dishes: function(Dishes) {
-                    return Dishes.getAll();
-                },
-                categories: function(Categories) {
-                    return Categories.getAll();
-                }
-            }
-        })
-        .state('app.admin.categories.add', {
-            url: '/add',
-            views: {
-                'index@': {
-                    templateUrl: 'templates/admin-categories-add.html',
-                    controller: 'adminAddCategoryController'
-
-                }
-            }
-        })
-        .state('app.admin.categories.edit', {
-            url: '/edit/:id',
-            views: {
-                'index@': {
-                    templateUrl: 'templates/admin-categories-edit.html',
-                    controller: 'adminEditCategoryController'
-
-                }
-            },
-            resolve: {
-                category: function(Categories, $stateParams) {
-                    return Categories.getOne($stateParams.id);
-                }
-            }
-        })
-        .state('app.admin.dishes.add', {
-            url: '/add',
-            views: {
-                'index@': {
-                    templateUrl: 'templates/admin-dishes-add.html',
-                    controller: 'adminAddDishController'
-
-                }
-            },
-            resolve: {
-                categories: function(Categories) {
-                    return Categories.getAll();
-                }
-            }
-        })
-        .state('app.admin.dishes.edit', {
-            url: '/edit/:id',
-            views: {
-                'index@': {
-                    templateUrl: 'templates/admin-dishes-edit.html',
-                    controller: 'adminEditDishController'
-
-                }
-            },
-            resolve: {
-                dish: function(Dishes, $stateParams) {
-                    return Dishes.getOne($stateParams.id);
-                }
-            }
-        })
-        // app.dish
-        .state('app.dish', {
-            url: '/dishes/:category/:id',
-            views: {
-                'index@': {
-                    templateUrl: 'templates/single.html',
-                    controller: 'singleController'
-                }
-            },
-            resolve: {
-                dish: function(Dishes, $stateParams) {
-                    return Dishes.getOne($stateParams.id);
-                },
-                core: function(Core) {
-                    return Core;
-                }
-            }
-        })
-        .state('app.dish.report', {
-            url: '/report',
-            views: {
-                'index@': {
-                    templateUrl: 'templates/report-listing.html',
-                    controller: 'reportListingController'
-                }
-            },
-            resolve: {
-                reports: function(Reports) {
-                    return Reports.getAll();
-                }
-            }
-        }).state('app.user', {
-            url: '/users',
-            abstract: true
-        }).state('app.user.login', {
-            url: '/login',
-            views: {
-                'index@': {
-                    templateUrl: 'templates/user-login.html',
-                    controller: 'userLoginController'
-                }
-            }
-        }).state('app.user.profile', {
-            url: '/profile',
-            views: {
-                'index@': {
-                    templateUrl: 'templates/user-profile.html',
-                    controller: 'userProfileController'
-                }
-            },
-            resolve: {
-                users: function(Users) {
-                    return Users;
-                }
+    // for ui-router
+    .run(['$rootScope', '$state', function($rootScope, $state) {
+        $rootScope.$on('$stateChangeError', function(event, toState, toParams, fromState, fromParams, error) {
+            // We can catch the error thrown when the $requireAuth promise is rejected
+            // and redirect the user back to the home page
+            if (error === 'AUTH_REQUIRED') {
+                console.log('AUTH_REQUIRED');
+                $state.go('app.user.login');
             }
         });
+    }])
+    .config(function($stateProvider, $urlRouterProvider) {
 
-    // if none of the above states are matched, use this as the fallback
-    $urlRouterProvider.otherwise('/');
-});
+        $stateProvider
+        // app
+            .state('app', {
+                url: '',
+                abstract: true,
+                views: {
+                    'footer': {
+                        templateUrl: 'templates/footer.html'
+                    },
+                    'slideMenu': {
+                        templateUrl: 'templates/slide-menu.html',
+                        controller: 'userProfileController'
+                    }
+                },
+                resolve: {
+                    users: function(Users) {
+                        return Users;
+                    }
+                }
+            })
+            // app.home
+            .state('app.home', {
+                url: '/',
+                views: {
+                    'index@': {
+                        templateUrl: 'templates/home.html',
+                        controller: 'homeController'
+                    }
+                },
+                resolve: {
+                    dishes: function(Dishes) {
+                        return Dishes.getWeekly();
+                    },
+                    categories: function(Categories) {
+                        return Categories.getAll();
+                    },
+                    core: function(Core) {
+                        return Core;
+                    }
+                }
+            })
+            // app.settings
+            .state('app.settings', {
+                url: '/settings',
+                views: {
+                    'index@': {
+                        templateUrl: 'templates/settings.html',
+                        controller: 'settingsController'
+                    }
+                },
+                resolve: {
+                    categories: function(Categories) {
+                        return Categories.getAll();
+                    }
+                }
+            })
+            // app.favourites
+            .state('app.favourites', {
+                url: '/favourites',
+                views: {
+                    'index@': {
+                        templateUrl: 'templates/favourites.html'
+                    }
+                }
+            })
+            // app.admin 
+            .state('app.admin', {
+                url: '/admin',
+                views: {
+                    'index@': {
+                        templateUrl: 'templates/admin.html'
+                    }
+                },
+                resolve: {
+                    currentAuth: ['Users', function(Users) {
+                        // $requireAuth returns a promise so the resolve waits for it to complete
+                        // If the promise is rejected, it will throw a $stateChangeError (see above)
+                        return Users.auth.$requireAuth();
+                    }]
+                }
+            })
+            .state('app.admin.stats', {
+                url: '/stats',
+                views: {
+                    'index@': {
+                        templateUrl: 'templates/adminStats.html',
+                        controller: 'adminStatsController'
+                    }
+                },
+                resolve: {
+                    dishes: function(Dishes) {
+                        return Dishes.getAll();
+                    },
+                    categories: function(Categories) {
+                        return Categories.getAll();
+                    },
+                    core: function(Core) {
+                        return Core;
+                    }
+                }
+            })
+            .state('app.admin.dishes', {
+                url: '/dishes',
+                views: {
+                    'index@': {
+                        templateUrl: 'templates/admin-dishes.html',
+                        controller: 'adminDishesController'
+                    }
+                },
+                resolve: {
+                    dishes: function(Dishes) {
+                        return Dishes.getAll();
+                    },
+                    categories: function(Categories) {
+                        return Categories.getAll();
+                    },
+                    core: function(Core) {
+                        return Core;
+                    }
+                }
+            })
+            .state('app.admin.reports', {
+                url: '/reports',
+                views: {
+                    'index@': {
+                        templateUrl: 'templates/admin-reports.html',
+                        controller: 'adminListingReportsController'
+                    }
+                },
+                resolve: {
+                    reports: function(Reports) {
+                        return Reports.getAll();
+                    }
+                }
+            })
+            .state('app.admin.categories', {
+                url: '/categories',
+                views: {
+                    'index@': {
+                        templateUrl: 'templates/admin-categories.html',
+                        controller: 'adminCategoriesController'
+
+                    }
+                },
+                resolve: {
+                    dishes: function(Dishes) {
+                        return Dishes.getAll();
+                    },
+                    categories: function(Categories) {
+                        return Categories.getAll();
+                    }
+                }
+            })
+            .state('app.admin.categories.add', {
+                url: '/add',
+                views: {
+                    'index@': {
+                        templateUrl: 'templates/admin-categories-add.html',
+                        controller: 'adminAddCategoryController'
+
+                    }
+                }
+            })
+            .state('app.admin.categories.edit', {
+                url: '/edit/:id',
+                views: {
+                    'index@': {
+                        templateUrl: 'templates/admin-categories-edit.html',
+                        controller: 'adminEditCategoryController'
+
+                    }
+                },
+                resolve: {
+                    category: function(Categories, $stateParams) {
+                        return Categories.getOne($stateParams.id);
+                    }
+                }
+            })
+            .state('app.admin.dishes.add', {
+                url: '/add',
+                views: {
+                    'index@': {
+                        templateUrl: 'templates/admin-dishes-add.html',
+                        controller: 'adminAddDishController'
+
+                    }
+                },
+                resolve: {
+                    categories: function(Categories) {
+                        return Categories.getAll();
+                    }
+                }
+            })
+            .state('app.admin.dishes.edit', {
+                url: '/edit/:id',
+                views: {
+                    'index@': {
+                        templateUrl: 'templates/admin-dishes-edit.html',
+                        controller: 'adminEditDishController'
+
+                    }
+                },
+                resolve: {
+                    dish: function(Dishes, $stateParams) {
+                        return Dishes.getOne($stateParams.id);
+                    }
+                }
+            })
+            // app.dish
+            .state('app.dish', {
+                url: '/dishes/:category/:id',
+                views: {
+                    'index@': {
+                        templateUrl: 'templates/single.html',
+                        controller: 'singleController'
+                    }
+                },
+                resolve: {
+                    dish: function(Dishes, $stateParams) {
+                        return Dishes.getOne($stateParams.id);
+                    },
+                    core: function(Core) {
+                        return Core;
+                    }
+                }
+            })
+            .state('app.dish.report', {
+                url: '/report',
+                views: {
+                    'index@': {
+                        templateUrl: 'templates/report-listing.html',
+                        controller: 'reportListingController'
+                    }
+                },
+                resolve: {
+                    reports: function(Reports) {
+                        return Reports.getAll();
+                    }
+                }
+            })
+            .state('app.user', {
+                url: '/users',
+                abstract: true
+            })
+            .state('app.user.login', {
+                url: '/login',
+                views: {
+                    'index@': {
+                        templateUrl: 'templates/user-login.html',
+                        controller: 'userLoginController'
+                    }
+                }
+            })
+            .state('app.user.register', {
+                url: '/register',
+                views: {
+                    'index@': {
+                        templateUrl: 'templates/user-register.html',
+                        controller: 'userLoginController'
+                    }
+                }
+            })
+            .state('app.user.profile', {
+                url: '/profile',
+                views: {
+                    'index@': {
+                        templateUrl: 'templates/user-profile.html',
+                        controller: 'userProfileController'
+                    }
+                },
+                resolve: {
+                    users: function(Users) {
+                        return Users;
+                    }
+                }
+            });
+
+        // if none of the above states are matched, use this as the fallback
+        $urlRouterProvider.otherwise('/');
+    });
