@@ -4,6 +4,9 @@
 
 <ion-content class="has-header has-footer">
     <ul class="list">
+        <li ng-show="user" user-details-directive ui-sref="app.user.profile" class="item item-thumbnail-left menu-avatar" menu-toggle="left">
+            <!-- USER DETAILS DIRECTIVE -->
+        </li>
         <!-- Route to Home (app.home) -->
         <li ui-sref="app.home" ui-sref-active="active" class="item item-icon-left" menu-toggle="left">
             <i class="icon ion-home"></i>
