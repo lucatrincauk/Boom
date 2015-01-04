@@ -1,12 +1,14 @@
 angular.module('Boom')
-	.controller('userProfileController', ['$scope', 'users', '$state',
-		function($scope, users, $state) {
+	.controller('userProfileController', ['$scope', 'users', '$firebase', '$firebaseAuth', 'FirebaseUrl',
+		function($scope, users, $firebase, $firebaseAuth, FirebaseUrl) {
 			'use strict';
 
+			var ref = new Firebase(FirebaseUrl);
 
-			$scope.user = users.getUser();
-
-			console.log($scope.user);
+			ref.onAuth(function() {
+				$scope.user = users.getUser();
+			});
+			//	$scope.user = users.getUser();
 
 			$scope.save = function() {
 				$scope.user.$save().then(function() {
@@ -17,6 +19,11 @@ angular.module('Boom')
 					console.log('Error:', error);
 				});
 			};
+			$scope.logout = function() {
+				users.logoutUser();
+
+			};
+
 
 		}
 
