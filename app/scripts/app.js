@@ -1,5 +1,5 @@
 'use strict';
-angular.module('Boom', ['ionic', 'ui.router', 'firebase', 'ngSanitize'])
+angular.module('Boom', ['ionic', 'ui.router', 'firebase', 'angular.filter'])
     .run(function($rootScope, $ionicLoading) {
         // show veil when xhr starts
         $rootScope.$on('loading:show', function() {
@@ -73,7 +73,13 @@ angular.module('Boom', ['ionic', 'ui.router', 'firebase', 'ngSanitize'])
             url: '/settings',
             views: {
                 'index@': {
-                    templateUrl: 'templates/settings.html'
+                    templateUrl: 'templates/settings.html',
+                    controller: 'settingsController'
+                }
+            },
+            resolve: {
+                categories: function(Categories) {
+                    return Categories.getAll();
                 }
             }
         })
@@ -138,6 +144,20 @@ angular.module('Boom', ['ionic', 'ui.router', 'firebase', 'ngSanitize'])
                 },
                 core: function(Core) {
                     return Core;
+                }
+            }
+        })
+        .state('app.admin.reports', {
+            url: '/reports',
+            views: {
+                'index@': {
+                    templateUrl: 'templates/admin-reports.html',
+                    controller: 'adminListingReportsController'
+                }
+            },
+            resolve: {
+                reports: function(Reports) {
+                    return Reports.getAll();
                 }
             }
         })
@@ -238,6 +258,11 @@ angular.module('Boom', ['ionic', 'ui.router', 'firebase', 'ngSanitize'])
                 'index@': {
                     templateUrl: 'templates/report-listing.html',
                     controller: 'reportListingController'
+                }
+            },
+            resolve: {
+                reports: function(Reports) {
+                    return Reports.getAll();
                 }
             }
         }).state('app.user', {

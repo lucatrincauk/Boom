@@ -21,3 +21,13 @@
 .single .single-extra i.icon {
 	margin-right: 0.3em;
 }
+
+.single .tabs-icon-left.tabs .tab-item {
+	font-size: 12px;
+}
+.single .full-image {
+	border-radius: 5px;
+}
+.single .item-avatar, .single .tabs-secondary {
+	background: whitesmoke;
+}

@@ -19,7 +19,6 @@
                     </span> at {{canteenName}} 
                 </p>
             </div>
-
             <div class="item item-body">
                 <img class="full-image" ng-src="{{single.images}}">
                 <h2>{{single.title}}</h2>
@@ -43,25 +42,26 @@
                 </p>
             </div>
 
-            <!--<div class="item tabs tabs-secondary tabs-icon-left">
-                <a class="tab-item" href="#">
-                    <i class="icon ion-heart"></i>
-                    Favourite
-                </a>
-                <a class="tab-item" href="#">
-                    <i class="icon ion-star"></i>
-                    Rate
-                </a>
-                <a class="tab-item" href="#">
-                    <i class="icon ion-chatbox"></i>
-                    Comment
-                </a>
-            </div>-->
 
-           
-        <div class="problem-report text-center">
-            <a ui-sref="app.dish.report" class="link">Problem with this listing?</a>
-        </div>
-        </div>
+        <div class="item tabs tabs-secondary tabs-icon-left">
+            <a class="tab-item" href="#">
+              <i class="icon ion-heart"></i>
+              Fav
+            </a>
+            <a class="tab-item" href="#">
+              <i class="icon ion-thumbsup"></i>
+              Rate
+            </a>
+            <a class="tab-item" href="#">
+              <i class="icon ion-chatbox"></i>
+              Comment
+            </a>
+            <a class="tab-item" ui-sref="app.dish.report">
+              <i class="icon ion-flag"></i>
+              Report
+            </a>
+          </div>
+        </div>       
+
     </ion-content>
 </ion-view>

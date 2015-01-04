@@ -1,55 +1,60 @@
 <ion-view title="Admin">
-	<!-- Menu button -->
-	<ion-nav-buttons side="left">
-		<button menu-toggle="left" class="button button-icon icon ion-navicon"></button>
-	</ion-nav-buttons>
+    <!-- Menu button -->
+    <ion-nav-buttons side="left">
+        <button menu-toggle="left" class="button button-icon icon ion-navicon"></button>
+    </ion-nav-buttons>
 
     <ion-content class="has-header has-footer">
-      <div class="list">
+        <div class="list">
 
-        <div class="item item-divider">
-          Stats
-         </div>
+            <div class="item item-divider">
+                Stats
+            </div>
 
-        <a class="item" href="#" ui-sref="app.admin.stats">
-          View Statistics
-        </a>
-        <div class="item item-divider">
-          Dishes
-         </div>
+            <a class="item item-icon-left" href="#" ui-sref="app.admin.stats">
+                <span class="icon ion-stats-bars"></span> View Statistics
+            </a>
+            <div class="item item-divider">
+                Dishes
+            </div>
 
-        <a class="item" href="#" ui-sref="app.admin.dishes.add">
-          Add a dish
-        </a>
-        <a class="item" href="#" ui-sref="app.admin.dishes">
-          Edit a dish
-        </a>
-   
-        <div class="item item-divider">
-          Categories
-         </div>
+            <a class="item item-icon-left" href="#" ui-sref="app.admin.dishes.add">
+                <span class="icon ion-pizza"></span> Add a dish
+            </a>
+            <a class="item item-icon-left" href="#" ui-sref="app.admin.dishes">
+                <span class="icon ion-compose"></span> Edit a dish
+            </a>
 
-        <a class="item"  ui-sref="app.admin.categories.add">
-          Add a category
-        </a>
-        <a class="item" ui-sref="app.admin.categories">
-          Edit a Category
-        </a>
-  
+            <div class="item item-divider">
+                Categories
+            </div>
 
-        <div class="item item-divider">
-          Users
-         </div>
+            <a class="item item-icon-left"  ui-sref="app.admin.categories.add">
+                <span class="icon ion-folder"></span> Add a category
+            </a>
+            <a class="item item-icon-left" ui-sref="app.admin.categories">
+                <span class="icon ion-compose"></span> Edit a Category
+            </a>
 
-        <a class="item">
-          Add an user
-        </a>
-        <a class="item">
-          Edit an user
-        </a>
-  
-      </div>
 
+            <div class="item item-divider">
+                Users
+            </div>
+
+            <a class="item item-icon-left">
+                <span class="icon ion-person-add"></span> Add an user
+            </a>
+            <a class="item item-icon-left">
+                <span class="icon ion-compose"></span> Edit an user
+            </a>
+
+            <div class="item item-divider">
+                Content Reports
+            </div>
+            <a class="item item-icon-left" ui-sref="app.admin.reports">
+                <span class="icon ion-alert-circled"></span> Reported Dishes
+            </a>
+        </div>
 
     </ion-content>
 </ion-view>

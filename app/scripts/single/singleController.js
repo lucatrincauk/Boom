@@ -50,7 +50,7 @@ angular.module('Boom')
 				});
 			};
 
-			$scope.canteenName = core.canteenName;
+			$scope.canteenName = core.canteenName();
 
 		}
 
