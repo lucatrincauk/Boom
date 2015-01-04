@@ -1,12 +1,11 @@
 angular.module('Boom')
-    .controller('adminEditCategoryController', ['$scope', 'category', '$filter', 'Categories', '$state', 'Users',
+    .controller('adminEditCategoryController', ['$scope', 'category', '$filter', 'Categories', '$state',
 
-        function($scope, category, $filter, Categories, $state, Users) {
+        function($scope, category, $filter, Categories, $state) {
             'use strict';
 
             // Load categories
             $scope.category = category;
-            $scope.user = Users.getUser();
 
             $scope.save = function() {
                 $scope.category.id = $filter('dashify')($scope.category.title);
