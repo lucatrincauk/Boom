@@ -1,21 +1,24 @@
 'use strict';
 angular.module('Boom')
 
-.factory('Users', ['$firebase', 'FirebaseUrl', '$state',
-	function($firebase, FirebaseUrl, $state) {
+.factory('Users', ['$firebase', 'FirebaseUrl', '$state', '$firebaseAuth',
+	function($firebase, FirebaseUrl, $state, $firebaseAuth) {
 
 		var ref = new Firebase(FirebaseUrl);
+		var auth = $firebaseAuth(ref);
 
 		var createUser = function(data) {
 			console.log(data);
 
 
 			ref.createUser({
+				username: data.username,
 				email: data.email,
 				password: data.password
 			}, function(error) {
 				if (error === null) {
 					console.log('User created successfully');
+					loginUser(data);
 				} else {
 					console.log('Error creating user:', error);
 				}
@@ -38,10 +41,16 @@ angular.module('Boom')
 				if (authData) {
 					// save the user's profile into Firebase so we can list users,
 					// use them in Security and Firebase Rules, and show profiles
-					ref.child('users').child(authData.uid).set(authData);
+					ref.child('users').child(authData.uid).update(authData);
 				}
 			});
 
+		};
+
+		var logoutUser = function() {
+			console.log('user _ logged out');
+			$state.go('app.home');
+			auth.$unauth();
 		};
 		var removeUser = function(data) {
 			ref.removeUser({
@@ -55,19 +64,22 @@ angular.module('Boom')
 				}
 			});
 		};
-		var auth = function() {
-			return ref.getAuth();
-		};
+
+
 
 		var getUser = function() {
-			var user = auth();
+			console.log('user _ checking user');
+
+			var user = ref.getAuth();
 
 			// If no current user send to register page
 			if (!user) {
-				console.log('not registered');
-				$state.go('app.user.login');
+				console.log('user _ not registered');
+				//$state.go('app.user.login');
 				return;
 			}
+			console.log('user _ is logged');
+
 			var refSingle = ref.child('users').child(user.uid);
 			var sync = $firebase(refSingle);
 
@@ -77,6 +89,7 @@ angular.module('Boom')
 		return {
 			createUser: createUser,
 			loginUser: loginUser,
+			logoutUser: logoutUser,
 			removeUser: removeUser,
 			auth: auth,
 			getUser: getUser
