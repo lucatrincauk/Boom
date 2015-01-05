@@ -28,7 +28,7 @@
         </li> 
 
         <!-- Route to Admin (app.admin) -->
-        <li ng-show="user" ui-sref="app.admin" ui-sref-active="active" class="item item-icon-left" menu-toggle="left">
+        <li ng-show="user.isAdmin" ui-sref="app.admin" ui-sref-active="active" class="item item-icon-left" menu-toggle="left">
             <i class="icon ion-help-buoy"></i>
             Admin
         </li>
