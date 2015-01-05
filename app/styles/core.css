@@ -60,3 +60,11 @@ border-bottom: 1px solid #ddd;
 .tabs {
 	border-top:1px solid #ddd !important; /*overriding ionic.css - they put !important there for some reason*/
 }
+.menu-avatar {
+	background: rgb(226, 226, 226);
+	border-bottom: 2px solid rgb(181, 181, 181);
+}
+.menu-avatar img {
+	border-radius: 50px;
+	border: 1px solid rgb(179, 179, 179);
+}

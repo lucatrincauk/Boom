@@ -3,7 +3,12 @@
 </header>
 
 <ion-content class="has-header has-footer">
+
+
     <ul class="list">
+        <li ng-show="user" user-details-directive ui-sref="app.user.profile" class="item item-thumbnail-left menu-avatar" menu-toggle="left">
+            <!-- USER DETAILS DIRECTIVE -->
+        </li>
         <!-- Route to Home (app.home) -->
         <li ui-sref="app.home" ui-sref-active="active" class="item item-icon-left" menu-toggle="left">
             <i class="icon ion-home"></i>
@@ -23,9 +28,21 @@
         </li> 
 
         <!-- Route to Admin (app.admin) -->
-        <li ui-sref="app.admin" ui-sref-active="active" class="item item-icon-left" menu-toggle="left">
+        <li ng-show="user.isAdmin" ui-sref="app.admin" ui-sref-active="active" class="item item-icon-left" menu-toggle="left">
             <i class="icon ion-help-buoy"></i>
             Admin
+        </li>
+
+        <!-- Route to Admin (app.admin) -->
+        <li ng-show="!user" ui-sref="app.user.login" ui-sref-active="active" class="item item-icon-left" menu-toggle="left">
+            <i class="icon ion-person"></i>
+            Login
+        </li>
+
+        <!-- Route to Admin (app.admin) -->
+        <li ng-show="!user" ui-sref="app.user.register" ui-sref-active="active" class="item item-icon-left" menu-toggle="left">
+            <i class="icon ion-person-add"></i>
+            Register
         </li>
     </ul>
 </ion-content>
