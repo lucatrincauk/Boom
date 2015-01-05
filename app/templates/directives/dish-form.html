@@ -1,6 +1,8 @@
  <form name="dishForm" ng-submit="save()">
   <div class="list">
-    
+
+    <div class="item item-divider">Content</div>
+
     <label class="item item-input item-stacked-label">
       <span class="input-label">Title</span>
       <input ng-model="dish.slug" type="text" placeholder="Moroccan Pitta Pockets" ng-maxlength="30">
@@ -9,26 +11,49 @@
       <span class="input-label">Description</span>
       <textarea ng-model="dish.title" type="text" placeholder="Spiced Lamb Koftas or Freshly Prepared Falafels"></textarea>
     </label>
+    <label class="item item-input item-select">
+      <div class="input-label">
+        Category
+      </div>
+      <select ng-model="dish.category">
+        <option value="{{category.$id}}" ng-repeat="category in categories">{{category.title}}</option>
+      </select>
+    </label>
 
+    <div class="item item-divider">Extras</div>
     
-    
-    <div class="item item-input item-stacked-label item-button-right" >
+    <div class="item item-input extra">
       <span class="input-label">Dish comes with:</span>
-      <div ng-click="addExtraWithInput()" class="icon ion-plus"></div>
-
-       
-      <div class="item" ng-repeat="item in dish.with">
-          <input type="text" ng-model="item.title" placeholder="Fries and Vegs {{$index +1}}"></input>
+      <div class="badge badge-stable">
+        <span ng-click="addExtraInput('with')" class="icon ion-plus-round"></span>
       </div>
     </div>
 
-    <div class="item item-input item-stacked-label" >
+    <div class="list list-inset">      
+      <div class="item item-input" ng-repeat="item in dish.with">
+        <span class="dark">{{$index + 1}}.&nbsp;</span>
+        <input type="text" ng-model="item.title" placeholder="Fries and Vegs"></input>
+        <span ng-click="removeExtraInput($index, 'with')" class="icon ion-minus-circled"></span>
+      </div>      
+    </div>
+
+    <div class="item item-input extra">
       <span class="input-label">Dish addons:</span>
-       <div ng-click="addExtraAddonInput()" class="icon ion-plus"></div>
-      <div class="item" ng-repeat="item in dish.addons">
-          <input type="text" ng-model="item.title" placeholder="Fries and Vegs {{$index +1}}"></input>
+      <div class="badge badge-stable">
+        <span ng-click="addExtraInput('addons')" class="icon ion-plus-round"></span>
       </div>
     </div>
+
+    <div class="list list-inset">
+      <div class="item item-input" ng-repeat="item in dish.addons">
+         <span class="dark">{{$index + 1}}.&nbsp;</span>
+         <input type="text" ng-model="item.title" placeholder="Fries and Vegs"></input>
+         <span ng-click="removeExtraInput($index, 'addons')" class="icon ion-minus-circled"></span>
+      </div>
+    </div>
+
+    <div class="item item-divider">Images</div>
+
     <label class="item item-input item-stacked-label">
       <span class="input-label">Image</span>
       <input ng-model="dish.images" type="text" placeholder="Image.jpeg">
@@ -38,14 +63,7 @@
       <input ng-model="dish.thumb" type="text" placeholder="thumb.jpeg">
     </label>
 
-    <label class="item item-input item-select">
-      <div class="input-label">
-        Category
-      </div>
-      <select ng-model="dish.category">
-        <option value="{{category.$id}}" ng-repeat="category in categories">{{category.title}}</option>
-      </select>
-    </label>
+    <div class="item item-divider">Days</div>
 
     <div ng-repeat="week in weeks">
       

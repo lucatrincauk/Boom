@@ -18,3 +18,12 @@ line-height: 2em;
   background: #4a87ee;
   color: white;
 }
+form .extra {
+	border-bottom: 0;
+}
+form .extra + .list {
+	margin-top: 0;
+}
+form .extra + .list .icon {
+	margin-right: 10px;
+}

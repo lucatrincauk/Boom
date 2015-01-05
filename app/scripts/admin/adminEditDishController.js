@@ -23,31 +23,23 @@ angular.module('Boom')
             $scope.days = core.days;
 
             // Add empty Addon input
-            $scope.addExtraAddonInput = function() {
-                // if it's a legacy 'addon'
-                if (typeof $scope.dish.addons === 'string' || !$scope.dish.addons) {
-                    $scope.dish.addons = [];
-                }
-                // push empty object
-                $scope.dish.addons.push({
-                    title: ''
-                });
-            };
-            $scope.addExtraWithInput = function() {
-                // if it's a legacy 'with'
-                if (typeof $scope.dish.with === 'string' || !$scope.dish.with) {
-                    $scope.dish.with = [];
+            $scope.addExtraInput = function(type) {
+                // if it's a legacy input
+                if (typeof $scope.dish[type] === 'string' || !$scope.dish[type]) {
+                    $scope.dish[type] = [];
 
                 }
                 // push empty object
-                $scope.dish.with.push({
+                $scope.dish[type].push({
                     title: ''
                 });
             };
 
+            $scope.removeExtraInput = function(index, type) {
+                $scope.dish[type].splice(index, 1);
+            };
 
             $scope.save = function(preview) {
-                //  $scope.dish.id = $filter('dashify')($scope.dish.slug);
 
                 $scope.dish.$save().then(function() {
                     console.log('Saved successfully');

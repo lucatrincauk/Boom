@@ -16,17 +16,23 @@ angular.module('Boom')
 
             };
             $scope.reset();
-            $scope.addExtraAddonInput = function() {
-                $scope.dish.addons.push({
-                    title: ''
-                });
-            };
-            $scope.addExtraWithInput = function() {
-                $scope.dish.with.push({
+
+            // Add empty Addon input
+            $scope.addExtraInput = function(type) {
+                // if it's a legacy input
+                if (typeof $scope.dish[type] === 'string' || !$scope.dish[type]) {
+                    $scope.dish[type] = [];
+
+                }
+                // push empty object
+                $scope.dish[type].push({
                     title: ''
                 });
             };
 
+            $scope.removeExtraInput = function(index, type) {
+                $scope.dish[type].splice(index, 1);
+            };
 
             $scope.save = function() {
                 if (!$scope.dish.thumb) {
