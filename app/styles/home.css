@@ -42,23 +42,15 @@
     font-size: 20px;
 }
 .home .plain-and-simple a.item, .home .accompaniments a.item {
-width: 33.7%;
-float: left;
-min-height: 114px;
-}
-.home .plain-and-simple a.item img, .home .accompaniments a.item img {
-min-height: 114px;
+  width: 33.7%;
+  display: inline-block;
 }
 
-.home .soup-accompaniments a.item {
-width: 50%;
-float: left;
-}
 .home .dish-list a.item {
   padding:0;
   border: 0;
-  margin-bottom: -4px;
-}
+/*  margin-bottom: -4px;
+*/}
 .home .soup-accompaniments h2 {
   font-size: 1em;
 }
@@ -70,7 +62,6 @@ float: left;
 }
 .home .item .dish-thumb {
   width: 100%;
-  max-height: 8em;
 }
 .home .category-icon {
   width: 1.3em;
@@ -78,9 +69,20 @@ float: left;
 }
 
 @media only screen 
-and (min-device-width : 768px) {
+and (min-device-width : 1024px) {
   .menu-list {
-  width: 33%;
+  width: 341px;
   display: inline-block;
   }
+  .scroll-content {
+    width: 1024px;
+    margin: 0 auto;
+  }
 }
+  .dish-list {
+    height: 107px
+  }
+  .home .item .dish-thumb {
+    height: 107px;
+  }
+
