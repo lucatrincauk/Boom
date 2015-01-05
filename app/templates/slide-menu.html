@@ -33,13 +33,16 @@
             Admin
         </li>
 
-        <!-- Route to Admin (app.admin) -->
+        <li ng-show="user" ng-click="logout()" class="item item-icon-left" menu-toggle="left">
+            <i class="icon ion-log-out"></i>
+            Logout
+        </li>
+
         <li ng-show="!user" ui-sref="app.user.login" ui-sref-active="active" class="item item-icon-left" menu-toggle="left">
             <i class="icon ion-person"></i>
             Login
         </li>
 
-        <!-- Route to Admin (app.admin) -->
         <li ng-show="!user" ui-sref="app.user.register" ui-sref-active="active" class="item item-icon-left" menu-toggle="left">
             <i class="icon ion-person-add"></i>
             Register
