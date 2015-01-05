@@ -9,15 +9,14 @@
       <div user-details-directive class="item item-thumbnail-left menu-avatar"></div>
       
       <form ng-submit="save()" name="userName">
-
         <div class="list">
           <label class="item item-input">
             <span class="input-label">Username</span>
-            <input type="text" ng-model="user.username">
+            <input type="text" ng-model="user.username" ng-model-options="{ updateOn: 'blur' }">
           </label>
           <label class="item item-input">
             <span class="input-label">Avatar</span>
-            <input type="text" ng-model="user.avatar">
+            <input type="text" ng-model="user.avatar" ng-model-options="{ updateOn: 'blur' }">
           </label>
 
         </div> 
