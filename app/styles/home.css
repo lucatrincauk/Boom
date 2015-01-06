@@ -41,9 +41,13 @@
 .home .star-rating .icon {
     font-size: 20px;
 }
-.home .plain-and-simple a.item, .home .accompaniments a.item {
+.home .plain-and-simple a.item {
   width: 33.7%;
   display: inline-block;
+}
+
+.home .plain-and-simple a.item .dish-item span{
+  display: none;
 }
 
 .home .dish-list a.item {
@@ -54,7 +58,7 @@
 .home .soup-accompaniments h2 {
   font-size: 1em;
 }
-.home .plain-and-simple h2, .home .accompaniments h2 {
+.home .plain-and-simple h2 {
   font-size: .9em;
 }
 .home .menu-list .dish-list {
