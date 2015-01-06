@@ -73,13 +73,13 @@
 }
 
 @media only screen 
-and (min-device-width : 1024px) {
+and (min-width : 1024px) {
   .menu-list {
   width: 341px;
   display: inline-block;
   }
   .scroll-content {
-    width: 1024px;
+    max-width: 1024px;
     margin: 0 auto;
   }
 }
