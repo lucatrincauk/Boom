@@ -36,10 +36,10 @@ angular.module('Boom')
 
             $scope.save = function() {
                 if (!$scope.dish.thumb) {
-                    $scope.dish.thumb = 'http://placehold.it/375x113&text=default+image';
+                    $scope.dish.thumb = 'images/dishes/_default.gif';
                 }
                 if (!$scope.dish.images) {
-                    $scope.dish.images = 'http://placehold.it/375x375&text=default+image';
+                    $scope.dish.images = 'images/dishes/_default.gif';
                 }
                 //  $scope.dish.id = $filter('dashify')($scope.dish.slug);
                 $scope.dishes.$add($scope.dish).then(function() {
