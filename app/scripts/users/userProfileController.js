@@ -1,17 +1,12 @@
 angular.module('Boom')
-	.controller('userProfileController', ['$scope', 'users', '$firebase', '$firebaseAuth', 'FirebaseUrl',
-		function($scope, users, $firebase, $firebaseAuth, FirebaseUrl) {
+	.controller('userProfileController', ['$scope', 'users', '$firebase', '$rootScope',
+		function($scope, users, $firebase, $rootScope) {
 			'use strict';
-			var ref = new Firebase(FirebaseUrl);
 
-			ref.onAuth(function() {
-				$scope.user = users.getUser();
-			});
 
 			$scope.save = function() {
-				$scope.user.$save().then(function() {
+				$rootScope.user.$save().then(function() {
 					console.log('Saved successfully');
-
 
 				}, function(error) {
 					console.log('Error:', error);

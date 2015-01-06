@@ -1,16 +1,13 @@
 'use strict';
 angular.module('Boom')
 
-.factory('Users', ['$firebase', 'FirebaseUrl', '$state', '$firebaseAuth',
-	function($firebase, FirebaseUrl, $state, $firebaseAuth) {
+.factory('Users', ['$firebase', 'FirebaseUrl', '$state', '$firebaseAuth', '$rootScope',
+	function($firebase, FirebaseUrl, $state, $firebaseAuth, $rootScope) {
 
 		var ref = new Firebase(FirebaseUrl);
 		var auth = $firebaseAuth(ref);
 
 		var createUser = function(data) {
-			console.log(data);
-
-
 			ref.createUser({
 				username: data.username,
 				email: data.email,
@@ -46,6 +43,7 @@ angular.module('Boom')
 			});
 
 		};
+
 
 		var logoutUser = function() {
 			console.log('user _ logged out');
@@ -86,6 +84,12 @@ angular.module('Boom')
 			return sync.$asObject();
 
 		};
+
+		ref.onAuth(function() {
+			$rootScope.user = getUser();
+
+		});
+
 		return {
 			createUser: createUser,
 			loginUser: loginUser,
