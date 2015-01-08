@@ -16,13 +16,13 @@
         </li>
 
         <!-- Route to Favourites (app.favourites) -->
-        <li ui-sref="app.favourites" ui-sref-active="active" class="item item-icon-left" menu-toggle="left">
+        <li ng-show="user"  ui-sref="app.favourites" ui-sref-active="active" class="item item-icon-left" menu-toggle="left">
             <i class="icon ion-heart"></i>
             Favourites
         </li>
 
         <!-- Route to Settings (app.settings) -->
-        <li ui-sref="app.settings" ui-sref-active="active" class="item item-icon-left" menu-toggle="left">
+        <li ng-show="user"  ui-sref="app.settings" ui-sref-active="active" class="item item-icon-left" menu-toggle="left">
             <i class="icon ion-gear-b"></i>
             Settings
         </li> 
@@ -38,12 +38,12 @@
             Logout
         </li>
 
-        <li ng-show="!user" ui-sref="app.user.login" ui-sref-active="active" class="item item-icon-left" menu-toggle="left">
+        <li ng-hide="user" ui-sref="app.user.login" ui-sref-active="active" class="item item-icon-left" menu-toggle="left">
             <i class="icon ion-person"></i>
             Login
         </li>
 
-        <li ng-show="!user" ui-sref="app.user.register" ui-sref-active="active" class="item item-icon-left" menu-toggle="left">
+        <li ng-hide="user" ui-sref="app.user.register" ui-sref-active="active" class="item item-icon-left" menu-toggle="left">
             <i class="icon ion-person-add"></i>
             Register
         </li>

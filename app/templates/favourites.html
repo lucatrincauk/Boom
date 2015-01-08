@@ -12,7 +12,12 @@
                     <h2 ui-sref="app.dish({ id: (dish.$id), category: (dish.category)})">{{dish.slug}}</h2>
                     <p>{{dish.title}}</p>
                     <span ng-click="removeFavourite(favourite.id)" class="icon ion-heart positive"></span>
-                </div>
+                </div> {{user.favourites.length > 0}}
+            <div ng-show="favourite.length > 0" class="item">
+           
+                You haven't added any dish to your favourites.
+           
+            </div>
             </div>
 
 
