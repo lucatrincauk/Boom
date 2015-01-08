@@ -1,17 +1,18 @@
 angular.module('Boom')
-    .controller('userFavouritesController', ['$scope', '$rootScope', 'dishes',
+    .controller('userFavouritesController', ['$scope', '$rootScope', 'dishes', 'Users',
 
-        function($scope, $rootScope, dishes) {
+        function($scope, $rootScope, dishes, Users) {
             'use strict';
 
             // Assign data to scope
             //$scope.dishes = dishes;
             dishes.$loaded(function() {
                 $scope.dishes = dishes;
-            })
+            });
 
-            $scope.unfavourite = function() {
-                console.log('removed')
+            $scope.removeFavourite = function($id) {
+                Users.removeFavourite($id);
+
             };
 
 

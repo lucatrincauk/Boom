@@ -11,7 +11,7 @@
                     <img ng-src="{{dish.images}}">
                     <h2 ui-sref="app.dish({ id: (dish.$id), category: (dish.category)})">{{dish.slug}}</h2>
                     <p>{{dish.title}}</p>
-                    <span ng-click="unfavourite()" class="icon ion-heart positive"></span>
+                    <span ng-click="removeFavourite(favourite.id)" class="icon ion-heart positive"></span>
                 </div>
             </div>
 

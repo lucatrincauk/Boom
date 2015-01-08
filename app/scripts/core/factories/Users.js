@@ -90,8 +90,6 @@ angular.module('Boom')
 				$rootScope.user.favourites = [];
 			}
 
-			$rootScope.user.favourites[$id] = $id;
-			console.log($rootScope.user);
 			ref.child('users/' + $rootScope.user.uid + '/favourites/' + $id).update({
 				'id': $id
 			});
@@ -106,6 +104,10 @@ angular.module('Boom')
 
 		};
 
+		var removeFavourite = function($id) {
+			ref.child('users/' + $rootScope.user.uid + '/favourites/' + $id).remove();
+		};
+
 		ref.onAuth(function() {
 			$rootScope.user = getUser();
 
@@ -118,7 +120,8 @@ angular.module('Boom')
 			removeUser: removeUser,
 			auth: auth,
 			getUser: getUser,
-			addFavourite: addFavourite
+			addFavourite: addFavourite,
+			removeFavourite: removeFavourite
 		};
 	}
 
