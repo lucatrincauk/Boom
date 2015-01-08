@@ -85,6 +85,27 @@ angular.module('Boom')
 
 		};
 
+		var addFavourite = function($id) {
+			if (typeof $rootScope.user.favourites === 'string' || !$rootScope.user.favourites) {
+				$rootScope.user.favourites = [];
+			}
+
+			$rootScope.user.favourites[$id] = $id;
+			console.log($rootScope.user);
+			ref.child('users/' + $rootScope.user.uid + '/favourites/' + $id).update({
+				'id': $id
+			});
+
+
+			// $rootScope.user.save().then(function() {
+			// 	console.log('Saved successfully');
+
+			// }, function(error) {
+			// 	console.log('Error:', error);
+			// });
+
+		};
+
 		ref.onAuth(function() {
 			$rootScope.user = getUser();
 
@@ -96,7 +117,8 @@ angular.module('Boom')
 			logoutUser: logoutUser,
 			removeUser: removeUser,
 			auth: auth,
-			getUser: getUser
+			getUser: getUser,
+			addFavourite: addFavourite
 		};
 	}
 

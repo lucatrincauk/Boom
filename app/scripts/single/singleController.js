@@ -1,6 +1,6 @@
 angular.module('Boom')
-	.controller('singleController', ['$scope', 'dish', 'core',
-		function($scope, dish, core) {
+	.controller('singleController', ['$scope', 'dish', 'core', 'Users',
+		function($scope, dish, core, Users) {
 			'use strict';
 
 
@@ -48,6 +48,9 @@ angular.module('Boom')
 				}, function(error) {
 					console.log('Error:', error);
 				});
+			};
+			$scope.addFavourite = function() {
+				Users.addFavourite($scope.single.$id);
 			};
 
 			$scope.canteenName = core.canteenName();

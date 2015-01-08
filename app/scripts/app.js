@@ -104,7 +104,13 @@ angular.module('Boom', ['ionic', 'ui.router', 'firebase', 'angular.filter'])
                 url: '/favourites',
                 views: {
                     'index@': {
-                        templateUrl: 'templates/favourites.html'
+                        templateUrl: 'templates/favourites.html',
+                        controller: 'userFavouritesController'
+                    }
+                },
+                resolve: {
+                    dishes: function(Dishes) {
+                        return Dishes.getAll();
                     }
                 }
             })
