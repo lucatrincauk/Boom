@@ -10,6 +10,10 @@ angular.module('Boom')
                 $scope.dishes = dishes;
             })
 
+            $scope.unfavourite = function() {
+                console.log('removed')
+            };
+
 
         }
     ]);

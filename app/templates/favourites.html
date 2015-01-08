@@ -6,11 +6,13 @@
 	
     <ion-content class="has-header has-footer">
         <div class="list">
-            <div ng-repeat="favourite in user.favourites" class="item item-thumbnail-left item-icon-right">
-                <img src="http://ionicframework.com/img/docs/nevermind.jpg">
-                <h2>{{favourite.id}}</h2>
-                <p>xx</p>
-                <span class="icon ion-heart positive"></span>
+            <div ng-repeat="favourite in user.favourites">
+                <div ng-repeat="dish in dishes | filter: {$id : favourite.id}" class="item item-thumbnail-left item-icon-right">
+                    <img ng-src="{{dish.images}}">
+                    <h2 ui-sref="app.dish({ id: (dish.$id), category: (dish.category)})">{{dish.slug}}</h2>
+                    <p>{{dish.title}}</p>
+                    <span ng-click="unfavourite()" class="icon ion-heart positive"></span>
+                </div>
             </div>
 
 
