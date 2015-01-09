@@ -20,7 +20,7 @@ angular.module('Boom')
 					}
 				}
 
-				$scope.viewCount();
+				//$scope.viewCount();
 
 			});
 
@@ -35,20 +35,20 @@ angular.module('Boom')
 			};
 
 			// increase dish views count
-			$scope.viewCount = function() {
-				if ($scope.single.views) {
-					$scope.single.views = ++$scope.single.views;
-				} else {
-					// or initialise it to 1
-					$scope.single.views = 1;
-				}
-				// save to server
-				$scope.single.$save().then(function() {
-					console.log('Saved successfully');
-				}, function(error) {
-					console.log('Error:', error);
-				});
-			};
+			// $scope.viewCount = function() {
+			// 	if ($scope.single.views) {
+			// 		$scope.single.views = ++$scope.single.views;
+			// 	} else {
+			// 		// or initialise it to 1
+			// 		$scope.single.views = 1;
+			// 	}
+			// 	// save to server
+			// 	$scope.single.$save().then(function() {
+			// 		console.log('Saved successfully');
+			// 	}, function(error) {
+			// 		console.log('Error:', error);
+			// 	});
+			// };
 
 			$scope.toggleFavourite = function() {
 
