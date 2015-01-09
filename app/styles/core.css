@@ -68,3 +68,6 @@ border-bottom: 1px solid #ddd;
 	border-radius: 50px;
 	border: 1px solid rgb(179, 179, 179);
 }
+.item, .item p {
+	white-space: normal;
+}
