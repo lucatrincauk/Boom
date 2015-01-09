@@ -1,18 +1,29 @@
-<ion-view title="Listing Reports">
+<ion-view title="Listing Reports" class="reports">
     <!-- Menu button -->
     <ion-nav-buttons side="left">
         <button menu-toggle="left" class="button button-icon icon ion-navicon"></button>
     </ion-nav-buttons>
 
     <ion-content class="has-header has-footer">
-        <div class="list card">
+      
 
-            <div ng-repeat="(key, value) in reports | groupBy: 'dishId'" class="item">
-                <h2 ui-sref="app.admin.dishes.edit({ id: (key)})">{{key | undashify}} <span class="ion-edit"></span></h2>
-                <div ng-repeat="issue in value">{{ issue }}</div>
+            <div ng-repeat="(key, value) in reports | groupBy: 'dishId'">
+                <h2 ui-sref="app.admin.dishes.edit({ id: (key)})" class="item item-divider">{{key | undashify}} <span class="ion-edit"></span></h2>
+         
+                <div ng-repeat="issue in value">
+                 <div class="item item-date">
+                   {{issue.timestamp | limitTo: 21}}
+                  </div> 
+                  <div class="list list-inset">
+                      
+                    <div ng-show="issue.incorrectImage" class="item item-text-wrap">Incorrect Image</div>
+                    <div ng-show="issue.incorrectDescription" class="item item-text-wrap">Incorrect Description</div>
+                    <div ng-show="issue.incorrectDate" class="item item-text-wrap">Incorrect Date</div>
+                    <div ng-show="issue.rudeComments" class="item item-text-wrap">Rude Comments</div>
+                  </div>
+                </div>
             </div>
 
-        </div>
 
     </ion-content>
 </ion-view>

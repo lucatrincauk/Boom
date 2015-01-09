@@ -27,3 +27,11 @@ form .extra + .list {
 form .extra + .list .icon {
 	margin-right: 10px;
 }
+.reports .item-date {
+	border-bottom: 0;
+}
+
+.reports .list-inset {
+	margin-top: 0;
+	margin-bottom: 20px;
+}
