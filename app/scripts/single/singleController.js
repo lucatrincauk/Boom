@@ -49,9 +49,16 @@ angular.module('Boom')
 					console.log('Error:', error);
 				});
 			};
-			$scope.addFavourite = function() {
-				Users.addFavourite($scope.single.$id);
+
+			$scope.toggleFavourite = function() {
+
+				if ($scope.user.favourites && $scope.user.favourites[$scope.single.$id]) {
+					Users.removeFavourite($scope.single.$id);
+				} else {
+					Users.addFavourite($scope.single.$id);
+				}
 			};
+
 
 			$scope.canteenName = core.canteenName();
 

@@ -43,8 +43,8 @@
             </div>
 
         <div class="item tabs tabs-secondary tabs-icon-left">
-            <a ng-show="user" class="tab-item" ng-click="addFavourite()">
-              <i class="icon ion-heart"></i>
+            <a ng-show="user" class="tab-item" ng-click="toggleFavourite()">
+              <i ng-class="{'positive' : user.favourites[single.$id]}" class="icon ion-heart"></i>
               Fav
             </a>
             <a class="tab-item" href="#">
@@ -60,7 +60,7 @@
               Report
             </a>
           </div>
-        </div>       
+        </div>      
 
     </ion-content>
 </ion-view>
