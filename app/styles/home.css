@@ -5,10 +5,10 @@
   margin: 0px 10px 10px 0px;
 }
 */
-.dish-item {
+.home .dish-item {
   overflow: hidden;
   position: absolute;
-  bottom: 0;
+  bottom: 5px;
   background: rgba(89, 89, 89, 0.43);
   padding-left: 1em;
   color: white;
@@ -16,57 +16,61 @@
   padding-top: 0.3em;
   width: 100%;
   text-shadow:  1px 1px 1px #515151;
+  white-space: normal;
 }
-.dish-item h2 {
-  margin-bottom: 5px;
+.home .dish-item h2 {
   color: #fff;
   font-size: 1.2em;
   white-space: normal;
 }
-.dish-item em {
-  font-size: 13px;
-  font-style: italic;
+
+.home .plain-and-simple a.item {
+  width: 33.3%;
+  display: inline-block;
+  margin: 0;
 }
 
-.dish-item .ion-ios7-heart, .dish-item .ion-ios7-heart-outline {
-  font-size: 25px;
-  color: darkred;
-}
-.star-rating {
-  display: inline-flex;
-  margin-top: 2px;
-
-}
-.star-rating .icon {
-    font-size: 20px;
-}
-.plain-and-simple a.item, .accompaniments a.item {
-width: 33.7%;
-float: left;
+.home .plain-and-simple a.item .dish-item span{
+  display: none;
 }
 
-.soup-accompaniments a.item {
-width: 50%;
-float: left;
-}
-.dish-list a.item {
+.home .dish-list a.item {
   padding:0;
   border: 0;
-}
-.soup-accompaniments h2 {
-  font-size: 1em;
-}
-.plain-and-simple h2, .accompaniments h2 {
+/*  margin-bottom: -4px;
+*/}
+
+.home .plain-and-simple h2 {
   font-size: .9em;
 }
-.menu-list .dish-list {
+.home .menu-list .dish-list {
   padding: 0;
 }
-.item .dish-thumb {
+.home .item .dish-thumb {
   width: 100%;
-  max-height: 8em;
 }
 .home .category-icon {
   width: 1.3em;
   height: 1.3em;
+}
+
+@media only screen 
+and (min-width : 1024px) {
+  .menu-list {
+  width: 341px;
+  display: inline-block;
+  }
+  .scroll-content {
+    max-width: 1024px;
+    margin: 0 auto;
+  }
+}
+  .dish-list {
+    height: 107px
+  }
+  .home .item .dish-thumb {
+    height: 107px;
+  }
+.home .item.positive .dish-item {
+  background: rgba(55, 117, 223, 0.71);
 }

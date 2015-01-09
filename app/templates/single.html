@@ -3,48 +3,64 @@
     <ion-nav-buttons side="left">
         <button menu-toggle="left" class="button button-icon icon ion-navicon"></button>
     </ion-nav-buttons>
-    <ion-nav-buttons side="right">
-  <button class="button button-positive" ui-sref="app.admin.dishes.edit({ id: (single.$id)})" >Edit dish</button>
+    <ion-nav-buttons side="right" >
+      <button ng-show="user.isAdmin" class="button button-positive" ui-sref="app.admin.dishes.edit({ id: (single.$id)})" >Edit dish</button>
     </ion-nav-buttons>
     <ion-content class="has-header has-footer">
         <div class="list card">
             <div class="item item-avatar">
                 <span class="category-icon"></span>
                 <h2>{{single.slug}}</h2>
-                <p>{{single.day | dayfy}} at {{canteenName}}</p>
+                <p>
+                   <span ng-repeat="day in single.days">
+                        <span ng-show="$middle">,</span>
+                        <span ng-show="$last" ng-hide="$first">&amp;</span>
+                         {{day}}
+                    </span> at {{canteenName}} 
+                </p>
             </div>
-
             <div class="item item-body">
                 <img class="full-image" ng-src="{{single.images}}">
                 <h2>{{single.title}}</h2>
 
-                <p ng-show="single.with">
-                    <i class="icon ion-checkmark-circled "></i> {{single.with}}
-                </p>
-                <p ng-show="single.addons">
-                <i class="icon ion-plus-circled "></i>
-                    {{single.addons}}
-                </p>
-                <p>
+                <div ng-show="single.with" class="single-extra single-with">  
+                    <h4>This dish comes with:</h4>                  
+                    <div ng-repeat="item in single.with" class="item">                    
+                       <i class="icon ion-checkmark-circled"></i> {{item.title}}
+                    </div>
+                </div>
+                <div ng-show="single.addons" class="single-extra single-addons">  
+                    <h4>You can also add:</h4>                  
+                    <div ng-repeat="item in single.addons" class="item">                    
+                        <i class="icon ion-plus-circled "></i> {{item.title}}
+                    </div>
+                </div>
+                <!--<p>
+                    <a href="#" class="subdued">{{single.views}} Views</a>
                     <a href="#" class="subdued">2 Favourites</a>
                     <a href="#" class="subdued">5 Comments</a>
-                </p>
+                </p>-->
             </div>
 
-            <div class="item tabs tabs-secondary tabs-icon-left">
-                <a class="tab-item" href="#">
-                    <i class="icon ion-heart"></i>
-                    Favourite
-                </a>
-                <a class="tab-item" href="#">
-                    <i class="icon ion-star"></i>
-                    Rate
-                </a>
-                <a class="tab-item" href="#">
-                    <i class="icon ion-chatbox"></i>
-                    Comment
-                </a>
-            </div>
-        </div>
+        <div class="item tabs tabs-secondary tabs-icon-left">
+            <a ng-show="user" class="tab-item" ng-click="toggleFavourite()">
+              <i ng-class="{'positive' : user.favourites[single.$id]}" class="icon ion-heart"></i>
+              Fav
+            </a>
+            <a class="tab-item" href="#">
+              <i class="icon ion-thumbsup"></i>
+              Rate
+            </a>
+            <a ng-show="user" class="tab-item" href="#">
+              <i class="icon ion-chatbox"></i>
+              Comment
+            </a>
+            <a class="tab-item" ui-sref="app.dish.report">
+              <i class="icon ion-flag"></i>
+              Report
+            </a>
+          </div>
+        </div>      
+
     </ion-content>
 </ion-view>

@@ -1,19 +1,52 @@
 angular.module('Boom')
-    .controller('adminAddDishController', ['$scope', 'categories', 'dishes', '$filter', '$state', 'Dishes', '$ionicPopup', '$timeout',
-        function($scope, categories, dishes, $filter, $state, Dishes, $ionicPopup, $timeout) {
+    .controller('adminAddDishController', ['$scope', 'categories', 'dishes', 'core', '$filter', '$state', '$ionicPopup', '$timeout',
+        function($scope, categories, dishes, core, $filter, $state, $ionicPopup, $timeout) {
             'use strict';
 
             // Load categories
             $scope.categories = categories;
             $scope.dishes = dishes;
-            $scope.dish = {};
+            $scope.reset = function() {
+                $scope.dish = {};
+                $scope.dish.addons = [];
+                $scope.dish.with = [];
+                $scope.dish.week = {};
+                $scope.days = core.days;
+                $scope.weeks = core.weeks;
 
+            };
+            $scope.reset();
+
+            // Add empty Addon input
+            $scope.addExtraInput = function(type) {
+                // if it's a legacy input
+                if (typeof $scope.dish[type] === 'string' || !$scope.dish[type]) {
+                    $scope.dish[type] = [];
+
+                }
+                // push empty object
+                $scope.dish[type].push({
+                    title: ''
+                });
+            };
+
+            $scope.removeExtraInput = function(index, type) {
+                $scope.dish[type].splice(index, 1);
+            };
 
             $scope.save = function() {
-                $scope.dish.id = $filter('dashify')($scope.dish.slug);
-
-                Dishes.saveDish($scope.dish);
-                $scope.saveDialog();
+                if (!$scope.dish.thumb) {
+                    $scope.dish.thumb = 'images/dishes/_default.gif';
+                }
+                if (!$scope.dish.images) {
+                    $scope.dish.images = 'images/dishes/_default.gif';
+                }
+                //  $scope.dish.id = $filter('dashify')($scope.dish.slug);
+                $scope.dishes.$add($scope.dish).then(function() {
+                    $scope.saveDialog();
+                }, function(error) {
+                    console.log('Error:', error);
+                });
             };
             $scope.saveDialog = function() {
                 var saveDialog = $ionicPopup.show({
@@ -44,9 +77,8 @@ angular.module('Boom')
 
                 }, 3000);
             };
-            $scope.reset = function() {
-                $scope.dish = {};
 
-            };
+
+
         }
     ]);

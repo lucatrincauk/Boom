@@ -1,15 +1,15 @@
 <?xml version='1.0' encoding='utf-8'?>
 <widget id="com.example.Boom" version="0.0.1" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
-    <name>BOOM</name>
+    <name>My Canteen</name>
     <description>
         Best Of Office Menus
     </description>
-    <author email="dev@cordova.apache.org" href="http://cordova.io">
-        RAT (Restaurant App Team)
+    <author email="lucatrinca.uk@gmail.com" href="http://pixelsquare.co.uk/luca">
+        Luca Trinca
+        Adam Barrel
     </author>
     <content src="index.html" />
     <access origin="*" />
-    <icon src="rat.png" /> 
     <preference name="SplashScreen" value="screen" />
-    <preference name="SplashScreenDelay" value="5000" />
+    <preference name="SplashScreenDelay" value="4000" />
 </widget>

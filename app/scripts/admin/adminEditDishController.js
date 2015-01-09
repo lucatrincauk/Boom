@@ -1,24 +1,69 @@
 angular.module('Boom')
-    .controller('adminEditDishController', ['$scope', 'categories', 'dish', '$filter', 'Dishes', '$state',
+    .controller('adminEditDishController', ['$scope', 'categories', 'dish', 'core', '$filter', 'Dishes', '$state',
 
-        function($scope, categories, dish, $filter, Dishes, $state) {
+        function($scope, categories, dish, core, $filter, Dishes, $state) {
             'use strict';
 
-            // Load categories
-            $scope.categories = categories;
-            $scope.dish = dish;
+            // Wait for dish to be loaded from Firebase
+            dish.$loaded(function() {
+                // Assign data to scope
+                $scope.dish = dish;
+                if (typeof $scope.dish.week === 'string') {
+                    // if the week is a string (legacy), make it an array
+                    $scope.dish.week = {};
+                }
+            });
+            //Wait for categories to be loaded from Firebase
+            categories.$loaded(function() {
+                // Assign data to scope
+                $scope.categories = categories;
+            });
 
-            $scope.save = function() {
-                $scope.dish.id = $filter('dashify')($scope.dish.slug);
-                Dishes.saveDish($scope.dish);
+            $scope.weeks = core.weeks;
+            $scope.days = core.days;
+
+            // Add empty Addon input
+            $scope.addExtraInput = function(type) {
+                // if it's a legacy input
+                if (typeof $scope.dish[type] === 'string' || !$scope.dish[type]) {
+                    $scope.dish[type] = [];
+
+                }
+                // push empty object
+                $scope.dish[type].push({
+                    title: ''
+                });
+            };
+
+            $scope.removeExtraInput = function(index, type) {
+                $scope.dish[type].splice(index, 1);
+            };
+
+            $scope.save = function(preview) {
+
+                $scope.dish.$save().then(function() {
+                    console.log('Saved successfully');
+
+                    if (preview) {
+                        $state.go('app.dish', {
+                            id: (dish.$id),
+                            category: (dish.category)
+                        });
+                    } else {
+                        $state.go('app.admin.dishes');
+                    }
+                }, function(error) {
+                    console.log('Error:', error);
+                });
+
+            };
+            $scope.remove = function() {
+                //$scope.dish.$remove($scope.dish.$id)
+                Dishes.removeDish($scope.dish.$id);
                 $state.go('app.admin.dishes');
 
             };
-            $scope.remove = function(dishId) {
-                Dishes.removeDish(dishId);
-                $state.go('app.admin.dishes');
 
-            };
 
 
         }

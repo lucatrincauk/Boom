@@ -1,13 +1,13 @@
 angular.module('Boom')
-    .controller('homeController', ['$scope', '$rootScope', 'categories', 'dishes', '$filter',
-        function($scope, $rootScope, categories, dishes, $filter) {
+    .controller('homeController', ['$scope', '$rootScope', 'core', 'categories', 'dishes', '$filter',
+        function($scope, $rootScope, core, categories, dishes, $filter) {
             'use strict';
 
             // Assign data to scope
             $scope.dishes = dishes;
             $scope.categories = categories;
-
-
+            $scope.canteenName = core.canteenName();
+            $scope.cycle = core.cycle(true);
             $scope.nameDays = function() {
 
                 $scope.dayName = $filter('dayfy')($scope.activeDay);
@@ -40,19 +40,20 @@ angular.module('Boom')
             };
 
 
+            $scope.dayFilter = function(dish) {
+                return dish.week[$scope.cycle][core.days[$scope.activeDay]];
+            };
+
             $scope.init = (function() {
                 // if it's weekend (sat: day = 5, sun: day = -1)
 
-                if ($rootScope.day > 4 || $rootScope.day < 0) {
-                    // show closed message
-                    $rootScope.closed = true;
+                if (core.isClosed()) {
+                    $scope.closed = true;
                     // set view to Monday
                     $scope.activeDay = 0;
                 } else {
-                    $rootScope.closed = false;
-
                     // otherwise set view to current day
-                    $scope.activeDay = $rootScope.day;
+                    $scope.activeDay = core.day;
                 }
 
                 $scope.nameDays();

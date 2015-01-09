@@ -1,5 +1,5 @@
 angular.module('Boom')
-	.controller('adminDishesController', ['$scope', 'categories', 'dishes', '$timeout',
+	.controller('adminDishesController', ['$scope', 'categories', 'dishes',
 		function($scope, categories, dishes) {
 			'use strict';
 

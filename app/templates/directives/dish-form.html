@@ -1,22 +1,59 @@
- <form name="dishForm" ng-submit="save(dish)">
+ <form name="dishForm" ng-submit="save()">
   <div class="list">
 
-    <label class="item item-input item-stacked-label">
-      <span class="input-label">Headline</span>
-      <input ng-model="dish.slug" type="text" placeholder="Moroccan Pitta Pockets">
-    </label>
+    <div class="item item-divider">Content</div>
+
     <label class="item item-input item-stacked-label">
       <span class="input-label">Title</span>
-      <input ng-model="dish.title" type="text" placeholder="Spiced Lamb Koftas or Freshly Prepared Falafels">
+      <input ng-model="dish.slug" type="text" placeholder="Moroccan Pitta Pockets" ng-maxlength="30">
     </label>
     <label class="item item-input item-stacked-label">
+      <span class="input-label">Description</span>
+      <textarea ng-model="dish.title" type="text" placeholder="Spiced Lamb Koftas or Freshly Prepared Falafels"></textarea>
+    </label>
+    <label class="item item-input item-select">
+      <div class="input-label">
+        Category
+      </div>
+      <select ng-model="dish.category">
+        <option value="{{category.$id}}" ng-repeat="category in categories">{{category.title}}</option>
+      </select>
+    </label>
+
+    <div class="item item-divider">Extras</div>
+    
+    <div class="item item-input extra">
       <span class="input-label">Dish comes with:</span>
-      <input type="text" ng-model="dish.with" placeholder="Fries and Vegs"></input>
-    </label>
-    <label class="item item-input item-stacked-label">
+      <div class="badge badge-stable">
+        <span ng-click="addExtraInput('with')" class="icon ion-plus-round"></span>
+      </div>
+    </div>
+
+    <div class="list list-inset">      
+      <div class="item item-input" ng-repeat="item in dish.with">
+        <span class="dark">{{$index + 1}}.&nbsp;</span>
+        <input type="text" ng-model="item.title" placeholder="Fries and Vegs"></input>
+        <span ng-click="removeExtraInput($index, 'with')" class="icon ion-minus-circled"></span>
+      </div>      
+    </div>
+
+    <div class="item item-input extra">
       <span class="input-label">Dish addons:</span>
-      <input type="text" ng-model="dish.addons" placeholder="Fries and Vegs"></input>
-    </label>
+      <div class="badge badge-stable">
+        <span ng-click="addExtraInput('addons')" class="icon ion-plus-round"></span>
+      </div>
+    </div>
+
+    <div class="list list-inset">
+      <div class="item item-input" ng-repeat="item in dish.addons">
+         <span class="dark">{{$index + 1}}.&nbsp;</span>
+         <input type="text" ng-model="item.title" placeholder="Fries and Vegs"></input>
+         <span ng-click="removeExtraInput($index, 'addons')" class="icon ion-minus-circled"></span>
+      </div>
+    </div>
+
+    <div class="item item-divider">Images</div>
+
     <label class="item item-input item-stacked-label">
       <span class="input-label">Image</span>
       <input ng-model="dish.images" type="text" placeholder="Image.jpeg">
@@ -26,37 +63,22 @@
       <input ng-model="dish.thumb" type="text" placeholder="thumb.jpeg">
     </label>
 
-    <label class="item item-input item-select">
-      <div class="input-label">
-        Category
+    <div class="item item-divider">Days</div>
+
+    <div ng-repeat="week in weeks">
+      
+      <ion-checkbox ng-model="dish['p'+$index]">Week {{$index+1}}</ion-checkbox>
+      <div ng-show="dish['p'+$index]" class="row day-checkbox">
+        <div class="col item-checkbox" ng-repeat="day in days | limitTo: 5">
+          <label>
+            <input class="day-checkbox-input" type="checkbox" ng-model="dish.week[weeks[$parent.$index]][days[$index]]" >      
+            <div class="day-checkbox-value">{{$index | dayfy:true | limitTo: 1}}</div>
+          </label>         
+        </div>
       </div>
-      <select ng-model="dish.category">
-        <option value="{{category.$id}}" ng-repeat="category in categories">{{category.title}}</option>
-      </select>
-    </label>
-    <label class="item item-input item-select">
-      <div class="input-label">
-        Week
-      </div>
-      <select ng-model="dish.week">
-        <option>1</option>
-        <option>2</option>
-        <option>3</option>
-        <option>4</option>
-      </select>
-    </label>
-    <label class="item item-input item-select">
-      <div class="input-label">
-        Day
-      </div>
-      <select ng-model="dish.day">
-        <option value="0">Monday</option>
-        <option value="1">Tuesday</option>
-        <option value="2">Wednesday</option>
-        <option value="3">Thursday</option>
-        <option value="4">Friday</option>
-      </select>
-    </label>
+    </div>
+
+
 
   </div>
   <div class="padding">

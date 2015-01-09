@@ -1,0 +1,16 @@
+.settings .item-divider .ion-navicon-round {
+	float: right;
+}
+.list-right-editing .item-right-editable .item-content, .item-right-editing.item-right-editable .item-content {
+	 -webkit-transform: none;
+	 transform: none; 
+}
+.settings .disable-pointer-events .list-right-editing .item-right-editable .toggle {
+	 -webkit-transform: translate3d(-60px, 0, 0); 
+	transform: translate3d(-60px, 0, 0);
+}
+.settings .list-right-editing .item-right-editable .toggle {
+	-webkit-transform: translate3d(0, 0, 0);
+	transform: translate3d(0, 0, 0);
+	transition-delay: 125ms;
+}
