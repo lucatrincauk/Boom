@@ -8,7 +8,7 @@
 .home .dish-item {
   overflow: hidden;
   position: absolute;
-  bottom: 0;
+  bottom: 5px;
   background: rgba(89, 89, 89, 0.43);
   padding-left: 1em;
   color: white;
@@ -19,7 +19,6 @@
   white-space: normal;
 }
 .home .dish-item h2 {
-  margin-bottom: 5px;
   color: #fff;
   font-size: 1.2em;
   white-space: normal;
@@ -42,8 +41,9 @@
     font-size: 20px;
 }
 .home .plain-and-simple a.item {
-  width: 33.7%;
+  width: 33.3%;
   display: inline-block;
+  margin: 0;
 }
 
 .home .plain-and-simple a.item .dish-item span{
@@ -55,9 +55,7 @@
   border: 0;
 /*  margin-bottom: -4px;
 */}
-.home .soup-accompaniments h2 {
-  font-size: 1em;
-}
+
 .home .plain-and-simple h2 {
   font-size: .9em;
 }
@@ -89,4 +87,6 @@ and (min-width : 1024px) {
   .home .item .dish-thumb {
     height: 107px;
   }
-
+.home .item.positive .dish-thumb {
+  border: 4px solid #387ef5
+}
