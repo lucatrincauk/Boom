@@ -35,3 +35,9 @@ form .extra + .list .icon {
 	margin-top: 0;
 	margin-bottom: 20px;
 }
+.admin-dishes .item .badge {
+	position: static;
+	float: left;
+	border: 1px solid rgb(221, 221, 221);
+	margin-top: 10px;
+}
