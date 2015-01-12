@@ -78,6 +78,12 @@ angular.module('Boom')
 			// If no current user send to register page
 			if (!user) {
 				console.log('user _ not registered');
+				$timeout(function() {
+
+					messageCenterService.add('info', 'Create an account or login to access more features!', {
+						timeout: 3000
+					});
+				});
 				//$state.go('app.user.login');
 				return;
 			}
