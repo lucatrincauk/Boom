@@ -1,6 +1,6 @@
 angular.module('Boom')
-	.controller('userProfileController', ['$scope', 'users', '$firebase', '$rootScope', 'messageCenterService', '$timeout',
-		function($scope, users, $firebase, $rootScope, messageCenterService, $timeout) {
+	.controller('userProfileController', ['$scope', 'users', '$firebase', '$rootScope', 'messageCenterService',
+		function($scope, users, $firebase, $rootScope, messageCenterService) {
 			'use strict';
 
 
@@ -8,10 +8,8 @@ angular.module('Boom')
 				$rootScope.user.$save().then(function() {
 					console.log('Saved successfully');
 
-					$timeout(function() {
-						messageCenterService.add('success', 'Profile saved successfully.', {
-							timeout: 3000
-						});
+					messageCenterService.add('success', 'Profile saved successfully.', {
+						timeout: 3000
 					});
 
 				}, function(error) {
