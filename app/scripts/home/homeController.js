@@ -1,6 +1,6 @@
 angular.module('Boom')
-    .controller('homeController', ['$scope', '$rootScope', 'core', 'categories', 'dishes', '$filter',
-        function($scope, $rootScope, core, categories, dishes, $filter) {
+    .controller('homeController', ['$scope', '$rootScope', 'core', 'categories', 'dishes', '$filter', 'messageCenterService', '$timeout',
+        function($scope, $rootScope, core, categories, dishes, $filter, messageCenterService, $timeout) {
             'use strict';
 
             // Assign data to scope
@@ -48,8 +48,10 @@ angular.module('Boom')
                 // if it's weekend (sat: day = 5, sun: day = -1)
 
                 if (core.isClosed()) {
-                    $scope.closed = true;
-                    // set view to Monday
+                    $timeout(function() {
+                            messageCenterService.add('danger', $scope.canteenName + ' is closed today. Showing next week');
+                        })
+                        // set view to Monday
                     $scope.activeDay = 0;
                 } else {
                     // otherwise set view to current day
