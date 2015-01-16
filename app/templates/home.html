@@ -1,7 +1,13 @@
-<ion-view title="{{dayName}} at {{canteenName}}" hide-back-button="true" class="home">
+<ion-view title="{{canteenName}}" hide-back-button="true" class="home">
     <ion-nav-buttons side="left">
         <button menu-toggle="left" class="button button-icon icon ion-navicon"></button>
     </ion-nav-buttons>
+    <div class="bar bar-subheader">
+      <button ng-click="prev(1)" ng-class="{'disabled':activeDay === 0}" class="button button-icon icon ion-chevron-left"></button>
+      <div class="h1 title"><span class="icon ion-calendar"></span> {{dayName}}</div>
+      <button ng-click="next(1)" ng-class="{'disabled':activeDay === 4}" class="button button-icon icon ion-chevron-right"></button>
+    </div>
+
     <ion-content has-bouncing="false" class="has-header has-footer">
 
         <button ng-if="closed === true" class="button button-full button-assertive" style="margin:0">
