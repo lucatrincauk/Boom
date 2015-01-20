@@ -31,7 +31,7 @@
 
                                      <img ng-if="category.dishes.length == 1" class="dish-thumb pull-left" ng-src="http://lorempixel.com/416/110/food">
  -->
-   <img class="dish-thumb pull-left" ng-src="{{dish.thumb}}">
+   <img class="dish-thumb pull-left" err-src="https://mns-menu.firebaseapp.com/{{dish.thumb}}" ng-src="{{dish.thumb}}">
                     <div ng-if="dish.label" class="badge ng-class:dish.labelColor;">{{dish.label}}</div>
                     <div class="dish-item">
 
