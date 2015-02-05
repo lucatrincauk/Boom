@@ -25,8 +25,11 @@
         <li ng-show="user"  ui-sref="app.settings" ui-sref-active="active" class="item item-icon-left" menu-toggle="left">
             <i class="icon ion-gear-b"></i>
             Settings
-        </li> 
-
+        </li>
+        <li ui-sref="app.about" ui-sref-active="active" class="item item-icon-left" menu-toggle="left">
+            <i class="icon ion-information"></i>
+            About
+        </li>
         <!-- Route to Admin (app.admin) -->
         <li ng-show="user.isAdmin" ui-sref="app.admin" ui-sref-active="active" class="item item-icon-left" menu-toggle="left">
             <i class="icon ion-help-buoy"></i>
@@ -49,3 +52,4 @@
         </li>
     </ul>
 </ion-content>
+<div class="bar bar-footer bar-stable pull-left side-footer">My Canteen 1.4.1</div>

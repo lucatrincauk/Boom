@@ -96,3 +96,12 @@ border-bottom: 1px solid #ddd;
 	background: #4a87ee;
 	border: 1px solid #4a87ee;
 }
+.side-footer {
+  line-height: 2.4em;
+  padding-left: 1em;
+  font-size: .85em;
+  height: auto;
+}
+.pane.has-tabs-top {
+  top: 93px;
+}

@@ -1,0 +1,16 @@
+.buttonsBoxItem {
+  width: 50%;
+  float: left;
+  text-align: center;
+}
+.buttonsBoxItem button {
+  width: 100%;
+  height: 8em;
+  border-radius: 0;
+}
+.buttonsBoxItem button span {
+	display: block;
+}
+.buttonsBoxItem button .icon:before {
+	font-size: 50px;
+}

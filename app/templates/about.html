@@ -1,0 +1,107 @@
+<ion-view title="About" hide-back-button="false">
+    <!-- Menu button -->
+    <ion-nav-buttons side="left">
+        <button menu-toggle="left" class="button button-icon icon ion-navicon"></button>
+    </ion-nav-buttons>
+
+ <ion-content>
+ <div class="">
+    <div class="item item-thumbnail-left">
+        <img src="images/icon.png" alt="My canteen">
+        <h2>My Canteen</h2>
+        <p>This app started as a 10% project in M&S, and is meant to help M&S employees enjoying the canteen service, providing information on the menu.</p>
+    </div>
+    <div class="item item-divider">
+    Developers
+    </div>
+    <div class="item item-thumbnail-left">
+        <img src="images/luca.jpg" alt="Luca Trinca">
+        <h2>Luca Trinca</h2>
+        <p>Lead developer on the project</p>
+        <p>Sofware Engineer in M&S.com, Performance Optimisation</p>
+    </div>
+    <div class="item item-thumbnail-left">
+        <img src="images/adam.jpg" alt="Adam Barrell">
+        <h2>Adam Barrell</h2>
+        <p>Contributor on the project</p>
+        <p>Sofware Engineer in M&S.com, Content and Editorial</p>
+    </div>
+
+
+
+ </div>
+ <ul class="buttonsBox">
+        <li class="buttonsBoxItem positive">
+            <button ui-sref="app.about.changelog" class="button button-positive">
+                <i class="icon ion-code"></i>
+                <span>Changelog</span>
+            </button>
+        </li>
+        <li class="buttonsBoxItem">
+            <button ng-click="sendEmail()" class="button button-positive">
+                <i class="icon ion-bug"></i>
+                <span>Submit a Bug</span>
+            </button>
+        </li>
+        <li class="buttonsBoxItem">
+            <button ng-click="sendEmail()" class="button button-positive">
+                <i class="icon ion-paper-airplane"></i>
+                <span>Contact</span>
+            </button>
+        </li>
+        <li class="buttonsBoxItem">
+            <button ui-sref="app.about.download" class="button button-positive">
+                <i class="icon ion-archive"></i>
+                <span>Get the App</span>
+            </button>
+        </li>
+
+ </ul>
+
+    </ion-content>
+<!--
+<ion-tabs class="tabs-positive tabs-top tabs-icon-top">
+
+  <ion-tab title="About" icon="ion-information-circled">
+    <ion-content class="has-tabs-top">
+        <div class="card">
+          <div class="item item-text-wrap">
+            This is a basic Card which contains an item that has wrapping text.
+          </div>
+        </div>
+    </ion-content>
+  </ion-tab>
+
+  <ion-tab title="Changelog" icon="ion-code">
+    <ion-content class="has-tabs-top">
+        <div class="card">
+          <div class="item item-text-wrap">
+            This is a basic Card which contains an item that has wrapping text.
+          </div>
+        </div>
+    </ion-content>
+  </ion-tab>
+
+  <ion-tab title="Submit a Bug" icon="ion-bug">
+    <ion-content class="has-tabs-top">
+        <div class="card">
+          <div class="item item-text-wrap">
+            This is a basic Card which contains an item that has wrapping text.
+          </div>
+        </div>
+    </ion-content>
+  </ion-tab>
+
+  <ion-tab title="Get the App" icon="ion-archive">
+    <ion-content class="has-tabs-top">
+        <div class="card">
+          <div class="item item-text-wrap">
+            This is a basic Card which contains an item that has wrapping text.
+          </div>
+        </div>
+    </ion-content>
+  </ion-tab>
+
+</ion-tabs> -->
+
+</ion-view>

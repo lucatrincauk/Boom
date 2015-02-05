@@ -114,7 +114,7 @@ angular.module('Boom', ['ionic', 'ui.router', 'firebase', 'angular.filter', 'Mes
                     }
                 }
             })
-            // app.admin 
+            // app.admin
             .state('app.admin', {
                 url: '/admin',
                 views: {
@@ -299,6 +299,39 @@ angular.module('Boom', ['ionic', 'ui.router', 'firebase', 'angular.filter', 'Mes
                     'index@': {
                         templateUrl: 'templates/user-login.html',
                         controller: 'userLoginController'
+                    }
+                }
+            })
+            .state('app.about', {
+                url: '/about',
+                views: {
+                    'index@': {
+                        templateUrl: 'templates/about.html',
+                        controller: 'aboutController'
+                    }
+                }
+            })
+            .state('app.about.changelog', {
+                url: '/changelog',
+                views: {
+                    'index@': {
+                        templateUrl: 'templates/changelog.html'
+                    }
+                }
+            })
+            .state('app.about.bug', {
+                url: '/bug',
+                views: {
+                    'index@': {
+                        templateUrl: 'templates/bug.html'
+                    }
+                }
+            })
+            .state('app.about.download', {
+                url: '/download',
+                views: {
+                    'index@': {
+                        templateUrl: 'templates/download.html'
                     }
                 }
             })
