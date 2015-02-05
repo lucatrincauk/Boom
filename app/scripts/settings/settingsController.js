@@ -1,6 +1,6 @@
 angular.module('Boom')
-    .controller('settingsController', ['$scope', 'Core', 'categories', 'messageCenterService', '$timeout', '$rootScope',
-        function($scope, Core, categories, messageCenterService, $timeout, $rootScope) {
+    .controller('settingsController', ['$scope', 'Core', 'categories',
+        function($scope, Core, categories) {
             'use strict';
             $scope.canteen = {
                 name: Core.canteenName()
