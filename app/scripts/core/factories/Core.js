@@ -1,28 +1,22 @@
 'use strict';
 angular.module('Boom')
 
-.factory('Core',
-	function() {
+.factory('Core', ['$rootScope',
+	function($rootScope) {
 
 
 		// get today's date and make it start on Monday
 		var day = new Date().getDay() - 1,
 			// bootstrapping canteen to WS
 			cycle,
-			cName;
+			cName = 'Waterside';
 
-
-		cName = 'Waterside';
-
-
-		console.log('__CANTEEN: Init Waterside__');
 		var canteenName = function(changed) {
 
 			if (changed) {
 				cName = changed;
-				console.log('__CANTEEN: Changed__');
-			} else {
-				console.log('__CANTEEN: Not Changed__');
+				console.log('__CANTEEN: Changed to ' + cName);
+				$rootScope.$emit('canteenChanged', 'Data to send');
 			}
 			return cName;
 		};
@@ -39,7 +33,7 @@ angular.module('Boom')
 		 */
 		var getWeek = function() {
 			Date.prototype.getWeek = function() {
-				/* 
+				/*
 				 * Get the full 1st day of the year
 				 * e.g. Wed Jan 01 2014 00:00:00 GMT+0000 (GMT)
 				 */
@@ -137,4 +131,4 @@ angular.module('Boom')
 	}
 
 
-);
+]);

@@ -1,12 +1,16 @@
 'use strict';
 
 angular.module('Boom')
-    .factory('Dishes', ['$firebase', 'FirebaseUrl', 'Core',
-        function($firebase, FirebaseUrl, Core) {
+    .factory('Dishes', ['$firebase', 'FirebaseUrl', 'Core', '$rootScope',
+        function($firebase, FirebaseUrl, Core, $rootScope) {
 
             var ref = new Firebase(FirebaseUrl).child('dishes');
+
             var cycle = 'p' + (Core.cycle() - 1);
 
+            $rootScope.$on('canteenChanged', function() {
+                cycle = 'p' + (Core.cycle() - 1);
+            });
             var getAll = function() {
                 var sync = $firebase(ref);
                 return sync.$asArray();

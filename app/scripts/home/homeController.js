@@ -1,6 +1,6 @@
 angular.module('Boom')
-    .controller('homeController', ['$scope', '$rootScope', 'core', 'categories', 'dishes', '$filter', 'messageCenterService', '$timeout',
-        function($scope, $rootScope, core, categories, dishes, $filter, messageCenterService, $timeout) {
+    .controller('homeController', ['$scope', '$rootScope', 'core', 'categories', 'dishes', '$filter', 'messageCenterService', '$timeout', 'Dishes',
+        function($scope, $rootScope, core, categories, dishes, $filter, messageCenterService, $timeout, Dishes) {
             'use strict';
 
             // Assign data to scope
@@ -8,8 +8,16 @@ angular.module('Boom')
             $scope.categories = categories;
             $scope.canteenName = core.canteenName();
             $scope.cycle = core.cycle(true);
-            $scope.nameDays = function() {
+            // Updating view when canteen changes
+            $rootScope.$on('canteenChanged', function() {
+                $scope.cycle = core.cycle(true);
+                $scope.dishes = Dishes.getWeekly();
+                $timeout(function() {
+                    $scope.canteenName = core.canteenName();
+                });
 
+            });
+            $scope.nameDays = function() {
                 $scope.dayName = $filter('dayfy')($scope.activeDay);
             };
 
@@ -39,7 +47,6 @@ angular.module('Boom')
                 return $scope.activeDay;
             };
 
-
             $scope.dayFilter = function(dish) {
                 return dish.week[$scope.cycle][core.days[$scope.activeDay]];
             };
@@ -49,9 +56,9 @@ angular.module('Boom')
 
                 if (core.isClosed()) {
                     $timeout(function() {
-                            messageCenterService.add('danger', $scope.canteenName + ' is closed today. Showing next week');
-                        })
-                        // set view to Monday
+                        messageCenterService.add('danger', $scope.canteenName + ' is closed today. Showing next week');
+                    });
+                    // set view to Monday
                     $scope.activeDay = 0;
                 } else {
                     // otherwise set view to current day

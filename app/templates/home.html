@@ -1,4 +1,4 @@
-<ion-view title="{{canteenName}}" hide-back-button="true" class="home">
+<ion-view view-title="{{canteenName}}" cache-view="false" hide-back-button="true" class="home">
     <ion-nav-buttons side="left">
         <button menu-toggle="left" class="button button-icon icon ion-navicon"></button>
     </ion-nav-buttons>
@@ -11,9 +11,6 @@
     <ion-content has-bouncing="false" class="has-header has-footer">
 
         <ion-list class="has-header list" on-swipe-left="next(1)" on-swipe-right="prev(1)">
-
-
-
 
             <div ng-repeat="category in categories | orderBy: 'priority'" class="{{category.$id}} menu-list">
                 <ion-item class="item item-divider">

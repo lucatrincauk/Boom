@@ -3,8 +3,8 @@
 	<ion-nav-buttons side="left">
 		<button menu-toggle="left" class="button button-icon icon ion-navicon"></button>
 	</ion-nav-buttons>
-	
-    <ion-content class="has-header has-footer settings">     
+
+    <ion-content class="has-header has-footer settings">
 		<ion-list type="list-inset">
 			<div class="item item-divider item-icon-left">
 				<span class="icon ion-location"></span> Canteen
@@ -12,7 +12,7 @@
 			<ion-radio ng-model="canteen.name" ng-value="'Merchant Square'">Merchant Square</ion-radio>
 			<ion-radio ng-model="canteen.name" ng-selected ng-value="'Waterside'">Waterside</ion-radio>
 		</ion-list>
-
+<!--
 		<ion-list type="list-inset enable-pointer-events" show-reorder="data.showReorder">
 			<div class="item item-divider item-icon-left">
 				<span class="icon ion-folder"></span> Categories
@@ -20,18 +20,18 @@
 			</div>
 
         	<ion-item ng-repeat="category in categories" category="category" class="item item-icon-right item-toggle">
-        
+
   				<label class="toggle toggle-positive enable-pointer-events" >
        				<input type="checkbox" ng-model="category.show">
        				<div class="track">
          				<div class="handle"></div>
        				</div>
-     			</label> 
-        		{{ category.title }}         
+     			</label>
+        		{{ category.title }}
 				<ion-reorder-button class="ion-navicon" on-reorder="moveItem(category, $fromIndex, $toIndex)"></ion-reorder-button>
 			</ion-item>
 
-		</ion-list>
+		</ion-list>-->
 
     </ion-content>
 </ion-view>

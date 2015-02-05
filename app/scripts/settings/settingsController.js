@@ -1,6 +1,6 @@
 angular.module('Boom')
-    .controller('settingsController', ['$scope', 'Core', 'categories', 'messageCenterService', '$timeout',
-        function($scope, Core, categories, messageCenterService, $timeout) {
+    .controller('settingsController', ['$scope', 'Core', 'categories', 'messageCenterService', '$timeout', '$rootScope',
+        function($scope, Core, categories, messageCenterService, $timeout, $rootScope) {
             'use strict';
             $scope.canteen = {
                 name: Core.canteenName()
@@ -9,23 +9,14 @@ angular.module('Boom')
             categories.$loaded(function() {
                 $scope.categories = categories;
             });
-            $timeout(function() {
 
-                messageCenterService.add('info', 'The functionalities on this page are work in progress', {
-                    timeout: 3000
-                });
-            });
-            // $timeout(function() {
-            //     messageCenterService.add('success', 'Profile saved successfully.', {
-            //         timeout: 3000
-            //     });
-            // });
             $scope.$watch('canteen.name', function(newValue, oldValue) {
                 if (newValue === oldValue) {
                     return;
                 }
                 Core.canteenName(newValue);
             }, true);
+
 
             $scope.moveItem = function(category, fromIndex, toIndex) {
                 $scope.categories.splice(fromIndex, 1);
