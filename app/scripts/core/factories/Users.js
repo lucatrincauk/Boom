@@ -1,7 +1,7 @@
 'use strict';
 angular.module('Boom')
-	.factory('Users', ['$firebase', 'FirebaseUrl', '$state', '$firebaseAuth', '$rootScope', 'messageCenterService',
-		function($firebase, FirebaseUrl, $state, $firebaseAuth, $rootScope, messageCenterService) {
+	.factory('Users', ['$firebase', 'FirebaseUrl', '$state', '$firebaseAuth', '$rootScope', 'messageCenterService', '$timeout',
+		function($firebase, FirebaseUrl, $state, $firebaseAuth, $rootScope, messageCenterService, $timeout) {
 			var ref = new Firebase(FirebaseUrl);
 			var auth = $firebaseAuth(ref);
 			var createUser = function(data) {
@@ -67,7 +67,7 @@ angular.module('Boom')
 				// If no current user send to register page
 				if (!user) {
 					console.log('__USER: not registered');
-					$rootScope.$apply(function() {
+					$timeout(function() {
 						messageCenterService.add('info', 'Create an account or login to access more features!', {
 							timeout: 3000
 						});
