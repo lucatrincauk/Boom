@@ -19,9 +19,29 @@
         <option value="{{category.$id}}" ng-repeat="category in categories">{{category.title}}</option>
       </select>
     </label>
+    <label class="item item-input item-stacked-label">
+      <span class="input-label">Label</span>
+      <input ng-model="dish.label" type="text" placeholder="Balanced for you" ng-maxlength="20">
+    </label>
+    <label class="item item-input item-select">
+      <div class="input-label">
+        Label Color
+      </div>
+      <select ng-model="dish.labelColor">
+        <option value="badge-positive" >Blue</option>
+        <option value="badge-calm" >Turquoise</option>
+        <option value="badge-balanced" >Green</option>
+        <option value="badge-energized" >Orange</option>
+        <option value="badge-assertive" >Red</option>
+        <option value="badge-royal" >Purple</option>
+        <option value="badge-dark" >Black</option>
+        <option value="badge-light" >White</option>
+        <option value="badge-stable" >Grey</option>
+      </select>
+    </label>
 
     <div class="item item-divider">Extras</div>
-    
+
     <div class="item item-input extra">
       <span class="input-label">Dish comes with:</span>
       <div class="badge badge-stable">
@@ -29,12 +49,12 @@
       </div>
     </div>
 
-    <div class="list list-inset">      
+    <div class="list list-inset">
       <div class="item item-input" ng-repeat="item in dish.with">
         <span class="dark">{{$index + 1}}.&nbsp;</span>
         <input type="text" ng-model="item.title" placeholder="Fries and Vegs"></input>
         <span ng-click="removeExtraInput($index, 'with')" class="icon ion-minus-circled"></span>
-      </div>      
+      </div>
     </div>
 
     <div class="item item-input extra">
@@ -66,14 +86,14 @@
     <div class="item item-divider">Days</div>
 
     <div ng-repeat="week in weeks">
-      
+
       <ion-checkbox ng-model="dish['p'+$index]">Week {{$index+1}}</ion-checkbox>
       <div ng-show="dish['p'+$index]" class="row day-checkbox">
         <div class="col item-checkbox" ng-repeat="day in days | limitTo: 5">
           <label>
-            <input class="day-checkbox-input" type="checkbox" ng-model="dish.week[weeks[$parent.$index]][days[$index]]" >      
+            <input class="day-checkbox-input" type="checkbox" ng-model="dish.week[weeks[$parent.$index]][days[$index]]" >
             <div class="day-checkbox-value">{{$index | dayfy:true | limitTo: 1}}</div>
-          </label>         
+          </label>
         </div>
       </div>
     </div>

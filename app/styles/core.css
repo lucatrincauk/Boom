@@ -71,3 +71,37 @@ border-bottom: 1px solid #ddd;
 .item, .item p {
 	white-space: normal;
 }
+#mc-messages-wrapper {
+	position: absolute;
+	top: 0;
+	z-index: 999;
+	width: 100%;
+}
+#mc-messages-wrapper .alert {
+	padding: 12px;
+}
+#mc-messages-wrapper .alert-success {
+	background: #66cc33;
+	border: 1px solid #498f24;
+}
+#mc-messages-wrapper .alert-danger {
+	background: #ef4e3a;
+	border: 1px solid #cc2311;
+}
+#mc-messages-wrapper .alert-warning {
+	background: #f0b840;
+	border: 1px solid #d39211;
+}
+#mc-messages-wrapper .alert-info {
+	background: #4a87ee;
+	border: 1px solid #4a87ee;
+}
+.side-footer {
+  line-height: 2.4em;
+  padding-left: 1em;
+  font-size: .85em;
+  height: auto;
+}
+.pane.has-tabs-top {
+  top: 93px;
+}

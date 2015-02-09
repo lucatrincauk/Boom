@@ -10,6 +10,10 @@
     </author>
     <content src="index.html" />
     <access origin="*" />
+    <access origin="mailto:*" launch-external="yes"/>
+
+<access origin="http://*.google-analytics.com"/>
+<access origin="https://*.google-analytics.com"/>
     <preference name="SplashScreen" value="screen" />
     <preference name="SplashScreenDelay" value="4000" />
 </widget>

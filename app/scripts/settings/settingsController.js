@@ -10,13 +10,13 @@ angular.module('Boom')
                 $scope.categories = categories;
             });
 
-
             $scope.$watch('canteen.name', function(newValue, oldValue) {
                 if (newValue === oldValue) {
                     return;
                 }
                 Core.canteenName(newValue);
             }, true);
+
 
             $scope.moveItem = function(category, fromIndex, toIndex) {
                 $scope.categories.splice(fromIndex, 1);
