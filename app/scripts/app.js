@@ -1,5 +1,5 @@
 'use strict';
-angular.module('Boom', ['ionic', 'ui.router', 'firebase', 'angular.filter', 'MessageCenterModule'])
+angular.module('Boom', ['ionic', 'ui.router', 'firebase', 'angular.filter', 'MessageCenterModule', 'angulartics', 'angulartics.google.analytics', 'angulartics.google.analytics.cordova'])
     .run(function($rootScope, $ionicLoading) {
         // show veil when xhr starts
         $rootScope.$on('loading:show', function() {
