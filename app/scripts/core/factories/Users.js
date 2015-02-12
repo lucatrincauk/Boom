@@ -54,50 +54,73 @@ angular.module('Boom')
 					}
 				});
 			};
-			var resetPassword = function(data){
+			var resetPassword = function(data) {
 				ref.resetPassword({
-					email : data.email
+					email: data.email
 				}, function(error) {
 					if (error === null) {
-				    $rootScope.$apply(function() {
-				    	$state.go('app.user.login');
+						$rootScope.$apply(function() {
+							$state.go('app.user.login');
 
-						messageCenterService.add('success', 'Password reset email sent successfully.', {
-							timeout: 3000,
-							status: messageCenterService.status.next,
+							messageCenterService.add('success', 'Password reset email sent successfully.', {
+								timeout: 3000,
+								status: messageCenterService.status.next,
 
+							});
 						});
-					})
-				} else {
-					$rootScope.$apply(function() {
-						messageCenterService.add('danger', 'Error sending password reset email:' + error.message, {
-							timeout: 6000
+					} else {
+						$rootScope.$apply(function() {
+							messageCenterService.add('danger', 'Error sending password reset email:' + error.message, {
+								timeout: 6000
+							});
 						});
-					})
-				  }
+					}
 				});
 			};
 
 			var changeEmail = function(data) {
 				ref.changeEmail({
-				  oldEmail : data.password.email,
-				  newEmail : data.newEmail,
-				  password : data.newEmailPassword
+					oldEmail: data.password.email,
+					newEmail: data.newEmail,
+					password: data.newEmailPassword
 				}, function(error) {
-				  if (error === null) {
-					$rootScope.$apply(function() {
-						messageCenterService.add('success', 'Email address updated successfully.', {
-							timeout: 3000
+					if (error === null) {
+						$rootScope.$apply(function() {
+							messageCenterService.add('success', 'Email address updated successfully.', {
+								timeout: 3000
+							});
 						});
-					});
-					ref.child('users').child(data.uid).child('password').update({email: data.newEmail});
-				  } else {
-					$rootScope.$apply(function() {
-						messageCenterService.add('danger', 'Error updating email address: ' + error.message, {
-							timeout: 6000
+						ref.child('users').child(data.uid).child('password').update({
+							email: data.newEmail
 						});
-					});
-				  }
+					} else {
+						$rootScope.$apply(function() {
+							messageCenterService.add('danger', 'Error updating email address: ' + error.message, {
+								timeout: 6000
+							});
+						});
+					}
+				});
+			};
+			var changePassword = function(data) {
+				ref.changePassword({
+					email: data.password.email,
+					oldPassword: data.currentPassword,
+					newPassword: data.newPassword
+				}, function(error) {
+					if (error === null) {
+						$rootScope.$apply(function() {
+							messageCenterService.add('success', 'Password updated successfully.', {
+								timeout: 3000
+							});
+						});
+					} else {
+						$rootScope.$apply(function() {
+							messageCenterService.add('danger', 'Error updating password: ' + error.message, {
+								timeout: 6000
+							});
+						});
+					}
 				});
 			};
 			var logoutUser = function() {
@@ -146,7 +169,7 @@ angular.module('Boom')
 							messageCenterService.add('success', 'Dish added to your favourites.', {
 								timeout: 3000
 							});
-						})
+						});
 					}
 				});
 			};
@@ -175,6 +198,7 @@ angular.module('Boom')
 				loginUser: loginUser,
 				resetPassword: resetPassword,
 				changeEmail: changeEmail,
+				changePassword: changePassword,
 				logoutUser: logoutUser,
 				auth: auth,
 				getUser: getUser,

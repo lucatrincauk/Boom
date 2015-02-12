@@ -7,7 +7,7 @@
     <ion-content class="has-header has-footer">
 
       <div user-details-directive class="item item-thumbnail-left menu-avatar"></div>
-      
+
       <form ng-submit="save()" name="userName">
         <div class="list">
           <label class="item item-input">
@@ -19,10 +19,10 @@
             <input type="text" ng-model="user.avatar" ng-model-options="{ updateOn: 'blur' }">
           </label>
 
-        </div> 
+        </div>
         <div class="padding">
           <button class="button button-block button-positive activated">Save</button>
-        </div>      
+        </div>
       </form>
 
       <form ng-submit="changeEmail()" name="userName">
@@ -39,12 +39,31 @@
             <span class="input-label">Confirm password</span>
             <input type="password" ng-model="user.newEmailPassword" ng-model-options="{ updateOn: 'blur' }">
           </label>
-          
 
-        </div> 
+
+        </div>
         <div class="padding">
           <button class="button button-block button-positive activated">Update email</button>
-        </div>      
+        </div>
+      </form>
+
+      <form ng-submit="changePassword()" name="userName">
+        <div class="list">
+          <label class="item item-input">
+            <span class="input-label">Current password</span>
+            <input type="password" ng-model="user.currentPassword" ng-model-options="{ updateOn: 'blur' }">
+          </label>
+
+          <label class="item item-input">
+            <span class="input-label">New password</span>
+            <input type="password" ng-model="user.newPassword" ng-model-options="{ updateOn: 'blur' }">
+          </label>
+
+
+        </div>
+        <div class="padding">
+          <button class="button button-block button-positive activated">Update password</button>
+        </div>
       </form>
 
     </ion-content>

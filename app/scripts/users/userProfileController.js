@@ -24,7 +24,12 @@ angular.module('Boom')
 			};
 			$scope.changeEmail = function() {
 				users.changeEmail($scope.user);
-			}
+			};
+			$scope.changePassword = function() {
+				users.changePassword($scope.user);
+				$scope.user.currentPassword = '';
+				$scope.user.newPassword = '';
+			};
 
 
 		}
