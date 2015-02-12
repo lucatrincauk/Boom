@@ -311,6 +311,15 @@ angular.module('Boom', ['ionic', 'ui.router', 'firebase', 'angular.filter', 'Mes
                     }
                 }
             })
+            .state('app.user.reset', {
+                url: '/reset',
+                views: {
+                    'index@': {
+                        templateUrl: 'templates/user/user-reset.html',
+                        controller: 'userLoginController'
+                    }
+                }
+            })
             .state('app.user.profile', {
                 url: '/profile',
                 views: {

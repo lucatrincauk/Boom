@@ -54,6 +54,29 @@ angular.module('Boom')
 					}
 				});
 			};
+			var resetPassword = function(data){
+				ref.resetPassword({
+					email : data.email
+				}, function(error) {
+					if (error === null) {
+				    $rootScope.$apply(function() {
+				    	$state.go('app.user.login');
+
+						messageCenterService.add('success', 'Password reset email sent successfully.', {
+							timeout: 3000,
+							status: messageCenterService.status.next,
+
+						});
+					})
+				} else {
+					$rootScope.$apply(function() {
+						messageCenterService.add('danger', 'Error sending password reset email:' + error, {
+							timeout: 6000
+						});
+					})
+				  }
+				});
+			};
 			var logoutUser = function() {
 				console.log('user _ logged out');
 				$state.go('app.home');
@@ -126,6 +149,7 @@ angular.module('Boom')
 			return {
 				createUser: createUser,
 				loginUser: loginUser,
+				resetPassword: resetPassword,
 				logoutUser: logoutUser,
 				auth: auth,
 				getUser: getUser,
