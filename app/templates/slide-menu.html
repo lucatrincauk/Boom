@@ -15,17 +15,22 @@
             Home
         </li>
 
+        <li ng-show="user"  ui-sref="app.user.profile" ui-sref-active="active" class="item item-icon-left" menu-toggle="left">
+            <i class="icon ion-person"></i>
+            Profile
+        </li>
+
         <!-- Route to Favourites (app.favourites) -->
         <li ng-show="user"  ui-sref="app.favourites" ui-sref-active="active" class="item item-icon-left" menu-toggle="left">
             <i class="icon ion-heart"></i>
             Favourites
         </li>
-
         <!-- Route to Settings (app.settings) -->
         <li ng-show="user"  ui-sref="app.settings" ui-sref-active="active" class="item item-icon-left" menu-toggle="left">
             <i class="icon ion-gear-b"></i>
             Settings
         </li>
+
         <li ui-sref="app.about" ui-sref-active="active" class="item item-icon-left" menu-toggle="left">
             <i class="icon ion-information"></i>
             About
