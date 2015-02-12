@@ -3,7 +3,6 @@ angular.module('Boom')
 		function($scope, users, $firebase, $rootScope, messageCenterService) {
 			'use strict';
 
-
 			$scope.save = function() {
 				$rootScope.user.$save().then(function() {
 					console.log('Saved successfully');
@@ -23,6 +22,9 @@ angular.module('Boom')
 				users.logoutUser();
 
 			};
+			$scope.changeEmail = function() {
+				users.changeEmail($scope.user);
+			}
 
 
 		}

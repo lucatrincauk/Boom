@@ -25,5 +25,27 @@
         </div>      
       </form>
 
+      <form ng-submit="changeEmail()" name="userName">
+        <div class="list">
+          <label class="item item-input">
+            <span class="input-label">Old Email</span>
+            <input type="email" ng-model="user.password.email" ng-model-options="{ updateOn: 'blur' }">
+          </label>
+          <label class="item item-input">
+            <span class="input-label">New Email</span>
+            <input type="email" ng-model="user.newEmail" ng-model-options="{ updateOn: 'blur' }">
+          </label>
+          <label class="item item-input">
+            <span class="input-label">Confirm password</span>
+            <input type="password" ng-model="user.newEmailPassword" ng-model-options="{ updateOn: 'blur' }">
+          </label>
+          
+
+        </div> 
+        <div class="padding">
+          <button class="button button-block button-positive activated">Update email</button>
+        </div>      
+      </form>
+
     </ion-content>
 </ion-view>

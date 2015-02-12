@@ -70,10 +70,33 @@ angular.module('Boom')
 					})
 				} else {
 					$rootScope.$apply(function() {
-						messageCenterService.add('danger', 'Error sending password reset email:' + error, {
+						messageCenterService.add('danger', 'Error sending password reset email:' + error.message, {
 							timeout: 6000
 						});
 					})
+				  }
+				});
+			};
+
+			var changeEmail = function(data) {
+				ref.changeEmail({
+				  oldEmail : data.password.email,
+				  newEmail : data.newEmail,
+				  password : data.newEmailPassword
+				}, function(error) {
+				  if (error === null) {
+					$rootScope.$apply(function() {
+						messageCenterService.add('success', 'Email address updated successfully.', {
+							timeout: 3000
+						});
+					});
+					ref.child('users').child(data.uid).child('password').update({email: data.newEmail});
+				  } else {
+					$rootScope.$apply(function() {
+						messageCenterService.add('danger', 'Error updating email address: ' + error.message, {
+							timeout: 6000
+						});
+					});
 				  }
 				});
 			};
@@ -98,6 +121,7 @@ angular.module('Boom')
 					//$state.go('app.user.login');
 					return;
 				}
+
 				console.log('__USER: logged in');
 				var refSingle = ref.child('users').child(user.uid);
 				var sync = $firebase(refSingle);
@@ -150,6 +174,7 @@ angular.module('Boom')
 				createUser: createUser,
 				loginUser: loginUser,
 				resetPassword: resetPassword,
+				changeEmail: changeEmail,
 				logoutUser: logoutUser,
 				auth: auth,
 				getUser: getUser,
