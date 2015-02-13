@@ -16,22 +16,22 @@
                         <span ng-show="$middle">,</span>
                         <span ng-show="$last" ng-hide="$first">&amp;</span>
                          {{day}}
-                    </span> at {{canteenName}} 
+                    </span> at {{canteenName}}
                 </p>
             </div>
             <div class="item item-body">
                 <img class="full-image" err-src="https://mns-menu.firebaseapp.com/{{single.images}}" ng-src="{{single.images}}">
                 <h2>{{single.title}}</h2>
 
-                <div ng-show="single.with" class="single-extra single-with">  
-                    <h4>This dish comes with:</h4>                  
-                    <div ng-repeat="item in single.with" class="item">                    
+                <div ng-show="single.with" class="single-extra single-with">
+                    <h4>This dish comes with:</h4>
+                    <div ng-repeat="item in single.with" class="item">
                        <i class="icon ion-checkmark-circled"></i> {{item.title}}
                     </div>
                 </div>
-                <div ng-show="single.addons" class="single-extra single-addons">  
-                    <h4>You can also add:</h4>                  
-                    <div ng-repeat="item in single.addons" class="item">                    
+                <div ng-show="single.addons" class="single-extra single-addons">
+                    <h4>You can also add:</h4>
+                    <div ng-repeat="item in single.addons" class="item">
                         <i class="icon ion-plus-circled "></i> {{item.title}}
                     </div>
                 </div>
@@ -47,11 +47,11 @@
               <i ng-class="{'positive' : user.favourites[single.$id]}" class="icon ion-heart"></i>
               Fav
             </a>
-            <a class="tab-item" href="#">
+            <a class="tab-item disabled" href="#">
               <i class="icon ion-thumbsup"></i>
               Rate
             </a>
-            <a ng-show="user" class="tab-item" href="#">
+            <a ng-show="user" class="tab-item disabled" href="#">
               <i class="icon ion-chatbox"></i>
               Comment
             </a>
@@ -60,7 +60,7 @@
               Report
             </a>
           </div>
-        </div>      
+        </div>
 
     </ion-content>
 </ion-view>
