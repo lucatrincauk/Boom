@@ -350,14 +350,6 @@ angular.module('Boom', ['ionic', 'ui.router', 'firebase', 'angular.filter', 'Mes
                         templateUrl: 'templates/about/changelog.html'
                     }
                 }
-            })
-            .state('app.about.download', {
-                url: '/download',
-                views: {
-                    'index@': {
-                        templateUrl: 'templates/about/download.html'
-                    }
-                }
             });
 
         // if none of the above states are matched, use this as the fallback

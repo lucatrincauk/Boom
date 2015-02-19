@@ -1,13 +1,17 @@
 angular.module('Boom')
-    .controller('aboutController', ['$scope', '$window',
-        function($scope, $window) {
-            'use strict';
+	.controller('aboutController', ['$scope', '$window',
+		function($scope, $window) {
+			'use strict';
 
-            $scope.sendEmail = function() {
-                var link = 'mailto:lucatrinca.uk@gmail.com?subject=Canteen%20App';
-                $window.location.href = link;
-            };
+			$scope.sendEmail = function() {
+				var link = 'mailto:lucatrinca.uk@gmail.com?subject=Canteen%20App';
+				$window.location.href = link;
+			};
+
+			$scope.downloadApp = function() {
+				$window.location.href = 'http://mycanteen.pixelsquare.co.uk';
+			};
 
 
-        }
-    ]);
+		}
+	]);
