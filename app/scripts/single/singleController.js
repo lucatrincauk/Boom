@@ -20,8 +20,8 @@ angular.module('Boom')
 
 					}
 
-					if (angular.isDefined($scope.user) && angular.isDefined($scope.user.rating) && angular.isDefined($scope.user.ratings[$scope.single.$id])) {
-						$scope.single.voted = $scope.user.ratings[$scope.single.$id].vote || '';
+					if (angular.isDefined($scope.user) && angular.isDefined($scope.user.ratings) && angular.isDefined($scope.user.ratings[$scope.single.$id])) {
+						$scope.single.voted = $scope.user.ratings[$scope.single.$id].vote;
 					}
 
 				}
