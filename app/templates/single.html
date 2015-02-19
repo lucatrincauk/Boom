@@ -21,19 +21,21 @@
             </div>
             <div class="item item-body">
                 <img class="full-image" err-src="https://mns-menu.firebaseapp.com/{{single.images}}" ng-src="{{single.images}}">
-                <h2>{{single.title}}</h2>
+                <div class="dish-copy">
+                  <h2>{{single.title}}</h2>
 
-                <div ng-show="single.with" class="single-extra single-with">
-                    <h4>This dish comes with:</h4>
-                    <div ng-repeat="item in single.with" class="item">
-                       <i class="icon ion-checkmark-circled"></i> {{item.title}}
-                    </div>
-                </div>
-                <div ng-show="single.addons" class="single-extra single-addons">
-                    <h4>You can also add:</h4>
-                    <div ng-repeat="item in single.addons" class="item">
-                        <i class="icon ion-plus-circled "></i> {{item.title}}
-                    </div>
+                  <div ng-show="single.with" class="single-extra single-with">
+                      <h4>This dish comes with:</h4>
+                      <div ng-repeat="item in single.with" class="item">
+                         <i class="icon ion-checkmark-circled"></i> {{item.title}}
+                      </div>
+                  </div>
+                  <div ng-show="single.addons" class="single-extra single-addons">
+                      <h4>You can also add:</h4>
+                      <div ng-repeat="item in single.addons" class="item">
+                          <i class="icon ion-plus-circled "></i> {{item.title}}
+                      </div>
+                  </div>
                 </div>
                 <!--<p>
                     <a href="#" class="subdued">{{single.views}} Views</a>

@@ -31,3 +31,16 @@
 .single .item-avatar, .single .tabs-secondary {
 	background: whitesmoke;
 }
+@media only screen
+and (min-width : 1024px) {
+	.dish-copy {
+		display: inline-block;
+		vertical-align: top;
+		margin-left: 1em;
+		width: 39em;
+	}
+	.item-body .full-image {
+		max-width: 20em;
+	}
+
+}
