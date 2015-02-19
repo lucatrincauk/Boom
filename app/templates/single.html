@@ -8,7 +8,7 @@
     </ion-nav-buttons>
     <ion-content class="has-header has-footer">
         <div class="list card">
-            <div class="item item-avatar">
+            <div class="item item-avatar item-button-right">
                 <span class="category-icon"></span>
                 <h2>{{single.slug}}</h2>
                 <p>
@@ -18,6 +18,13 @@
                          {{day}}
                     </span> at {{canteenName}}
                 </p>
+                <button ng-show="user" class="button button-clear favourite-button" ng-click="toggleFavourite()">
+                  <i ng-class="{'positive' : user.favourites[single.$id]}" class="icon ion-heart"></i>
+                </button>
+
+
+
+
             </div>
             <div class="item item-body">
                 <img class="full-image" err-src="https://mns-menu.firebaseapp.com/{{single.images}}" ng-src="{{single.images}}">
@@ -44,23 +51,19 @@
                 </p>-->
             </div>
 
-        <div class="item tabs tabs-secondary tabs-icon-left">
-            <a ng-show="user" class="tab-item" ng-click="toggleFavourite()">
-              <i ng-class="{'positive' : user.favourites[single.$id]}" class="icon ion-heart"></i>
-              Fav
+        <div class="item tabs tabs-secondary tabs-icon-left tab-voting">
+
+            <a class="tab-item" ng-click="submitRating('upvote')" ng-class="{ 'disabled positive': single.voted == 'upvote' }">
+              <i class="icon ion-happy-outline"></i>
+              {{votes.upvote}}
             </a>
-            <a class="tab-item disabled" href="#">
-              <i class="icon ion-thumbsup"></i>
-              Rate
+            <a class="tab-item" ng-click="submitRating('downvote')" ng-class="{ 'disabled positive': single.voted == 'downvote' }">
+              <i class="icon ion-sad-outline"></i>
+              {{votes.downvote}}
             </a>
-            <a ng-show="user" class="tab-item disabled" href="#">
-              <i class="icon ion-chatbox"></i>
-              Comment
-            </a>
-            <a class="tab-item" ui-sref="app.dish.report">
-              <i class="icon ion-flag"></i>
-              Report
-            </a>
+
+
+
           </div>
         </div>
 

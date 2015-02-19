@@ -1,6 +1,6 @@
 angular.module('Boom')
-	.controller('singleController', ['$scope', 'dish', 'core', 'Users',
-		function($scope, dish, core, Users) {
+	.controller('singleController', ['$scope', 'dish', 'core', 'Users', 'Ratings', '$stateParams',
+		function($scope, dish, core, Users, Ratings, $stateParams) {
 			'use strict';
 
 
@@ -17,7 +17,13 @@ angular.module('Boom')
 					// if a dish is assigned to all days, replace days with 'Everyday'
 					if ($scope.single.days.length >= 5) {
 						$scope.single.days = ['Everyday'];
+
 					}
+
+					if (angular.isDefined($scope.user) && angular.isDefined($scope.user.rating) && angular.isDefined($scope.user.ratings[$scope.single.$id])) {
+						$scope.single.voted = $scope.user.ratings[$scope.single.$id].vote || '';
+					}
+
 				}
 
 				//$scope.viewCount();
@@ -33,6 +39,28 @@ angular.module('Boom')
 				});
 				return filtered;
 			};
+
+			$scope.votes = Ratings.getOne($stateParams);
+			// console.log($scope.user.length)
+			// if ($scope.user.length) {
+			// 	console.log($scope.user.username)
+			// }
+
+			$scope.submitRating = function(vote) {
+				if (typeof $scope.single.voted !== 'undefined') {
+					Ratings.submitRating($scope.single.$id, vote, true);
+				} else {
+					Ratings.submitRating($scope.single.$id, vote);
+				}
+				$scope.single.voted = vote;
+
+				if (angular.isDefined($scope.user)) {
+					Users.registerVote($scope.single.$id, vote);
+				}
+
+			};
+
+
 
 			// increase dish views count
 			// $scope.viewCount = function() {

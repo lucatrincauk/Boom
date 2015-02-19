@@ -190,6 +190,15 @@ angular.module('Boom')
 					}
 				});
 			};
+
+			var registerVote = function($id, vote) {
+				ref.child('users/' + $rootScope.user.uid + '/ratings/' + $id).update({
+					'vote': vote
+				});
+
+			};
+
+
 			ref.onAuth(function() {
 				$rootScope.user = getUser();
 			});
@@ -203,7 +212,8 @@ angular.module('Boom')
 				auth: auth,
 				getUser: getUser,
 				addFavourite: addFavourite,
-				removeFavourite: removeFavourite
+				removeFavourite: removeFavourite,
+				registerVote: registerVote
 			};
 		}
 	]);
