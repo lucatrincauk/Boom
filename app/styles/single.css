@@ -40,16 +40,15 @@
 .tab-voting .disabled {
 	opacity: 1;
 }
-@media only screen
-and (min-width : 1024px) {
+@media screen and (min-width : 460px) {
 	.dish-copy {
 		display: inline-block;
 		vertical-align: top;
-		margin-left: 1em;
-		width: 39em;
+		margin-left: 2%;
+		width: 62%;
 	}
 	.item-body .full-image {
-		max-width: 20em;
+		max-width: 35%;
 	}
 
 }
