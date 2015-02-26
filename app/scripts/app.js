@@ -1,6 +1,15 @@
 'use strict';
-angular.module('Boom', ['ionic', 'ui.router', 'firebase', 'angular.filter', 'MessageCenterModule', 'angulartics', 'angulartics.google.analytics', 'angulartics.google.analytics.cordova'])
-    .run(function($rootScope, $ionicLoading) {
+if (window.cordova) {
+    var boom = angular.module('Boom', ['ionic', 'ui.router', 'firebase', 'angular.filter', 'MessageCenterModule', 'angulartics', 'angulartics.google.analytics.cordova', 'cordovaDeviceModule'])
+        .config(['googleAnalyticsCordovaProvider', function(googleAnalyticsCordovaProvider) {
+            googleAnalyticsCordovaProvider.trackingId = 'UA-59450949-3';
+            googleAnalyticsCordovaProvider.debug = true; // default: false
+
+        }]);
+} else {
+    var boom = angular.module('Boom', ['ionic', 'ui.router', 'firebase', 'angular.filter', 'MessageCenterModule', 'angulartics', 'angulartics.google.analytics']);
+}
+boom.run(function($rootScope, $ionicLoading) {
         // show veil when xhr starts
         $rootScope.$on('loading:show', function() {
             $ionicLoading.show({
@@ -30,8 +39,9 @@ angular.module('Boom', ['ionic', 'ui.router', 'firebase', 'angular.filter', 'Mes
             };
         });
     })
-    // for ui-router
-    .run(['$rootScope', '$state', function($rootScope, $state) {
+
+// for ui-router
+.run(['$rootScope', '$state', function($rootScope, $state) {
         $rootScope.$on('$stateChangeError', function(event, toState, toParams, fromState, fromParams, error) {
             // We can catch the error thrown when the $requireAuth promise is rejected
             // and redirect the user back to the home page

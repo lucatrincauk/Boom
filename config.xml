@@ -1,19 +1,30 @@
 <?xml version='1.0' encoding='utf-8'?>
-<widget id="com.example.Boom" version="0.0.1" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
+<widget id="com.example.Boom" version="1.5.2" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
     <name>My Canteen</name>
     <description>
         Best Of Office Menus
     </description>
     <author email="lucatrinca.uk@gmail.com" href="http://pixelsquare.co.uk/luca">
         Luca Trinca
-        Adam Barrel
     </author>
+
     <content src="index.html" />
+
     <access origin="*" />
     <access origin="mailto:*" launch-external="yes"/>
+    <access origin="*://*.google-analytics.com/*" subdomains="true" />
+<feature name="Device">
+    <param name="android-package" value="org.apache.cordova.device.Device" />
+</feature>
+<feature name="GAPlugin" >
+    <param name="android-package" value="com.adobe.plugins.GAPlugin" />
+</feature>
 
-<access origin="http://*.google-analytics.com"/>
-<access origin="https://*.google-analytics.com"/>
+
+
+    <access origin="https://ssl.google-analytics.com" subdomains="true"/>
+    <access origin="http://www.google-analytics.com" subdomains="true"/>
+
     <preference name="SplashScreen" value="screen" />
     <preference name="SplashScreenDelay" value="4000" />
 </widget>
