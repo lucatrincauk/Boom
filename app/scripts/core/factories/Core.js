@@ -9,8 +9,19 @@ angular.module('Boom')
 		var day = new Date().getDay() - 1,
 			// bootstrapping canteen to WS
 			cycle,
-			cName = 'Waterside';
+			cName;
 
+			// if default canteen has been changed
+			if ($rootScope.user) {			
+				$rootScope.user.$loaded(function() {
+					if ($rootScope.user.canteen && $rootScope.user.canteen !== cName) {
+						cName = $rootScope.user.canteen.name;
+						$rootScope.$emit('canteenChanged', 'Data to send');
+					}
+				})        
+			} else {
+				cName = 'Waterside';
+			}
 		var canteenName = function(changed) {
 
 			if (changed) {

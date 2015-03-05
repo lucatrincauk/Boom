@@ -144,7 +144,7 @@ angular.module('Boom')
 					//$state.go('app.user.login');
 					return;
 				}
-
+		
 				console.log('__USER: logged in');
 				var refSingle = ref.child('users').child(user.uid);
 				var sync = $firebase(refSingle);
@@ -198,9 +198,18 @@ angular.module('Boom')
 
 			};
 
+			var changeCanteen = function(canteen) {
+				ref.child('users/' + $rootScope.user.uid + '/canteen/').update({
+					'name': canteen
+				});
+
+			};
+
 
 			ref.onAuth(function() {
 				$rootScope.user = getUser();
+	
+							
 			});
 			return {
 				createUser: createUser,
@@ -213,7 +222,8 @@ angular.module('Boom')
 				getUser: getUser,
 				addFavourite: addFavourite,
 				removeFavourite: removeFavourite,
-				registerVote: registerVote
+				registerVote: registerVote,
+				changeCanteen: changeCanteen
 			};
 		}
 	]);
