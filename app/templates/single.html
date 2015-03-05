@@ -41,6 +41,8 @@
                       <h4>You can also add:</h4>
                       <div ng-repeat="item in single.addons" class="item">
                           <i class="icon ion-plus-circled "></i> {{item.title}}
+                                  {{votes.score}}
+
                       </div>
                   </div>
                 </div>
@@ -51,6 +53,10 @@
                 </p>-->
             </div>
 
+        <div class="ratingsBar" ng-show="score >= 0">
+          <div class="green" style="width:{{score}}%"></div>
+          <div class="red" style="width:{{100 - score}}%"></div>
+        </div>
         <div class="item tabs tabs-secondary tabs-icon-left tab-voting">
 
             <a class="tab-item" ng-click="submitRating('upvote')" ng-class="{ 'disabled positive': single.voted == 'upvote' }">

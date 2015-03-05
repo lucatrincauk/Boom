@@ -52,3 +52,15 @@
 	}
 
 }
+.single .ratingsBar > div {
+	height: 3px;
+	float: left;
+	-webkit-transition: width .3s ease-out;
+	transition: width .3s ease-out;
+}
+.single .ratingsBar .green {
+	background: rgb(92, 210, 92);
+}
+.single .ratingsBar .red {
+	background: rgb(255, 92, 92);
+}

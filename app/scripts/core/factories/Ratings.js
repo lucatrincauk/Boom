@@ -1,8 +1,8 @@
 'use strict';
 angular.module('Boom')
 
-.factory('Ratings', ['$firebase', 'FirebaseUrl',
-	function($firebase, FirebaseUrl) {
+.factory('Ratings', ['$firebase', 'FirebaseUrl','$rootScope',
+	function($firebase, FirebaseUrl, $rootScope) {
 
 		var getOne = function(id) {
 			var refSingle = new Firebase(FirebaseUrl).child('ratings').child(id.id);
@@ -27,6 +27,8 @@ angular.module('Boom')
 
 			voteRef.transaction(function(vote) {
 				return vote + 1;
+			}, function() {
+				$rootScope.$broadcast('voteSuccessful');
 			});
 
 		};

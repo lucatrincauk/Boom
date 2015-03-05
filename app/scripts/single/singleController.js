@@ -1,6 +1,6 @@
 angular.module('Boom')
-	.controller('singleController', ['$scope', 'dish', 'core', 'Users', 'Ratings', '$stateParams',
-		function($scope, dish, core, Users, Ratings, $stateParams) {
+	.controller('singleController', ['$scope', 'dish', 'core', 'Users', 'Ratings', '$stateParams','$timeout',
+		function($scope, dish, core, Users, Ratings, $stateParams, $timeout) {
 			'use strict';
 
 
@@ -40,11 +40,28 @@ angular.module('Boom')
 				return filtered;
 			};
 
+			$scope.calculateScore = function() {
+				if (!$scope.votes.upvote) {
+					$scope.votes.upvote = 0;
+				}
+				if (!$scope.votes.downvote) {
+					$scope.votes.downvote = 0;
+				}
+
+				$scope.qty = $scope.votes.upvote + $scope.votes.downvote;
+
+				$timeout(function() {
+					$scope.score = Math.round($scope.votes.upvote / $scope.qty*100);
+				});
+				if (isNaN($scope.score)) {
+					$scope.score = 0;
+				}
+				console.log($scope.score)
+			}
 			$scope.votes = Ratings.getOne($stateParams);
-			// console.log($scope.user.length)
-			// if ($scope.user.length) {
-			// 	console.log($scope.user.username)
-			// }
+			$scope.votes.$loaded(function() {
+				$scope.calculateScore();
+			});
 
 			$scope.submitRating = function(vote) {
 				if (typeof $scope.single.voted !== 'undefined') {
@@ -57,8 +74,10 @@ angular.module('Boom')
 				if (angular.isDefined($scope.user)) {
 					Users.registerVote($scope.single.$id, vote);
 				}
-
 			};
+			$scope.$on('voteSuccessful', function() {
+				$scope.calculateScore();
+			});
 
 
 
