@@ -4,16 +4,6 @@
         Home
     </a>
 
-    <a ng-hide="user" ui-sref="app.user.login" ui-sref-active="active" class="tab-item" href="#">
-        <i class="icon ion-person"></i>
-        Login
-    </a>
-
-    <a ng-hide="user" ui-sref="app.user.register" ui-sref-active="active" class="tab-item" href="#">
-        <i class="icon ion-person-add"></i>
-        Register
-    </a>
-
     <a ng-show="user" ui-sref="app.favourites" ui-sref-active="active" class="tab-item" href="#">
         <i class="icon ion-heart"></i>
         Favourites
@@ -26,5 +16,14 @@
     <a ng-show="user.isAdmin" ui-sref="app.admin" ui-sref-active="active" class="tab-item" href="#">
         <i class="icon ion-help-buoy"></i>
         Admin
+    </a>
+    <a ng-hide="user" ui-sref="app.user.login" ui-sref-active="active" class="tab-item" href="#">
+        <i class="icon ion-person"></i>
+        Login
+    </a>
+
+    <a ng-hide="user" ui-sref="app.user.register" ui-sref-active="active" class="tab-item" href="#">
+        <i class="icon ion-person-add"></i>
+        Register
     </a>
 </div>
