@@ -23,24 +23,25 @@ boom.run(function($rootScope, $ionicLoading) {
     })
     //set Firebase Url
     .constant('FirebaseUrl', 'https://mns-menu.firebaseio.com/')
-    .config(function($httpProvider) {
-        // intercept loading for XHR and show veil until done
-        $httpProvider.interceptors.push(function($rootScope) {
-            return {
-                request: function(config) {
-                    $rootScope.$broadcast('loading:show');
-                    return config;
-                },
-                response: function(response) {
-                    $rootScope.$broadcast('loading:hide');
-                    return response;
-                }
-            };
-        });
-    })
+    // .config(function($httpProvider) {
+    //     // intercept loading for XHR and show veil until done
+    //     $httpProvider.interceptors.push(function($rootScope) {
+    //         return {
+    //             request: function(config) {
+    //                 $rootScope.$broadcast('loading:show');
+    //                 return config;
+    //             },
+    //             response: function(response) {
+    //                 $rootScope.$broadcast('loading:hide');
+    //                 return response;
+    //             }
+    //         };
+    //     });
+    // })
 
 // for ui-router
 .run(['$rootScope', '$state', function($rootScope, $state) {
+
         $rootScope.$on('$stateChangeError', function(event, toState, toParams, fromState, fromParams, error) {
             // We can catch the error thrown when the $requireAuth promise is rejected
             // and redirect the user back to the home page

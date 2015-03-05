@@ -48,10 +48,18 @@ angular.module('Boom')
             };
 
             $scope.dayFilter = function(dish) {
+                // Removing initial loading veil
+                if ($rootScope.veil === 1) {                    
+                    $rootScope.$broadcast('loading:hide');
+                    $rootScope.veil = 0;
+                }
                 return dish.week[$scope.cycle][core.days[$scope.activeDay]];
             };
 
             $scope.init = (function() {
+                // Adding initial loading veil
+                $rootScope.veil = 1;
+                $rootScope.$broadcast('loading:show');
                 // if it's weekend (sat: day = 5, sun: day = -1)
 
                 if (core.isClosed()) {

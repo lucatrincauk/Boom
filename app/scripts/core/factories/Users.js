@@ -5,6 +5,7 @@ angular.module('Boom')
 			var ref = new Firebase(FirebaseUrl);
 			var auth = $firebaseAuth(ref);
 			var createUser = function(data) {
+				$rootScope.$broadcast('loading:show');
 				ref.createUser({
 					username: data.username,
 					email: data.email,
@@ -18,6 +19,7 @@ angular.module('Boom')
 						});
 						loginUser(data);
 					} else {
+						$rootScope.$broadcast('loading:hide');
 						console.log('Error creating user:', error);
 						$rootScope.$apply(function() {
 							messageCenterService.add('danger', error.message, {
@@ -28,6 +30,8 @@ angular.module('Boom')
 				});
 			};
 			var loginUser = function(data) {
+				$rootScope.$broadcast('loading:show');
+
 				ref.authWithPassword({
 					email: data.email,
 					password: data.password
@@ -45,6 +49,8 @@ angular.module('Boom')
 							timeout: 3000
 						});
 					}
+					$rootScope.$broadcast('loading:hide');
+
 				});
 				ref.onAuth(function(authData) {
 					if (authData) {
