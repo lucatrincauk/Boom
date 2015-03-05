@@ -43,7 +43,7 @@ angular.module('Boom')
 							});
 						});
 					} else {
-						$state.go('app.user.profile');
+						$state.go('app.home');
 						messageCenterService.add('success', 'Logged in successfully!', {
 							status: messageCenterService.status.next,
 							timeout: 3000

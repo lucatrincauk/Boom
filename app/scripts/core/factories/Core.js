@@ -15,7 +15,6 @@ angular.module('Boom')
 			if ($rootScope.user) {			
 				$rootScope.user.$loaded(function() {
 					if ($rootScope.user.canteen && $rootScope.user.canteen !== cName) {
-						console.log('xpxop')
 						cName = $rootScope.user.canteen.name;
 						$rootScope.$emit('canteenChanged', 'Data to send');
 					}
