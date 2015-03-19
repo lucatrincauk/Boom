@@ -12,8 +12,11 @@
     </div>
 
     <ion-content has-bouncing="false" class="has-header has-footer">
+     <ion-slide-box>
+  <ion-slide ng-repeat="day in days" ng-init="dayIndex = $index">
 
         <ion-list class="has-header list" on-swipe-left="next(1)" on-swipe-right="prev(1)">
+
 
             <div ng-repeat="category in categories | orderBy: 'priority'" class="{{category.$id}} menu-list">
                 <ion-item class="item item-divider">
@@ -24,7 +27,7 @@
                 </ion-item>
                 <ion-item class="dish-list">
 
-                <a ng-repeat="dish in filteredDishes = (dishes | filter: {category : category.$id} | filter: dayFilter)" class="item" ui-sref="app.dish({ id: (dish.$id), category: (dish.category)})" href="#" ng-class="{'positive' : user.favourites[dish.$id]}" >
+                <a ng-repeat="dish in filteredDishes = (dishes | filter: {category : category.$id} | filter: {day: dayIndex})" class="item" ui-sref="app.dish({ id: (dish.$id), category: (dish.category)})" href="#" ng-class="{'positive' : user.favourites[dish.$id]}" >
 
                   <!--   <img ng-if="category.dishes.length == 2" class="dish-thumb pull-left" ng-src="http://lorempixel.com/208/110/food">
                     <img ng-if="category.dishes.length == 3" class="dish-thumb pull-left" ng-src="http://lorempixel.com/138/110/food">
@@ -50,6 +53,8 @@
                 </ion-item>
             </div>
         </ion-list>
+        </ion-slide>
+        </ion-slide-box>
 
     </ion-content>
 </ion-view>
