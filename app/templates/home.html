@@ -6,29 +6,28 @@
       <button class="button button-light icon-left ion-gear-b" ui-sref="app.settings" >Settings</button>
     </ion-nav-buttons>
     <div class="bar bar-subheader">
-      <button ng-click="prev(1)" ng-class="{'disabled':activeDay === 0}" class="button button-icon icon ion-chevron-left"> {{activeDay-1 | dayfy}}</button>
+      <button ng-click="prev()" ng-class="{'disabled':activeDay === 0}" class="button button-icon icon ion-chevron-left"> {{activeDay-1 | dayfy}}</button>
       <div class="h1 title"><span class="icon ion-calendar"></span> {{dayName}}</div>
-      <button ng-click="next(1)" ng-class="{'disabled':activeDay === 4}" class="button button-icon icon icon-right ion-chevron-right">{{activeDay+1 | dayfy}} </button>
+      <button ng-click="next()" ng-class="{'disabled':activeDay === 4}" class="button button-icon icon icon-right ion-chevron-right">{{activeDay+1 | dayfy}}</button>
     </div>
 
     <ion-content has-bouncing="false" class="has-header has-footer">
-     <ion-slide-box>
-  <ion-slide ng-repeat="day in days" ng-init="dayIndex = $index">
+      <ion-slide-box on-slide-changed="nameDays()">
+        <ion-slide ng-repeat="day in days" ng-init="dayIndex = $index">
 
-        <ion-list class="has-header list" on-swipe-left="next(1)" on-swipe-right="prev(1)">
+        <ion-list class="has-header list" >
 
 
             <div ng-repeat="category in categories | orderBy: 'priority'" class="{{category.$id}} menu-list">
                 <ion-item class="item item-divider">
      <span class="category-icon"></span>
-                    <span>{{ category.title}}</span>
+                    <span>{{ category.title}} {{$index}}</span>
 
 
                 </ion-item>
                 <ion-item class="dish-list">
 
-                <a ng-repeat="dish in filteredDishes = (dishes | filter: {category : category.$id} | filter: {day: dayIndex})" class="item" ui-sref="app.dish({ id: (dish.$id), category: (dish.category)})" href="#" ng-class="{'positive' : user.favourites[dish.$id]}" >
-
+                <a ng-init="dayIndex = ''" ng-repeat="dish in filteredDishes = (dishes | filter: {category : category.$id} | filter: dayFilter(dayIndex))" class="item" ui-sref="app.dish({ id: (dish.$id), category: (dish.category)})" href="#" ng-class="{'positive' : user.favourites[dish.$id]}" >
                   <!--   <img ng-if="category.dishes.length == 2" class="dish-thumb pull-left" ng-src="http://lorempixel.com/208/110/food">
                     <img ng-if="category.dishes.length == 3" class="dish-thumb pull-left" ng-src="http://lorempixel.com/138/110/food">
 
@@ -45,10 +44,10 @@
  -->                    </div>
                    <!-- <rating class="pull-left star-rating" readonly="true" ng-model="dish.averageRating" max="5"></rating>-->
                 </a>
-                <div class="item" ng-if="!filteredDishes.length">
+            <!--     <div class="item" ng-if="!filteredDishes.length">
 
                         <p class="pull-left">No dishes for this category</p>
-                   </div>
+                   </div> -->
 
                 </ion-item>
             </div>

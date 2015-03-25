@@ -9,8 +9,8 @@ angular.module('Boom')
             dishes.$loaded(function() {
 
                 // Assign data to scope         
-                $scope.dishes = dishes;
-
+                $scope.dishes = dishes;        
+              
                 // if it's weekend (sat: day = 5, sun: day = -1)
                 if (core.isClosed()) {
                     // Show message "Canteen closed"
@@ -45,42 +45,23 @@ angular.module('Boom')
 
             });
             $scope.nameDays = function() {
-                $scope.dayName = $filter('dayfy')($ionicSlideBoxDelegate.currentIndex());
+                $scope.activeDay = $ionicSlideBoxDelegate.currentIndex();
+                $scope.dayName = $filter('dayfy')($scope.activeDay);
             };
 
 
             $scope.prev = function() {
-                // Don't let browse behind Monday
-                // if ($scope.activeDay < 1) {
-                //     return false;
-                // } else {
-                //     // Set view to day before
-                //     $scope.activeDay = $scope.activeDay - 1;
-
-                //     $scope.nameDays();
-                // }
-                // return $scope.activeDay;
                 $ionicSlideBoxDelegate.previous();
-                 $scope.nameDays();
             };
 
             $scope.next = function() {
-                // Don't let browse ahead of Friday
-                // if ($scope.activeDay > 3) {
-                //     return false;
-                // } else {
-                //     // Set view to day after
-                //     $scope.activeDay = $scope.activeDay + 1;
-                //     
-                // }
-                // return $scope.activeDay;
                 $ionicSlideBoxDelegate.next();
-                $scope.nameDays();
-
             };
-
-    
-           
+            $scope.dayFilter = function(dayFilter) {
+                return function(dish) {
+                    return dish.week[$scope.cycle][core.days[dayFilter]];
+                };
+            };         
 
 
         }
