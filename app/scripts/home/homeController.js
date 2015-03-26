@@ -2,8 +2,13 @@ angular.module('Boom')
     .controller('homeController', ['$scope', '$rootScope', 'core', 'categories', 'dishes', '$filter', 'messageCenterService', '$timeout', 'Dishes','$ionicSlideBoxDelegate',
         function($scope, $rootScope, core, categories, dishes, $filter, messageCenterService, $timeout, Dishes, $ionicSlideBoxDelegate) {
             'use strict';
-            // Show initial Loading screen
-            $rootScope.$broadcast('loading:show');
+
+            // Show initial Loading screen only once
+            var init;
+            if (!init) {
+                $rootScope.$broadcast('loading:show');
+                init = true;
+            }
 
             // Once dishes come back from server..
             dishes.$loaded(function() {
