@@ -59,9 +59,6 @@ boom.run(function($rootScope, $ionicLoading) {
                 url: '',
                 abstract: true,
                 views: {
-                    'footer': {
-                        templateUrl: 'templates/footer.html'
-                    },
                     'slideMenu': {
                         templateUrl: 'templates/slide-menu.html',
                         controller: 'userProfileController'
