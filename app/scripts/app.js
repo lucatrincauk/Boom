@@ -1,6 +1,6 @@
 'use strict';
 if (window.cordova) {
-    var boom = angular.module('Boom', ['ionic', 'ui.router', 'firebase', 'angular.filter', 'MessageCenterModule', 'angulartics', 'angulartics.google.analytics.cordova', 'cordovaDeviceModule'])
+    var boom = angular.module('Boom', ['ionic', 'ui.router', 'firebase', 'angular.filter', 'MessageCenterModule', 'angulartics', 'angulartics.google.analytics.cordova'])
         .config(['googleAnalyticsCordovaProvider', function(googleAnalyticsCordovaProvider) {
             googleAnalyticsCordovaProvider.trackingId = 'UA-59450949-3';
 
