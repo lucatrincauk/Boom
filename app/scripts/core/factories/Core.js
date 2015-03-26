@@ -60,7 +60,7 @@ angular.module('Boom')
 			return currentWeek;
 		};
 		var weeks = ['one', 'two', 'three', 'four'];
-		var days = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'];
+		var days = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday'];
 
 
 		/*
