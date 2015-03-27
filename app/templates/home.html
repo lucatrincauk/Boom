@@ -11,7 +11,7 @@
       <button ng-click="next()" ng-class="{'disabled':activeDay === 4}" class="button button-icon icon icon-right ion-chevron-right">{{activeDay+1 | dayfy}}</button>
     </div>
 
-    <ion-content has-bouncing="false" class="has-header">
+    <ion-content has-bouncing="false" class="has-header" locking="true">
       <ion-slide-box on-slide-changed="nameDays()">
         <ion-slide ng-repeat="day in days" ng-init="dayIndex = $index">
 
