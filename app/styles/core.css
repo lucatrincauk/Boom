@@ -73,7 +73,7 @@ border-bottom: 1px solid #ddd;
 }
 #mc-messages-wrapper {
 	position: absolute;
-	top: 0;
+	bottom: 0;
 	z-index: 999;
 	width: 100%;
 }
@@ -95,6 +95,13 @@ border-bottom: 1px solid #ddd;
 #mc-messages-wrapper .alert-info {
 	background: #4a87ee;
 	border: 1px solid #4a87ee;
+}
+#mc-messages-wrapper > .card {
+	padding: 0;
+}
+#mc-messages-wrapper > .card > .item {
+	background: none;
+	color: #fff;
 }
 .side-footer {
   line-height: 2.4em;

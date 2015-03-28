@@ -27,7 +27,7 @@
                 </ion-item>
                 <ion-item class="dish-list">
 
-                <a ng-init="dayIndex = ''" ng-repeat="dish in filteredDishes = (dishes | filter: {category : category.$id} | filter: dayFilter(dayIndex))" class="item" ui-sref="app.dish({ id: (dish.$id), category: (dish.category)})" href="#" ng-class="{'positive' : user.favourites[dish.$id]}" >
+                <a ng-repeat="dish in filteredDishes = (dishes | filter: {category : category.$id} | filter: dayFilter(dayIndex))" class="item" ui-sref="app.dish({ id: (dish.$id), category: (dish.category)})" href="#" ng-class="{'positive' : user.favourites[dish.$id]}" >
                   <!--   <img ng-if="category.dishes.length == 2" class="dish-thumb pull-left" ng-src="http://lorempixel.com/208/110/food">
                     <img ng-if="category.dishes.length == 3" class="dish-thumb pull-left" ng-src="http://lorempixel.com/138/110/food">
 
