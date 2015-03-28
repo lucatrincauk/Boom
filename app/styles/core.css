@@ -113,5 +113,5 @@ border-bottom: 1px solid #ddd;
   top: 93px;
 }
 .scroll > .slider {
-	overflow-y: visible;
+	overflow: visible;
 }
