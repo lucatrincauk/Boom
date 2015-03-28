@@ -1,7 +1,7 @@
 'use strict';
 angular.module('Boom')
-	.factory('Users', ['$firebase', 'FirebaseUrl', '$state', '$firebaseAuth', '$rootScope', 'messageCenterService', '$timeout',
-		function($firebase, FirebaseUrl, $state, $firebaseAuth, $rootScope, messageCenterService, $timeout) {
+	.factory('Users', ['$firebase', 'FirebaseUrl', '$state', '$firebaseAuth', '$rootScope', 'messageCenterService', '$timeout', 'Core',
+		function($firebase, FirebaseUrl, $state, $firebaseAuth, $rootScope, messageCenterService, $timeout, Core) {
 			var ref = new Firebase(FirebaseUrl);
 			var auth = $firebaseAuth(ref);
 			var createUser = function(data) {
@@ -214,6 +214,7 @@ angular.module('Boom')
 
 			ref.onAuth(function() {
 				$rootScope.user = getUser();
+				Core.checkUser();
 	
 							
 			});

@@ -11,17 +11,19 @@ angular.module('Boom')
 			cycle,
 			cName = 'Waterside';
 
-			// if default canteen has been changed
-			if ($rootScope.user) {			
-				$rootScope.user.$loaded(function() {
-					if ($rootScope.user.canteen && $rootScope.user.canteen !== cName) {
-						cName = $rootScope.user.canteen.name;
-						$rootScope.$emit('canteenChanged', 'Data to send');
+			var checkUser = function() {
+				if ($rootScope.user) {			
+					$rootScope.user.$loaded(function() {
+						if ($rootScope.user.canteen && $rootScope.user.canteen !== cName) {
+							cName = $rootScope.user.canteen.name;
+							$rootScope.$emit('canteenChanged', 'Data to send');
+						}
+					});
 					}
-				})        
-			}
-		var canteenName = function(changed) {
+				};
+			// if default canteen has been changed
 
+		var canteenName = function(changed) {
 			if (changed) {
 				cName = changed;
 				console.log('__CANTEEN: Changed to ' + cName);
@@ -134,7 +136,8 @@ angular.module('Boom')
 			cycle: getCycle,
 			week: getWeek,
 			weeks: weeks,
-			days: days
+			days: days,
+			checkUser: checkUser
 		};
 	}
 

@@ -45,11 +45,12 @@ angular.module('Boom')
                 var dishesChanged = Dishes.getWeekly();
                 dishesChanged.$loaded(function() {
                     $scope.dishes = dishesChanged;
+                    $timeout(function() {
+                        $scope.canteenName = core.canteenName();
+                    });
                 });
-                $timeout(function() {
 
-                    $scope.canteenName = core.canteenName();
-                });
+                //});
 
             });
             $scope.nameDays = function() {
