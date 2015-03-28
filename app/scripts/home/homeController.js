@@ -12,7 +12,6 @@ angular.module('Boom')
 
             // Once dishes come back from server..
             dishes.$loaded(function() {
-
                 // Assign data to scope         
                 $scope.dishes = dishes;        
               
@@ -43,8 +42,12 @@ angular.module('Boom')
             // Updating view when canteen changes
             $rootScope.$on('canteenChanged', function() {
                 $scope.cycle = core.cycle(true);
-                $scope.dishes = Dishes.getWeekly();
+                var dishesChanged = Dishes.getWeekly();
+                dishesChanged.$loaded(function() {
+                    $scope.dishes = dishesChanged;
+                });
                 $timeout(function() {
+
                     $scope.canteenName = core.canteenName();
                 });
 
