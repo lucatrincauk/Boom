@@ -87,3 +87,6 @@
   right: 0.7em;
   top: 0.7em;
 }
+.scroll > .slider {
+  overflow: visible;
+}

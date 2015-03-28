@@ -112,6 +112,3 @@ border-bottom: 1px solid #ddd;
 .pane.has-tabs-top {
   top: 93px;
 }
-.scroll > .slider {
-	overflow: visible;
-}
