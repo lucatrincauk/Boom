@@ -12,7 +12,7 @@ boom.run(function($rootScope, $ionicLoading) {
         // show veil when xhr starts
         $rootScope.$on('loading:show', function() {
             $ionicLoading.show({
-                template: 'Loading...'
+                template: '<ion-spinner icon="dots" class="spinner-stable"></ion-spinner>'
             });
         });
         // remove veil when done
