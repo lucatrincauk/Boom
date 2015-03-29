@@ -10,7 +10,7 @@
         <div class="list card">
             <div class="item item-avatar item-button-right">
                 <span class="category-icon"></span>
-                <h2>{{single.slug}}</h2>
+                <h2>{{single.category | undashify}}</h2>
                 <p>
                    <span ng-repeat="day in single.days">
                         <span ng-show="$middle">,</span>
@@ -28,8 +28,11 @@
             </div>
             <div class="item item-body">
                 <img class="full-image" err-src="https://mns-menu.firebaseapp.com/{{single.images}}" ng-src="{{single.images}}">
-                <div class="dish-copy">
-                  <h2>{{single.title}}</h2>
+                <div class="dish-body">
+                  <div class="dish-copy">                  
+                    <h1>{{single.slug}}</h1>
+                    <h2>{{single.title}}</h2>
+                  </div>
 
                   <div ng-show="single.with" class="single-extra single-with">
                       <h4>This dish comes with:</h4>
