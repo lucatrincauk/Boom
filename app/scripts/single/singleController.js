@@ -1,6 +1,6 @@
 angular.module('Boom')
-	.controller('singleController', ['$scope', 'dish', 'core', 'Users',
-		function($scope, dish, core, Users) {
+	.controller('singleController', ['$scope', 'dish', 'core', 'Users', 'Ratings', '$stateParams','$timeout',
+		function($scope, dish, core, Users, Ratings, $stateParams, $timeout) {
 			'use strict';
 
 
@@ -17,7 +17,13 @@ angular.module('Boom')
 					// if a dish is assigned to all days, replace days with 'Everyday'
 					if ($scope.single.days.length >= 5) {
 						$scope.single.days = ['Everyday'];
+
 					}
+
+					if (angular.isDefined($scope.user) && angular.isDefined($scope.user.ratings) && angular.isDefined($scope.user.ratings[$scope.single.$id])) {
+						$scope.single.voted = $scope.user.ratings[$scope.single.$id].vote;
+					}
+
 				}
 
 				//$scope.viewCount();
@@ -33,6 +39,47 @@ angular.module('Boom')
 				});
 				return filtered;
 			};
+
+			$scope.calculateScore = function() {
+				if (!$scope.votes.upvote) {
+					$scope.votes.upvote = 0;
+				}
+				if (!$scope.votes.downvote) {
+					$scope.votes.downvote = 0;
+				}
+
+				$scope.qty = $scope.votes.upvote + $scope.votes.downvote;
+
+				$timeout(function() {
+					$scope.score = Math.round($scope.votes.upvote / $scope.qty*100);
+				});
+				if (isNaN($scope.score)) {
+					$scope.score = 0;
+				}
+				console.log($scope.score)
+			}
+			$scope.votes = Ratings.getOne($stateParams);
+			$scope.votes.$loaded(function() {
+				$scope.calculateScore();
+			});
+
+			$scope.submitRating = function(vote) {
+				if (typeof $scope.single.voted !== 'undefined') {
+					Ratings.submitRating($scope.single.$id, vote, true);
+				} else {
+					Ratings.submitRating($scope.single.$id, vote);
+				}
+				$scope.single.voted = vote;
+
+				if (angular.isDefined($scope.user)) {
+					Users.registerVote($scope.single.$id, vote);
+				}
+			};
+			$scope.$on('voteSuccessful', function() {
+				$scope.calculateScore();
+			});
+
+
 
 			// increase dish views count
 			// $scope.viewCount = function() {

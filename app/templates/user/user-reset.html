@@ -1,0 +1,34 @@
+<ion-view title="Reset your password">
+  <!-- Menu button -->
+  <ion-nav-buttons side="left">
+    <button menu-toggle="left" class="button button-icon icon ion-navicon"></button>
+  </ion-nav-buttons>
+
+    <ion-content class="has-header">
+ 
+ 
+    <div class="card">
+      <div class="item item-text-wrap">
+        A new temporary password will be sent to your email address. You can then change it from your profile.
+      </div>
+
+
+    </div>
+    <form ng-submit="resetPassword()" name="userName">
+      
+      <div class="list list-inset">
+        <label class="item item-input">
+          <span class="input-label">E-mail</span>
+          <input type="email" ng-model="user.email" ng-model-options="{ updateOn: 'blur' }">
+        </label>
+      </div> 
+
+      <div class="padding">
+        <button class="button button-block button-positive activated">Reset password</button>
+      </div>      
+    </form>
+      
+
+
+    </ion-content>
+</ion-view>

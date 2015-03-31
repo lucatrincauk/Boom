@@ -7,13 +7,13 @@
   width: 2.4em;
   height: 2.4em;
 }
-.title.header-item {
+.title.header-item, .single .item-avatar h2 {
 	text-transform: capitalize;
 }
 .single .single-extra h4 {
 	font-size: .94em;
-	font-weight: bold;
-}
+/*	font-weight: bold;
+*/}
 .single .single-extra .item {
 	padding: .5em;
 	font-size: .9em;
@@ -30,4 +30,43 @@
 }
 .single .item-avatar, .single .tabs-secondary {
 	background: whitesmoke;
+}
+.favourite-button {
+	margin-top: 12px;
+}
+.favourite-button .icon:before {
+	font-size: 33px;
+}
+.tab-voting .disabled {
+	opacity: 1;
+}
+@media screen and (min-width : 460px) {
+	.dish-body {
+		display: inline-block;
+		vertical-align: top;
+		margin-left: 2%;
+		width: 62%;
+	}
+	.item-body .full-image {
+		max-width: 35%;
+	}
+
+}
+.single .ratingsBar > div {
+	height: 3px;
+	float: left;
+	-webkit-transition: width .3s ease-out;
+	transition: width .3s ease-out;
+}
+.single .ratingsBar .green {
+	background: rgb(92, 210, 92);
+}
+.single .ratingsBar .red {
+	background: rgb(255, 92, 92);
+}
+.single .dish-copy {
+	margin-bottom: 2em;
+}
+.single .dish-copy h1 {
+	font-size: 1.5em;
 }

@@ -35,7 +35,11 @@ angular.module('Boom').filter('dayfy', ['$rootScope', 'Core', function($rootScop
 					break;
 					// Otherwise retrieve day's name
 				default:
-					dayName = Core.days[activeDay];
+				 	if (activeDay === -1) {
+				 		dayName = Core.days[6];
+				 	} else {
+						dayName = Core.days[activeDay];
+				 	}
 			}
 		}
 

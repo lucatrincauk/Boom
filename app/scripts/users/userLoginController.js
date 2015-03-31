@@ -13,7 +13,9 @@ angular.module('Boom')
 			$scope.removeUser = function() {
 				Users.removeUser($scope.user);
 			}
-
+			$scope.resetPassword = function() {
+				Users.resetPassword($scope.user);
+			}
 
 		}
 

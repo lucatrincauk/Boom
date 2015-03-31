@@ -1,6 +1,6 @@
 angular.module('Boom')
-    .controller('settingsController', ['$scope', 'Core', 'categories',
-        function($scope, Core, categories) {
+    .controller('settingsController', ['$scope', 'Core', 'categories', 'Users',
+        function($scope, Core, categories, Users) {
             'use strict';
             $scope.canteen = {
                 name: Core.canteenName()
@@ -13,6 +13,9 @@ angular.module('Boom')
             $scope.$watch('canteen.name', function(newValue, oldValue) {
                 if (newValue === oldValue) {
                     return;
+                }
+                if ($scope.user) {
+                    Users.changeCanteen(newValue);
                 }
                 Core.canteenName(newValue);
             }, true);

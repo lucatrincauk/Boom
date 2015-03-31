@@ -1,10 +1,11 @@
 'use strict';
 angular.module('Boom')
-	.factory('Users', ['$firebase', 'FirebaseUrl', '$state', '$firebaseAuth', '$rootScope', 'messageCenterService', '$timeout',
-		function($firebase, FirebaseUrl, $state, $firebaseAuth, $rootScope, messageCenterService, $timeout) {
+	.factory('Users', ['$firebase', 'FirebaseUrl', '$state', '$firebaseAuth', '$rootScope', 'messageCenterService', '$timeout', 'Core',
+		function($firebase, FirebaseUrl, $state, $firebaseAuth, $rootScope, messageCenterService, $timeout, Core) {
 			var ref = new Firebase(FirebaseUrl);
 			var auth = $firebaseAuth(ref);
 			var createUser = function(data) {
+				$rootScope.$broadcast('loading:show');
 				ref.createUser({
 					username: data.username,
 					email: data.email,
@@ -18,6 +19,7 @@ angular.module('Boom')
 						});
 						loginUser(data);
 					} else {
+						$rootScope.$broadcast('loading:hide');
 						console.log('Error creating user:', error);
 						$rootScope.$apply(function() {
 							messageCenterService.add('danger', error.message, {
@@ -28,6 +30,8 @@ angular.module('Boom')
 				});
 			};
 			var loginUser = function(data) {
+				$rootScope.$broadcast('loading:show');
+
 				ref.authWithPassword({
 					email: data.email,
 					password: data.password
@@ -39,18 +43,89 @@ angular.module('Boom')
 							});
 						});
 					} else {
-						$state.go('app.user.profile');
+						$state.go('app.home');
 						messageCenterService.add('success', 'Logged in successfully!', {
 							status: messageCenterService.status.next,
 							timeout: 3000
 						});
 					}
+					$rootScope.$broadcast('loading:hide');
+
 				});
 				ref.onAuth(function(authData) {
 					if (authData) {
 						// save the user's profile into Firebase so we can list users,
 						// use them in Security and Firebase Rules, and show profiles
 						ref.child('users').child(authData.uid).update(authData);
+					}
+				});
+			};
+			var resetPassword = function(data) {
+				ref.resetPassword({
+					email: data.email
+				}, function(error) {
+					if (error === null) {
+						$rootScope.$apply(function() {
+							$state.go('app.user.login');
+
+							messageCenterService.add('success', 'Password reset email sent successfully.', {
+								timeout: 3000,
+								status: messageCenterService.status.next,
+
+							});
+						});
+					} else {
+						$rootScope.$apply(function() {
+							messageCenterService.add('danger', 'Error sending password reset email:' + error.message, {
+								timeout: 6000
+							});
+						});
+					}
+				});
+			};
+
+			var changeEmail = function(data) {
+				ref.changeEmail({
+					oldEmail: data.password.email,
+					newEmail: data.newEmail,
+					password: data.newEmailPassword
+				}, function(error) {
+					if (error === null) {
+						$rootScope.$apply(function() {
+							messageCenterService.add('success', 'Email address updated successfully.', {
+								timeout: 3000
+							});
+						});
+						ref.child('users').child(data.uid).child('password').update({
+							email: data.newEmail
+						});
+					} else {
+						$rootScope.$apply(function() {
+							messageCenterService.add('danger', 'Error updating email address: ' + error.message, {
+								timeout: 6000
+							});
+						});
+					}
+				});
+			};
+			var changePassword = function(data) {
+				ref.changePassword({
+					email: data.password.email,
+					oldPassword: data.currentPassword,
+					newPassword: data.newPassword
+				}, function(error) {
+					if (error === null) {
+						$rootScope.$apply(function() {
+							messageCenterService.add('success', 'Password updated successfully.', {
+								timeout: 3000
+							});
+						});
+					} else {
+						$rootScope.$apply(function() {
+							messageCenterService.add('danger', 'Error updating password: ' + error.message, {
+								timeout: 6000
+							});
+						});
 					}
 				});
 			};
@@ -75,6 +150,7 @@ angular.module('Boom')
 					//$state.go('app.user.login');
 					return;
 				}
+		
 				console.log('__USER: logged in');
 				var refSingle = ref.child('users').child(user.uid);
 				var sync = $firebase(refSingle);
@@ -99,7 +175,7 @@ angular.module('Boom')
 							messageCenterService.add('success', 'Dish added to your favourites.', {
 								timeout: 3000
 							});
-						})
+						});
 					}
 				});
 			};
@@ -120,17 +196,41 @@ angular.module('Boom')
 					}
 				});
 			};
+
+			var registerVote = function($id, vote) {
+				ref.child('users/' + $rootScope.user.uid + '/ratings/' + $id).update({
+					'vote': vote
+				});
+
+			};
+
+			var changeCanteen = function(canteen) {
+				ref.child('users/' + $rootScope.user.uid + '/canteen/').update({
+					'name': canteen
+				});
+
+			};
+
+
 			ref.onAuth(function() {
 				$rootScope.user = getUser();
+				Core.checkUser();
+	
+							
 			});
 			return {
 				createUser: createUser,
 				loginUser: loginUser,
+				resetPassword: resetPassword,
+				changeEmail: changeEmail,
+				changePassword: changePassword,
 				logoutUser: logoutUser,
 				auth: auth,
 				getUser: getUser,
 				addFavourite: addFavourite,
-				removeFavourite: removeFavourite
+				removeFavourite: removeFavourite,
+				registerVote: registerVote,
+				changeCanteen: changeCanteen
 			};
 		}
 	]);

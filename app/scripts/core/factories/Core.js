@@ -11,8 +11,19 @@ angular.module('Boom')
 			cycle,
 			cName = 'Waterside';
 
-		var canteenName = function(changed) {
+			var checkUser = function() {
+				if ($rootScope.user) {			
+					$rootScope.user.$loaded(function() {
+						if ($rootScope.user.canteen && $rootScope.user.canteen !== cName) {
+							cName = $rootScope.user.canteen.name;
+							$rootScope.$emit('canteenChanged', 'Data to send');
+						}
+					});
+					}
+				};
+			// if default canteen has been changed
 
+		var canteenName = function(changed) {
 			if (changed) {
 				cName = changed;
 				console.log('__CANTEEN: Changed to ' + cName);
@@ -51,7 +62,7 @@ angular.module('Boom')
 			return currentWeek;
 		};
 		var weeks = ['one', 'two', 'three', 'four'];
-		var days = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'];
+		var days = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday'];
 
 
 		/*
@@ -98,7 +109,6 @@ angular.module('Boom')
 			}
 			// cycle = 1
 
-
 			if (name) {
 				cycle = weeks[cycle - 1];
 			}
@@ -126,7 +136,8 @@ angular.module('Boom')
 			cycle: getCycle,
 			week: getWeek,
 			weeks: weeks,
-			days: days
+			days: days,
+			checkUser: checkUser
 		};
 	}
 

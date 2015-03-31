@@ -1,10 +1,18 @@
 'use strict';
-angular.module('Boom', ['ionic', 'ui.router', 'firebase', 'angular.filter', 'MessageCenterModule', 'angulartics', 'angulartics.google.analytics', 'angulartics.google.analytics.cordova'])
-    .run(function($rootScope, $ionicLoading) {
+if (window.cordova) {
+    var boom = angular.module('Boom', ['ionic', 'ui.router', 'firebase', 'angular.filter', 'MessageCenterModule', 'angulartics', 'angulartics.google.analytics.cordova'])
+        .config(['googleAnalyticsCordovaProvider', function(googleAnalyticsCordovaProvider) {
+            googleAnalyticsCordovaProvider.trackingId = 'UA-59450949-3';
+
+        }]);
+} else {
+    var boom = angular.module('Boom', ['ionic', 'ui.router', 'firebase', 'angular.filter', 'MessageCenterModule', 'angulartics', 'angulartics.google.analytics']);
+}
+boom.run(function($rootScope, $ionicLoading) {
         // show veil when xhr starts
         $rootScope.$on('loading:show', function() {
             $ionicLoading.show({
-                template: 'Loading...'
+                template: '<ion-spinner icon="dots" class="spinner-stable"></ion-spinner>'
             });
         });
         // remove veil when done
@@ -15,23 +23,25 @@ angular.module('Boom', ['ionic', 'ui.router', 'firebase', 'angular.filter', 'Mes
     })
     //set Firebase Url
     .constant('FirebaseUrl', 'https://mns-menu.firebaseio.com/')
-    .config(function($httpProvider) {
-        // intercept loading for XHR and show veil until done
-        $httpProvider.interceptors.push(function($rootScope) {
-            return {
-                request: function(config) {
-                    $rootScope.$broadcast('loading:show');
-                    return config;
-                },
-                response: function(response) {
-                    $rootScope.$broadcast('loading:hide');
-                    return response;
-                }
-            };
-        });
-    })
-    // for ui-router
-    .run(['$rootScope', '$state', function($rootScope, $state) {
+    // .config(function($httpProvider) {
+    //     // intercept loading for XHR and show veil until done
+    //     $httpProvider.interceptors.push(function($rootScope) {
+    //         return {
+    //             request: function(config) {
+    //                 $rootScope.$broadcast('loading:show');
+    //                 return config;
+    //             },
+    //             response: function(response) {
+    //                 $rootScope.$broadcast('loading:hide');
+    //                 return response;
+    //             }
+    //         };
+    //     });
+    // })
+
+// for ui-router
+.run(['$rootScope', '$state', function($rootScope, $state) {
+
         $rootScope.$on('$stateChangeError', function(event, toState, toParams, fromState, fromParams, error) {
             // We can catch the error thrown when the $requireAuth promise is rejected
             // and redirect the user back to the home page
@@ -49,9 +59,6 @@ angular.module('Boom', ['ionic', 'ui.router', 'firebase', 'angular.filter', 'Mes
                 url: '',
                 abstract: true,
                 views: {
-                    'footer': {
-                        templateUrl: 'templates/footer.html'
-                    },
                     'slideMenu': {
                         templateUrl: 'templates/slide-menu.html',
                         controller: 'userProfileController'
@@ -119,7 +126,7 @@ angular.module('Boom', ['ionic', 'ui.router', 'firebase', 'angular.filter', 'Mes
                 url: '/admin',
                 views: {
                     'index@': {
-                        templateUrl: 'templates/admin.html'
+                        templateUrl: 'templates/admin/admin.html'
                     }
                 },
                 resolve: {
@@ -134,7 +141,7 @@ angular.module('Boom', ['ionic', 'ui.router', 'firebase', 'angular.filter', 'Mes
                 url: '/stats',
                 views: {
                     'index@': {
-                        templateUrl: 'templates/adminStats.html',
+                        templateUrl: 'templates/admin/stats.html',
                         controller: 'adminStatsController'
                     }
                 },
@@ -154,7 +161,7 @@ angular.module('Boom', ['ionic', 'ui.router', 'firebase', 'angular.filter', 'Mes
                 url: '/dishes',
                 views: {
                     'index@': {
-                        templateUrl: 'templates/admin-dishes.html',
+                        templateUrl: 'templates/admin/dishes/admin-dishes.html',
                         controller: 'adminDishesController'
                     }
                 },
@@ -174,7 +181,7 @@ angular.module('Boom', ['ionic', 'ui.router', 'firebase', 'angular.filter', 'Mes
                 url: '/reports',
                 views: {
                     'index@': {
-                        templateUrl: 'templates/admin-reports.html',
+                        templateUrl: 'templates/admin/reports.html',
                         controller: 'adminListingReportsController'
                     }
                 },
@@ -188,7 +195,7 @@ angular.module('Boom', ['ionic', 'ui.router', 'firebase', 'angular.filter', 'Mes
                 url: '/categories',
                 views: {
                     'index@': {
-                        templateUrl: 'templates/admin-categories.html',
+                        templateUrl: 'templates/admin/categories/admin-categories.html',
                         controller: 'adminCategoriesController'
 
                     }
@@ -206,7 +213,7 @@ angular.module('Boom', ['ionic', 'ui.router', 'firebase', 'angular.filter', 'Mes
                 url: '/add',
                 views: {
                     'index@': {
-                        templateUrl: 'templates/admin-categories-add.html',
+                        templateUrl: 'templates/admin/categories/admin-categories-add.html',
                         controller: 'adminAddCategoryController'
 
                     }
@@ -216,7 +223,7 @@ angular.module('Boom', ['ionic', 'ui.router', 'firebase', 'angular.filter', 'Mes
                 url: '/edit/:id',
                 views: {
                     'index@': {
-                        templateUrl: 'templates/admin-categories-edit.html',
+                        templateUrl: 'templates/admin/categories/admin-categories-edit.html',
                         controller: 'adminEditCategoryController'
 
                     }
@@ -231,7 +238,7 @@ angular.module('Boom', ['ionic', 'ui.router', 'firebase', 'angular.filter', 'Mes
                 url: '/add',
                 views: {
                     'index@': {
-                        templateUrl: 'templates/admin-dishes-add.html',
+                        templateUrl: 'templates/admin/dishes/admin-dishes-add.html',
                         controller: 'adminAddDishController'
 
                     }
@@ -246,7 +253,7 @@ angular.module('Boom', ['ionic', 'ui.router', 'firebase', 'angular.filter', 'Mes
                 url: '/edit/:id',
                 views: {
                     'index@': {
-                        templateUrl: 'templates/admin-dishes-edit.html',
+                        templateUrl: 'templates/admin/dishes/admin-dishes-edit.html',
                         controller: 'adminEditDishController'
 
                     }
@@ -297,41 +304,8 @@ angular.module('Boom', ['ionic', 'ui.router', 'firebase', 'angular.filter', 'Mes
                 url: '/login',
                 views: {
                     'index@': {
-                        templateUrl: 'templates/user-login.html',
+                        templateUrl: 'templates/user/user-login.html',
                         controller: 'userLoginController'
-                    }
-                }
-            })
-            .state('app.about', {
-                url: '/about',
-                views: {
-                    'index@': {
-                        templateUrl: 'templates/about.html',
-                        controller: 'aboutController'
-                    }
-                }
-            })
-            .state('app.about.changelog', {
-                url: '/changelog',
-                views: {
-                    'index@': {
-                        templateUrl: 'templates/changelog.html'
-                    }
-                }
-            })
-            .state('app.about.bug', {
-                url: '/bug',
-                views: {
-                    'index@': {
-                        templateUrl: 'templates/bug.html'
-                    }
-                }
-            })
-            .state('app.about.download', {
-                url: '/download',
-                views: {
-                    'index@': {
-                        templateUrl: 'templates/download.html'
                     }
                 }
             })
@@ -339,7 +313,16 @@ angular.module('Boom', ['ionic', 'ui.router', 'firebase', 'angular.filter', 'Mes
                 url: '/register',
                 views: {
                     'index@': {
-                        templateUrl: 'templates/user-register.html',
+                        templateUrl: 'templates/user/user-register.html',
+                        controller: 'userLoginController'
+                    }
+                }
+            })
+            .state('app.user.reset', {
+                url: '/reset',
+                views: {
+                    'index@': {
+                        templateUrl: 'templates/user/user-reset.html',
                         controller: 'userLoginController'
                     }
                 }
@@ -348,13 +331,30 @@ angular.module('Boom', ['ionic', 'ui.router', 'firebase', 'angular.filter', 'Mes
                 url: '/profile',
                 views: {
                     'index@': {
-                        templateUrl: 'templates/user-profile.html',
+                        templateUrl: 'templates/user/user-profile.html',
                         controller: 'userProfileController'
                     }
                 },
                 resolve: {
                     users: function(Users) {
                         return Users;
+                    }
+                }
+            })
+            .state('app.about', {
+                url: '/about',
+                views: {
+                    'index@': {
+                        templateUrl: 'templates/about/about.html',
+                        controller: 'aboutController'
+                    }
+                }
+            })
+            .state('app.about.changelog', {
+                url: '/changelog',
+                views: {
+                    'index@': {
+                        templateUrl: 'templates/about/changelog.html'
                     }
                 }
             });

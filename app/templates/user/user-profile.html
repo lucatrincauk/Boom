@@ -1,0 +1,70 @@
+<ion-view title="Profile" hide-back-button="true">
+	<!-- Menu button -->
+	<ion-nav-buttons side="left">
+		<button menu-toggle="left" class="button button-icon icon ion-navicon"></button>
+	</ion-nav-buttons>
+
+    <ion-content class="has-header">
+
+      <div user-details-directive class="item item-thumbnail-left menu-avatar"></div>
+
+      <form ng-submit="save()" name="userName">
+        <div class="list">
+          <label class="item item-input">
+            <span class="input-label">Username</span>
+            <input type="text" ng-model="user.username" ng-model-options="{ updateOn: 'blur' }">
+          </label>
+          <label class="item item-input">
+            <span class="input-label">Avatar</span>
+            <input type="text" ng-model="user.avatar" ng-model-options="{ updateOn: 'blur' }">
+          </label>
+
+        </div>
+        <div class="padding">
+          <button class="button button-block button-positive activated">Save</button>
+        </div>
+      </form>
+
+      <form ng-submit="changeEmail()" name="userName">
+        <div class="list">
+          <label class="item item-input">
+            <span class="input-label">Old Email</span>
+            <input type="email" ng-model="user.password.email" ng-model-options="{ updateOn: 'blur' }">
+          </label>
+          <label class="item item-input">
+            <span class="input-label">New Email</span>
+            <input type="email" ng-model="user.newEmail" ng-model-options="{ updateOn: 'blur' }">
+          </label>
+          <label class="item item-input">
+            <span class="input-label">Confirm password</span>
+            <input type="password" ng-model="user.newEmailPassword" ng-model-options="{ updateOn: 'blur' }">
+          </label>
+
+
+        </div>
+        <div class="padding">
+          <button class="button button-block button-positive activated">Update email</button>
+        </div>
+      </form>
+
+      <form ng-submit="changePassword()" name="userName">
+        <div class="list">
+          <label class="item item-input">
+            <span class="input-label">Current password</span>
+            <input type="password" ng-model="user.currentPassword" ng-model-options="{ updateOn: 'blur' }">
+          </label>
+
+          <label class="item item-input">
+            <span class="input-label">New password</span>
+            <input type="password" ng-model="user.newPassword" ng-model-options="{ updateOn: 'blur' }">
+          </label>
+
+
+        </div>
+        <div class="padding">
+          <button class="button button-block button-positive activated">Update password</button>
+        </div>
+      </form>
+
+    </ion-content>
+</ion-view>
