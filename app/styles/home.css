@@ -65,7 +65,7 @@
   width: 100%;
   }
 }
-@media screen and (min-width: 400px) and (max-width: 859px) {
+@media screen and (min-width: 415px) and (max-width: 859px) {
   .menu-list {
   width:50%;
   display: inline-block;
