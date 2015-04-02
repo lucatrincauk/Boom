@@ -42,7 +42,9 @@ angular.module('Boom')
                 dishRef.transaction(function(views) {
                     return views + 1;
                 }, function() {
-                    console.log('voteSuccessful');
+                    if ($rootScope.isDev) {
+                    console.log('Dish view registered successfully');
+                    }
                 });
 
             };

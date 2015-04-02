@@ -27,6 +27,9 @@ angular.module('Boom')
 				}
 
 				Dishes.dishView($scope.single.$id);
+				if ($scope.isDev) {
+					console.log($scope.single);
+				}
 
 
 			});
@@ -57,7 +60,9 @@ angular.module('Boom')
 				if (isNaN($scope.score)) {
 					$scope.score = 0;
 				}
-				console.log($scope.score);
+				if ($scope.isDev) {
+					console.log('Dish score is '+ $scope.score);
+				}				
 			};
 			$scope.votes = Ratings.getOne($stateParams);
 			$scope.votes.$loaded(function() {

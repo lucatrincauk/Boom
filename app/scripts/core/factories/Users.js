@@ -130,7 +130,7 @@ angular.module('Boom')
 				});
 			};
 			var logoutUser = function() {
-				console.log('user _ logged out');
+				console.log('User logged out');
 				$state.go('app.home');
 				auth.$unauth();
 				messageCenterService.add('success', 'Logged out successfully!', {
@@ -141,7 +141,7 @@ angular.module('Boom')
 				var user = ref.getAuth();
 				// If no current user send to register page
 				if (!user) {
-					console.log('__USER: not registered');
+					console.log('User is not registered');
 					$timeout(function() {
 						messageCenterService.add('info', 'Create an account or login to access more features!', {
 							timeout: 3000
@@ -151,7 +151,7 @@ angular.module('Boom')
 					return;
 				}
 		
-				console.log('__USER: logged in');
+				console.log('User is logged in');
 				var refSingle = ref.child('users').child(user.uid);
 				var sync = $firebase(refSingle);
 				return sync.$asObject();
