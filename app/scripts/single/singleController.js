@@ -1,6 +1,6 @@
 angular.module('Boom')
-	.controller('singleController', ['$scope', 'dish', 'core', 'Users', 'Ratings', '$stateParams','$timeout',
-		function($scope, dish, core, Users, Ratings, $stateParams, $timeout) {
+	.controller('singleController', ['$scope', 'dish', 'core', 'Users', 'Ratings', '$stateParams','$timeout', 'Dishes',
+		function($scope, dish, core, Users, Ratings, $stateParams, $timeout, Dishes) {
 			'use strict';
 
 
@@ -26,7 +26,8 @@ angular.module('Boom')
 
 				}
 
-				//$scope.viewCount();
+				Dishes.dishView($scope.single.$id);
+
 
 			});
 
@@ -56,8 +57,8 @@ angular.module('Boom')
 				if (isNaN($scope.score)) {
 					$scope.score = 0;
 				}
-				console.log($scope.score)
-			}
+				console.log($scope.score);
+			};
 			$scope.votes = Ratings.getOne($stateParams);
 			$scope.votes.$loaded(function() {
 				$scope.calculateScore();
@@ -79,23 +80,6 @@ angular.module('Boom')
 				$scope.calculateScore();
 			});
 
-
-
-			// increase dish views count
-			// $scope.viewCount = function() {
-			// 	if ($scope.single.views) {
-			// 		$scope.single.views = ++$scope.single.views;
-			// 	} else {
-			// 		// or initialise it to 1
-			// 		$scope.single.views = 1;
-			// 	}
-			// 	// save to server
-			// 	$scope.single.$save().then(function() {
-			// 		console.log('Saved successfully');
-			// 	}, function(error) {
-			// 		console.log('Error:', error);
-			// 	});
-			// };
 
 			$scope.toggleFavourite = function() {
 
