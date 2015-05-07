@@ -42,22 +42,7 @@
 .tab-voting .disabled {
 	opacity: 1;
 }
-@media screen and (min-width : 460px) {
-	.dish-body {
-		display: inline-block;
-		vertical-align: top;
-		margin-right: 2%;
-		width: 62%;
-	}
-	.item-body .full-image {
-		max-width: 35%;
-	}
-/*	}
-	.single .card .item:first-child {
-	padding: 2.5%;
-}*/
 
-}
 .single .ratingsBar > div {
 	height: 3px;
 	float: left;
@@ -72,6 +57,7 @@
 }
 .single .dish-copy {
 	position: relative;
+	margin-top: 1em;
 }
 .single .dish-copy .favourite-button {
 	position: absolute;
@@ -83,6 +69,7 @@
   font-weight: bold;
   font-size: 1.7em;
   margin: 0;
+    max-width: 86%;
 }
 .single .body-list > div {
 	width: 46%;
@@ -106,4 +93,30 @@
 }
 .single .item.item-body {
 	border: 0;
+}
+.single .dish-copy h2 {
+	margin-bottom: 1em;
+}
+.single .single-extra .item {
+  border: 0;
+  border-top: 1px solid #ddd;
+}
+@media screen and (min-width : 460px) {
+	.dish-body {
+		display: inline-block;
+		vertical-align: top;
+		margin-left: 2%;
+		width: 62%;
+	}
+	.item-body .full-image {
+		max-width: 35%;
+	}
+	.single .dish-copy {
+	margin-top: 0;
+}
+/*	}
+	.single .card .item:first-child {
+	padding: 2.5%;
+}*/
+
 }
