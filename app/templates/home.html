@@ -4,7 +4,7 @@
   </ion-nav-buttons>
   <ion-nav-buttons side="right" >
     <div class="button button-icon icon ion-gear-b" ng-click="openPopover($event, 'canteen')"></div>
-    <span class="button button-icon icon ion-ios-bell-outline" ng-click="openPopover($event, 'notifications')"></span>
+    <span class="button button-icon icon ion-ios-bell-outline" menu-toggle="right"></span>
   </ion-nav-buttons>
   <div class="bar bar-subheader">
     <button ng-click="prev()" ng-class="{'disabled':activeDay === 0}" class="button button-icon icon ion-chevron-left"> {{activeDay-1 | dayfy}}</button>

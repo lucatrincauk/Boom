@@ -62,6 +62,10 @@ boom.run(function($rootScope, $ionicLoading) {
                     'slideMenu': {
                         templateUrl: 'templates/slide-menu.html',
                         controller: 'userProfileController'
+                    },
+                    'notificationMenu': {
+                        templateUrl: 'templates/notification-menu.html',
+                        controller: 'notificationController'
                     }
                 },
                 resolve: {
