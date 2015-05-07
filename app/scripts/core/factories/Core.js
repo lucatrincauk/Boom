@@ -16,7 +16,7 @@ angular.module('Boom')
 					$rootScope.user.$loaded(function() {
 						if ($rootScope.user.canteen && $rootScope.user.canteen !== cName) {
 							cName = $rootScope.user.canteen.name;
-							$rootScope.$emit('canteenChanged', 'Data to send');
+							$rootScope.$emit('canteenChanged');
 						}
 						if ($rootScope.user.isAdmin) {
 							$rootScope.isDev = true;
