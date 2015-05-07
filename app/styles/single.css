@@ -16,6 +16,8 @@
 */}
 .single .single-extra .item {
 	padding: .5em;
+	border-right: 0;
+	border-left: 0;
 	font-size: .9em;
 }
 .single .single-extra i.icon {
@@ -44,12 +46,16 @@
 	.dish-body {
 		display: inline-block;
 		vertical-align: top;
-		margin-left: 2%;
+		margin-right: 2%;
 		width: 62%;
 	}
 	.item-body .full-image {
 		max-width: 35%;
 	}
+/*	}
+	.single .card .item:first-child {
+	padding: 2.5%;
+}*/
 
 }
 .single .ratingsBar > div {
@@ -65,8 +71,39 @@
 	background: rgb(255, 92, 92);
 }
 .single .dish-copy {
-	margin-bottom: 2em;
+	position: relative;
+}
+.single .dish-copy .favourite-button {
+	position: absolute;
+  top: 0;
+  right: 0;
 }
 .single .dish-copy h1 {
-	font-size: 1.5em;
+	  color: rgb(56, 126, 245);
+  font-weight: bold;
+  font-size: 1.7em;
+  margin: 0;
+}
+.single .body-list > div {
+	width: 46%;
+	display: inline-block;
+	vertical-align: top;
+	margin-left: 5%;
+}
+.single .body-list > div:first-child {
+  margin-left: 0;
+}
+/*.single .card {
+	box-shadow: 0 1px 4px rgba(0, 0, 0, 0.56);
+}*/
+.single .body-data {
+	margin-top: .6em;
+	padding-bottom: .6em;
+	border-bottom: 1px solid rgb(221, 221, 221);
+}
+.single .body-data-category {
+	text-transform: capitalize;
+}
+.single .item.item-body {
+	border: 0;
 }
