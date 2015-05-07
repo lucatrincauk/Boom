@@ -73,24 +73,15 @@ angular.module('Boom')
                     return dish.week[$scope.cycle][core.days[dayFilter]];
                 };
             };
-            var popovers = {
-                canteen: '<ion-popover-view><ion-header-bar><h1 class="title">My Canteen</h1></ion-header-bar><ion-content><ion-list><ion-radio ng-model="canteen.name" ng-value="\'Merchant Square\'">Merchant Square</ion-radio><ion-radio ng-model="canteen.name" ng-selected ng-value="\'Waterside\'">Waterside</ion-radio></ion-list></ion-content></ion-popover-view>',
-                notification: '<ion-popover-view><ion-header-bar> <h1 class="title">Notifications</h1> </ion-header-bar> <ion-content>  <div class="item item-divider">    Tomorrow at Waterside  </div><div class="item item-thumbnail-left item-icon-right">                    <img ng-src="images/dishes/theatre-bar/fish-chips.jpg" src="images/dishes/theatre-bar/fish-chips.jpg">                    <h2 class="ng-binding" href="#/dishes/theatre-bar/-JdgxGTB1JeMg_AX6bY_">Fish and Chips</h2>                    <p class="ng-binding">Battered Haddock or Breaded Whole Tail Scampi</p>                    <spa class="icon ion-heart positive"></span>                </div><div class="item item-divider">    Friday at Waterside  </div> <div class="item item-thumbnail-left item-icon-right">                    <img ng-src="images/dishes/theatre-bar/fish-chips.jpg" src="images/dishes/theatre-bar/fish-chips.jpg">                    <h2 class="ng-binding" href="#/dishes/theatre-bar/-JdgxGTB1JeMg_AX6bY_">Fish and Chips</h2>                    <p class="ng-binding">Battered Haddock or Breaded Whole Tail Scampi</p>                    <spa class="icon ion-heart positive"></span>                </div>  <div class="item item-thumbnail-left item-icon-right">                    <img ng-src="images/dishes/theatre-bar/fish-chips.jpg" src="images/dishes/theatre-bar/fish-chips.jpg">                    <h2 class="ng-binding" href="#/dishes/theatre-bar/-JdgxGTB1JeMg_AX6bY_">Fish and Chips</h2>                    <p class="ng-binding">Battered Haddock or Breaded Whole Tail Scampi</p>                    <spa class="icon ion-heart positive"></span>                </div></ion-content></ion-popover-view>'
-            };
 
-            $scope.popovers = {};
-            $scope.popovers.canteen = $ionicPopover.fromTemplate(popovers.canteen, {
+            $ionicPopover.fromTemplateUrl('homeCanteen.html', {
                 scope: $scope
-            });
+              }).then(function(popover) {
+                $scope.popoverCanteen = popover;
+              });
 
-            $scope.popovers.notifications = $ionicPopover.fromTemplate(popovers.notification, {
-                scope: $scope
-            });
-
-
-
-            $scope.openPopover = function($event, type) {
-                $scope.popovers[type].show($event);
+            $scope.openPopover = function($event) {
+                $scope.popoverCanteen.show($event);
             };
 
 
@@ -102,6 +93,8 @@ angular.module('Boom')
                     Users.changeCanteen(newValue);
                 }
                 Core.canteenName(newValue);
+                $scope.popoverCanteen.hide();
+
             }, true);
 
         }
