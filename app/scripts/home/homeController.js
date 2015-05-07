@@ -19,7 +19,7 @@ angular.module('Boom')
                 if (core.isClosed()) {
                     // Show message "Canteen closed"
                     $timeout(function() {
-                        messageCenterService.add('danger', $scope.canteenName + ' is closed today. Showing next week');
+                        messageCenterService.add('danger', $scope.canteen.name + ' is closed today. Showing next week');
                     });
                     // Show Monday
                     $ionicSlideBoxDelegate.slide(0);
@@ -48,7 +48,7 @@ angular.module('Boom')
                 dishesChanged.$loaded(function() {
                     $scope.dishes = dishesChanged;
                     $timeout(function() {
-                        $scope.canteenName = core.canteenName();
+                        $scope.canteen.name = core.canteenName();
                     });
                 });
 
