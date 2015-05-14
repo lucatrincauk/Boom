@@ -108,6 +108,20 @@
 	color: #0e90d2;
 	opacity: 1
 }
+
+@media screen and (max-width : 460px) {
+.single .single-actions {
+	  top: -4em;
+	  background-color: rgba(255, 255, 255, 0.83);
+	  width: 100%;
+	  text-align: center;
+	}
+	.single .single-actions .button-clear.button-clear {
+	  color: #828282;
+	}
+}
+
+
 @media screen and (min-width : 460px) {
 	.dish-body {
 		display: inline-block;
