@@ -1,6 +1,6 @@
 angular.module('Boom')
-	.controller('userProfileController', ['$scope', 'users', '$firebase', '$rootScope', 'ngNotify',
-		function($scope, users, $firebase, $rootScope, ngNotify) {
+	.controller('userProfileController', ['$scope', 'users', '$firebase', '$rootScope', 'ngNotify', 'AppVersion', 'Build',
+		function($scope, users, $firebase, $rootScope, ngNotify, AppVersion, Build) {
 			'use strict';
 
 			$scope.save = function() {
@@ -13,6 +13,8 @@ angular.module('Boom')
 
 				});
 			};
+
+
 			$scope.logout = function() {
 				users.logoutUser();
 
@@ -24,6 +26,10 @@ angular.module('Boom')
 				users.changePassword($scope.user);
 				$scope.user.currentPassword = '';
 				$scope.user.newPassword = '';
+			};
+			$scope.app = {
+				'version': AppVersion,
+				'build': Build
 			};
 
 

@@ -4,9 +4,44 @@ if (window.cordova) {
         .config(['googleAnalyticsCordovaProvider', function(googleAnalyticsCordovaProvider) {
             googleAnalyticsCordovaProvider.trackingId = 'UA-59450949-3';
 
-        }]);
+        }])
+        .run(function(Version, Build, $ionicPopup) {
+
+        var latestVersion = Version.getVersion();
+
+        latestVersion.$loaded(function() {
+            var updateDialog = $ionicPopup.show({
+                template: 'Would you like to download it now?',
+                title: 'An update is available',
+                buttons: [{
+                    text: 'Later'
+                }, {
+                    text: '<b>Download</b>',
+                    type: 'button-positive',
+                    onTap: function() {
+                        return true;
+                    }
+                }, ]
+            });
+            updateDialog.then(function(res) {
+                if (res) {
+                    console.log('Download');
+                } else {
+                    console.log('Skip');
+                }
+            });
+            if (Build < latestVersion.$value) {
+
+                updateDialog();
+            }
+
+        });
+
+    });
+
 } else {
-    var boom = angular.module('Boom', ['ionic', 'ui.router', 'firebase', 'angular.filter', 'angulartics', 'angulartics.google.analytics','ngNotify']);
+    var boom = angular.module('Boom', ['ionic', 'ui.router', 'firebase', 'angular.filter', 'angulartics', 'angulartics.google.analytics', 'ngNotify']);
+
 }
 boom.run(function($rootScope, $ionicLoading) {
         // show veil when xhr starts
@@ -23,6 +58,8 @@ boom.run(function($rootScope, $ionicLoading) {
     })
     //set Firebase Url
     .constant('FirebaseUrl', 'https://mns-menu.firebaseio.com/')
+    .constant('AppVersion', '1.5.7')
+    .constant('Build', 1)
     // .config(function($httpProvider) {
     //     // intercept loading for XHR and show veil until done
     //     $httpProvider.interceptors.push(function($rootScope) {
