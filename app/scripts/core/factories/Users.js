@@ -1,7 +1,7 @@
 'use strict';
 angular.module('Boom')
-	.factory('Users', ['$firebase', 'FirebaseUrl', '$state', '$firebaseAuth', '$rootScope', '$timeout', 'Core', 'ngNotify',
-		function($firebase, FirebaseUrl, $state, $firebaseAuth, $rootScope, $timeout, Core, ngNotify) {
+	.factory('Users', ['$firebase', 'FirebaseUrl', '$state', '$firebaseAuth', '$rootScope', 'Core', 'ngNotify',
+		function($firebase, FirebaseUrl, $state, $firebaseAuth, $rootScope, Core, ngNotify) {
 			var ref = new Firebase(FirebaseUrl);
 			var auth = $firebaseAuth(ref);
 			var createUser = function(data) {
