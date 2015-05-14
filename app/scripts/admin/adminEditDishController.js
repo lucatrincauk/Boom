@@ -1,7 +1,7 @@
 angular.module('Boom')
-    .controller('adminEditDishController', ['$scope', 'categories', 'dish', 'core', '$filter', 'Dishes', '$state', 'messageCenterService',
+    .controller('adminEditDishController', ['$scope', 'categories', 'dish', 'core', '$filter', 'Dishes', '$state', 'ngNotify',
 
-        function($scope, categories, dish, core, $filter, Dishes, $state, messageCenterService) {
+        function($scope, categories, dish, core, $filter, Dishes, $state, ngNotify) {
             'use strict';
 
             // Wait for dish to be loaded from Firebase
@@ -40,12 +40,8 @@ angular.module('Boom')
             };
 
             $scope.save = function(preview) {
-                messageCenterService.add('success', 'Yay!');
-
                 $scope.dish.$save().then(function() {
-                    console.log('Saved successfully');
-                    messageCenterService.add('success', 'noo!');
-
+                    ngNotify.set('The dish has been updated', 'success');
                     if (preview) {
                         $state.go('app.dish', {
                             id: (dish.$id),
@@ -55,7 +51,7 @@ angular.module('Boom')
                         $state.go('app.admin.dishes');
                     }
                 }, function(error) {
-                    console.log('Error:', error);
+                    ngNotify.set('Error: ' + error, 'error');
                 });
 
             };

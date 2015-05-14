@@ -1,7 +1,7 @@
 'use strict';
 angular.module('Boom')
-	.factory('Users', ['$firebase', 'FirebaseUrl', '$state', '$firebaseAuth', '$rootScope', 'messageCenterService', '$timeout', 'Core',
-		function($firebase, FirebaseUrl, $state, $firebaseAuth, $rootScope, messageCenterService, $timeout, Core) {
+	.factory('Users', ['$firebase', 'FirebaseUrl', '$state', '$firebaseAuth', '$rootScope', '$timeout', 'Core', 'ngNotify',
+		function($firebase, FirebaseUrl, $state, $firebaseAuth, $rootScope, $timeout, Core, ngNotify) {
 			var ref = new Firebase(FirebaseUrl);
 			var auth = $firebaseAuth(ref);
 			var createUser = function(data) {
@@ -12,20 +12,11 @@ angular.module('Boom')
 					password: data.password
 				}, function(error) {
 					if (error === null) {
-						console.log('User created successfully');
-						messageCenterService.add('success', 'Account created successfully!', {
-							status: messageCenterService.status.next,
-							timeout: 3000
-						});
+						ngNotify.set('Your account has been created', 'success');
 						loginUser(data);
 					} else {
 						$rootScope.$broadcast('loading:hide');
-						console.log('Error creating user:', error);
-						$rootScope.$apply(function() {
-							messageCenterService.add('danger', error.message, {
-								timeout: 6000
-							});
-						});
+						ngNotify.set(error.message, 'warn');
 					}
 				});
 			};
@@ -37,17 +28,10 @@ angular.module('Boom')
 					password: data.password
 				}, function(error) {
 					if (error) {
-						$rootScope.$apply(function() {
-							messageCenterService.add('warning', error.message, {
-								timeout: 6000
-							});
-						});
+						ngNotify.set(error.message, 'warn');
 					} else {
 						$state.go('app.home');
-						messageCenterService.add('success', 'Logged in successfully!', {
-							status: messageCenterService.status.next,
-							timeout: 3000
-						});
+						ngNotify.set('You are now logged in', 'success');
 					}
 					$rootScope.$broadcast('loading:hide');
 
@@ -67,19 +51,10 @@ angular.module('Boom')
 					if (error === null) {
 						$rootScope.$apply(function() {
 							$state.go('app.user.login');
-
-							messageCenterService.add('success', 'Password reset email sent successfully.', {
-								timeout: 3000,
-								status: messageCenterService.status.next,
-
-							});
+							ngNotify.set('Instructions on how to reset your password have been sent to your email address');
 						});
 					} else {
-						$rootScope.$apply(function() {
-							messageCenterService.add('danger', 'Error sending password reset email:' + error.message, {
-								timeout: 6000
-							});
-						});
+						ngNotify.set('Error sending password reset email:' + error.message, 'warn');
 					}
 				});
 			};
@@ -91,20 +66,12 @@ angular.module('Boom')
 					password: data.newEmailPassword
 				}, function(error) {
 					if (error === null) {
-						$rootScope.$apply(function() {
-							messageCenterService.add('success', 'Email address updated successfully.', {
-								timeout: 3000
-							});
-						});
+						ngNotify.set('Your email address has been updated');
 						ref.child('users').child(data.uid).child('password').update({
 							email: data.newEmail
 						});
 					} else {
-						$rootScope.$apply(function() {
-							messageCenterService.add('danger', 'Error updating email address: ' + error.message, {
-								timeout: 6000
-							});
-						});
+						ngNotify.set('Error updating email address: ' + error.message, 'warn');
 					}
 				});
 			};
@@ -115,17 +82,9 @@ angular.module('Boom')
 					newPassword: data.newPassword
 				}, function(error) {
 					if (error === null) {
-						$rootScope.$apply(function() {
-							messageCenterService.add('success', 'Password updated successfully.', {
-								timeout: 3000
-							});
-						});
+						ngNotify.set('Your password has been updated');
 					} else {
-						$rootScope.$apply(function() {
-							messageCenterService.add('danger', 'Error updating password: ' + error.message, {
-								timeout: 6000
-							});
-						});
+						ngNotify.set('Error updating your password:' + error.message, 'warn');
 					}
 				});
 			};
@@ -133,24 +92,18 @@ angular.module('Boom')
 				console.log('User logged out');
 				$state.go('app.home');
 				auth.$unauth();
-				messageCenterService.add('success', 'Logged out successfully!', {
-					timeout: 3000
-				});
+				ngNotify.set('You are now logged out', 'success');
 			};
 			var getUser = function() {
 				var user = ref.getAuth();
 				// If no current user send to register page
 				if (!user) {
 					console.log('User is not registered');
-					$timeout(function() {
-						messageCenterService.add('info', 'Create an account or login to access more features!', {
-							timeout: 3000
-						});
-					});
+					ngNotify.set('Create an account or login to access more features!');
 					//$state.go('app.user.login');
 					return;
 				}
-		
+
 				console.log('User is logged in');
 				var refSingle = ref.child('users').child(user.uid);
 				var sync = $firebase(refSingle);
@@ -165,34 +118,20 @@ angular.module('Boom')
 					'id': $id
 				}, function(error) {
 					if (error) {
-						$rootScope.$apply(function() {
-							messageCenterService.add('danger', error.message, {
-								timeout: 6000
-							});
-						});
+						ngNotify.set(error.message, 'error');
+
 					} else {
-						$rootScope.$apply(function() {
-							messageCenterService.add('success', 'Dish added to your favourites.', {
-								timeout: 3000
-							});
-						});
+						ngNotify.set('Dish added to your favourites.', 'success');
 					}
 				});
 			};
 			var removeFavourite = function($id) {
 				ref.child('users/' + $rootScope.user.uid + '/favourites/' + $id).remove(function(error) {
 					if (error) {
-						$rootScope.$apply(function() {
-							messageCenterService.add('danger', error.message, {
-								timeout: 6000
-							});
-						});
+						ngNotify.set(error.message, 'error');
 					} else {
-						$rootScope.$apply(function() {
-							messageCenterService.add('success', 'Dish removed from your favourites.', {
-								timeout: 3000
-							});
-						});
+						ngNotify.set('Dish removed from your favourites.', 'success');
+
 					}
 				});
 			};
@@ -215,8 +154,8 @@ angular.module('Boom')
 			ref.onAuth(function() {
 				$rootScope.user = getUser();
 				Core.checkUser();
-	
-							
+
+
 			});
 			return {
 				createUser: createUser,

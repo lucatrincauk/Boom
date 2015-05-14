@@ -1,12 +1,12 @@
 'use strict';
 if (window.cordova) {
-    var boom = angular.module('Boom', ['ionic', 'ui.router', 'firebase', 'angular.filter', 'MessageCenterModule', 'angulartics', 'angulartics.google.analytics.cordova'])
+    var boom = angular.module('Boom', ['ionic', 'ui.router', 'firebase', 'angular.filter', 'angulartics', 'angulartics.google.analytics.cordova'])
         .config(['googleAnalyticsCordovaProvider', function(googleAnalyticsCordovaProvider) {
             googleAnalyticsCordovaProvider.trackingId = 'UA-59450949-3';
 
         }]);
 } else {
-    var boom = angular.module('Boom', ['ionic', 'ui.router', 'firebase', 'angular.filter', 'MessageCenterModule', 'angulartics', 'angulartics.google.analytics']);
+    var boom = angular.module('Boom', ['ionic', 'ui.router', 'firebase', 'angular.filter', 'angulartics', 'angulartics.google.analytics','ngNotify']);
 }
 boom.run(function($rootScope, $ionicLoading) {
         // show veil when xhr starts

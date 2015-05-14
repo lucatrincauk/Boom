@@ -1,21 +1,16 @@
 angular.module('Boom')
-	.controller('userProfileController', ['$scope', 'users', '$firebase', '$rootScope', 'messageCenterService',
-		function($scope, users, $firebase, $rootScope, messageCenterService) {
+	.controller('userProfileController', ['$scope', 'users', '$firebase', '$rootScope', 'ngNotify',
+		function($scope, users, $firebase, $rootScope, ngNotify) {
 			'use strict';
 
 			$scope.save = function() {
 				$rootScope.user.$save().then(function() {
-					console.log('Saved successfully');
+					ngNotify.set('Your profile has been updated', 'success');
 
-					messageCenterService.add('success', 'Profile saved successfully.', {
-						timeout: 3000
-					});
 
 				}, function(error) {
-					console.log('Error:', error);
-					messageCenterService.add('danger', error.message, {
-						timeout: 6000
-					});
+					ngNotify.set('Error updating your profile: ' + error, 'error');
+
 				});
 			};
 			$scope.logout = function() {
