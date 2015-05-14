@@ -1,6 +1,6 @@
 angular.module('Boom')
-    .controller('homeController', ['$scope', '$rootScope', 'core', 'categories', 'dishes', '$filter', 'messageCenterService', '$timeout', 'Dishes', '$ionicSlideBoxDelegate', '$ionicPopover', 'Core', 'Users',
-        function($scope, $rootScope, core, categories, dishes, $filter, messageCenterService, $timeout, Dishes, $ionicSlideBoxDelegate, $ionicPopover, Core, Users) {
+    .controller('homeController', ['$scope', '$rootScope', 'core', 'categories', 'dishes', '$filter', 'ngNotify', '$timeout', 'Dishes', '$ionicSlideBoxDelegate', '$ionicPopover', 'Core', 'Users',
+        function($scope, $rootScope, core, categories, dishes, $filter, ngNotify, $timeout, Dishes, $ionicSlideBoxDelegate, $ionicPopover, Core, Users) {
             'use strict';
 
             // Show initial Loading screen only once
@@ -18,9 +18,8 @@ angular.module('Boom')
                 // if it's weekend (sat: day = 5, sun: day = -1)
                 if (core.isClosed()) {
                     // Show message "Canteen closed"
-                    $timeout(function() {
-                        messageCenterService.add('danger', $scope.canteen.name + ' is closed today. Showing next week');
-                    });
+                    ngNotify.set($scope.canteen.name + ' is closed today. Showing next week\'s menu', 'warn');
+
                     // Show Monday
                     $ionicSlideBoxDelegate.slide(0);
                 } else {
