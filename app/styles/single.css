@@ -12,6 +12,7 @@
 }
 .single .single-extra h4 {
 	font-size: .94em;
+	  color: rgb(14, 144, 210);
 /*	font-weight: bold;
 */}
 .single .single-extra .item {
@@ -33,9 +34,7 @@
 .single .item-avatar, .single .tabs-secondary {
 	background: whitesmoke;
 }
-.favourite-button {
-	margin-top: 12px;
-}
+
 .favourite-button .icon:before {
 	font-size: 33px;
 }
@@ -59,13 +58,13 @@
 	position: relative;
 	margin-top: 1em;
 }
-.single .dish-copy .favourite-button {
+.single .single-actions {
 	position: absolute;
-  top: 0;
+ top: .85em;;
   right: 0;
 }
 .single .dish-copy h1 {
-	  color: rgb(56, 126, 245);
+	  color: #0e90d2;
   font-weight: bold;
   font-size: 1.7em;
   margin: 0;
@@ -93,6 +92,7 @@
 }
 .single .item.item-body {
 	border: 0;
+	margin: 1em 0;
 }
 .single .dish-copy h2 {
 	margin-bottom: 1em;
@@ -100,6 +100,13 @@
 .single .single-extra .item {
   border: 0;
   border-top: 1px solid #ddd;
+}
+.single h2 {
+	color: rgb(76, 76, 76);
+}
+.single .single-actions .disabled, .single .single-actions button:hover {
+	color: #0e90d2;
+	opacity: 1
 }
 @media screen and (min-width : 460px) {
 	.dish-body {

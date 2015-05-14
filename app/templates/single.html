@@ -26,6 +26,10 @@
 
 
             </div> -->
+        <div class="ratingsBar" ng-show="score >= 0">
+          <div class="green" style="width:{{score}}%"></div>
+          <div class="red" style="width:{{100 - score}}%"></div>
+        </div>
             <div class="item item-body">
                 <img class="full-image" err-src="https://mns-menu.firebaseapp.com/{{single.images}}" ng-src="{{single.images}}">
                 <div class="dish-body">
@@ -40,9 +44,23 @@
                            {{day}}
                         </span> at {{canteenName}}
                     </p>
-                    <button ng-if="user" class="button button-clear favourite-button" ng-click="toggleFavourite()">
-                  <i ng-class="{'positive' : user.favourites[single.$id]}" class="icon ion-heart"></i>
-                </button>
+
+
+                    <div class="single-actions">
+
+                     <button class="button button-clear" ng-click="submitRating('upvote')" ng-class="{ 'disabled positive': single.voted == 'upvote' }">
+                        <i class="icon ion-happy-outline"></i>
+                        {{votes.upvote}}
+                      </button>
+                      <button class="button button-clear" ng-click="submitRating('downvote')" ng-class="{ 'disabled positive': single.voted == 'downvote' }">
+                        <i class="icon ion-sad-outline"></i>
+                        {{votes.downvote}}
+                      </button>
+                       <button ng-if="user" class="button button-clear favourite-button" ng-click="toggleFavourite()">
+                          <i ng-class="{'positive' : user.favourites[single.$id]}" class="icon ion-heart"></i>
+                        </button>
+                    </div>
+   
 
 
                   </div>
@@ -72,24 +90,7 @@
                 </p>-->
             </div>
 
-        <div class="ratingsBar" ng-show="score >= 0">
-          <div class="green" style="width:{{score}}%"></div>
-          <div class="red" style="width:{{100 - score}}%"></div>
-        </div>
-        <div class="item tabs tabs-secondary tabs-icon-left tab-voting">
 
-            <a class="tab-item" ng-click="submitRating('upvote')" ng-class="{ 'disabled positive': single.voted == 'upvote' }">
-              <i class="icon ion-happy-outline"></i>
-              {{votes.upvote}}
-            </a>
-            <a class="tab-item" ng-click="submitRating('downvote')" ng-class="{ 'disabled positive': single.voted == 'downvote' }">
-              <i class="icon ion-sad-outline"></i>
-              {{votes.downvote}}
-            </a>
-
-
-
-          </div>
         </div>
 
     </ion-content>
