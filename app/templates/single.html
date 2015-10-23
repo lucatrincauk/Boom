@@ -4,11 +4,11 @@
         <button menu-toggle="left" class="button button-icon icon ion-navicon"></button>
     </ion-nav-buttons>
     <ion-nav-buttons side="right" >
-      <button ng-show="user.isAdmin" class="button button-positive" ui-sref="app.admin.dishes.edit({ id: (single.$id)})" >Edit dish</button>
+      <button ng-if="user.isAdmin" class="button button-positive" ui-sref="app.admin.dishes.edit({ id: (single.$id)})" >Edit dish</button>
     </ion-nav-buttons>
     <ion-content class="has-header">
-        <div class="list card">
-            <div class="item item-avatar item-button-right">
+        <div class="list">
+           <!--  <div class="item item-avatar item-button-right">
                 <span class="category-icon"></span>
                 <h2>{{single.category | undashify}}</h2>
                 <p>
@@ -25,29 +25,63 @@
 
 
 
-            </div>
+            </div> -->
+        <div class="ratingsBar" ng-show="score >= 0">
+          <div class="green" style="width:{{score}}%"></div>
+          <div class="red" style="width:{{100 - score}}%"></div>
+        </div>
             <div class="item item-body">
                 <img class="full-image" err-src="https://mns-menu.firebaseapp.com/{{single.images}}" ng-src="{{single.images}}">
                 <div class="dish-body">
+
                   <div class="dish-copy">                  
                     <h1>{{single.slug}}</h1>
-                    <h2>{{single.title}}</h2>
-                  </div>
+                    <p class="body-data">
+                        <span class="body-data-category">{{single.category | undashify}}</span>, 
+                        <span ng-repeat="day in single.days">
+                          <span ng-show="$middle">,</span>
+                          <span ng-show="$last" ng-hide="$first">&amp;</span>
+                           {{day}}
+                        </span> at {{canteenName}}
+                    </p>
 
-                  <div ng-show="single.with" class="single-extra single-with">
-                      <h4>This dish comes with:</h4>
+
+                    <div class="single-actions">
+
+                     <button class="button button-clear" ng-click="submitRating('upvote')" ng-class="{ 'disabled positive': single.voted == 'upvote' }">
+                        <i class="icon ion-happy-outline"></i>
+                        {{votes.upvote}}
+                      </button>
+                      <button class="button button-clear" ng-click="submitRating('downvote')" ng-class="{ 'disabled positive': single.voted == 'downvote' }">
+                        <i class="icon ion-sad-outline"></i>
+                        {{votes.downvote}}
+                      </button>
+                       <button ng-if="user" class="button button-clear favourite-button" ng-click="toggleFavourite()">
+                          <i ng-class="{'positive' : user.favourites[single.$id]}" class="icon ion-heart"></i>
+                        </button>
+                    </div>
+   
+
+
+                  </div>
+                <h2>{{single.title}}</h2>
+  <div class="body-list">
+    
+
+  <div ng-if="single.with" class="single-extra single-with">
+                      <h4><i class="icon ion-checkmark-circled"></i> This dish comes with:</h4>
                       <div ng-repeat="item in single.with" class="item">
-                         <i class="icon ion-checkmark-circled"></i> {{item.title}}
+                         {{item.title}}
                       </div>
                   </div>
-                  <div ng-show="single.addons" class="single-extra single-addons">
-                      <h4>You can also add:</h4>
+                  <div ng-if="single.addons" class="single-extra single-addons">
+                      <h4> <i class="icon ion-plus-circled "></i> You can also add:</h4>
                       <div ng-repeat="item in single.addons" class="item">
-                          <i class="icon ion-plus-circled "></i> {{item.title}}
-                                  {{votes.score}}
-
+                          {{item.title}}
                       </div>
                   </div>
+  </div>
+                
                 </div>
                 <!--<p>
                     <a href="#" class="subdued">{{single.views}} Views</a>
@@ -56,24 +90,7 @@
                 </p>-->
             </div>
 
-        <div class="ratingsBar" ng-show="score >= 0">
-          <div class="green" style="width:{{score}}%"></div>
-          <div class="red" style="width:{{100 - score}}%"></div>
-        </div>
-        <div class="item tabs tabs-secondary tabs-icon-left tab-voting">
 
-            <a class="tab-item" ng-click="submitRating('upvote')" ng-class="{ 'disabled positive': single.voted == 'upvote' }">
-              <i class="icon ion-happy-outline"></i>
-              {{votes.upvote}}
-            </a>
-            <a class="tab-item" ng-click="submitRating('downvote')" ng-class="{ 'disabled positive': single.voted == 'downvote' }">
-              <i class="icon ion-sad-outline"></i>
-              {{votes.downvote}}
-            </a>
-
-
-
-          </div>
         </div>
 
     </ion-content>

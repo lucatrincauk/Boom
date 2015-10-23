@@ -9,12 +9,15 @@
     <!-- <link rel="stylesheet" href="vendor/some.contrib.css"> -->
     <!-- bower:css -->
     <link rel="stylesheet" href="libs/ionic/css/ionic.css" />
+    <link rel="stylesheet" href="libs/ng-notify/src/styles/ng-notify.css" />
     <!-- endbower -->
     <!-- endbuild -->
 
     <!-- build:css({.tmp,app}) styles/main.css -->
     <link rel="stylesheet" href="styles/main.css">
     <!-- endbuild -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/picturefill/2.3.0/picturefill.min.js" async></script>
+
   <script>(function (i, s, o, g, r, a, m) {
         i['GoogleAnalyticsObject'] = r; i[r] = i[r] || function () {
             (i[r].q = i[r].q || []).push(arguments)
@@ -27,7 +30,6 @@
 </head>
 
 <body ng-app="Boom">
-        <div mc-messages></div>
 
 <ion-side-menus>
     <!-- Center content -->
@@ -46,6 +48,7 @@
         </ion-pane>
     </ion-side-menu-content>
     <ion-side-menu side="left" ui-view="slideMenu"></ion-side-menu>
+    <ion-side-menu side="right" ui-view="notificationMenu"></ion-side-menu>
 </ion-side-menus>
 <script src="cordova.js"></script>
 <!-- build:js scripts/vendor.js -->
@@ -60,21 +63,17 @@
 <script src="libs/firebase/firebase.js"></script>
 <script src="libs/angularfire/dist/angularfire.js"></script>
 <script src="libs/angular-filter/dist/angular-filter.js"></script>
-<script src="libs/angular-route/angular-route.js"></script>
-<script src="libs/angular-mocks/angular-mocks.js"></script>
-<script src="libs/message-center/message-center.js"></script>
 <script src="libs/SHA-1/sha1.js"></script>
 <script src="libs/angulartics/src/angulartics.js"></script>
 <script src="libs/angulartics/src/angulartics-ga-cordova.js"></script>
 <script src="libs/angulartics/src/angulartics-ga.js"></script>
+<script src="libs/ng-notify/src/scripts/ng-notify.js"></script>
 <!-- endbower -->
 <!-- endbuild -->
 
 <!-- build:js scripts/scripts.js -->
 <script src="scripts/app.js"></script>
 <script src="scripts/config.js"></script>
-<script src="libs/message-center/message-center.js"></script>
-
 
 <!-- Factories -->
 <script src="scripts/core/factories/Core.js"></script>
@@ -85,6 +84,7 @@
 <script src="scripts/core/factories/Reports.js"></script>
 <!-- Controllers -->
 <script src="scripts/home/homeController.js"></script>
+<script src="scripts/core/notificationController.js"></script>
 <script src="scripts/single/singleController.js"></script>
 <script src="scripts/single/reportListingController.js"></script>
 <script src="scripts/settings/settingsController.js"></script>

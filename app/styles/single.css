@@ -12,10 +12,13 @@
 }
 .single .single-extra h4 {
 	font-size: .94em;
+	  color: rgb(14, 144, 210);
 /*	font-weight: bold;
 */}
 .single .single-extra .item {
 	padding: .5em;
+	border-right: 0;
+	border-left: 0;
 	font-size: .9em;
 }
 .single .single-extra i.icon {
@@ -31,27 +34,14 @@
 .single .item-avatar, .single .tabs-secondary {
 	background: whitesmoke;
 }
-.favourite-button {
-	margin-top: 12px;
-}
+
 .favourite-button .icon:before {
 	font-size: 33px;
 }
 .tab-voting .disabled {
 	opacity: 1;
 }
-@media screen and (min-width : 460px) {
-	.dish-body {
-		display: inline-block;
-		vertical-align: top;
-		margin-left: 2%;
-		width: 62%;
-	}
-	.item-body .full-image {
-		max-width: 35%;
-	}
 
-}
 .single .ratingsBar > div {
 	height: 3px;
 	float: left;
@@ -65,8 +55,89 @@
 	background: rgb(255, 92, 92);
 }
 .single .dish-copy {
-	margin-bottom: 2em;
+	position: relative;
+	margin-top: 1em;
+}
+.single .single-actions {
+	position: absolute;
+ top: .85em;;
+  right: 0;
 }
 .single .dish-copy h1 {
-	font-size: 1.5em;
+	  color: #0e90d2;
+  font-weight: bold;
+  font-size: 1.7em;
+  margin: 0;
+    max-width: 86%;
+}
+.single .body-list > div {
+	width: 46%;
+	display: inline-block;
+	vertical-align: top;
+	margin-left: 5%;
+}
+.single .body-list > div:first-child {
+  margin-left: 0;
+}
+/*.single .card {
+	box-shadow: 0 1px 4px rgba(0, 0, 0, 0.56);
+}*/
+.single .body-data {
+	margin-top: .6em;
+	padding-bottom: .6em;
+	border-bottom: 1px solid rgb(221, 221, 221);
+}
+.single .body-data-category {
+	text-transform: capitalize;
+}
+.single .item.item-body {
+	border: 0;
+	margin: 1em 0;
+}
+.single .dish-copy h2 {
+	margin-bottom: 1em;
+}
+.single .single-extra .item {
+  border: 0;
+  border-top: 1px solid #ddd;
+}
+.single h2 {
+	color: rgb(76, 76, 76);
+}
+.single .single-actions .disabled, .single .single-actions button:hover {
+	color: #0e90d2;
+	opacity: 1
+}
+
+@media screen and (max-width : 460px) {
+.single .single-actions {
+	  top: -4em;
+	  background-color: rgba(255, 255, 255, 0.83);
+	  width: 100%;
+	  text-align: center;
+	}
+	.single .single-actions .button-clear.button-clear {
+	  color: #828282;
+	}
+}
+
+
+@media screen and (min-width : 460px) {
+	.dish-body {
+		display: inline-block;
+		vertical-align: top;
+		margin-left: 2%;
+		width: 62%;
+	}
+	.item-body .full-image {
+		max-width: 35%;
+	}
+	.single .dish-copy {
+	margin-top: 0;
+}
+/*	}
+	.single .card .item:first-child {
+	padding: 2.5%;
+}*/
+
 }

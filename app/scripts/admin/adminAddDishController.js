@@ -36,7 +36,7 @@ angular.module('Boom')
 
             $scope.save = function() {
                 if (!$scope.dish.thumb) {
-                    $scope.dish.thumb = 'images/dishes/_default.gif';
+                    $scope.dish.thumb = 'images/dishes/_default-th.gif';
                 }
                 if (!$scope.dish.images) {
                     $scope.dish.images = 'images/dishes/_default.gif';

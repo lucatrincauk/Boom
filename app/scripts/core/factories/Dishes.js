@@ -34,13 +34,27 @@ angular.module('Boom')
                 ref.child(data).remove();
             };
 
+            var dishView = function(id) {
+                var dishRef;
+     
+                dishRef = new Firebase(FirebaseUrl).child('dishes').child(id).child('views');
 
+                dishRef.transaction(function(views) {
+                    return views + 1;
+                }, function() {
+                    if ($rootScope.isDev) {
+                    console.log('Dish view registered successfully');
+                    }
+                });
+
+            };
 
             return {
                 getAll: getAll,
                 getWeekly: getWeekly,
                 getOne: getOne,
-                removeDish: removeDish
+                removeDish: removeDish,
+                dishView: dishView,
             };
         }
     ]);

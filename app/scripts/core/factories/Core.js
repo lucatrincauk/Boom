@@ -12,11 +12,14 @@ angular.module('Boom')
 			cName = 'Waterside';
 
 			var checkUser = function() {
-				if ($rootScope.user) {			
+				if ($rootScope.user) {
 					$rootScope.user.$loaded(function() {
 						if ($rootScope.user.canteen && $rootScope.user.canteen !== cName) {
 							cName = $rootScope.user.canteen.name;
-							$rootScope.$emit('canteenChanged', 'Data to send');
+							$rootScope.$emit('canteenChanged');
+						}
+						if ($rootScope.user.isAdmin) {
+							$rootScope.isDev = true;
 						}
 					});
 					}
@@ -26,8 +29,10 @@ angular.module('Boom')
 		var canteenName = function(changed) {
 			if (changed) {
 				cName = changed;
-				console.log('__CANTEEN: Changed to ' + cName);
-				$rootScope.$emit('canteenChanged', 'Data to send');
+				if ($rootScope.isDev) {
+					console.log('Canteen has changed to '+ cName);
+				}					
+				$rootScope.$emit('canteenChanged');
 			}
 			return cName;
 		};
@@ -109,9 +114,15 @@ angular.module('Boom')
 			}
 			// cycle = 1
 
+			if ($rootScope.isDev) {
+				console.log('Cycle is ' + cycle);
+				console.log('Canteen is ' + cName);
+			}
+
 			if (name) {
 				cycle = weeks[cycle - 1];
-			}
+			}	
+
 			return cycle;
 		};
 
